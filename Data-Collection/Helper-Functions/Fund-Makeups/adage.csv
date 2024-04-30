@@ -1,0 +1,847 @@
+name,current_percent_of_portfolio
+Microsoft Corp.,0.055882100000000004
+Apple Inc,0.0541489
+Amazon.com Inc.,0.0303872
+NVIDIA Corp.,0.0250162
+Alphabet Inc. Class A,0.0163592
+Meta Platforms Inc,0.0157528
+Berkshire Hathaway Inc Class B,0.013710100000000001
+Alphabet Inc. Class C,0.013637900000000001
+Tesla Inc,0.0135224
+Hess Corp,0.0128834
+Lilly (Eli) & Co.,0.011114800000000001
+JPMorgan Chase & Co. (Chemical Bank),0.00985964
+Procter & Gamble Co. (OH) (1905),0.00922273
+Broadcom Ltd. (Avago Technologies),0.00913333
+UnitedHealth Group Inc.,0.00904173
+VISA Inc,0.00832022
+Mastercard Inc,0.00800597
+ConocoPhillips (Phillips Petroleum),0.00785626
+"Home Depot, Inc. (The)",0.00765532
+AbbVie Inc,0.00760628
+Emerson Electric Co.,0.007070419999999999
+ExxonMobil Corp. (Standard Oil of New Jersey),0.00657115
+Royalty Pharma PLC,0.0063145499999999995
+Honeywell International Inc. (Allied Chemical and Dye - Allied Signal),0.00613162
+Dover Corp.,0.006059940000000001
+Salesforce.com Inc.,0.0058667
+"Amgen, Inc.",0.00580255
+RB Global Inc,0.0054898
+Pioneer Natural Resources Co.,0.00518652
+"Adobe Systems, Inc.",0.00501503
+Canadian Pacific Railway Ltd. (2001),0.00476018
+Bank of America Corp. (North Carolina National Bank),0.00464791
+Advanced Micro Devices Inc,0.00462318
+Accenture Plc,0.00441599
+Coca Cola Co.,0.00441524
+Deere & Co.,0.00439683
+"Thermo Fisher Scientific, Inc.",0.00433726
+Costco Co.,0.00432004
+Merck & Co,0.004263739999999999
+"Pepsico Inc. (Loft, Inc.)",0.00425797
+Walmart Inc,0.00424884
+"Cisco Systems, Inc.",0.00415787
+Netflix Inc,0.00402196
+Linde Plc.,0.00399094
+Danaher Corp.,0.00395924
+Abbott Laboratories,0.00390063
+McDonalds Corp.,0.0038926
+Intel Corp.,0.00388246
+Oracle Corp,0.00379164
+Boston Scientific Inc.,0.00377133
+Ametek Inc.,0.00360131
+Wells Fargo & Co.  (Northwest Bancorporation),0.00358195
+Comcast Corp.  Class A,0.00352853
+"Intuit, Inc.",0.00350974
+Walt Disney Co. (The),0.00346882
+PG&E Corp. (Pacific Gas & Electric),0.0034674500000000004
+Nova Measuring Instruments Ltd,0.0033835
+International Business Machines Corp.,0.0033806500000000002
+Boeing Company,0.00323889
+QUALCOMM Inc.,0.00322566
+Johnson & Johnson Co.,0.00317245
+Lam Research Corp.,0.00312105
+Verizon Communications (Bell Atlantic Corp.),0.00309821
+Dominos Pizza Inc,0.0030317300000000003
+Union Pacific Corp.,0.0030053000000000002
+"Lowes Companies, Inc.",0.00296031
+Intuitive Surgical Inc,0.00294705
+Philip Morris International Inc,0.0029266599999999998
+Xylem Inc,0.0029227999999999997
+NIKE Inc.,0.00285165
+"Constellation Brands, Inc.",0.0028494199999999996
+S&P Global Inc. (McGraw-Hill Inc.),0.0027691900000000004
+Uber Technologies Inc,0.0027294299999999997
+General Electric Co,0.0027184
+Analog Devices Inc,0.0027062
+ServiceNow Inc,0.00268316
+Medtronic Plc,0.0026714100000000004
+Hartford Financial Services Group,0.0025986
+Ingersoll Rand Inc,0.00259558
+Hubbell Inc Class B,0.0025910499999999997
+"Marsh & McLennan Companies, Inc.",0.0025561
+Johnson Controls International plc (Tyco Laboratories),0.00254756
+Goldman Sachs Group Inc,0.00252043
+"Vertex Pharmaceuticals, Inc.",0.00251976
+"Micron Technology, Inc.",0.0024657100000000003
+Regeneron Pharmaceuticals Inc.,0.0024577699999999997
+3M Co. (Minnesota Mining & Manufacturing),0.00243563
+AT&T Inc. (Southwestern Bell - SBC Corp.),0.0024041699999999997
+"Pfizer, Inc.",0.00237757
+Cigna Holding Co,0.00237479
+TJX Companies Inc.,0.00237328
+Morgan Stanley,0.00236178
+Valaris Ltd,0.00235401
+NextEra Energy Inc.,0.0023405500000000003
+Willis Towers Watson Public Limited Co,0.0023400599999999997
+Booking Holdings Inc. (Priceline),0.0023343500000000002
+"Texas Instruments, Inc.",0.00232842
+Sherwin-Williams Co.,0.00232717
+TopBuild Corp,0.00226218
+OReilly Automotive Inc.,0.0022539500000000002
+Raytheon Technologies Corp. (United Technologies),0.00224408
+Antero Resources Corp,0.00222186
+"Fiserv, Inc.",0.00221406
+BlackRock Inc. Class A,0.00217509
+Enerplus Corp,0.00216531
+Ideaya Biosciences Inc,0.002147
+EQT Corporation (Equitable Gas Co.),0.0021355
+EYEPOINT PHARMACEUTICALS INC,0.00212934
+American Express Co,0.00212207
+Eaton Corp. (Torbenson Axle Co. - Eaton Axle & Spring),0.0021143200000000003
+PPL Corp. (Pennsylvania Power & Light),0.00207745
+Southern Co.,0.00207491
+Charles Schwab Corp,0.0020518
+"Travelers Companies, Inc. (The) (St. Paul Fire and Marine Insurance)",0.00205056
+Starbucks Corp.,0.00199065
+Lennar Corp. Class A,0.00197702
+"Citigroup, Inc.",0.00197292
+"D.R. Horton, Inc.",0.00196196
+Sitio Royalties Corp,0.00191457
+MoonLake Immunotherapeutics,0.0019007499999999999
+Biogen Inc,0.0018993999999999999
+FedEx Corporation,0.0018814300000000001
+Republic Services Inc.,0.0018751999999999998
+"United Parcel Service, Inc. Class B",0.00187316
+Target Corp.,0.0018675
+Progressive Corp.,0.0018673000000000001
+Blackstone Group Inc,0.0018640899999999999
+"ProLogis, Inc.",0.00186034
+Applied Materials Inc.,0.0018598999999999998
+MetLife Inc.,0.0018470600000000002
+Equinix Inc,0.00184702
+L3harris Technologies Inc,0.00184382
+Mondelez International Inc. (Kraft Foods),0.00179003
+Biohaven Ltd,0.0017841
+Novo-Nordisk A/S ADS,0.0017380000000000002
+VICI Properties Inc,0.00172959
+HCA Healthcare Inc,0.00171215
+Automatic Data Processing Inc,0.00167959
+CVS Health Corp. (Melville Shoe),0.00165832
+Elevance Health Inc,0.00164274
+T-Mobile US Inc,0.0016346800000000001
+"American International Group, Inc.",0.0016309599999999999
+Northern Oil and Gas Inc,0.00161539
+Palo Alto Networks Inc,0.00155061
+"Cabaletta Bio, Inc.",0.00152973
+CME Group Inc,0.00151899
+Soleno Therapeutics Inc,0.0015168599999999999
+Synopsys Inc.,0.00151392
+"Cadence Design Systems, Inc.",0.00148506
+Structure Therapeutics Inc,0.00147731
+Intercontinental Exchange Inc,0.00147298
+DexCom Inc,0.0014727100000000001
+Kenvue Inc,0.00147206
+Ionis Phrmacutls,0.0014457600000000001
+"Altria Group, Inc. (Philip Morris)",0.00142973
+"Becton, Dickinson and Co.",0.0014175499999999998
+Lululemon Athletica inc.,0.00140178
+Cencora Inc.,0.0013941700000000001
+Martin Marietta Materials Inc.,0.00138985
+CSX Corp,0.00137287
+Motorola Solutions Inc,0.00136452
+Marriott International Inc/MD,0.0013473699999999999
+"Humana, Inc.",0.00133833
+Align Technology Inc,0.00133179
+AZEK Company Inc.,0.00130799
+"American Tower Corp., Class A",0.0013039999999999998
+Cymabay Therapeutics Inc,0.00128054
+"Liberty Sirius XM Group, Series C",0.00126553
+"Zoetis, Inc.",0.0012587000000000002
+Entergy Corp.,0.0012534400000000002
+F5 Networks Inc,0.00124244
+PayPal Holdings Inc,0.00123185
+Moodys Corp,0.00123155
+"Freeport-McMoRan Copper & Gold, Inc",0.00122324
+Roivant Sciences Ltd,0.00122205
+Air Products & Chemicals Inc,0.00121857
+Lockheed Martin Corp.,0.00121734
+IQVIA Holdings Inc,0.00121612
+Pool Corp,0.00120244
+"Comerica, Inc. (Detroit, MI) (Detroit Bank & Trust)",0.0011977000000000001
+Eversource Energy (Western Massachusetts Cos./Northeast Utilities),0.001196
+DTE Energy Co. (Detroit Edison),0.00119487
+Amphenol Corp. (1987),0.00117178
+Evergy Inc,0.00116912
+Reinsurance Group of America Inc,0.0011681
+Bank of NT Butterfield & Son Limited,0.00116783
+Immunovant Inc,0.00115747
+CarMax Inc.,0.00115424
+Splunk Inc,0.00115364
+Seadrill Ltd.,0.00115272
+Liberty Broadband Corp Class C,0.0011377800000000001
+Arista Networks Inc,0.00112861
+"Autodesk, Inc.",0.00111853
+Everest Group Ltd,0.0011100300000000001
+"Mettler-Toledo International, Inc.",0.00109847
+Phillips 66,0.0010915
+Amalgamated Bank,0.0010910100000000001
+Northrop Grumman Corp.,0.00108863
+"Airbnb, Inc.",0.0010877299999999999
+Federal Realty Investment Trust,0.00108716
+Welltower Inc.,0.00108374
+U.S. Bancorp (First National Bank of Cincinnati),0.00108145
+Leidos Holdings Inc,0.00107252
+Norfolk Southern Corp.,0.0010713699999999999
+Marvell Technology Group Ltd,0.00107076
+Axalta Coating Systems Ltd,0.00105117
+Chord Energy Corp,0.00104985
+Fortive Corp,0.00104835
+Cenovus Energy Inc,0.0010304399999999999
+"KeyCorp, Inc. (Cleveland, Ohio)",0.00102768
+Cincinnati Financial Corp. (Cincinnati Insurance Co.),0.00101892
+"PPG Industries, Inc. (Pittsburgh Plate Glass)",0.001015
+Ultragenyx Pharmaceutical Inc,0.0010111599999999999
+Sable Offshore Corp.,0.00100369
+Crown Castle International Corp,0.00100175
+Capital One Financial Corp,0.00100048
+NiSource Inc.,0.00100037
+Xenon Pharmaceuticals Inc,0.000996488
+"Ventas, Inc.",0.0009931080000000001
+Truist Financial Corp,0.000986674
+Aptiv PLC,0.000971336
+"Digital Realty Trust, Inc.",0.0009694850000000001
+Newmont Mining Corp. (Holding Co.),0.000955886
+"Sempra Energy, Inc.",0.000942355
+Arthur J. Gallagher & Co Inc,0.0009264500000000001
+MSCI Inc,0.00089618
+Disc Medicine Inc,0.000893665
+Southwestern Energy Co.,0.000890403
+Occidental Petroleum Corp.,0.000888543
+Ecolab Inc.,0.000885986
+Pultegroup Inc,0.000882409
+Inspire Medical Systems Inc,0.000880941
+General Dynamics Corp. (Electric Boat),0.0008798440000000001
+NXP Semiconductors N.V.,0.000878492
+General Mills Co.,0.000877629
+Fair Isaac Corp,0.0008764679999999999
+Duke Energy Corp.,0.000873044
+United States Steel Corp.,0.0008723400000000001
+KalVista Pharmaceuticals Inc,0.0008662730000000001
+CBRE Group Inc Common Stock Class A,0.000859307
+"Albertsons Companies, Inc.",0.000858652
+Nucor Corp. (Nuclear Corp. of America),0.000857373
+Argenx SE ADS ADR,0.000855052
+Stryker Corp.,0.000846527
+Silicon Motion Technology Corp ADR,0.0008451250000000001
+"Unum Group, Inc.",0.0008395750000000001
+Marathon Petroleum Corp,0.000838169
+Realty Income Corp.,0.000832968
+Talos Energy Inc,0.000823531
+KLA Corp,0.000822282
+Novartis AG ADS,0.0008216650000000001
+Royal Caribbean Cruises Ltd,0.000815414
+IDEXX Laboratories Inc.,0.000809551
+Mirati Therapeutics Inc,0.0008089019999999999
+Bank Of New York Mellon Corp,0.000802116
+Monster Beverage Corp.,0.000799265
+Viper Energy Inc,0.00079404
+Carlisle Companies Inc,0.0007863190000000001
+Hayward Holdings Inc,0.000783063
+Aura Biosciences Inc,0.00077223
+Archer-Daniels-Midland Co.,0.000771882
+Dow Inc,0.0007707650000000001
+"Ameriprise Financial, Inc.",0.000769995
+Darden Restaurants Inc,0.000767206
+Hilton Worldwide Holdings Inc,0.0007666820000000001
+MeiraGTx Holdings plc,0.000766323
+Walgreens Boots Alliance Inc.,0.0007647760000000001
+Legend Biotech Corp ADS,0.000763381
+Cognizant Technology Solutions Corp,0.000758891
+Colgate-Palmolive Co.,0.0007571
+"Simon Property Group, Inc.",0.0007558389999999999
+TransDigm Group Inc,0.0007553210000000001
+Charles River Laboratories International Inc,0.000751294
+Taiwan Semiconductor Manufacturing Co Ltd ADR,0.00075091
+Fortinet Inc,0.0007475130000000001
+Copart Inc.,0.0007467379999999999
+Savara Inc,0.0007405589999999999
+Allstate Corp (The),0.000734109
+"Yum! Brands, Inc. (Tricon Global Restaurants)",0.000733973
+ONEOK Inc. (Oklahoma Natural Gas),0.000732845
+Silicon Laboratories Inc,0.000723092
+Schlumberger Ltd.,0.0007228950000000001
+Edwards Lifesciences Corp.,0.0007222309999999999
+"89bio, Inc.",0.000720095
+Microchip Technology Inc,0.000715308
+Fidelity National Information Services Inc,0.0007132610000000001
+Perella Weinberg Partners,0.0007101780000000001
+Avery Dennison Corp.,0.000705638
+"Gartner, Inc.",0.000704474
+"PNM Resources, Inc.",0.00070226
+Chesapeake Utilities Corp,0.000699782
+Mereo BioPharma Group Plc,0.000696613
+Tango Therapeutics Inc,0.0006943850000000001
+Southwest Gas Holdings Inc,0.0006861079999999999
+Allegion plc,0.000680228
+"Extra Space Storage, Inc.",0.000678701
+Corteva Inc,0.000676706
+Gentex Corp.,0.000673756
+"Electronic Arts, Inc.",0.000671049
+Arvinas Holding Company LLC,0.000670356
+Kimberly-Clark Corp.,0.000669366
+Wayfair Inc Class A,0.000668238
+Gulfport Energy Corp,0.0006633110000000001
+Equity Residential,0.000663237
+"DuPont de Nemours, Inc.",0.000662899
+Avantor Inc,0.0006594039999999999
+Shell Plc,0.000658346
+Flowserve Corporation,0.000649913
+UGI Corp. (United Gas Improvement),0.000647041
+Kosmos Energy Ltd,0.000636747
+ON Semiconductor Corp,0.000631891
+"ANSYS, Inc.",0.0006310689999999999
+Evolent Health Inc,0.000627809
+SBA Communications Corp.,0.00062697
+Jabil Inc,0.000625671
+"Allegro MicroSystems, Inc.",0.0006254429999999999
+CoStar Group Inc,0.000625032
+ASML Holding NV (ADR),0.000624545
+GSK Plc,0.000623883
+WAVE Life Sciences Ltd,0.0006237920000000001
+"Public Storage, Inc.",0.0006209669999999999
+Viavi Solutions Inc,0.0006173379999999999
+Illumina Inc,0.000615296
+Pentair Plc,0.000613921
+Protagonist Therapeutics Inc,0.000611016
+CDW Corp.,0.0006101
+Global Payments Inc.,0.000610098
+Paychex Inc.,0.000607525
+Monolithic Power Systems Inc,0.000605086
+Old Dominion Freight Line Inc,0.000603348
+"Quanta Services, Inc.",0.000602038
+Axsome Therapeutics Inc,0.000599291
+Starwood Property Trust Inc,0.000596241
+ImmunoGen Inc.,0.0005944909999999999
+Kraft Heinz Co. (The),0.000590795
+Estee Lauder Companies Inc.,0.0005903880000000001
+Equifax Inc.,0.000584625
+Centene Corp,0.000584598
+Marinus Pharmaceuticals Inc,0.000578823
+General Motors Co,0.0005781979999999999
+American Assets Trust Inc,0.000573494
+Autoliv Inc,0.000568288
+Discover Financial Services,0.000563079
+Biotechne Corp,0.000562848
+Arch Capital Group Ltd.,0.000555402
+Devon Energy Corp.,0.000553597
+Edison International (Southern California Edison),0.0005490720000000001
+Screaming Eagle Acquisition Corp,0.000546679
+McKesson Corp.,0.000543433
+"Cerevel Therapeutics Holdings, Inc.",0.000541611
+Leggett & Platt Inc.,0.000539871
+Valero Energy Corp.,0.000538241
+Dynatrace Inc,0.000535905
+"Chipotle Mexican Grill, Inc.",0.000535666
+"East West Bancorp, Inc.",0.000532791
+Five Below Inc,0.0005276829999999999
+Essential Properties Realty Trust Inc,0.000527287
+HP Inc,0.0005243600000000001
+West Pharmaceutical Services Inc,0.000522334
+Delta Air Lines Inc.,0.0005189789999999999
+Modine Manufacturing Corp.,0.000518101
+Ollies Bargain Outlet Holdings Inc,0.000516636
+"Boston Properties, Inc.",0.000512578
+Sysco Corp.,0.000512517
+Moderna Inc,0.0005117759999999999
+"Take-Two Interactive Software, Inc.",0.000510197
+Zimmer Biomet Holdings Inc,0.000509757
+Autolus Therapeutics PLC,0.000508234
+PTC Therapeutics Inc,0.000507278
+ResMed Inc.,0.000507048
+Warner Bros.Discovery Inc,0.000506041
+Scholar Rock Holding Corp,0.000504182
+Hershey Company (The),0.0005022490000000001
+News Inc. Class A,0.000496448
+Host Hotels& Resorts Inc,0.000496137
+Revvity Inc.,0.000495847
+Tenet Healthcare Corp.,0.000494453
+Acadia Healthcare Company Inc.,0.000493001
+LyondellBasell Industries NV,0.000488203
+AssetMark Financial Holdings Inc,0.00048766799999999997
+TTM Technologies Inc,0.00048759499999999996
+"Inozyme Pharma, Inc.",0.00048664199999999997
+Keysight Technologies Inc,0.00048584
+Qorvo Inc,0.00048523200000000005
+Diamond Offshore Drilling Inc,0.000482059
+Healthcare Realty Trust Inc,0.00047985
+"State Street Corp. (State Street Bank & Trust Co., Boston, MA)",0.00047895800000000003
+Constellation Energy Corporation,0.000476913
+Centessa Pharmaceuticals PLC,0.00047557299999999997
+Kilroy Realty Corp.,0.000472818
+Dollar General Corp.,0.00047172800000000003
+SL Green Realty Corp.,0.000471004
+"Fifth Third Bancorp (1927) (Cincinnati, OH)",0.000470731
+"Rockwell Automation, Inc.",0.000470128
+"Nkarta, Inc.",0.000469731
+Tscan Therapeutics Inc,0.00046905000000000004
+Corning Inc.,0.000468499
+"Annexon, Inc.",0.00046828500000000003
+Sanofi SA,0.000461655
+Jacobs Solutions Inc,0.000461439
+Ross Stores Inc. (DE),0.00045931399999999995
+Metropolitan Bank Holding Corp,0.00045698200000000004
+"Shattuck Labs, Inc.",0.000456786
+"M&T Bank Corp. (Buffalo, NY) (Manufacturers & Traders Trust)",0.000456156
+"Redwood Trust, Inc.",0.00045582699999999996
+Capri Holdings Ltd (Michael Kors Holdings),0.000455726
+Vinci Partners Investments Ltd,0.00045440599999999997
+Flywire Corp,0.00045374
+eBay Inc.,0.000453616
+Textron Inc.,0.000449641
+Verisk Analytics Inc,0.000447913
+Spyre Therapeutics Inc.,0.000443944
+IDEX Corp.,0.000441104
+Corbus Pharmaceuticals Holdings Inc,0.000438985
+"PNC Financial Services Group, Inc. (The) (Provident National Trust Co.)",0.00043753899999999997
+Cintas Corporation,0.000431793
+Molina Healthcare Inc,0.000421874
+"Ryman Hospitality Properties, Inc. REIT",0.000420037
+Raymond James Financial Inc.,0.00041989699999999997
+"Velocity Financial, Inc.",0.000418332
+PTC Inc.,0.000416515
+Teck Resources Ltd,0.00041459200000000003
+"International Flavors and Fragrances, Inc.",0.00041424999999999996
+Builders FirstSource Inc,0.00041292
+Keurig Dr Pepper Inc,0.000410258
+"Iron Mountain, Inc.",0.00040949300000000003
+Zebra Technologies Corp,0.00040829900000000004
+SPDR Metals & Mining ETF,0.000407305
+Intra-Cellular Therapies Inc,0.00040630600000000005
+Expedia Group Inc,0.00040550799999999995
+Chubb Limited,0.00040227199999999996
+RadNet Inc,0.000401244
+Syndax Pharmaceuticals Inc,0.000401221
+"Alexandria Real Estate Equities, Inc.",0.00039724700000000004
+Hasbro Inc.,0.000396762
+Nasdaq Inc,0.000396567
+Sutro Biopharma Inc,0.00039539999999999996
+"WESCO International, Inc",0.000394886
+Mammoth Energy Services Inc,0.00039333
+Howmet Aerospace Inc. (Aluminum Co. of America - Alcoa - Arconic),0.00039234999999999997
+GCM Grosvenor Class A,0.000391079
+Dollar Tree Inc.,0.000389855
+"AAON, Inc",0.000388893
+Targa Resources Inc,0.00038816299999999996
+"Veeco Instruments, Inc. (DE)",0.000384078
+Insmed Inc,0.000383583
+Ralph Lauren Corp. Class A,0.00038263100000000003
+Arcellx Inc,0.000381152
+AN2 Therapeutics Inc,0.00038071099999999994
+AutoZone Inc.,0.000379511
+Cboe Global Markets Inc,0.000377567
+Liberty Media Corp.,0.00037671499999999996
+Cooper Companies (The),0.000375633
+American Electric Power Company Inc,0.000374153
+Ascendis Pharma A/S ADR,0.000374151
+"Huntington Bancshares, Inc. (Huntington National Bank, Columbus, OH)",0.00036913500000000004
+First Solar Inc,0.00036890800000000004
+NetSTREIT Corp.,0.000368235
+Payoneer Global Inc,0.00036797200000000005
+MDU Resources Group,0.00036761599999999997
+"Hunt (J.B.) Transport Services, Inc.",0.00036590200000000003
+Xcel Energy Inc. (Northern States Power Co. (MN)),0.00036532299999999997
+Axon Enterprise Inc,0.00036451699999999997
+Las Vegas Sands Corp,0.000364041
+Ball Corp.,0.00036345299999999996
+Enphase Energy Inc,0.000361463
+"Steel Dynamics, Inc.",0.00036009
+Ironwood Pharmaceuticals Inc,0.00035678300000000006
+Coherent Corp,0.000352448
+Hologic Inc.,0.00035063700000000005
+RLJ Lodging Trust,0.000350576
+Air Lease Corp,0.00035050900000000004
+Mirum Pharmaceuticals Inc,0.000350163
+Northern Trust Corp.,0.00035005599999999996
+Park Hotels & Resorts Inc,0.00034719300000000004
+Paysafe Limited,0.000346726
+Southwest Airlines Co.,0.000345001
+Deckers Outdoor Corp,0.000344733
+Guild Holdings Co,0.000344679
+"Sun Communities, Inc.",0.00034464
+McCormick & Co. Non-Voting Shares,0.00034458000000000004
+Agilent Technologies Inc,0.000344155
+"Church & Dwight Co., Inc.",0.000343373
+Omnicom Group Inc.,0.000343149
+Ulta Beauty Inc,0.000342183
+NRG Energy Inc,0.000340495
+Albemarle Corp.,0.00033971800000000003
+"Praxis Precision Medicines, Inc.",0.00033950800000000003
+CMS Energy Corp. (Consumers Power Co.),0.000339452
+Broadridge Financial Solutions Inc,0.000336589
+ABEONA THERAPEUTICS INC WT PUR,0.000335897
+Baker Hughes Company,0.00033309699999999997
+Syros Pharmaceuticals Inc,0.00033296300000000003
+Solid Biosciences Inc,0.000332943
+Ardelyx Inc,0.000332546
+Ford Motor Co.,0.000331818
+Molson Coors Brewing Co,0.000330627
+Glaukos Corp,0.000327966
+Vestis Corp,0.000327079
+Varonis Systems Inc,0.000326935
+RenaissanceRe Holdings Ltd,0.000323469
+Visteon Corp.,0.000322076
+Noble Corp Plc,0.00032148400000000003
+Chesapeake Energy Corp,0.00031873400000000004
+"Essex Property Trust, Inc.",0.000318655
+Compass Therapeutics Inc,0.000317957
+Vistra Energy Corp,0.000317858
+Encompass Health Corp,0.000315926
+ALLETE Inc. (Minnesota Power and Light - Duluth Edison Electric),0.000315423
+Lamb Weston Holdings Inc,0.00031396
+IPG Photonics Corp,0.00031369800000000006
+"Quest Diagnostics, Inc.",0.000310606
+Independent Bank Group Inc,0.000307861
+"Tyson Foods, Inc.",0.000307207
+Sleep Number Corp,0.000305934
+CF Industries Holdings Inc,0.000304427
+Knight Transportation Inc.,0.000302879
+Apogee Therapeutics Inc.,0.000302602
+Mattel Inc.,0.00030184900000000003
+"HBT Financial, Inc.",0.000301671
+Janux Therapeutics Inc,0.000300039
+NewAmsterdam Pharma Company NV,0.000299559
+Helix Acquisition Corp. II,0.00029949699999999997
+"Avidity Biosciences, Inc.",0.000298714
+Akamai Technologies Inc.,0.000296641
+Kellogg Co.,0.000295426
+Bunge Ltd. ADR,0.000293846
+Packaging Corp. of America,0.00029272
+Corpay Inc.,0.000292425
+Jones Lang Lasalle Inc,0.00029222
+Tecnoglass Inc,0.000290412
+Patria Investments Ltd,0.00028821200000000004
+Brixmor Property Group Inc,0.000288028
+Nordson Corporation,0.000286642
+Kimco Realty Corporation,0.000284149
+"EPAM Systems, Inc.",0.000282161
+Alpine Immune Sciences Inc,0.000280974
+Burlington Stores Inc,0.00028084000000000003
+Gracell Biotechnologies Inc. ADR,0.000279611
+Amcor Ltd,0.000279208
+Hewlett Packard Enterprise Co,0.000278876
+NetApp Inc.,0.000277895
+Elanco Animal Health Inc,0.000277815
+ConAgra Brands Inc,0.000274479
+Crane NXT Co,0.000268897
+Verona Pharma PLC ADR,0.000267365
+T. Rowe Price Group,0.000266885
+Tyler Technologies Inc,0.00026653
+Trimble Navigation Ltd.,0.000265176
+FactSet Research Systems Inc,0.00026473
+GlobalFoundries Inc,0.00026341
+Tempur Sealy International Inc,0.00026287
+Alliant Energy Corp,0.000262358
+Western Digital Corp,0.000259219
+AES Corp. (The),0.000258289
+Gen Digital Inc,0.000257845
+Weyerhaeuser Corp.,0.000257577
+Clorox Co.,0.000257247
+LKQ Corp,0.00025623
+Aeva Technologies Inc,0.000254708
+STERIS Corp.,0.000253917
+IDACORP Inc. Holding Co.,0.000253535
+Silk Road Medical Inc,0.000253123
+Catalent Inc,0.000253104
+Interpublic Group of Companies Inc (The),0.000250476
+"Snowflake, Inc.",0.000246315
+Genuine Parts Co.,0.000246288
+"Rollins, Inc.",0.000245717
+"MGM Resorts International, Inc.",0.000244625
+Planet Fitness Inc,0.000244302
+Endava PLC,0.000243312
+Werewolf Therapeutics Inc,0.00024161599999999997
+CEMEX S.A. de C.V. Series A (Sponsored ADR) ADR,0.00023981700000000002
+Urban Outfitters Inc.,0.000235604
+Lexington Realty Trust,0.00023534
+"Teleflex, Inc.",0.00023458
+Mosaic Company (The),0.00023404
+"Best Buy Co., Inc.",0.000231249
+CubeSmart,0.000229481
+Dell Technologies Inc,0.000228832
+MarketAxess Holdings Inc,0.000222623
+Regency Centers Corp,0.000220594
+Globus Medical Inc,0.00021986800000000002
+Verastem Inc,0.0002183
+VeriSign Inc.,0.00021770999999999997
+Healthpeak Properties Inc.,0.00021707400000000002
+HNI Corporation,0.000215732
+WestRock Co,0.000214937
+Rexford Industrial Realty Inc,0.000214102
+Eastman Chemical Co.,0.00021335199999999999
+Hillenbrand Inc.,0.000212177
+AGNC Investment Corp,0.000210495
+Dayforce Inc,0.000209774
+Fulcrum Therapeutics Inc,0.000209767
+Brown-Forman Corp. Class B,0.00020935700000000002
+Smucker (J.M.) Co.,0.00020473100000000002
+Veru Inc,0.00020381799999999998
+OneMain Holdings Inc,0.000202993
+Paycom Software Inc,0.000202991
+"Smith (A.O.) Corp., Class B",0.000202878
+Eldorado Resorts Inc,0.00020260899999999997
+Williams Cos. (The),0.00020240700000000002
+C.H. Robinson Worldwide Inc,0.00020192000000000002
+Saul Centers Inc,0.000201506
+Public Service Enterprise Group Inc,0.00020068200000000001
+Mirion Technologies Inc.,0.000198933
+Bath & Body Works Inc (L Brands),0.000196637
+EXACT Sciences Corp,0.000195654
+"Vaxcyte, Inc.",0.000194443
+Etsy Inc,0.000194407
+PVH Corp. (Phillips Jones - Phillips Van Heusen Corp.),0.00018894500000000001
+Remitly Global Inc,0.000188386
+Merus BV,0.000187212
+"Robert Half International, Inc.",0.00018663300000000001
+American Airlines Group Inc,0.000179939
+Element Solutions Inc,0.00017901199999999999
+Third Coast Bancshares Inc,0.00017749999999999998
+Huntington Ingalls Industries Inc,0.000177114
+"Shift4 Payments, Inc.",0.00017620899999999998
+Cheniere Energy Inc,0.000176082
+Wynn Resorts Ltd,0.000175361
+Adient Plc,0.000173492
+10X Genomics Inc,0.000173163
+Pinterest Inc,0.000171925
+Nuvei Corp,0.00017102800000000002
+DoubleVerify Holdings Inc,0.000170719
+Newpark Resource Inc,0.00016916299999999998
+Confluent Inc,0.000168955
+Kroger Co.,0.000166397
+Atmos Energy Corp. (Energas),0.000165463
+Metals Acquisition Limited,0.000165067
+Bristow Group Inc,0.000163294
+Five Star Bancorp,0.000162023
+EnPro Industries Inc,0.00016167299999999998
+Cummins Inc,0.00016144100000000002
+"Regions Financial Corp.  (Birmingham, AL)",0.00016123800000000002
+Invesco Ltd. ADR,0.000160707
+SAP SE ADR,0.00015945500000000002
+Generac Holdlings Inc,0.000159057
+FMC Corp. (Food Machinery & Chemical Corp.),0.00015764299999999998
+Merit Medical Systems Inc.,0.000156701
+Ivanhoe Electric Inc,0.00015595799999999999
+Carnival Corp.,0.000154709
+Essa Pharma Inc,0.000154662
+PepGen Inc,0.000154308
+FORUM ENERGY TECHNOLOGIES IN NOTE 9.000% 8/0,0.000152494
+Tapestry Inc,0.000150051
+"AvalonBay Communities, Inc.",0.000149971
+Hertz Global Holdings Inc,0.00014918
+Solaris Oilfield Infrastructure Inc,0.000148279
+ProQR Therapeutics N.V.,0.00014808699999999998
+Smartsheet Inc,0.000147975
+Fox Corp Class A,0.000146971
+"Olema Pharmaceuticals, Inc.",0.000144715
+NET Power Inc,0.000144422
+Paramount Global,0.000143
+American Water Works Co Inc,0.00014059
+Terns Pharmaceuticals Inc,0.000140579
+Vulcan Materials Company,0.000136268
+Crescent Energy Company,0.00013625699999999998
+Bio-Rad Laboratories Inc Class A,0.00013528500000000002
+Immatics N.V.,0.000135007
+Corebridge Financial Inc.,0.00013405
+Atlas Energy Solutions Inc.,0.00013321400000000002
+Akero Therapeutics Inc,0.000132466
+Fate Therapeutics Inc,0.000131162
+Five9 Inc,0.000121749
+PACCAR Inc.,0.000120636
+Larimar Therapeutics Inc,0.000119834
+Block Inc.,0.000119676
+CLARIVATE PLC,0.000119393
+"Teledyne Technologies, Inc.",0.000118232
+"Toll Brothers, Inc.",0.00011662699999999999
+Manchester United Ltd Class A,0.000115182
+"Teva Pharmaceutical Industries Ltd, ADR",0.00011350000000000001
+SentinelOne Inc,0.000113214
+Epsilon Energy Ltd,0.00011128499999999999
+Check Point Software Technologies Ltd,0.00011031900000000001
+"Annovis Bio, Inc.",0.000110078
+Maplebear Inc.,0.000108939
+Savers Value Village Inc,0.00010756200000000001
+Lifezone Metals Ltd,0.000107204
+Procore Technologies Inc,0.00010709700000000001
+Veralto Corp,0.000106853
+Algonquin Power & Utilities,0.000104302
+"Henry (Jack) & Associates, Inc.",0.000103781
+Hormel Foods Corp.,0.000103532
+Cognex Corp,0.000103328
+Principal Financial Group,0.00010240600000000001
+Heron Therapeutics Inc,0.000102054
+Teradyne Inc,0.00010191499999999999
+NVR Inc,9.473620000000001e-05
+Abivax,9.381219999999999e-05
+Travere Therapeutics Inc,9.27291e-05
+Vertiv Holdings Co,9.16844e-05
+Zscaler Inc,9.1413e-05
+Juniper Networks Inc,9.10407e-05
+CyberArk Software Ltd,9.03774e-05
+Callon Petroleum Co. (1994),8.6891e-05
+Lightspeed POS Inc.,8.66455e-05
+Rocket Pharmaceuticals Inc,8.65568e-05
+Match Group Inc.,8.58509e-05
+Norwegian Cruise Line Holdings Ltd,8.464630000000001e-05
+Leap Therapeutics Inc,8.06278e-05
+Brown & Brown Inc.,7.99491e-05
+Fusion Pharmaceuticals Inc.,7.92994e-05
+GitLab Inc.,7.79296e-05
+Darling Ingredients Inc,7.71127e-05
+V.F. Corp. (Vanity Fair Mills Inc.),7.6054e-05
+Finance of America Companies Inc,7.58578e-05
+Sprinklr Inc,7.45134e-05
+Kimbell Royalty Partners LP Units,7.45134e-05
+X4 PHARMACEUTICALS ORD SHS,7.39706e-05
+Fox Corp,7.31057e-05
+ZoomInfo Technologies Inc.,7.24731e-05
+Camden Property Trust,7.1723e-05
+Mobileye Global Inc,7.14932e-05
+"Werner Enterprises, Inc.",7.04018e-05
+Harpoon Therapeutics Inc,7.03669e-05
+Lyft Inc,6.95778e-05
+IGM Biosciences Inc,6.85721e-05
+Blueprint Medicines Corp,6.85028e-05
+Exelon Corp,6.80844e-05
+"Harmony Biosciences Holdings, Inc.",6.663289999999999e-05
+HilleVax Inc,6.57035e-05
+International Paper Co.,6.56911e-05
+Avadel Pharmaceuticals plc,6.55396e-05
+Borr Drilling Ltd,6.07329e-05
+News Inc. Class B,5.9178599999999996e-05
+Campbell Soup Co.,5.89004e-05
+United Airlines Holdings Inc,5.83978e-05
+DT Midstream Inc,5.65245e-05
+Cactus Inc,5.61945e-05
+Neurogene Inc,5.4205e-05
+Vaxxinity Inc,5.2604899999999995e-05
+Cytokinetics Inc,5.1670400000000006e-05
+Turing Holding Corp,4.96236e-05
+Woodward Inc,4.9389200000000005e-05
+ALX Oncology Holdings Inc.,4.9147499999999997e-05
+Flame Acquisition Corp,4.7114100000000003e-05
+"EastGroup Properties, Inc.",4.68746e-05
+Dot Therapeutics-2 Inc,4.51784e-05
+Integra LifeSciences Holdings Corp,4.49205e-05
+Arq Inc,4.45698e-05
+Symbotic Inc,4.23563e-05
+Otis Worldwide Corp,4.1687199999999996e-05
+TFI Intl Inc,4.09108e-05
+Loews Corp,3.99097e-05
+Monday.Com Ltd,3.87441e-05
+JFrog Ltd.,3.56992e-05
+Third Harmonic Bio Inc,3.44044e-05
+Arch Coal Inc,3.42324e-05
+CervoMed Inc,3.1377699999999996e-05
+Ventyx Biosciences Inc,3.05728e-05
+"BioAtla, Inc.",3.0449000000000003e-05
+Karyopharm Therapeutics Inc,2.96806e-05
+American Homes 4 Rent,2.94649e-05
+BP Plc ADR (British Petroleum),2.9211200000000002e-05
+BioXcel Therapeutics Inc,2.8321599999999997e-05
+Immunocore Holdings PLC,2.8188000000000002e-05
+Acelyrin Inc,2.77011e-05
+Caribou Biosciences Inc,2.41062e-05
+Excelerate Energy Inc,2.39198e-05
+Moog Inc Class A,2.25587e-05
+Molecular Templates Inc,2.25275e-05
+Parker-Hannifin Corp.,2.18211e-05
+U-Haul Holding Company Class B,2.1797e-05
+CureVac N.V.,2.15759e-05
+Fidelis Insurance Holdings Ltd.,1.96031e-05
+OPAL Fuels Inc,1.8219899999999998e-05
+BJs Wholesale Club Holdings Inc,1.8152000000000002e-05
+ProPetro Holding Corp,1.72874e-05
+Spirit Aerosystems Holdings Inc. Class A,1.6593999999999997e-05
+Energy Recovery Inc,1.65144e-05
+"Taysha Gene Therapies, Inc.",1.53359e-05
+Immuneering Corp,1.51626e-05
+Allakos Inc,1.4085199999999999e-05
+Farmer Brothers Co,1.39653e-05
+Lifezone Metals Ltd Warrent Exp 07/05/202,1.3889300000000001e-05
+Catalyst Pharmaceuticals Inc,1.3871199999999999e-05
+Rezolute Inc,1.29336e-05
+Benitec Biopharma Ltd ADR,1.26061e-05
+Ikena Oncology Inc,1.1700199999999999e-05
+Bolt Biotherapeutics Inc,1.15525e-05
+Liberty Oilfield Services Inc,1.12265e-05
+Rapid Micro Biosystems Inc,1.0686e-05
+G1 Therapeutics Inc,9.43795e-06
+NeoGames S.A.,8.09149e-06
+Chimerix Inc,7.94232e-06
+LanzaTech Global Inc,7.70462e-06
+Nauticus Robotics Inc,5.16242e-06
+GlycoMimetics Inc,4.86854e-06
+Investcorp Europe Acquisition Corp I,4.72826e-06
+Screaming Eagle Acquisition Corp,4.57444e-06
+Forum Energy Technologies Inc,4.57354e-06
+United Homes Group Inc,3.98807e-06
+Revolution Medicines Inc,3.40385e-06
+Comtech Telecommunications Corp.,3.21709e-06
+Lotus Technology Inc.,2.3036000000000003e-06
+LanzaTech Global Inc,1.9585699999999998e-06
+Nine Energy Service Inc,1.93504e-06
+MedAvail Holdings Inc,1.8525200000000002e-06
+Battery Future Acquisition Corp,1.5472000000000002e-06
+Bridger Aerospace Group Holdings Inc,1.48932e-06
+Neximmune Inc,1.4679900000000001e-06
+Pegasus Digital Mobility Acquisition Corp,1.44709e-06
+PowerUp Acquisition Corp,1.2996500000000001e-06
+Palladyne AI Corp.,1.23999e-06
+Cano Health Inc,1.21095e-06
+LIVEWIRE GROUP INC *W EXP 09/26/202,1.20267e-06
+Lavoro Ltd,1.1604e-06
+Kensington Capital Acquisition Corp V,1.14338e-06
+SK Growth Opportunities Corp,1.01084e-06
+Borealis Foods Inc.,9.9708e-07
+Adit Edtech Acquisition Corp,9.72284e-07
+RCF Acquisition Corp,9.301790000000001e-07
+NET POWER INC Warrants Exp June 8 2028,9.07693e-07
+Rigel Resource Acquisition Corp,8.87064e-07
+Pyrophyte Acquisition Corp,8.38585e-07
+Zeo Energy Corp.,6.68392e-07
+Investcorp India Acquisition Corp,6.26618e-07
+TortoiseEcofin Acquisition Corp III,5.960450000000001e-07
+bleuacacia ltd,5.84493e-07
+Cartica Acquisition Corp,5.77417e-07
+Patria Latin American Opportunity Acquisition Corp,5.56994e-07
+BlueRiver Acquisition Corp,5.45998e-07
+Pearl Holdings Acquisition Corp,4.96343e-07
+SDCL EDGE Acquisition Corp,4.8772e-07
+Spree Acquisition Corp 1 Ltd,4.87369e-07
+AltEnergy Acquisition Corp,4.57972e-07
+Nuvation Bio Inc,3.3007e-07
+SomaLogic Inc,3.09503e-07
+NKGen Biotech Inc,3.03025e-07
+Edify Acquisition Corp,2.59456e-07
+bleuacacia ltd,2.25789e-07
+LANVIN GROUP HOLDINGS LIMITE *W EXP 99/99/999,1.86964e-07
+RMG Acquisition Corp III,1.78795e-07
+Mountain & Co I Acquisition Corp,1.7108e-07
+Constellation Acquisition Corp I,1.69842e-07
+ExcelFin Acquisition Corp,1.57052e-07
+Slam Corp,1.5678299999999998e-07
+Zapp Electric Vehicles Group Ltd,1.37062e-07
+Jaws Mustang Acquisition Corporation,1.26252e-07
+Spectaire Holdings Inc,9.90211e-08
+Montana Technologies Corp.,9.28323e-08
+Palladyne AI Corp.,4.7653900000000006e-08
