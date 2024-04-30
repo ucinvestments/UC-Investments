@@ -15,7 +15,7 @@ def split_at_first_number(text):
         return text[:index].strip(), int(text[index:].strip().replace(',',''))
     return text, ""
 
-def write_to_csv(text_chunk, filename="/Data Collection/Helper Functions/outputs/GEP-REAL-ESTATE.csv"):
+def write_to_csv(text_chunk, filename="Data-Collection/Helper-Functions/individual-fund-outputs/GEP-REAL-ESTATE.csv"):
   
     lines = text_chunk.strip().split("\n")
     
