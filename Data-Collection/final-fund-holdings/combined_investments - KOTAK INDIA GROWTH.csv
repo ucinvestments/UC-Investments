@@ -8,90 +8,46 @@ Note:,"No specific fund manager is listed, but this is our best guess as to who 
 ,
 Restricted Data:,
 Company,Index Weight
-,
-,
-"RELIANCE 
-Reliance Industries Ltd.",7.03%
-"IBN 
-ICICI Bank Ltd.",5.54%
-"HDFCB IN 
-HDFC Bank Ltd.",5.12%
-"AXSB IN 
-Axis Bank Ltd.",4.63%
-"LT IN 
-Larsen & Toubro Ltd.",4.12%
-"BHARTIIN 
-Bharti Airtel Ltd.",3.87%
-"CTSH 
-Cognizant Technology Solutions Corp.",3.65%
-"IIB IN 
-IndusInd Bank Ltd.",3.43%
-"ZOMATOIN 
-Zomato Ltd.",3.21%
-"SUNP IN 
-Sun Pharmaceutical Industries Ltd.",2.88%
-"ICICIBCI 
-ICICI Bank Ltd.",2.80%
-"INFY 
-Infosys Ltd.",2.78%
-"PWGR IN 
-Power Grid Corp. of India Ltd.",2.50%
-"UTCEM IN 
-UltraTech Cement Ltd.",2.43%
-"TECHM IN 
-Tech Mahindra Ltd.",2.42%
-"INDIGOIN 
-InterGlobe Aviation Ltd.",2.35%
-"MAXF IN 
-Max Financial Services Ltd.",2.30%
-"NEST IN 
-Nestle India Ltd.",2.27%
-"CU IN 
-Carborundum Universal Ltd.",2.23%
-"MAXHEALT 
-Max Healthcare Institute Ltd.",2.22%
-"GCPL IN 
-Godrej Consumer Products Ltd.",2.21%
-"AL IN 
-Ashok Leyland Ltd.",2.12%
-"TMX IN 
-Thermax Ltd.",2.12%
-"CIPLA IN 
-Cipla Ltd.",2.09%
-"FORH IN 
-Fortis Healthcare Ltd.",2.01%
-"BRGD IN 
-Brigade Enterprises Ltd.",1.82%
-"MSIL IN 
-Maruti Suzuki India Ltd.",1.76%
-"HAVL IN 
-Havells India Ltd.",1.67%
-"ICICIGII 
-ICICI Lombard General Insurance Co. Ltd.",1.59%
-"APTY IN 
-Apollo Tyres Ltd.",1.46%
-"INFO IN 
-Infosys Ltd.",1.42%
-"SOBHA IN 
-Sobha Developers Ltd.",1.40%
-"DALBHARA 
-Odisha Cement Ltd.",1.28%
-"PVRINOXI 
-PVR Inox Ltd.",1.22%
-"BIKAJIIN 
-Bikaji Foods International Ltd.",1.08%
-"BATA IN 
-Bata India Ltd.",1.07%
-"CPBI IN 
-Century Plyboards India Ltd.",1.03%
-"APOLP IN 
-Apollo Pipes Ltd.",1.00%
-"HDB 
-HDFC Bank Ltd.",0.92%
-"UNOMINDA 
-UNO Minda Ltd.",0.48%
-"HAPPYFOR 
-Happy Forgings Ltd.",0.25%
-"BHARTIPP 
-Bharti Airtel Ltd.",0.20%
-Cash and Equivalents,2.02%
+RELIANCE Reliance Industries Ltd.,0.07030
+IBN ICICI Bank Ltd.,0.05540
+HDFCB IN HDFC Bank Ltd.,0.05120
+AXSB IN Axis Bank Ltd.,0.04630
+LT IN Larsen & Toubro Ltd.,0.04120
+BHARTIIN Bharti Airtel Ltd.,0.03870
+CTSH Cognizant Technology Solutions Corp.,0.03650
+IIB IN IndusInd Bank Ltd.,0.03430
+ZOMATOIN Zomato Ltd.,0.03210
+SUNP IN Sun Pharmaceutical Industries Ltd.,0.02880
+ICICIBCI ICICI Bank Ltd.,0.02800
+INFY Infosys Ltd.,0.02780
+PWGR IN Power Grid Corp. of India Ltd.,0.02500
+UTCEM IN UltraTech Cement Ltd.,0.02430
+TECHM IN Tech Mahindra Ltd.,0.02420
+INDIGOIN InterGlobe Aviation Ltd.,0.02350
+MAXF IN Max Financial Services Ltd.,0.02300
+NEST IN Nestle India Ltd.,0.02270
+CU IN Carborundum Universal Ltd.,0.02230
+MAXHEALT Max Healthcare Institute Ltd.,0.02220
+GCPL IN Godrej Consumer Products Ltd.,0.02210
+AL IN Ashok Leyland Ltd.,0.02120
+TMX IN Thermax Ltd.,0.02120
+CIPLA IN Cipla Ltd.,0.02090
+FORH IN Fortis Healthcare Ltd.,0.02010
+BRGD IN Brigade Enterprises Ltd.,0.01820
+MSIL IN Maruti Suzuki India Ltd.,0.01760
+HAVL IN Havells India Ltd.,0.01670
+ICICIGII ICICI Lombard General Insurance Co. Ltd.,0.01590
+APTY IN Apollo Tyres Ltd.,0.01460
+INFO IN Infosys Ltd.,0.01420
+SOBHA IN Sobha Developers Ltd.,0.01400
+DALBHARA Odisha Cement Ltd.,0.01280
+PVRINOXI PVR Inox Ltd.,0.01220
+BIKAJIIN Bikaji Foods International Ltd.,0.01080
+BATA IN Bata India Ltd.,0.01070
+CPBI IN Century Plyboards India Ltd.,0.01030
+APOLP IN Apollo Pipes Ltd.,0.01000
+HDB HDFC Bank Ltd.,0.00920
+UNOMINDA UNO Minda Ltd.,0.00480
+HAPPYFOR Happy Forgings Ltd.,0.00250
+BHARTIPP Bharti Airtel Ltd.,0.00200
+Cash and Equivalents,0.02020
