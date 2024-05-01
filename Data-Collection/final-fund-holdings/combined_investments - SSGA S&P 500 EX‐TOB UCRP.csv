@@ -1,3 +1,18 @@
+Fund Name (AS CITED),SSGA S&P 500 EX‐TOB UCRP
+Internal Name,S&P 500® ex-Tobacco Index Strategy
+Restricted y/n,y
+Ammount of companies in fund (restricted),NaN
+Filing Date (restricted),NaN
+Source,https://www.ssga.com/us/en/institutional/ic/strategies/sp-500-ex-tobacco-index-strategy-smp00869
+Note:,"The holdings for this security are fully private, but using SSGA's normal S&P 500 fund, and using our methodology, we can roughly reconstruct their funds. Click ""informed estimate""."
+Restricted Data:,
+Company,Index Weight
+Non-Public Holdings,0
+Unrestricted Data Divider,
+Fund Name:,State Street S&P 500 Index Fund
+Ammount of companies in fund (restricted),500
+Filing Date (restricted),"Feb 29, 2024"
+Source,https://www.ssga.com/us/en/institutional/ic/funds/state-street-sp-500-index-fund-class-n-svspx
 Company,Index Weight
 microsoft corporation,0.07398133635332968
 apple inc.,0.06357526900551011

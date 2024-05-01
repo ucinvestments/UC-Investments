@@ -1,3 +1,27 @@
+Fund Name (AS CITED),MSCI ACWI IMI TF EX‐TOB AND FF
+Internal Name,MSCI ACWI IMI ex Tobacco ex Fossil Fuels Index (USD)
+Restricted y/n,y
+Ammount of companies in fund (restricted),"8,453"
+Filing Date (restricted),"Mar 29, 2024"
+Source,https://www.msci.com/documents/10199/533e1509-9bc0-bdd4-946a-7736245c8c4e
+Note:,
+Restricted Data:,
+Company,Index Weight
+MICROSOFT CORP,0.0392
+APPLE,0.0332
+NVIDIA,0.0294
+AMAZON.COM,0.0221
+META PLATFORMS A,0.0142
+ALPHABET A,0.0118
+ALPHABET C,0.0103
+LILLY (ELI) & COMPANY,0.0083
+TAIWAN SEMICONDUCTOR MFG,0.0079
+BROADCOM,0.0078
+Unrestricted Data Divider,
+Fund Name:,MSCI ACWI ETF
+Ammount of companies in fund (restricted),"2,344"
+Filing Date (restricted),"Apr 26, 2024"
+Source,https://www.ishares.com/us/products/239600/ishares-msci-acwi-etf
 Company,Index Weight
 microsoft corp,0.0414801270061904
 apple inc,0.03602359492629518

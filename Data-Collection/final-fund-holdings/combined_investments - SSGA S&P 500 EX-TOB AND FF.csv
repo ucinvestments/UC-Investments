@@ -1,3 +1,18 @@
+Fund Name (AS CITED),SSGA S&P 500 EX-TOB AND FF
+Internal Name,Unknown
+Restricted y/n,y
+Ammount of companies in fund (restricted),NaN
+Filing Date (restricted),NaN
+Source,NaN
+Note:,"The holdings for this security are fully private, but using SPDR's ex-fossil fuels S&P 500 fund, and using our methodology, we can roughly reconstruct their funds. Click ""informed estimate""."
+Restricted Data:,
+Company,Index Weight
+Non-Public Holdings,0
+Unrestricted Data Divider,
+Fund Name:,SPDR® S&P® 500 Fossil Fuel Reserves Free ETF
+Ammount of companies in fund (restricted),489
+Filing Date (restricted),"Apr 29, 2024"
+Source,https://www.ssga.com/us/en/institutional/etfs/funds/spdr-sp-500-fossil-fuel-reserves-free-etf-spyx
 Company,Index Weight
 microsoft corp,0.07226268937832758
 apple inc,0.060890523269452254
