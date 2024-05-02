@@ -5,6 +5,7 @@
   export let filteredData;
   export let selectedSlice;
   export let activeButton;
+  export let max;
   let width = 350;
   let height = 400;
   let radius = Math.min(width, height) / 2;
@@ -17,10 +18,26 @@
   const dispatch = createEventDispatcher();
 
   function getRandomColor() {
-    const maxRGBValue = 250; // Limiting to 250 to avoid white
-    return `rgb(${Math.floor(Math.random() * (maxRGBValue + 1))}, ${Math.floor(
-      Math.random() * (maxRGBValue + 1),
-    )}, ${Math.floor(Math.random() * (maxRGBValue + 1))})`;
+    // Define a basic color palette with harmonious colors
+    const colors = [
+      "#3498db", // Blue
+      "#e74c3c", // Red
+      "#f1c40f", // Yellow
+      "#2ecc71", // Green
+      "#9b59b6", // Purple
+      "#e67e22", // Orange
+      "#1abc9c", // Teal
+      "#34495e", // Dark Blue
+    ];
+
+    // Keep track of the current color index
+    getRandomColor.index = (getRandomColor.index || 0) % colors.length;
+
+    // Get the color and update the index for the next call
+    const color = colors[getRandomColor.index];
+    getRandomColor.index++;
+
+    return color;
   }
   function cap(string) {
     return string
@@ -67,7 +84,7 @@
             return arcPath(interpolate(t));
           };
         })
-        .attr("fill", (d) => getRandomColor())
+        .attr("fill", (d) => getRandomColor(d["total investment"]))
         .attr("stroke", (d) => (d.data === selectedSlice ? "white" : "none"))
         .attr("stroke-width", (d) =>
           d.data === selectedSlice ? "2px" : "0px",
@@ -92,7 +109,7 @@
             return arcPath(interpolate(t));
           };
         })
-        .attr("fill", (d) => getRandomColor())
+        .attr("fill", (d) => getRandomColor(d["Total Investment"]))
         .attr("stroke", (d) => (d.data === selectedSlice ? "white" : "none"))
         .attr("stroke-width", (d) =>
           d.data === selectedSlice ? "2px" : "0px",
@@ -119,7 +136,7 @@
             return arcPath(interpolate(t));
           };
         })
-        .attr("fill", (d) => getRandomColor())
+        .attr("fill", (d) => getRandomColor(d["Total Iℂnvest∈d"]))
         .attr("stroke", (d) => (d.data === selectedSlice ? "white" : "none"))
         .attr("stroke-width", (d) =>
           d.data === selectedSlice ? "2px" : "0px",
@@ -134,7 +151,6 @@
           d.data === selectedSlice ? cap(d.data["A.s.set ._Class"]) : "",
         )
         .style("opacity", 1);
-      pie = d3.pie().value((d) => d["Total Iℂnvest∈d"]);
     }
     enter
       .append("text")

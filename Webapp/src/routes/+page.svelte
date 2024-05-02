@@ -3,6 +3,7 @@
   import Icon from "@iconify/svelte";
   import Pi from "$lib/pi.svelte";
   import { onMount } from "svelte";
+    import Loading from "$lib/loading.svelte";
   let end;
   type button = "Asset" | "Company" | "Fund";
 
@@ -199,7 +200,7 @@
 </div>
 
 {#if loading}
-  <p class="text-center h-full m-auto justify-center">loading</p>
+  <Loading></Loading>
 {:else}
   <div class="cont">
     <div class="image-container">
@@ -216,6 +217,7 @@
         {filteredData}
         {selectedSlice}
         {activeButton}
+        {totalInvestedInChart}
         on:sliceClicked={handleSliceClicked}
       />
       <p class="text-center">
@@ -284,7 +286,7 @@
             <b>{cap(selectedSlice["A.s.set ._Class"])} </b>
           </p>
           <br />
-          <b>Total Invested: </b>{selectedSlice["Total Iℂnvest∈d"]}
+          <b>Total Invested: </b>{formatNumber(selectedSlice["Total Iℂnvest∈d"])}
           <br />
           <p>
             <b>Funding Source: </b>
@@ -297,6 +299,7 @@
     </div>
   </div>
 {/if}
+{#if activeButton == "Company"}
 <p class="p-3">
   Note: The UC does not have direct investments in any of these companies. All
   of this data is constructed by examining the composition of the index funds we
@@ -308,6 +311,8 @@
   to make evidence-based predictions of the compositions of our largest funds,
   and you can view our predictions by clicking “Show informed estimate”
 </p>
+{:else}
+{/if}
 
 <style lang="postcss">
   .active-button {
