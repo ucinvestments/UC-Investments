@@ -52,7 +52,7 @@ def listed_assets():
                 "Asset Type":row[1],
                 "Total Investment":row[2],
                 "Funding Sources": [{"Source:":"UCRP Investment", "Ammount":row[3]},{"Source:":"GEP Investment", "Ammount":row[4]}],
-                "Holdings (restricted)":holdings
+                "Holdings (restricted)":money_holdings
             })
     
     return output
