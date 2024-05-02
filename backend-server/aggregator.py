@@ -124,7 +124,7 @@ def aggregate(dir_path, all_fund_data_path, output_path, restrict, consolidate_v
 
                 
     total_investments["Private holdings (not analyzed)"] = total_upper_sum-total_sum
-    with open(f"{output_path}full_investments_no_estimation_yes_class_grouping.json", 'w') as f:
+    with open(f"{output_path}full_investments_false_estimation_true_class_grouping.json", 'w') as f:
           
           json.dump(total_investments, f)     
 

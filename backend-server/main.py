@@ -2,6 +2,8 @@ import csv
 import json
 import os 
 from flask import Flask
+from markupsafe import escape
+
 
 app = Flask(__name__)
 
@@ -49,19 +51,24 @@ def company_composition(filePath):
     del output["invesmtent names list"]
     return output
 
-@app.route("/company-composition/yes-cg-yes-estimate")
-def yes_cg_yes_est():
-    return company_composition("/final-datasets/full_investments_yes_estimation_yes_class_grouping.json")
+@app.route("/company-composition/<class_grouping>/<estimation>")
+def composition(class_grouping,estimation):
+    return company_composition(f"final-datasets/full_investments_{escape(estimation)}_estimation_{escape(class_grouping)}_class_grouping.json")
 
-@app.route("/company-composition/yes-cg-no-estimate")
-def yes_cg_no_est():
-    return company_composition("/final-datasets/full_investments_no_estimation_yes_class_grouping.json")
 
-@app.route("/company-composition/no-cg-yes-estimate")
-def no_cg_yes_est():
-    return company_composition("/final-datasets/full_investments_yes_estimation_no_class_grouping.json")
 
-@app.route("/company-composition/no-cg-no-estimate")
-def no_cg_no_est():
-    return company_composition("/final-datasets/full_investments_no_estimation_no_class_grouping.json")
+@app.route("/company-composition/<class_grouping>/<estimation>/<query>")
+def composition_search(class_grouping,estimation,query):
+
+    data = json.load(open(f"final-datasets/full_investments_{escape(estimation)}_estimation_{escape(class_grouping)}_class_grouping.json"))
     
+    query = escape(query)
+
+    suggestions = sorted(
+        [name for name in data["invesmtent names list"] if query in name.lower()],
+        key=lambda name: name.lower().find(query)
+    )
+
+    suggestions = suggestions[:10]
+
+    return suggestions
