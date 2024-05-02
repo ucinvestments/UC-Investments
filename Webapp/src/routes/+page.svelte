@@ -127,32 +127,36 @@
     console.log(filteredData);
   }
 
-  function handleSearch() {
-    const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-    let matchingSlice;
-    if (activeButton == "Company") {
-      matchingSlice = data.find((item) =>
-        item["asset"].toLowerCase().includes(normalizedSearchTerm),
+  let timeoutId;
+
+function handleSearch() {
+  clearTimeout(timeoutId); // Clear any previous timeout
+
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+  if (normalizedSearchTerm === "") {
+    // If the search term is empty, reset the filtered data to the original data
+    filteredData = data;
+    selectedSlice = data[0];
+    sumTotalInvestments();
+    drawChart();
+  } else {
+    // Otherwise, filter the original data based on the search term after a short delay
+    timeoutId = setTimeout(() => {
+      filteredData = data.filter((item) =>
+        item["asset"].toLowerCase().includes(normalizedSearchTerm)
       );
-    } else if (activeButton == "Asset") {
-      matchingSlice = data.find((item) =>
-        item["A.s.set ._Class"].toLowerCase().includes(normalizedSearchTerm),
-      );
-    } else {
-      matchingSlice = data.find((item) =>
-        item["Asset Name"].toLowerCase().includes(normalizedSearchTerm),
-      );
-    }
-    if (matchingSlice) {
-      selectedSlice = matchingSlice; // Assign the entire object
-      console.log("Search found:", selectedSlice);
-      filterSearch();
+      if (filteredData.length === 0) {
+        selectedSlice = data[0];
+      } else {
+        selectedSlice = filteredData[0];
+      }
       sumTotalInvestments();
-    } else {
-      selectedSlice = data[0];
-      console.log("No matching slice found");
-    }
+      drawChart();
+    }, 300); // Delay for 300 milliseconds
   }
+}
+
+
 
   function sumTotalInvestments() {
     let totalSum = 0;

@@ -11,7 +11,7 @@
 <div class="w-full text-center m-auto p-1">
   <a
     href="/"
-    class="a bold mx-2  transition-colors duration-300 text-[var(--founder)] hover:text-[var(--pri)]"
+    class="a bold mx-2 transition-colors duration-300 text-[var(--founder)] hover:text-[var(--pri)]"
     >UC Investments Explorer</a
   >
   <a
@@ -20,6 +20,7 @@
     >About</a
   >
 </div>
+
 
 <hr class="h-px mx-8 bg-black border-0 dark:bg-gray-700" />
 <hr class="h-px mx-8 bg-black border-0 dark:bg-gray-700" />
@@ -46,6 +47,16 @@
   .dropdown-btn:hover + .dropdown-content,
   .dropdown-content:hover {
     display: block;
+  }
+  @media (max-width: 640px) { /* Adjust max-width as needed */
+    .w-full {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .a {
+    }
   }
 
   .dropdown-content {
