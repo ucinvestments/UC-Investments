@@ -47,67 +47,123 @@
   }
 
   function drawChart() {
-  if (!g) return;
+    if (!g) return;
 
-  const validData = filteredData.length > 0 ? filteredData : [];
+    const validData = filteredData.length > 0 ? filteredData : [];
 
-  const update = g.selectAll(".arc").data(pie(validData));
+    const update = g.selectAll(".arc").data(pie(validData));
 
-  const exit = update.exit().transition().duration(500).remove();
+    const exit = update.exit().transition().duration(500).remove();
 
-  exit.select("path").attrTween("d", function (d) {
-    const interpolate = d3.interpolate(d, {
-      startAngle: d.endAngle,
-      endAngle: d.endAngle,
-    });
-    return function (t) {
-      return arcPath(interpolate(t));
-    };
-  });
-
-  exit.select("text").style("opacity", 0);
-
-  const enter = update.enter().append("g").attr("class", "arc");
-  const arcs = enter.merge(update);
-
-  enter.append("path").on("click", handleSliceClick);
-
-  arcs
-    .select("path")
-    .transition()
-    .duration(500)
-    .attrTween("d", function (d) {
-      const interpolate = d3.interpolate(this._current, d);
-      this._current = interpolate(0);
+    exit.select("path").attrTween("d", function (d) {
+      const interpolate = d3.interpolate(d, {
+        startAngle: d.endAngle,
+        endAngle: d.endAngle,
+      });
       return function (t) {
         return arcPath(interpolate(t));
       };
-    })
-    .attr("fill", (d) => getRandomColor(d.data["total investment"]))
-    .attr("stroke", (d) => (d.data === selectedSlice ? "white" : "none"))
-    .attr("stroke-width", (d) => (d.data === selectedSlice ? "2px" : "0px"));
+    });
 
-  arcs
-    .select("text")
-    .transition()
-    .duration(100)
-    .attr("transform", (d) => `translate(${arcLabel.centroid(d)})`)
-    .text((d) => (d.data === selectedSlice ? cap(d.data["asset"]) : ""))
-    .style("opacity", 1);
+    exit.select("text").style("opacity", 0);
 
-  enter
-    .append("text")
-    .style("font-size", "12px")
-    .style("fill", "var(--black)")
-    .style("text-anchor", "middle")
-    .style("opacity", 0)
-    .transition()
-    .duration(100)
-    .style("opacity", 1);
+    const enter = update.enter().append("g").attr("class", "arc");
+    const arcs = enter.merge(update);
 
-  update.raise();
-}
+    enter.append("path").on("click", handleSliceClick);
 
+    if (activeButton == "Company") {
+      arcs
+        .select("path")
+        .transition()
+        .duration(500)
+        .attrTween("d", function (d) {
+          const interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function (t) {
+            return arcPath(interpolate(t));
+          };
+        })
+        .attr("fill", (d) => getRandomColor(d["total investment"]))
+        .attr("stroke", (d) => (d.data === selectedSlice ? "white" : "none"))
+        .attr("stroke-width", (d) =>
+          d.data === selectedSlice ? "2px" : "0px",
+        );
+
+      arcs
+        .select("text")
+        .transition()
+        .duration(100)
+        .attr("transform", (d) => `translate(${arcLabel.centroid(d)})`)
+        .text((d) => (d.data === selectedSlice ? cap(d.data["asset"]) : ""))
+        .style("opacity", 1);
+    } else if (activeButton == "Fund") {
+      arcs
+        .select("path")
+        .transition()
+        .duration(500)
+        .attrTween("d", function (d) {
+          const interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function (t) {
+            return arcPath(interpolate(t));
+          };
+        })
+        .attr("fill", (d) => getRandomColor(d["Total Investment"]))
+        .attr("stroke", (d) => (d.data === selectedSlice ? "white" : "none"))
+        .attr("stroke-width", (d) =>
+          d.data === selectedSlice ? "2px" : "0px",
+        );
+
+      arcs
+        .select("text")
+        .transition()
+        .duration(100)
+        .attr("transform", (d) => `translate(${arcLabel.centroid(d)})`)
+        .text((d) =>
+          d.data === selectedSlice ? cap(d.data["Asset Name"]) : "",
+        )
+        .style("opacity", 1);
+    } else {
+      arcs
+        .select("path")
+        .transition()
+        .duration(500)
+        .attrTween("d", function (d) {
+          const interpolate = d3.interpolate(this._current, d);
+          this._current = interpolate(0);
+          return function (t) {
+            return arcPath(interpolate(t));
+          };
+        })
+        .attr("fill", (d) => getRandomColor(d["Total Iℂnvest∈d"]))
+        .attr("stroke", (d) => (d.data === selectedSlice ? "white" : "none"))
+        .attr("stroke-width", (d) =>
+          d.data === selectedSlice ? "2px" : "0px",
+        );
+
+      arcs
+        .select("text")
+        .transition()
+        .duration(100)
+        .attr("transform", (d) => `translate(${arcLabel.centroid(d)})`)
+        .text((d) =>
+          d.data === selectedSlice ? cap(d.data["A.s.set ._Class"]) : "",
+        )
+        .style("opacity", 1);
+    }
+    enter
+      .append("text")
+      .style("font-size", "12px")
+      .style("fill", "var(--black)")
+      .style("text-anchor", "middle")
+      .style("opacity", 0)
+      .transition()
+      .duration(100)
+      .style("opacity", 1);
+
+    update.raise();
+  }
 
   onMount(() => {
     color = d3.scaleOrdinal([

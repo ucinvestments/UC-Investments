@@ -3,7 +3,7 @@
   import Icon from "@iconify/svelte";
   import Pi from "$lib/pi.svelte";
   import { onMount } from "svelte";
-    import Loading from "$lib/loading.svelte";
+  import Loading from "$lib/loading.svelte";
   let end;
   type button = "Asset" | "Company" | "Fund";
 
@@ -129,34 +129,65 @@
 
   let timeoutId;
 
-function handleSearch() {
-  clearTimeout(timeoutId); // Clear any previous timeout
+  // function handleSearch() {
+  //   clearTimeout(timeoutId); // Clear any previous timeout
 
-  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-  if (normalizedSearchTerm === "") {
-    // If the search term is empty, reset the filtered data to the original data
-    filteredData = data;
-    selectedSlice = data[0];
-    sumTotalInvestments();
-    drawChart();
-  } else {
-    // Otherwise, filter the original data based on the search term after a short delay
-    timeoutId = setTimeout(() => {
-      filteredData = data.filter((item) =>
-        item["asset"].toLowerCase().includes(normalizedSearchTerm)
+  //   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+  //   if (normalizedSearchTerm === "") {
+  //     // If the search term is empty, reset the filtered data to the original data
+  //     filteredData = data;
+  //     selectedSlice = data[0];
+  //     sumTotalInvestments();
+  //     drawChart();
+  //   } else {
+  //     // Otherwise, filter the original data based on the search term after a short delay
+  //     timeoutId = setTimeout(() => {
+
+  //       if (filteredData.length === 0) {
+  //         selectedSlice = data[0];
+  //       } else {
+  //         selectedSlice = filteredData[0];
+  //       }
+  //       sumTotalInvestments();
+  //       drawChart();
+  //     }, 300); // Delay for 300 milliseconds
+  //   }
+  // }
+
+  function handleSearch() {
+    clearTimeout(timeoutId); // Clear any previous timeout
+    const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+    let matchingSlice;
+    if (activeButton == "Company") {
+      matchingSlice = data.find((item) =>
+        item["asset"].toLowerCase().includes(normalizedSearchTerm),
       );
-      if (filteredData.length === 0) {
-        selectedSlice = data[0];
-      } else {
-        selectedSlice = filteredData[0];
-      }
-      sumTotalInvestments();
-      drawChart();
-    }, 300); // Delay for 300 milliseconds
+    } else if (activeButton == "Asset") {
+      matchingSlice = data.find((item) =>
+        item["A.s.set ._Class"].toLowerCase().includes(normalizedSearchTerm),
+      );
+    } else {
+      matchingSlice = data.find((item) =>
+        item["Asset Name"].toLowerCase().includes(normalizedSearchTerm),
+      );
+    }
+    if (matchingSlice) {
+      timeoutId = setTimeout(() => {
+        selectedSlice = matchingSlice; // Assign the entire object
+        console.log("Search found:", selectedSlice);
+        filterSearch();
+        sumTotalInvestments();
+      }, 300); // Delay for 300 milliseconds
+    } else {
+      selectedSlice = data[0];
+if (filteredData.length === 0) {
+          selectedSlice = data[0];
+        } else {
+          selectedSlice = filteredData[0];
+        }
+      console.log("No matching slice found");
+    }
   }
-}
-
-
 
   function sumTotalInvestments() {
     let totalSum = 0;
@@ -187,25 +218,27 @@ function handleSearch() {
   "
 >
   The University of California Manages <b>164 billion </b>dollars of
-  investments. Unfortunately, the UC has so far only published $110 billion of this data. Explore where this money goes below:
+  investments. Unfortunately, the UC has so far only published $110 billion of
+  this data. Explore where this money goes below:
 </p>
-<div class="flex justify-between but text-lg m-1">
-  <button class:active-button={activeButton === "Company"} on:click={company}
-    >By Company</button
-  >
-
-  <button class:active-button={activeButton === "Asset"} on:click={asset}
-    >By Asset Class</button
-  >
-
-  <button class:active-button={activeButton === "Fund"} on:click={fund}
-    >By Fund</button
-  >
-</div>
 
 {#if loading}
   <Loading></Loading>
 {:else}
+  <div class="flex justify-between but text-lg m-1">
+    <button class:active-button={activeButton === "Company"} on:click={company}
+      >By Company</button
+    >
+
+    <button class:active-button={activeButton === "Asset"} on:click={asset}
+      >By Asset Class</button
+    >
+
+    <button class:active-button={activeButton === "Fund"} on:click={fund}
+      >By Fund</button
+    >
+  </div>
+
   <div class="cont">
     <div class="image-container">
       <div class="search-container text-center">
@@ -290,7 +323,9 @@ function handleSearch() {
             <b>{cap(selectedSlice["A.s.set ._Class"])} </b>
           </p>
           <br />
-          <b>Total Invested: </b>{formatNumber(selectedSlice["Total Iℂnvest∈d"])}
+          <b>Total Invested: </b>{formatNumber(
+            selectedSlice["Total Iℂnvest∈d"],
+          )}
           <br />
           <p>
             <b>Funding Source: </b>
@@ -304,19 +339,19 @@ function handleSearch() {
   </div>
 {/if}
 {#if activeButton == "Company"}
-<p class="p-3">
-  Note: The UC does not have direct investments in any of these companies. All
-  of this data is constructed by examining the composition of the index funds we
-  are invested in, and accumulating the holdings across all funds. The
-  composition of these funds changes day to day, so this data is as of each
-  fund’s most recent disclosure. Additionally, most funds do not publish full
-  holdings, but instead their top 10 holdings, which is why you will see a
-  significant amount of the assets grayed out. We’ve developed novel methodology
-  to make evidence-based predictions of the compositions of our largest funds,
-  and you can view our predictions by clicking “Show informed estimate”
-</p>
-{:else}
-{/if}
+  <p class="p-3">
+    Note: The UC does not have direct investments in any of these companies. All
+    of this data is constructed by examining the composition of the index funds
+    we are invested in, and accumulating the holdings across all funds. The
+    composition of these funds changes day to day, so this data is as of each
+    fund’s most recent disclosure. Additionally, most funds do not publish full
+    holdings, but instead their top 10 holdings, which is why you will see a
+    significant amount of the assets grayed out. We’ve developed novel
+    methodology to make evidence-based predictions of the compositions of our
+    largest funds, and you can view our predictions by clicking “Show informed
+    estimate”
+  </p>
+{:else}{/if}
 
 <style lang="postcss">
   .active-button {
