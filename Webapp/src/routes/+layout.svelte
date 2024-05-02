@@ -11,12 +11,12 @@
 <div class="w-full text-center m-auto p-1">
   <a
     href="/"
-    class="a bold mx-2  transition-colors duration-300 text-[var(--founder)] hover:text-[var(--sec)]"
+    class="a bold mx-2  transition-colors duration-300 text-[var(--founder)] hover:text-[var(--pri)]"
     >UC Investments Explorer</a
   >
   <a
     href="/about"
-    class="a bold mx-2 transition-colors duration-300 text-[var(--black)] hover:text-[var(--blackHover)]"
+    class="a bold mx-2 transition-colors duration-300 text-[var(--black)] hover:text-[var(--pri)]"
     >About</a
   >
 </div>

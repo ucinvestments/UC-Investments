@@ -1,8 +1,15 @@
-<div>
+<div class="m-1">
 	<h2>Methodology</h2>
-<p>Currently, we have roughly analyzed $108 billion of the UC's total investment portfolio. We've specifically analyzed the composition of funds that total up to about $51B. A majority of these funds are stored in the UC Retirement Plan (UCRP) ($89.2B) and in the General Endowment Pool (GEP) ($20.7B). Although these investments are spread across a wide variety of assets, the motivation of this research was to figure out which companies the UC was directly or indirectly funding. Nearly all of the UC's money that goes to companies happens indirectly, through the use of investing in index funds, public equity funds, and private hedge funds.</p>
+<p>Currently, we have roughly analyzed $108 billion of the UC's total investment portfolio. We've specifically analyzed 
+	the composition of funds that total up to about $49B. A majority of these funds are 
+	stored in the UC Retirement Plan (UCRP) ($89.2B) and in the General Endowment Pool (GEP) 
+	($20.7B) Nearly all of the UC's money that goes to companies happens indirectly, 
+	through the use of investing in index funds, public equity funds, and private hedge funds.</p>
 
-<p>Some of these funds publish full composition data, but most do not. For example, our largest investment, in a fund managed by MSCI, only publishes its top 10 holdings, which only explains where 18% of this money goes. To attempt to get this data, we employed three main strategies to provide accurate estimates:</p>
+<p>Some of these funds publish full composition data, but most do not. For example, our 
+	largest investment, in a fund managed by MSCI, only publishes its top 10 holdings, 
+	which only explains where 18% of this money goes. We employed 
+	three main strategies to provide accurate estimates:</p>
 
 <ul>
   <li>
@@ -74,7 +81,7 @@ href="https://github.com/g4cko/UC-Investments/tree/main/Data-Collection/csv-file
 		font-size: 3vw;
 	}
 	p {
-		margin-top: 1rem;
+
 	}
 	h3 {
 		margin-top: 1rem;
