@@ -17,9 +17,11 @@
   const dispatch = createEventDispatcher();
 
   function getRandomColor() {
-    return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    const maxRGBValue = 250; // Limiting to 250 to avoid white
+    return `rgb(${Math.floor(Math.random() * (maxRGBValue + 1))}, ${Math.floor(
+      Math.random() * (maxRGBValue + 1),
+    )}, ${Math.floor(Math.random() * (maxRGBValue + 1))})`;
   }
-
   function cap(string) {
     return string
       .split(" ")
@@ -129,10 +131,10 @@
         .duration(100)
         .attr("transform", (d) => `translate(${arcLabel.centroid(d)})`)
         .text((d) =>
-          d.data === selectedSlice ? cap(d.data["Asset Name"]) : "",
+          d.data === selectedSlice ? cap(d.data["A.s.set ._Class"]) : "",
         )
         .style("opacity", 1);
-      pie = d3.pie().value((d) => d["total_investment"]);
+      pie = d3.pie().value((d) => d["Total Iℂnvest∈d"]);
     }
     enter
       .append("text")

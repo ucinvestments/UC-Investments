@@ -1,6 +1,5 @@
 <script lang="ts">
   import "../app.css";
-  import sam from "$lib/sam_hero.png";
   import Icon from "@iconify/svelte";
   import Pi from "$lib/pi.svelte";
   import { onMount } from "svelte";
@@ -30,6 +29,15 @@
     }
   }
 
+  function comp() {
+    if (composition == "true") {
+      composition = "false";
+      fetchListedAssets();
+    } else {
+      composition = "true";
+      fetchListedAssets();
+    }
+  }
   const API = "https://uc-investments-80f94956a47a.herokuapp.com";
   let activeButton: button = "Company"; // Initial value
   let searchTerm = ""; // Initialize a variable to store the search term
@@ -108,7 +116,7 @@
       );
     } else if (activeButton == "Asset") {
       filteredData = data.filter((item) =>
-        item["Asset Type"].toLowerCase().includes(normalizedSearchTerm),
+        item["A.s.set ._Class"].toLowerCase().includes(normalizedSearchTerm),
       );
     } else {
       filteredData = data.filter((item) =>
@@ -127,7 +135,7 @@
       );
     } else if (activeButton == "Asset") {
       matchingSlice = data.find((item) =>
-        item["Asset Type"].toLowerCase().includes(normalizedSearchTerm),
+        item["A.s.set ._Class"].toLowerCase().includes(normalizedSearchTerm),
       );
     } else {
       matchingSlice = data.find((item) =>
@@ -253,20 +261,35 @@
               )}
             </p>
           {/each}
-
+          <div class="m-auto text-center">
+            <button
+              class:green={estimation === "true"}
+              class:red={estimation !== "true"}
+              on:click={estim}
+            >
+              Include Estimated Figures
+            </button>
+            <button
+              class:green={composition === "true"}
+              class:red={composition !== "true"}
+              on:click={comp}
+            >
+              Consolidate Stock Classes
+            </button>
+          </div>
           <!-- <p class=""><b>Total Invested: </b>{selectedSlice.value}</p> -->
           <!-- <p class=""><b>Company Type: </b>{selectedSlice.type}</p> -->
         {:else}
           <p class="text-center">
-            <b>Asset Name: </b>{cap(selectedSlice["Asset Name"])}
+            <b>{cap(selectedSlice["A.s.set ._Class"])} </b>
           </p>
           <br />
-          <b>Asset Type: </b>{selectedSlice["Asset Type"]}
+          <b>Total Invested: </b>{selectedSlice["Total Iℂnvest∈d"]}
           <br />
           <p>
             <b>Funding Source: </b>
-            {#each selectedSlice["Funding Sources"] as fund}
-              <p class=" rounded-sm p-1">{fund}</p>
+            {#each selectedSlice["InVesTmeNts"] as f}
+              <p class=" rounded-sm p-1">- {f}</p>
             {/each}
           </p>
         {/if}
@@ -274,13 +297,24 @@
     </div>
   </div>
 {/if}
-<p class="p-3">Note: The UC does not have direct investments in any of these companies. All of this data is constructed by examining the composition of the index funds we are invested in, and accumulating the holdings across all funds. The composition of these funds changes day to day, so this data is as of each fund’s most recent disclosure. Additionally, most funds do not publish full holdings, but instead their top 10 holdings, which is why you will see a significant amount of the assets grayed out. We’ve developed novel methodology to make evidence-based predictions of the compositions of our largest funds, and you can view our predictions by clicking “Show informed estimate”</p>
+<p class="p-3">
+  Note: The UC does not have direct investments in any of these companies. All
+  of this data is constructed by examining the composition of the index funds we
+  are invested in, and accumulating the holdings across all funds. The
+  composition of these funds changes day to day, so this data is as of each
+  fund’s most recent disclosure. Additionally, most funds do not publish full
+  holdings, but instead their top 10 holdings, which is why you will see a
+  significant amount of the assets grayed out. We’ve developed novel methodology
+  to make evidence-based predictions of the compositions of our largest funds,
+  and you can view our predictions by clicking “Show informed estimate”
+</p>
 
 <style lang="postcss">
   .active-button {
     background-color: var(--founder);
     transition: background-color 0.3s ease-in-out; /* Add transition */
   }
+
   .x {
     border-radius: 0.1rem;
     border: 2px solid rgb(197, 197, 199);
@@ -295,6 +329,15 @@
     border-radius: 0.1rem;
     border: 2px solid rgb(197, 197, 199);
   }
+
+  .green {
+    background-color: var(--soybean);
+  }
+
+  .red {
+    background-color: var(--golden-gate);
+  }
+
   .but {
     display: flex;
     flex-direction: row; /* Default to row for larger screens */

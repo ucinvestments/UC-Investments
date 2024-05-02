@@ -14,11 +14,6 @@
     class="a bold mx-2  transition-colors duration-300 text-[var(--pri)] hover:text-[var(--sec)]"
     >UC Investments Explorer</a
   >
-<a
-    href="/sources"
-    class="a bold mx-2 transition-colors duration-300 text-[var(--black)] hover:text-[var(--blackHover)]"
-    >Sources</a
-  >
   <a
     href="/about"
     class="a bold mx-2 transition-colors duration-300 text-[var(--black)] hover:text-[var(--blackHover)]"
