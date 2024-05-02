@@ -109,4 +109,4 @@ def iter_in_dir(input_path, output_path):
         
 
             
-iter_in_dir("Data-Collection/shit-csv-files", "Data-Collection/json-outputs/")
+iter_in_dir("Data-Collection/csv-files", "Data-Collection/json-outputs/")
