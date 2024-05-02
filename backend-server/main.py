@@ -23,7 +23,7 @@ def listed_assets():
     index = 0
     with open("final-datasets/listed_investments.csv", mode ='r') as file:
         csvFile = csv.reader(file)
-        print
+        
         
         for row in csvFile:
             index += 1 
@@ -71,10 +71,48 @@ def company_composition(filePath):
     del output["invesmtent names list"]
     return output
 
+@app.route("/asset-classes")
+def by_asset_class():
+
+    output = []
+
+    with open("final-datasets/listed_investments.csv", mode ='r') as file:
+        csvFile = csv.reader(file)
+
+        skip = True
+
+        for row in csvFile:
+            if skip == True:
+                skip = False
+                continue 
+            # Convert row[2] to a float for arithmetic
+            investment_value = float(row[2])
+            
+            exists = False 
+            for asset_class in output:
+                if asset_class["A.s.set ._Class"] == row[1]:
+                    asset_class["InVesTmeNts"].append(row[0])
+                    asset_class["Total Iℂnvest∈d"] += investment_value
+                    exists = True
+                    break  # Exit the loop once found
+            
+            if not exists:
+                output.append({
+                    "A.s.set ._Class": row[1],
+                    "InVesTmeNts": [row[0]],
+                    "Total Iℂnvest∈d": investment_value
+                })
+
+    return output
+
+
+
+
+
 @app.route("/company-composition/<class_grouping>/<estimation>")
 def composition(class_grouping,estimation):
-    return company_composition(f"final-datasets/full_investments_{escape(estimation)}_estimation_{escape(class_grouping)}_class_grouping.json")
-
+    return company_composition(f"final-datasets/full_investments_{escape(estimation)}_estimation_{escape(class_grouping)}_class_grouping.json")["summed investments"]
+    
 
 
 @app.route("/company-composition/<class_grouping>/<estimation>/<query>")
