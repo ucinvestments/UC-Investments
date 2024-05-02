@@ -1,97 +1,67 @@
-import pandas as pd
-import os
-import glob
-from flask import Flask, jsonify, render_template, request
-from fuzzywuzzy import process
+import csv
+import json
+import os 
+from flask import Flask
 
-# Initialize the Flask app
 app = Flask(__name__)
 
-# Utility Functions
+@app.route("/listed-assets")
+def listed_assets():
+    
+    output = []
+    
+    index = 0
+    with open("final-datasets/listed_investments.csv", mode ='r') as file:
+        csvFile = csv.reader(file)
+        
+        for row in csvFile:
+            index += 1 
+            if index == 1:
+                continue
+            
 
-def read_main_csv(file_path):
-    """Reads the main CSV file into a dataframe."""
-    return pd.read_csv(file_path)
+            holdings = None
 
-def read_fund_files(directory_path):
-    """Traverses the directory and reads each fund's spreadsheet into a dictionary of dataframes."""
-    fund_files = glob.glob(os.path.join(directory_path, "*.csv"))
-    fund_data = {}
-    for fund_file in fund_files:
-        fund_name = os.path.basename(fund_file).replace('.csv', '')
-        fund_data[fund_name] = pd.read_csv(fund_file)
-    return fund_data
+            if row[6] == "Y":
+                
+                for file_name in os.listdir("Data-Collection/json-outputs"):
+                    
+                    if file_name.replace('.json','') == row[0]:
+                        file_path = os.path.join("Data-Collection/json-outputs", file_name)
+                        source = file_name.split('.')[0]
+                        fundData = json.load(open(file_path))
 
-def match_assets_to_funds(main_csv, fund_data):
-    """Matches assets to funds using fuzzy matching."""
-    def get_fund_data_for_asset(asset_name):
-        matches = process.extract(asset_name, fund_data.keys(), limit=1)
-        if matches and matches[0][1] > 80:
-            return fund_data[matches[0][0]]
-        return None
+                        holdings = fundData["restricted assets"]
 
-    matched_data = []
-    for _, row in main_csv.iterrows():
-        asset_name = row['Name']
-        fund_info = get_fund_data_for_asset(asset_name)
-        if fund_info is not None:
-            row['Fund Composition'] = fund_info.to_dict(orient='records')
-        matched_data.append(row)
+            output.append({
+                "Asset Name":row[0],
+                "Asset Type":row[1],
+                "Total Investment":row[2],
+                "UCRP Investment":row[3],
+                "GEP Investment":row[4],
+                "Holdings (restricted)":holdings
+            })
+    
+    return output
 
-    return pd.DataFrame(matched_data)
+def company_composition(filePath):
+    output = json.load(open(filePath))
+    del output["invesmtent names list"]
+    return output
 
-def aggregate_company_investments(main_csv, fund_data):
-    """Aggregates investments by company."""
-    company_investments = {}
+@app.route("/company-composition/yes-cg-yes-estimate")
+def yes_cg_yes_est():
+    return company_composition("/final-datasets/full_investments_yes_estimation_yes_class_grouping.json")
 
-    for fund_name, df in fund_data.items():
-        fund_investment = main_csv[main_csv['Name'] == fund_name]['Total_investment'].values[0]
+@app.route("/company-composition/yes-cg-no-estimate")
+def yes_cg_no_est():
+    return company_composition("/final-datasets/full_investments_no_estimation_yes_class_grouping.json")
 
-        for _, row in df.iterrows():
-            company_name = row['Company']
-            weight = float(row['Index Weight'])
-            investment_amount = fund_investment * weight
+@app.route("/company-composition/no-cg-yes-estimate")
+def no_cg_yes_est():
+    return company_composition("/final-datasets/full_investments_yes_estimation_no_class_grouping.json")
 
-            if company_name in company_investments:
-                company_investments[company_name] += investment_amount
-            else:
-                company_investments[company_name] = investment_amount
-
-    return company_investments
-
-# API Endpoints
-
-@app.route('/data/investments', methods=['GET'])
-def get_investments():
-    """Returns a JSON response with aggregated investment data."""
-    main_csv_path = 'Data-Collection/Helper-Functions/combined-output/combined_investments.csv'
-    funds_directory = 'Data-Collection/final-fund-holdings'
-
-    main_csv = read_main_csv(main_csv_path)
-    fund_data = read_fund_files(funds_directory)
-
-    matched_data = match_assets_to_funds(main_csv, fund_data)
-    company_investments = aggregate_company_investments(main_csv, fund_data)
-
-    response_data = {
-        'assets': matched_data.to_dict(orient='records'),
-        'companies': company_investments
-    }
-    return jsonify(response_data)
-
-@app.route('/visualization/asset_pie_chart', methods=['GET'])
-def visualize_asset_pie_chart():
-    """Generates and displays an asset pie chart."""
-    # To be implemented
-    pass
-
-@app.route('/visualization/company_pie_chart', methods=['GET'])
-def visualize_company_pie_chart():
-    """Generates and displays a company pie chart."""
-    # To be implemented
-    pass
-
-# Main Execution
-if __name__ == "__main__":
-    app.run(debug=True)
-
+@app.route("/company-composition/no-cg-no-estimate")
+def no_cg_no_est():
+    return company_composition("/final-datasets/full_investments_no_estimation_no_class_grouping.json")
+    

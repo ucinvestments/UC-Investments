@@ -5,23 +5,6 @@ import json
 import re
 
 from fuzzywuzzy import process, fuzz
-# def get_stock_ticker(api_key,company_name):
-#     url = f'https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords={company_name}&apikey={api_key}'
-#     r = requests.get(url)
-#     data = r.json()
-    
-
-#     print(data)
-
-#     for match in data["bestMatches"]:
-#         if match["4. region"] == 'United States':
-#             return match["1. symbol"]
-        
-    
-#     return data["bestMatches"][0]["1. symbol"]
-
-
-# print(get_stock_ticker("1H0KGFAKR59J8UHY", "berkshire hathaway inc class b"))
 
 
 def subDictSearch(list_to_search, search_field, search_term):
@@ -46,7 +29,7 @@ def parse_csv(csv_list, search, search_index, return_index):
 def aggregate(dir_path, all_fund_data_path, output_path, restrict, consolidate_voting_shares):
 
 
-    total_investments = {"invesmtent names list":[], "summed investments":[], "unknown money":0}
+    total_investments = {"invesmtent names list":[], "summed investments":[]}
     total_sum = 0
     total_upper_sum = 0
 
@@ -86,9 +69,11 @@ def aggregate(dir_path, all_fund_data_path, output_path, restrict, consolidate_v
                     
                     securityName = investment["security name"].lower().replace('corporation', "corp").replace("incorporated", "inc")
                     
-                    
-                    securityName = re.sub(r'class (.*)', ' ', securityName)
-                    securityName = re.sub(r'cl (.*)', ' ', securityName)
+                    if consolidate_voting_shares:
+                        securityName = re.sub(r'class (.*)', ' ', securityName)
+                        securityName = re.sub(r'cl (.*)', ' ', securityName)
+                    else:
+                        securityName.replace("class ", "cl ")
                     
 
                    
@@ -138,8 +123,8 @@ def aggregate(dir_path, all_fund_data_path, output_path, restrict, consolidate_v
                 
 
                 
-    print("total disc",total_upper_sum-total_sum)
-    with open(f"{output_path}FULLINVESTMENTS.json", 'w') as f:
+    total_investments["Private holdings (not analyzed)"] = total_upper_sum-total_sum
+    with open(f"{output_path}full_investments_no_estimation_yes_class_grouping.json", 'w') as f:
           
           json.dump(total_investments, f)     
 
@@ -147,4 +132,4 @@ def aggregate(dir_path, all_fund_data_path, output_path, restrict, consolidate_v
 
 
 
-aggregate("Data-Collection/json-outputs", "Data-Collection/combined_investments - combined_investments.csv", "/Users/alexforman/Documents/GitHub/UC-Investments/backend-server/", False, True)
+aggregate("Data-Collection/json-outputs", "final-datasets/listed_investments.csv", "final-datasets/", True, True)
