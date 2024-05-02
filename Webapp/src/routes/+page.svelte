@@ -5,8 +5,13 @@
   import Pi from "$lib/pi.svelte";
   import { onMount } from "svelte";
 
-  type button = "Asset" | "Company";
+  type button = "Asset" | "Company" | "Fund";
+
+  const API = "https://uc-investments-80f94956a47a.herokuapp.com/"
   let activeButton: button = "Company"; // Initial value
+  let searchTerm = ""; // Initialize a variable to store the search term
+  let totalInvestedInChart = 0;
+
   function cap(s) {
     if (s && typeof s === "string") {
       return s
@@ -17,6 +22,21 @@
       return "";
     }
   }
+
+  async function fetchListedAssets() {
+    try {
+      const response = await fetch(API + "listed-assets");
+      if (!response.ok) {
+        throw new Error("Failed to fetch listed assets");
+      }
+      const d = await response.json();
+      data = d.data;
+      console.log(data);
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
   let data = [
     { key: "microsfot", value: 10, type: "bad", fundingSource: [1, 2, 3] },
     { key: "big bad", value: 20, type: "bad", fundingSource: [1, 2, 3] },
@@ -47,7 +67,6 @@
   ];
 
   let selectedSlice = data[0]; // Initialize a variable to store the selected slice
-  let searchTerm = ""; // Initialize a variable to store the search term
 
   let filteredData = data;
   // Handler function for the 'sliceClicked' event
@@ -68,6 +87,7 @@
     );
     console.log(filteredData);
   }
+
   function handleSearch() {
     const normalizedSearchTerm = searchTerm.trim().toLowerCase();
     const matchingSlice = data.find((item) =>
@@ -83,12 +103,21 @@
     }
   }
 
+  function sumTotalInvestments() {
+    let totalSum = 0;
+    for (let i = 0; i < filteredData.length; i++) {
+      totalSum += parseInt(filteredData[i]["Total Investment"]);
+    }
+    return totalSum;
+  }
+
   onMount(() => {
     // Add the active-button class to the "By Listed Asset" button
     const assetButton = document.querySelector('button[on\\:click*="Asset"]');
     if (assetButton) {
       assetButton.classList.add("active-button");
     }
+    fetchListedAssets();
   });
 </script>
 
@@ -102,12 +131,17 @@
 <div class="flex justify-between but text-lg m-1">
   <button
     class:active-button={activeButton === "Company"}
-    on:click={() => (activeButton = "Company")}>By Company Listed</button
+    on:click={() => (activeButton = "Company")}>By Company</button
   >
 
   <button
     class:active-button={activeButton === "Asset"}
-    on:click={() => (activeButton = "Asset")}>By Fund</button
+    on:click={() => (activeButton = "Asset")}>By Asset Class</button
+  >
+
+<button
+    class:active-button={activeButton === "Fund"}
+    on:click={() => (activeButton = "Fund")}>By Fund</button
   >
 </div>
 
@@ -123,15 +157,23 @@
       />
     </div>
     <Pi {filteredData} {selectedSlice} on:sliceClicked={handleSliceClicked} />
+    <p class="text-center">Total value of chart ${totalInvestedInChart}</p>
   </div>
+
+
   <div class="text-container">
     <div class="text-left x p-3 rounded-sm">
+      {#if activeButton == "Asset"}
       <p class="text-center">
-        <b>{cap(selectedSlice.key)}</b>
+        <b>Asset Name: </b>{cap(selectedSlice.key)}
       </p>
       <br />
+
+      {:else if activeButton == "Company"}
+      <p class="text-center">
+        <b>Company Name: </b>{cap(selectedSlice.key)}
+      </p>
       <p class=""><b>Total Invested: </b>{selectedSlice.value}</p>
-      {#if activeButton == "Asset"}{:else if activeButton == "Company"}
         <p class=""><b>Company Type: </b>{selectedSlice.type}</p>
       {:else}{/if}
       <p class="">
