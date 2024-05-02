@@ -5,7 +5,11 @@ from flask import Flask
 from markupsafe import escape
 
 
+#run: flask --app backend-server/main run
+
 app = Flask(__name__)
+
+
 
 @app.route("/listed-assets")
 def listed_assets():
