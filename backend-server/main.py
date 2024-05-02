@@ -41,17 +41,17 @@ def listed_assets():
                         source = file_name.split('.')[0]
                         fundData = json.load(open(file_path))
 
-                        holdings = fundData["restricted assets"]
+                        # holdings = fundData["restricted assets"]
 
 
-                        money_holdings = []
+                        # money_holdings = []
 
-                        for investment in holdings:
-                            if investment["holding wt"] == '' or investment["holding wt"] == None:
-                                weight = 0
-                            else:
-                                weight = investment["holding wt"] 
-                            money_holdings.append({"security name": investment["security name"], "ammount invested": float(weight)*float(row[2])})
+                        # for investment in holdings:
+                        #     if investment["holding wt"] == '' or investment["holding wt"] == None:
+                        #         weight = 0
+                        #     else:
+                        #         weight = investment["holding wt"] 
+                        #     money_holdings.append({"security name": investment["security name"], "ammount invested": float(weight)*float(row[2])})
                             
 
 
@@ -59,8 +59,8 @@ def listed_assets():
                 "Asset Name":row[0],
                 "Asset Type":row[1],
                 "Total Investment":row[2],
-                "Funding Sources": [{"Source:":"UCRP Investment", "Ammount":row[3]},{"Source:":"GEP Investment", "Ammount":row[4]}],
-                "Holdings (restricted)":money_holdings
+                "Funding Sources": [{"Source:":"UCRP Investment", "Ammount":row[3]},{"Source:":"GEP Investment", "Ammount":row[4]}]
+                
             })
     
     return output
