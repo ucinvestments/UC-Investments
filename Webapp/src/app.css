@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fffcdf;
+  --pri: #003262; /* Berkeley Blue */
+  --sec: #FDB515; /* California Gold */
+  --founder: #3B7EA1; /* Founder's Rock */
+  --medalist: #C4820E; /* Medalist */
+  --wellman: #D9661F; /* Wellman Tile */
+  --bay-fog: #DDD5C7; /* Bay Fog */
+  --sather-gate: #B9D3B6; /* Sather Gate */
+  --rose-garden: #EE1F60; /* Rose Garden */
+  --lawrence: #00B0DA; /* Lawrence */
+  --ion: #CFDD45; /* Ion */
+  --golden-gate: #ED4E33; /* Golden Gate */
+  --lap-lane: #00A598; /* Lap Lane */
+  --soybean: #859438; /* Soybean */
+  --south-hall: #6C3302; /* South Hall */
+  --pacific: #46535E; /* Pacific */
+  --stone-pine: #584F29; /* Stone Pine */
+  --black: #000000;
+}
+
+::selection {
+  background: var(--sec);
+  /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: var(--sec);
+  /* Gecko Browsers */
+}
+
+body {
+	font-family:Georgia, 'Times New Roman', Times, serif;
+	background-color: #fff;
+}
