@@ -3,11 +3,12 @@ import json
 import os 
 from flask import Flask
 from markupsafe import escape
-
+from flask_cors import CORS
 
 #run: flask --app backend-server/main run
 
-app = Flask(__name__)
+
+app = Flask(__name__) CORS(app)
 
 
 
@@ -21,6 +22,7 @@ def listed_assets():
     index = 0
     with open("final-datasets/listed_investments.csv", mode ='r') as file:
         csvFile = csv.reader(file)
+        print
         
         for row in csvFile:
             index += 1 
