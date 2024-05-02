@@ -111,8 +111,8 @@ def by_asset_class():
 
 @app.route("/company-composition/<class_grouping>/<estimation>")
 def composition(class_grouping,estimation):
-    return company_composition(f"final-datasets/full_investments_{escape(estimation)}_estimation_{escape(class_grouping)}_class_grouping.json")
-
+    return company_composition(f"final-datasets/full_investments_{escape(estimation)}_estimation_{escape(class_grouping)}_class_grouping.json")["summed investments"]
+    
 
 
 @app.route("/company-composition/<class_grouping>/<estimation>/<query>")
