@@ -22,7 +22,7 @@ def listed_assets():
                 continue
             
 
-            holdings = None
+            holdings = []
 
             if row[6] == "Y":
                 
@@ -35,12 +35,17 @@ def listed_assets():
 
                         holdings = fundData["restricted assets"]
 
+
+                        # money_holdings = {}
+
+                        # for investment in holdings:
+
+
             output.append({
                 "Asset Name":row[0],
                 "Asset Type":row[1],
                 "Total Investment":row[2],
-                "UCRP Investment":row[3],
-                "GEP Investment":row[4],
+                "Funding Sources": [{"Source:":"UCRP Investment", "Ammount":row[3]},{"Source:":"GEP Investment", "Ammount":row[4]}],
                 "Holdings (restricted)":holdings
             })
     
