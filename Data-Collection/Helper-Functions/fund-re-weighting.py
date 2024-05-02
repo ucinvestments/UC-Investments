@@ -3,6 +3,7 @@ import pandas as pd
 from fuzzywuzzy import process, fuzz
 
 #reweighting function to make non ESG funds ESG empty
+#requires pruning all of the objects in csv that aren't fund info, this needs to be re-written to use the json spec
 
 
 directory = "Data-Collection/final-fund-holdings/pre-adjusted-funds/cleansed"
