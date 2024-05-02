@@ -3,11 +3,14 @@ import json
 import os 
 from flask import Flask
 from markupsafe import escape
-
+from flask_cors import CORS
 
 #run: flask --app backend-server/main run
 
-app = Flask(__name__)
+
+app = Flask(__name__) 
+CORS(app)
+
 
 
 
@@ -15,10 +18,12 @@ app = Flask(__name__)
 def listed_assets():
     
     output = []
+
     
     index = 0
     with open("final-datasets/listed_investments.csv", mode ='r') as file:
         csvFile = csv.reader(file)
+        print
         
         for row in csvFile:
             index += 1 
@@ -37,17 +42,17 @@ def listed_assets():
                         source = file_name.split('.')[0]
                         fundData = json.load(open(file_path))
 
-                        holdings = fundData["restricted assets"]
+                        # holdings = fundData["restricted assets"]
 
 
-                        money_holdings = []
+                        # money_holdings = []
 
-                        for investment in holdings:
-                            if investment["holding wt"] == '' or investment["holding wt"] == None:
-                                weight = 0
-                            else:
-                                weight = investment["holding wt"] 
-                            money_holdings.append({"security name": investment["security name"], "ammount invested": float(weight)*float(row[2])})
+                        # for investment in holdings:
+                        #     if investment["holding wt"] == '' or investment["holding wt"] == None:
+                        #         weight = 0
+                        #     else:
+                        #         weight = investment["holding wt"] 
+                        #     money_holdings.append({"security name": investment["security name"], "ammount invested": float(weight)*float(row[2])})
                             
 
 
@@ -55,8 +60,8 @@ def listed_assets():
                 "Asset Name":row[0],
                 "Asset Type":row[1],
                 "Total Investment":row[2],
-                "Funding Sources": [{"Source:":"UCRP Investment", "Ammount":row[3]},{"Source:":"GEP Investment", "Ammount":row[4]}],
-                "Holdings (restricted)":money_holdings
+                "Funding Sources": [{"Source:":"UCRP Investment", "Ammount":row[3]},{"Source:":"GEP Investment", "Ammount":row[4]}]
+                
             })
     
     return output
@@ -87,3 +92,6 @@ def composition_search(class_grouping,estimation,query):
     suggestions = suggestions[:10]
 
     return suggestions
+
+if __name__ == '__main__':
+    app.run()
