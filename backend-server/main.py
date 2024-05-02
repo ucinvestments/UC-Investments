@@ -8,7 +8,8 @@ from flask_cors import CORS
 #run: flask --app backend-server/main run
 
 
-app = Flask(__name__) CORS(app)
+app = Flask(__name__) 
+CORS(app)
 
 
 
