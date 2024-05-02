@@ -36,9 +36,15 @@ def listed_assets():
                         holdings = fundData["restricted assets"]
 
 
-                        # money_holdings = {}
+                        money_holdings = []
 
-                        # for investment in holdings:
+                        for investment in holdings:
+                            if investment["holding wt"] == '' or investment["holding wt"] == None:
+                                weight = 0
+                            else:
+                                weight = investment["holding wt"] 
+                            money_holdings.append({"security name": investment["security name"], "ammount invested": float(weight)*float(row[2])})
+                            
 
 
             output.append({
