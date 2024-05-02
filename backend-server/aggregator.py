@@ -2,6 +2,7 @@
 import os 
 import csv
 import json 
+import re
 
 from fuzzywuzzy import process, fuzz
 # def get_stock_ticker(api_key,company_name):
@@ -42,11 +43,12 @@ def parse_csv(csv_list, search, search_index, return_index):
 
     return None
 
-def aggregate(dir_path, all_fund_data_path, output_path, restrict):
+def aggregate(dir_path, all_fund_data_path, output_path, restrict, consolidate_voting_shares):
 
-    total_sum = 0
 
     total_investments = {"invesmtent names list":[], "summed investments":[], "unknown money":0}
+    total_sum = 0
+    total_upper_sum = 0
 
 
     for file_name in os.listdir(dir_path):
@@ -54,18 +56,19 @@ def aggregate(dir_path, all_fund_data_path, output_path, restrict):
             file_path = os.path.join(dir_path, file_name)
             source = file_name.split('.')[0]
 
-            print(source, len(total_investments["summed investments"]))
-
-            
-
-            with open(all_fund_data_path, mode ='r')as file:
+            with open(all_fund_data_path, mode ='r') as file:
                 csvFile = csv.reader(file)
 
                 money_in_fund = parse_csv(csvFile, source, 0, 2)
+              
                 if money_in_fund == None:
                     raise KeyError()
                 
+                total_upper_sum += int(money_in_fund)
+                
+                
                 fundData = json.load(open(file_path))
+                fundSum = 0 
 
                 if restrict == True:
                     holdings_list = fundData["restricted assets"]
@@ -76,15 +79,20 @@ def aggregate(dir_path, all_fund_data_path, output_path, restrict):
 
                     else:
                         holdings_list = fundData["non restricted assets"]
-
-
+                
+                
+                weightSum = 0
                 for investment in holdings_list:
-                    # if source == "ADAGE CAPITAL":
-                    #     print(investment)
-                    # print(investment)
-
+                    
                     securityName = investment["security name"].lower().replace('corporation', "corp").replace("incorporated", "inc")
-                    if investment["security name"] not in total_investments["invesmtent names list"]:
+                    
+                    
+                    securityName = re.sub(r'class (.*)', ' ', securityName)
+                    securityName = re.sub(r'cl (.*)', ' ', securityName)
+                    
+
+                   
+                    if securityName not in total_investments["invesmtent names list"]:
 
                         match = process.extractOne(securityName, total_investments["invesmtent names list"], scorer=fuzz.token_sort_ratio)
                         if match and match[1] >= 95:
@@ -116,21 +124,27 @@ def aggregate(dir_path, all_fund_data_path, output_path, restrict):
                     if holding_weight > 1: #fixes arrowstreet percents
                         holding_weight = holding_weight * .01
 
-                    
-
                     total_investments["summed investments"][index]["total investment"] += float(money_in_fund) * holding_weight
                     total_investments["summed investments"][index]["funding sources"].append({
                         "fund name:":source, 
                         "ammount_invested": float(money_in_fund) * holding_weight} )
                     total_sum += float(money_in_fund) * holding_weight
+                    fundSum += float(money_in_fund) * holding_weight
+                     
+                    weightSum += holding_weight
+                print(source, "Discrepancy between money in fund-fundsum:", int(money_in_fund)-fundSum)
+                print("FUND WEIGHT SUM", source, weightSum)
+
                 
 
+                
+    print("total disc",total_upper_sum-total_sum)
     with open(f"{output_path}FULLINVESTMENTS.json", 'w') as f:
-          print(f"{output_path}{source}.json")
+          
           json.dump(total_investments, f)     
 
-    print("total sum:", total_sum)
+    
 
 
 
-aggregate("Data-Collection/json-outputs", "Data-Collection/combined_investments - combined_investments.csv", "/Users/alexforman/Documents/GitHub/UC-Investments/backend-server/", "non restricted assets")
+aggregate("Data-Collection/json-outputs", "Data-Collection/combined_investments - combined_investments.csv", "/Users/alexforman/Documents/GitHub/UC-Investments/backend-server/", False, True)

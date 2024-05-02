@@ -4,19 +4,18 @@
         "apple inc",
         "nvidia corp",
         "amazon com inc",
-        "alphabet inc class a",
-        "meta platforms inc class a",
-        "alphabet inc class c",
+        "alphabet inc  ",
+        "meta platforms inc  ",
         "broadcom inc",
         "eli lilly",
         "taiwan semiconductor manufacturing",
         "jpmorgan chase & co",
-        "berkshire hathaway inc class b",
+        "berkshire hathaway inc  ",
         "tesla inc",
         "unitedhealth group inc",
-        "visa inc class a",
-        "novo nordisk class b",
-        "mastercard inc class a",
+        "visa inc  ",
+        "novo nordisk  ",
+        "mastercard inc  ",
         "procter & gamble",
         "asml holding nv",
         "johnson & johnson",
@@ -46,7 +45,7 @@
         "novartis ag",
         "mcdonalds corp",
         "cisco systems inc",
-        "accenture plc class a",
+        "accenture plc  ",
         "sap",
         "oracle corp",
         "abbott laboratories",
@@ -61,7 +60,7 @@
         "verizon communications inc",
         "hsbc holdings plc",
         "texas instrument inc",
-        "comcast corp class a",
+        "comcast corp  ",
         "alibaba group holding ltd",
         "international business machines co",
         "servicenow inc",
@@ -94,7 +93,7 @@
         "morgan stanley",
         "citigroup inc",
         "stryker corp",
-        "nike inc class b",
+        "nike inc  ",
         "blackrock inc",
         "allianz",
         "charles schwab corp",
@@ -102,7 +101,7 @@
         "loreal sa",
         "mitsubishi ufj financial group inc",
         "tjx inc",
-        "united parcel service inc class b",
+        "united parcel service inc  ",
         "deere",
         "toronto dominion",
         "medtronic plc",
@@ -124,7 +123,7 @@
         "boeing",
         "kla corp",
         "fiserv inc",
-        "mondelez international inc class a",
+        "mondelez international inc  ",
         "regeneron pharmaceuticals inc",
         "ubs group ag",
         "palo alto networks inc",
@@ -156,7 +155,7 @@
         "intercontinental exchange inc",
         "pdd holdings ads inc",
         "diageo plc",
-        "cme group inc class a",
+        "cme group inc  ",
         "safran sa",
         "duke energy corp",
         "iberdrola sa",
@@ -171,20 +170,20 @@
         "mckesson corp",
         "sherwin williams",
         "deutsche telekom n ag",
-        "zoetis inc class a",
+        "zoetis inc  ",
         "sumitomo mitsui financial group in",
-        "airbnb inc class a",
+        "airbnb inc  ",
         "freeport mcmoran inc",
         "sk hynix inc",
         "banco bilbao vizcaya argentaria sa",
-        "amphenol corp class a",
+        "amphenol corp  ",
         "schlumberger nv",
         "northrop grumman corp",
         "arista networks inc",
         "transdigm group inc",
         "parker-hannifin corp",
         "colgate-palmolive",
-        "crowdstrike holdings inc class a",
+        "crowdstrike holdings inc  ",
         "canadian national railway",
         "zurich insurance group ag",
         "equinix reit inc",
@@ -214,7 +213,7 @@
         "nxp semiconductors nv",
         "emerson electric",
         "general motors",
-        "marriott international inc class a",
+        "marriott international inc  ",
         "constellation energy corp",
         "essilorluxottica sa",
         "british american tobacco",
@@ -231,13 +230,13 @@
         "crh public limited plc",
         "motorola solutions inc",
         "westpac banking corp corp",
-        "aon plc class a",
+        "aon plc  ",
         "infosys ltd",
         "ing groep nv",
         "ecolab inc",
         "constellation software inc",
         "bank of nova scotia",
-        "brookfield corp class a",
+        "brookfield corp  ",
         "hilton worldwide holdings inc",
         "roper technologies inc",
         "capital one financial corp",
@@ -252,7 +251,7 @@
         "anz group holdings ltd",
         "anheuser-busch inbev sa",
         "hdfc bank ltd",
-        "workday inc class a",
+        "workday inc  ",
         "stellantis nv",
         "american international group inc",
         "air products and chemicals inc",
@@ -268,7 +267,7 @@
         "softbank group corp",
         "microchip technology inc",
         "ford motor co",
-        "atlas copco class a",
+        "atlas copco  ",
         "dbs group holdings ltd",
         "carrier global corp",
         "fast retailing ltd",
@@ -302,8 +301,8 @@
         "occidental petroleum corp",
         "lloyds banking group plc",
         "hess corp",
-        "snowflake class a",
-        "investor class b",
+        "snowflake  ",
+        "investor  ",
         "apollo global management inc",
         "allstate corp",
         "sempra",
@@ -324,20 +323,20 @@
         "nucor corp",
         "hong kong exchanges and clearing l",
         "republic services inc",
-        "constellation brands inc class a",
+        "constellation brands inc  ",
         "ww grainger inc",
         "ameriprise finance inc",
         "waste connections inc",
-        "palantir technologies inc class a",
+        "palantir technologies inc  ",
         "fortinet inc",
         "dominion energy inc",
         "takeda pharmaceutical ltd",
-        "block inc class a",
+        "block inc  ",
         "prudential financial inc",
         "al rajhi bank",
         "tata consultancy services ltd",
         "ge vernova inc",
-        "coinbase global inc class a",
+        "coinbase global inc  ",
         "hoya corp",
         "kddi corp",
         "agilent technologies inc",
@@ -352,7 +351,7 @@
         "idexx laboratories inc",
         "cia vale do rio doce sh",
         "monster beverage corp",
-        "volvo class b",
+        "volvo  ",
         "public storage reit",
         "petroleo brasileiro pref sa",
         "fastenal",
@@ -386,7 +385,7 @@
         "daikin industries ltd",
         "reckitt benckiser group plc",
         "cheniere energy inc",
-        "trade desk inc class a",
+        "trade desk inc  ",
         "nordea bank",
         "netease inc",
         "compagnie de saint gobain sa",
@@ -400,7 +399,7 @@
         "axis bank ltd",
         "ashtead group plc",
         "eur cash",
-        "datadog inc class a",
+        "datadog inc  ",
         "ingersoll rand inc",
         "exelon corp",
         "martin marietta materials inc",
@@ -411,18 +410,18 @@
         "ge healthcare technologies inc",
         "bmw ag",
         "asm international nv",
-        "vertiv holdings class a",
+        "vertiv holdings  ",
         "moderna inc",
         "gartner inc",
         "deutsche bank ag",
         "royal caribbean group ltd",
         "cdw corp",
-        "doordash inc class a",
-        "estee lauder inc class a",
+        "doordash inc  ",
+        "estee lauder inc  ",
         "vulcan materials",
         "cognizant technology solutions cor",
         "halliburton",
-        "jd.com class a inc",
+        "jd.com  ",
         "goodman group units",
         "xiaomi corp",
         "bank central asia",
@@ -440,7 +439,7 @@
         "verisk analytics inc",
         "monolithic power systems inc",
         "archer daniels midland",
-        "baker hughes class a",
+        "baker hughes  ",
         "pernod ricard sa",
         "dollar general corp",
         "kraft heinz",
@@ -450,13 +449,13 @@
         "swiss re ag",
         "flutter entertainment plc",
         "rockwell automation inc",
-        "veeva systems inc class a",
+        "veeva systems inc  ",
         "the saudi national bank",
         "xylem inc",
         "intact financial corp",
         "agnico eagle mines ltd",
         "on semiconductor corp",
-        "dell technologies inc class c",
+        "dell technologies inc  ",
         "smc (japan) corp",
         "engie sa",
         "hartford financial services group",
@@ -500,15 +499,15 @@
         "byd ltd h",
         "heineken nv",
         "vistra corp",
-        "baidu class a inc",
-        "atlassian corp class a",
+        "baidu  ",
+        "atlassian corp  ",
         "dsv",
         "fujitsu ltd",
         "michelin",
         "ebay inc",
         "united overseas bank ltd",
         "hershey foods",
-        "mongodb inc class a",
+        "mongodb inc  ",
         "mitsubishi heavy industries ltd",
         "gpo finance banorte",
         "stmicroelectronics nv",
@@ -523,7 +522,7 @@
         "advantest corp",
         "gbp cash",
         "canon inc",
-        "cbre group inc class a",
+        "cbre group inc  ",
         "howmet aerospace inc",
         "publicis groupe sa",
         "west pharmaceutical services inc",
@@ -538,7 +537,7 @@
         "vestas wind systems",
         "cardinal health inc",
         "sumitomo corp",
-        "cloudflare inc class a",
+        "cloudflare inc  ",
         "dollarama inc",
         "avalonbay communities reit inc",
         "nvr inc",
@@ -549,7 +548,7 @@
         "m&t bank corp",
         "wec energy group inc",
         "t rowe price group inc",
-        "charter communications inc class a",
+        "charter communications inc  ",
         "builders firstsource inc",
         "telefonica sa",
         "bridgestone corp",
@@ -578,10 +577,10 @@
         "corning inc",
         "ms&ad insurance group holdings inc",
         "netapp inc",
-        "sea ads representing ltd class a",
+        "sea ads representing ltd  ",
         "iron mountain inc",
         "daimler truck holding e ag",
-        "hexagon class b",
+        "hexagon  ",
         "mahindra and mahindra ltd",
         "steel dynamics inc",
         "fairfax financial holdings sub vot",
@@ -614,7 +613,7 @@
         "weyerhaeuser reit",
         "hubbell inc",
         "ptc inc",
-        "ares management corp class a",
+        "ares management corp  ",
         "eversource energy",
         "merck",
         "sse plc",
@@ -630,7 +629,6 @@
         "restaurants brands international i",
         "rwe ag",
         "saudi arabian oil",
-        "atlas copco class b",
         "huntington bancshares inc",
         "dte energy",
         "axon enterprise inc",
@@ -667,7 +665,7 @@
         "posco",
         "saudi basic industries",
         "omnicom group inc",
-        "hcl technologies ltd",
+        "h ",
         "illumina inc",
         "societe generale sa",
         "natwest group plc",
@@ -686,7 +684,7 @@
         "first citizens bancshares inc clas",
         "avery dennison corp",
         "baxter international inc",
-        "pinterest inc class a",
+        "pinterest inc  ",
         "principal financial group inc",
         "markel group inc",
         "expedia group inc",
@@ -714,7 +712,7 @@
         "state bank of india",
         "cboe global markets inc",
         "idex corp",
-        "godaddy inc class a",
+        "godaddy inc  ",
         "national bank of kuwait",
         "jacobs solutions inc",
         "united micro electronics corp",
@@ -735,7 +733,7 @@
         "waters corp",
         "marathon oil corp",
         "seagate technology holdings plc",
-        "draftkings inc class a",
+        "draftkings inc  ",
         "america movil b",
         "teledyne technologies inc",
         "ajinomoto inc",
@@ -760,7 +758,7 @@
         "firstrand ltd",
         "delta electronics (thailand) non-v",
         "skyworks solutions inc",
-        "tyson foods inc class a",
+        "tyson foods inc  ",
         "cms energy corp",
         "olympus corp",
         "suzuki motor corp",
@@ -780,7 +778,7 @@
         "emirates telecom",
         "ucb sa",
         "fubon financial holding ltd",
-        "epiroc class a",
+        "epiroc  ",
         "ventas reit inc",
         "siemens healthineers ag",
         "kubota corp",
@@ -815,10 +813,10 @@
         "snap on inc",
         "live nation entertainment inc",
         "commerzbank ag",
-        "okta inc class a",
+        "okta inc  ",
         "watsco inc",
         "titan company ltd",
-        "roblox corp class a",
+        "roblox corp  ",
         "akamai technologies inc",
         "conagra brands inc",
         "eqt corp",
@@ -833,7 +831,7 @@
         "transunion",
         "cf industries holdings inc",
         "teva pharmaceutical industries adr",
-        "zebra technologies corp class a",
+        "zebra technologies corp  ",
         "zoom video communications inc clas",
         "inpex corp",
         "central japan railway",
@@ -844,13 +842,13 @@
         "kellanova",
         "cathay financial holding ltd",
         "tourmaline oil corp",
-        "brown forman corp class b",
+        "brown forman corp  ",
         "carnival corp",
         "terna rete elettrica nazionale",
         "check point software technologies",
         "imperial oil ltd",
         "pentair",
-        "snap inc class a",
+        "snap inc  ",
         "tata steel ltd",
         "biomarin pharmaceutical inc",
         "alinma bank",
@@ -862,13 +860,13 @@
         "hana financial group inc",
         "china merchants bank ltd h",
         "avantor inc",
-        "li auto class a inc",
+        "li auto  ",
         "beiersdorf ag",
         "lg chem ltd",
         "sonova holding ag",
         "best buy co inc",
         "prysmian",
-        "essity class b",
+        "essity  ",
         "pandora",
         "vat group ag",
         "swisscom ag",
@@ -933,7 +931,7 @@
         "manhattan associates inc",
         "sgs sa",
         "nordson corp",
-        "applovin corp class a",
+        "applovin corp  ",
         "healthpeak properties inc",
         "resona holdings inc",
         "public bank",
@@ -952,7 +950,7 @@
         "japan exchange group inc",
         "novatek microelectronics corp",
         "rb global inc",
-        "carlsberg as cl b",
+        "carlsberg as  ",
         "svenska handelsbanken-a shs",
         "walgreen boots alliance inc",
         "mgm resorts international",
@@ -986,7 +984,7 @@
         "lamb weston holdings inc",
         "apa corp",
         "burlington stores inc",
-        "molson coors brewing class b",
+        "molson coors brewing  ",
         "kakao corp",
         "standard bank group",
         "aegon ltd",
@@ -1012,9 +1010,9 @@
         "heineken holding nv",
         "jm smucker",
         "arcelormittal sa",
-        "fox corp class a",
+        "fox corp  ",
         "mediobanca banca di credito finanz",
-        "bentley systems inc class b",
+        "bentley systems inc  ",
         "hyundai mobis ltd",
         "charles river laboratories interna",
         "xero ltd",
@@ -1044,7 +1042,7 @@
         "juniper networks inc",
         "origin energy ltd",
         "hindalco industries ltd",
-        "tradeweb markets inc class a",
+        "tradeweb markets inc  ",
         "computershare ltd",
         "sumitomo realty & development ltd",
         "unibail rodamco we stapled units",
@@ -1061,9 +1059,9 @@
         "yaskawa electric corp",
         "arc resources ltd",
         "link real estate investment trust",
-        "heico corp class a",
+        "heico corp  ",
         "international paper",
-        "american homes rent reit class a",
+        "american homes rent reit  ",
         "scentre group",
         "bid corp ltd",
         "galp energia sgps sa",
@@ -1091,13 +1089,12 @@
         "henry schein inc",
         "daiwa securities group inc",
         "tfi international inc",
-        "twilio inc class a",
+        "twilio inc  ",
         "carrefour sa",
         "galaxy entertainment group ltd",
         "kansai electric power inc",
         "fisher and paykel healthcare corpo",
         "emera inc",
-        "heico corp",
         "siemens energy n ag",
         "acs actividades de construccion y",
         "airports of thailand non-voting dr",
@@ -1113,13 +1110,13 @@
         "severn trent plc",
         "neste",
         "tech mahindra ltd",
-        "royalty pharma plc class a",
+        "royalty pharma plc  ",
         "wynn resorts ltd",
         "american financial group inc",
         "china shenhua energy ltd h",
         "lattice semiconductor corp",
         "be semiconductor industries nv",
-        "erie indemnity class a",
+        "erie indemnity  ",
         "tokyo electric power holdings inc",
         "nomura research institute ltd",
         "regency centers reit corp",
@@ -1134,7 +1131,7 @@
         "hang seng bank ltd",
         "china life insurance ltd h",
         "assurant inc",
-        "news corp class a",
+        "news corp  ",
         "asustek computer inc",
         "realtek semiconductor corp",
         "mosaic",
@@ -1171,13 +1168,13 @@
         "byd ltd a",
         "swiss prime site ag",
         "tokyo gas ltd",
-        "haier smart home class h ltd h",
+        "haier smart home  ",
         "ptt non-voting dr pcl",
         "qiagen nv",
         "insurance australia group ltd",
         "boston properties reit inc",
         "samsung fire & marine insurance lt",
-        "ccl industries inc class b",
+        "c ",
         "t&d holdings inc",
         "lear corp",
         "auto trader group plc",
@@ -1211,7 +1208,7 @@
         "asx ltd",
         "tata consumer products ltd",
         "cimb group holdings",
-        "stora enso class r",
+        "stora enso  ",
         "bajaj finserv ltd",
         "dayforce inc",
         "cipla ltd",
@@ -1241,7 +1238,7 @@
         "ecopro bm ltd",
         "great west lifeco inc",
         "recordati industria chimica e farm",
-        "ivanhoe mines ltd class a",
+        "ivanhoe mines ltd  ",
         "bank of ireland group plc",
         "suzano sa",
         "eicher motors ltd",
@@ -1286,7 +1283,7 @@
         "dkk cash",
         "tata power ltd",
         "dlf ltd",
-        "dropbox inc class a",
+        "dropbox inc  ",
         "sbi life insurance company ltd",
         "lundin mining corp",
         "henkel ag",
@@ -1316,7 +1313,7 @@
         "spark new zealand ltd",
         "geely automobile holdings ltd",
         "kt&g corp",
-        "lifco class b",
+        "lifco  ",
         "sodexo sa",
         "telus corp",
         "centrica plc",
@@ -1331,7 +1328,7 @@
         "sm prime holdings inc",
         "lg electronics inc",
         "caesars entertainment inc",
-        "robinhood markets inc class a",
+        "robinhood markets inc  ",
         "eurofins scientific",
         "midea group ltd a",
         "daito trust construction ltd",
@@ -1341,7 +1338,7 @@
         "e ink holdings inc",
         "ampol ltd",
         "astra international",
-        "toast inc class a",
+        "toast inc  ",
         "bangkok dusit medical services non",
         "akbank a",
         "rakuten group inc",
@@ -1350,7 +1347,7 @@
         "sainsbury(j) plc",
         "sinopac financial holdings ltd",
         "bmw pref ag",
-        "nibe industrier class b",
+        "nibe industrier  ",
         "paylocity holding corp",
         "wipro ltd",
         "dr sulaiman al habib medical grp",
@@ -1371,7 +1368,7 @@
         "continental ag",
         "land securities group reit plc",
         "wuliangye yibin ltd a",
-        "canadian utilities ltd class a",
+        "canadian utilities ltd  ",
         "pan american silver corp",
         "divis laboratories ltd",
         "wix.com ltd",
@@ -1384,7 +1381,7 @@
         "shimadzu corp",
         "turkiye petrol rafinerileri a",
         "interglobe aviation ltd",
-        "albertsons company inc class a",
+        "albertsons company inc  ",
         "evergreen marine corp (taiwan) ltd",
         "lite on technology corp",
         "cgn power ltd h",
@@ -1407,7 +1404,7 @@
         "cez",
         "airtac international group",
         "taiwan mobile ltd",
-        "uipath inc class a",
+        "uipath inc  ",
         "konami group corp",
         "wuxi biologics cayman inc",
         "enn energy holdings ltd",
@@ -1428,12 +1425,12 @@
         "britannia industries ltd",
         "petro rio sa",
         "scout24 n",
-        "beijer ref class b",
+        "beijer ref  ",
         "darling ingredients inc",
         "hero motocorp ltd",
         "companhia de saneamento basico de",
         "ia financial inc",
-        "roku inc class a",
+        "roku inc  ",
         "the lottery corp ltd",
         "toray industries inc",
         "smiths group plc",
@@ -1441,10 +1438,10 @@
         "cholamandalam investment and finan",
         "grupo financiero inbursa sries o",
         "ltimindtree ltd",
-        "zillow group inc class c",
+        "zillow group inc  ",
         "formosa chemicals & fibre corp",
         "sociedad quimica y minera de chile",
-        "bio rad laboratories inc class a",
+        "bio rad laboratories inc  ",
         "capitaland investment ltd",
         "dai nippon printing ltd",
         "sartorius stedim biotech sa",
@@ -1466,7 +1463,7 @@
         "zto express cayman adr representin",
         "hankyu hanshin holdings inc",
         "jardine matheson holdings ltd",
-        "canadian tire ltd class a",
+        "canadian tire ltd  ",
         "croda international plc",
         "bank aljazira",
         "eurobank holdings sa",
@@ -1508,12 +1505,12 @@
         "singapore airlines ltd",
         "capcom ltd",
         "mobile tel",
-        "samsara inc class a",
+        "samsara inc  ",
         "sar cash(committed)",
-        "rivian automotive inc class a",
-        "wise plc class a",
+        "rivian automotive inc  ",
+        "wise plc  ",
         "grupo aeroportuario del sureste b",
-        "hyatt hotels corp class a",
+        "hyatt hotels corp  ",
         "sk square ltd",
         "absa group ltd",
         "nemetschek",
@@ -1543,7 +1540,7 @@
         "endesa sa",
         "wh group ltd",
         "concordia financial group ltd",
-        "paramount global class b",
+        "paramount global  ",
         "unity software inc",
         "seiko epson corp",
         "adecco group ag",
@@ -1555,7 +1552,7 @@
         "indian oil corp ltd",
         "skanska b",
         "zalando",
-        "grab holdings ltd class a",
+        "grab holdings ltd  ",
         "kawasaki kisen ltd",
         "kintetsu group holdings ltd",
         "shanghai commercial ltd",
@@ -1565,7 +1562,7 @@
         "indian hotels ltd",
         "rea group ltd",
         "wanhua chemical group ltd a",
-        "confluent inc class a",
+        "confluent inc  ",
         "descartes systems group inc",
         "cosco shipping holdings ltd h",
         "lupin ltd",
@@ -1664,7 +1661,7 @@
         "doosan enerbility ltd",
         "reece ltd",
         "siam cement non-voting dr pcl",
-        "coca-cola femsa class ubl units",
+        "coca-cola femsa  ",
         "vibra energia sa",
         "sinopharm group ltd h",
         "securitas b",
@@ -1679,7 +1676,7 @@
         "japan real estate investment trust",
         "swedish orphan biovitrum",
         "agricultural bank of china ltd a",
-        "liberty global ltd class c",
+        "liberty global ltd  ",
         "carl zeiss meditec ag",
         "cummins india ltd",
         "a p moller maersk b",
@@ -1712,7 +1709,7 @@
         "ememory technology inc",
         "shizuoka financial group inc",
         "sk innovation ltd",
-        "kesko class b",
+        "kesko  ",
         "yankuang energy group company ltd",
         "harmony gold mining company limite",
         "helvetia holding ag",
@@ -1737,7 +1734,7 @@
         "korea aerospace industries ltd",
         "tim sa",
         "ayala land inc",
-        "fastighets balder class b",
+        "fastighets balder  ",
         "foxconn industrial internet ltd a",
         "samsung sds ltd",
         "st jamess place plc",
@@ -1745,7 +1742,7 @@
         "biomerieux sa",
         "brother industries ltd",
         "cg power and industrial solutions",
-        "icl group ltd",
+        "i ",
         "industrial bank ltd a",
         "temenos ag",
         "ultrapar participoes sa",
@@ -1765,7 +1762,7 @@
         "acer",
         "voltronic power technology corp",
         "korea electric power corp",
-        "sagax class b",
+        "sagax  ",
         "sasol ltd",
         "innolux corp",
         "sgd cash",
@@ -1791,12 +1788,12 @@
         "southwest airlines",
         "mcdonalds holdings (japan) ltd",
         "vedanta ltd",
-        "orion class b",
+        "orion  ",
         "sek cash",
         "xinyi solar holdings ltd",
         "edp renovaveis sa",
         "tobu railway ltd",
-        "xpeng class a inc",
+        "xpeng  ",
         "commercial bank of qatar",
         "hoshizaki corp",
         "yunnan baiyao group ltd a",
@@ -1836,7 +1833,7 @@
         "asia cement corp",
         "koc holding a",
         "asahi intecc ltd",
-        "latour investment class b",
+        "latour investment  ",
         "commercial international bank egyp",
         "bharat heavy electricals ltd",
         "kobe bussan ltd",
@@ -1879,7 +1876,7 @@
         "qantas airways ltd",
         "elia group sa",
         "meridian energy ltd",
-        "holmen class b",
+        "holmen  ",
         "scsk corp",
         "sunny optical technology ltd",
         "daqin railway ltd a",
@@ -1925,7 +1922,7 @@
         "hengli petrochemical ltd a",
         "lojas renner sa",
         "zozo inc",
-        "gcl technology holdings ltd",
+        "g ",
         "nestle malaysia",
         "shandong gold-mining ltd a",
         "turkiye is bankasi c",
@@ -1938,7 +1935,7 @@
         "china pacific insurance (group) lt",
         "turkiye sise ve cam fabrikalari a",
         "yang ming marine transport corp",
-        "lundbergforetagen class b",
+        "lundbergforetagen  ",
         "citic securities company ltd h",
         "zhuzhou crrc times electric ltd h",
         "china tourism group duty free corp",
@@ -1971,8 +1968,8 @@
         "huatai securities ltd h",
         "jiangxi copper ltd h",
         "hikma pharmaceuticals plc",
-        "empire ltd class a",
-        "grifols sa class a",
+        "empire ltd  ",
+        "grifols sa  ",
         "longfor group holdings ltd",
         "winbond electronics corp",
         "china longyuan power group corp lt",
@@ -2027,7 +2024,7 @@
         "ningxia baofeng energy group ltd a",
         "wpg holdings ltd",
         "qinghai salt lake industry ltd a",
-        "quebecor inc class b",
+        "quebecor inc  ",
         "yapi ve kredi bankasi a",
         "gd power development ltd a",
         "try cash",
@@ -2058,7 +2055,7 @@
         "nippon prologis reit inc",
         "oracle japan corp",
         "china feihe ltd",
-        "kimberly-clark de mexico class a",
+        "kimberly-clark de mexico  ",
         "beijing-shanghai high speed railwa",
         "bosideng international ltd",
         "genscript biotech corp",
@@ -2070,13 +2067,13 @@
         "guangdong haid group ltd a",
         "pharmaessentia corp",
         "azrieli group ltd",
-        "gulf energy development pcl non-vo",
+        "gulf energy development p ",
         "myr cash",
         "db insurance ltd",
         "hyundai motor s2 pref",
         "china resources mixc lifestyle ser",
         "mesaieed petrochemical holding",
-        "haitong securities ltd class a",
+        "haitong securities ltd  ",
         "xcmg construction machinery ltd a",
         "gedeon richter",
         "bank of baroda ltd",
@@ -2212,7 +2209,7 @@
         "falabella saci sa",
         "saudi research and media group",
         "shanghai electric group ltd a",
-        "volvo car class b",
+        "volvo car  ",
         "guangzhou automobile group ltd h",
         "zhejiang nhu ltd a",
         "tsingtao brewery ltd h",
@@ -2223,7 +2220,6 @@
         "new china life insurance company l",
         "tsingtao brewery ltd a",
         "shanghai pudong development bank l",
-        "tata motors ltd class a dvr",
         "semen indonesia (persero)",
         "engie brasil energia sa",
         "saudi investment bank",
@@ -2341,25 +2337,20 @@
         "china minsheng banking corp ltd h",
         "cop cash",
         "inter rao ees",
-        "meta platforms inc",
         "lilly (eli) & co.",
         "jpmorgan chase & co. (chemical bank)",
         "procter & gamble co. (oh) (1905)",
         "broadcom ltd. (avago technologies)",
-        "visa inc",
-        "mastercard inc",
         "conocophillips (phillips petroleum)",
         "home depot, inc. (the)",
         "emerson electric co.",
         "exxonmobil corp. (standard oil of new jersey)",
-        "royalty pharma plc",
         "honeywell international inc. (allied chemical and dye - allied signal)",
         "salesforce.com inc.",
         "pioneer natural resources co.",
         "adobe systems, inc.",
         "canadian pacific railway ltd. (2001)",
         "bank of america corp. (north carolina national bank)",
-        "accenture plc",
         "coca cola co.",
         "deere & co.",
         "costco co.",
@@ -2375,11 +2366,8 @@
         "johnson & johnson co.",
         "verizon communications (bell atlantic corp.)",
         "philip morris international inc",
-        "nike inc.",
-        "constellation brands, inc.",
         "s&p global inc. (mcgraw-hill inc.)",
         "general electric co",
-        "hubbell inc class b",
         "marsh & mclennan companies, inc.",
         "johnson controls international plc (tyco laboratories)",
         "3m co. (minnesota mining & manufacturing)",
@@ -2393,7 +2381,6 @@
         "topbuild corp",
         "raytheon technologies corp. (united technologies)",
         "antero resources corp",
-        "blackrock inc. class a",
         "enerplus corp",
         "ideaya biosciences inc",
         "eqt corp (equitable gas co.)",
@@ -2403,7 +2390,7 @@
         "ppl corp. (pennsylvania power & light)",
         "southern co.",
         "travelers companies, inc. (the) (st. paul fire and marine insurance)",
-        "lennar corp. class a",
+        "lennar corp.  ",
         "sitio royalties corp",
         "moonlake immunotherapeutics",
         "blackstone group inc",
@@ -2416,18 +2403,15 @@
         "cvs health corp. (melville shoe)",
         "northern oil and gas inc",
         "cabaletta bio, inc.",
-        "cme group inc",
         "soleno therapeutics inc",
         "structure therapeutics inc",
         "ionis phrmacutls",
         "altria group, inc. (philip morris)",
         "becton, dickinson and co.",
-        "marriott international inc/md",
         "azek company inc.",
-        "american tower corp., class a",
+        "american tower corp.,  ",
         "cymabay therapeutics inc",
         "liberty sirius xm group, series c",
-        "zoetis, inc.",
         "f5 networks inc",
         "freeport-mcmoran copper & gold, inc",
         "roivant sciences ltd",
@@ -2441,11 +2425,10 @@
         "immunovant inc",
         "splunk inc",
         "seadrill ltd.",
-        "liberty broadband corp class c",
+        "liberty broadband corp  ",
         "mettler-toledo international, inc.",
         "phillips 66",
         "amalgamated bank",
-        "airbnb, inc.",
         "federal realty investment trust",
         "u.s. bancorp (first national bank of cincinnati)",
         "marvell technology group ltd",
@@ -2471,7 +2454,7 @@
         "general mills co.",
         "united states steel corp.",
         "kalvista pharmaceuticals inc",
-        "cbre group inc common stock class a",
+        "cbre group inc common stock  ",
         "albertsons companies, inc.",
         "nucor corp. (nuclear corp. of america)",
         "argenx se ads adr",
@@ -2510,7 +2493,7 @@
         "extra space storage, inc.",
         "gentex corp.",
         "arvinas holding company llc",
-        "wayfair inc class a",
+        "wayfair inc  ",
         "gulfport energy corp",
         "equity residential",
         "flowserve corp",
@@ -2551,7 +2534,7 @@
         "warner bros.discovery inc",
         "scholar rock holding corp",
         "hershey company (the)",
-        "news inc. class a",
+        "news inc.  ",
         "host hotels& resorts inc",
         "tenet healthcare corp.",
         "acadia healthcare company inc.",
@@ -2585,7 +2568,6 @@
         "velocity financial, inc.",
         "teck resources ltd",
         "international flavors and fragrances, inc.",
-        "zebra technologies corp",
         "spdr metals & mining etf",
         "intra-cellular therapies inc",
         "chubb limited",
@@ -2596,12 +2578,12 @@
         "wesco international, inc",
         "mammoth energy services inc",
         "howmet aerospace inc. (aluminum co. of america - alcoa - arconic)",
-        "gcm grosvenor class a",
+        "gcm grosvenor  ",
         "aaon, inc",
         "targa resources inc",
         "veeco instruments, inc. (de)",
         "insmed inc",
-        "ralph lauren corp. class a",
+        "ralph lauren corp.  ",
         "arcellx inc",
         "an2 therapeutics inc",
         "liberty media corp.",
@@ -2646,7 +2628,6 @@
         "allete inc. (minnesota power and light - duluth edison electric)",
         "ipg photonics corp",
         "independent bank group inc",
-        "tyson foods, inc.",
         "sleep number corp",
         "knight transportation inc.",
         "apogee therapeutics inc.",
@@ -2692,7 +2673,6 @@
         "lexington realty trust",
         "mosaic company (the)",
         "cubesmart",
-        "dell technologies inc",
         "regency centers corp",
         "globus medical inc",
         "verastem inc",
@@ -2706,7 +2686,6 @@
         "smucker (j.m.) co.",
         "veru inc",
         "onemain holdings inc",
-        "smith (a.o.) corp., class b",
         "eldorado resorts inc",
         "williams cos. (the)",
         "saul centers inc",
@@ -2723,11 +2702,9 @@
         "shift4 payments, inc.",
         "adient plc",
         "10x genomics inc",
-        "pinterest inc",
         "nuvei corp",
         "doubleverify holdings inc",
         "newpark resource inc",
-        "confluent inc",
         "kroger co.",
         "atmos energy corp. (energas)",
         "metals acquisition limited",
@@ -2752,7 +2729,6 @@
         "smartsheet inc",
         "olema pharmaceuticals, inc.",
         "net power inc",
-        "paramount global",
         "american water works co inc",
         "terns pharmaceuticals inc",
         "vulcan materials company",
@@ -2764,10 +2740,9 @@
         "fate therapeutics inc",
         "five9 inc",
         "larimar therapeutics inc",
-        "block inc.",
         "clarivate plc",
         "toll brothers, inc.",
-        "manchester united ltd class a",
+        "manchester united ltd  ",
         "teva pharmaceutical industries ltd, adr",
         "sentinelone inc",
         "epsilon energy ltd",
@@ -2798,7 +2773,6 @@
         "sprinklr inc",
         "kimbell royalty partners lp units",
         "x4 pharmaceuticals ord shs",
-        "fox corp",
         "zoominfo technologies inc.",
         "camden property trust",
         "mobileye global inc",
@@ -2812,7 +2786,6 @@
         "international paper co.",
         "avadel pharmaceuticals plc",
         "borr drilling ltd",
-        "news inc. class b",
         "campbell soup co.",
         "united airlines holdings inc",
         "dt midstream inc",
@@ -2845,15 +2818,15 @@
         "acelyrin inc",
         "caribou biosciences inc",
         "excelerate energy inc",
-        "moog inc class a",
+        "moog inc  ",
         "molecular templates inc",
-        "u-haul holding company class b",
+        "u-haul holding company  ",
         "curevac n.v.",
         "fidelis insurance holdings ltd.",
         "opal fuels inc",
         "bjs wholesale club holdings inc",
         "propetro holding corp",
-        "spirit aerosystems holdings inc. class a",
+        "spirit aerosystems holdings inc.  ",
         "energy recovery inc",
         "taysha gene therapies, inc.",
         "immuneering corp",
@@ -2906,7 +2879,7 @@
         "patria latin american opportunity acquisition corp",
         "blueriver acquisition corp",
         "pearl holdings acquisition corp",
-        "sdcl edge acquisition corp",
+        "sd ",
         "spree acquisition corp 1 ltd",
         "altenergy acquisition corp",
         "nuvation bio inc",
@@ -2923,10 +2896,10 @@
         "jaws mustang acquisition corp",
         "spectaire holdings inc",
         "montana technologies corp.",
-        "houlihan lokey, inc. class a ",
+        "houlihan lokey, inc.  ",
         "parsons corp ",
         "franklin electric co., inc. ",
-        "casella waste systems, inc. class a ",
+        "casella waste systems, inc.  ",
         "formfactor, inc. ",
         "onespaworld holdings, ltd.",
         "lindblad expeditions holdings, inc.",
@@ -2936,11 +2909,11 @@
         "knowles corp",
         "boyd gaming corp",
         "madison square garden sports corp",
-        "manchester united plc, class a",
+        "manchester united plc,  ",
         "adtalem global education, inc.",
         "mgp ingredients, inc.",
         "core laboratories, inc.",
-        "lazard, inc., class a",
+        "lazard, inc.,  ",
         "first american financial corp",
         "affiliated managers group, inc.",
         "bok financial corp",
@@ -2957,7 +2930,7 @@
         "adt, inc.",
         "nvent electric plc",
         "simpson manufacturing company, inc.",
-        "brady corp, class a",
+        "brady corp,  ",
         "dun & bradstreet holdings, inc.",
         "the hackett group, inc.",
         "stericycle, inc.",
@@ -3028,7 +3001,6 @@
         "bristol-myers squibb company",
         "cigna group",
         "deere & company",
-        "american tower corp",
         "sherwin-williams company",
         "colgate-palmolive company",
         "southern company",
@@ -3042,15 +3014,10 @@
         "3m company",
         "ford motor company",
         "public storage",
-        "msci inc. class a",
         "williams companies inc.",
         "fastenal company",
-        "cognizant technology solutions corp class a",
         "newmont corp",
-        "estee lauder companies inc. class a",
-        "kinder morgan inc class p",
         "willis towers watson public limited company",
-        "baker hughes company class a",
         "kraft heinz company",
         "hartford financial services group inc.",
         "tractor supply company",
@@ -3061,7 +3028,6 @@
         "westinghouse air brake technologies corp",
         "steris plc",
         "american water works company inc.",
-        "sba communications corp. class a",
         "genuine parts company",
         "dte energy company",
         "fleetcor technologies inc.",
@@ -3074,9 +3040,10 @@
         "domino's pizza inc.",
         "mid-america apartment communities inc.",
         "j.m. smucker company",
+        "universal health services inc.  ",
         "eastman chemical company",
         "bath & body works inc.",
-        "molson coors beverage company class b",
+        "molson coors beverage company  ",
         "allegion public limited company",
         "westrock company",
         "international paper company",
@@ -3092,16 +3059,9 @@
         "whirlpool corp",
         "zions bancorp n.a.",
         "v.f. corp",
-        "fox corp class b",
-        "news corp class b",
-        "visa inc class a shares",
         "mastercard inc  a",
-        "alphabet inc cl a",
-        "alphabet inc cl c",
-        "accenture plc cl a",
         "exxon mobil corp",
         "coca cola co/the",
-        "amphenol corp cl a",
         "procter + gamble co/the",
         "intl business machines corp",
         "chevron corp",
@@ -3112,21 +3072,19 @@
         "travelers cos inc/the",
         "marsh + mclennan cos",
         "hershey co/the",
-        "united parcel service cl b",
+        "united parcel service  ",
         "cognizant tech solutions a",
-        "nike inc cl b",
         "bristol myers squibb co",
         "cdw corp/de",
         "3m co",
         "illinois tool works",
-        "mondelez international inc a",
         "the cigna group",
         "cadence design sys inc",
         "american electric power",
         "expeditors intl wash inc",
         "lowe s cos inc",
         "dr horton inc",
-        "erie indemnity company cl a",
+        "erie indemnity company  ",
         "state street institutional liq",
         "conocophillips",
         "booz allen hamilton holdings",
@@ -3143,10 +3101,9 @@
         "eog resources inc",
         "broadridge financial solutio",
         "west pharmaceutical services",
-        "tyson foods inc cl a",
         "omnicom group",
         "citizens financial group",
-        "lyondellbasell indu cl a",
+        "lyondellbasell indu  ",
         "altria group inc",
         "dick s sporting goods inc",
         "johnson controls internation",
@@ -3154,7 +3111,6 @@
         "hunt (jb) transprt svcs inc",
         "fidelity national info serv",
         "constellation energy",
-        "charter communications inc a",
         "baker hughes co",
         "ge healthcare technology",
         "cbre group inc  a",
@@ -3162,7 +3118,7 @@
         "kkr + co inc",
         "sherwin williams co/the",
         "laboratory crp of amer hldgs",
-        "albertsons cos inc  class a",
+        "albertsons cos inc   ",
         "mosaic co/the",
         "weyerhaeuser co",
         "toro co",
@@ -3172,16 +3128,15 @@
         "alexandria real estate equit",
         "sei investments company",
         "us dollar",
-        "estee lauder companies cl a",
+        "estee lauder companies  ",
         "fidelity national financial",
         "boeing co/the",
         "halliburton co",
         "universal health services b",
-        "liberty global ltd c",
         "martin marietta materials",
         "on semiconductor",
         "cnh industrial nv",
-        "first citizens bcshs  cl a",
+        "first citizens bcshs   ",
         "carlyle group inc/the",
         "molson coors beverage co  b",
         "vulcan materials co",
@@ -3194,13 +3149,12 @@
         "carlisle cos inc",
         "annaly capital management in",
         "knight swift transportation",
-        "marriott international cl a",
+        "marriott international  ",
         "wp carey inc",
         "bio rad laboratories a",
         "take two interactive softwre",
         "charles river laboratories",
         "mid america apartment comm",
-        "royalty pharma plc cl a",
         "mettler toledo international",
         "zoom video communications a",
         "u haul holding co non voting",
@@ -3209,27 +3163,14 @@
         "doordash inc  a",
         "liberty broadband c",
         "gaming and leisure propertie",
-        "ares management corp  a",
         "liberty media corp lib new c",
-        "robinhood markets inc  a",
-        "okta inc",
         "zillow group inc  c",
-        "rivian automotive inc a",
         "equity lifestyle properties",
-        "trade desk inc/the class a",
-        "snowflake inc class a",
+        "trade desk inc/the  ",
         "snap inc  a",
-        "crowdstrike holdings inc  a",
-        "palantir technologies inc a",
-        "roku inc",
-        "draftkings inc cl a",
-        "hyatt hotels corp  cl a",
-        "atlassian corp cl a",
-        "mongodb inc",
         "pinnacle west capital",
         "norwegian cruise line holdin",
         "federal realty invs trust",
-        "ralph lauren corp",
         "contra abiomed inc",
         "s+p500 emini fut jun24",
         "totalenergies se",
@@ -3358,20 +3299,52 @@
             ]
         },
         {
-            "asset": "alphabet inc class a",
-            "total investment": 769095443.3925853,
+            "asset": "alphabet inc  ",
+            "total investment": 1644319400.1885753,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 524032531.93452215
                 },
                 {
+                    "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
+                    "ammount_invested": 463490398.42036045
+                },
+                {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 18779304.942912802
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 15655428.3144011
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 122517436.08265026
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 104016703.9075624
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 3570507.0030713603
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 3330629.8810312
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 86595817.56931472
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 73263061.2591488
+                },
+                {
+                    "fund name:": "HIMALAYA CAPITAL INVESTMENT",
+                    "ammount_invested": 125301410.4411
                 },
                 {
                     "fund name:": "HIMALAYA CAPITAL INVESTMENT",
@@ -3380,12 +3353,16 @@
             ]
         },
         {
-            "asset": "meta platforms inc class a",
-            "total investment": 759192308.2264801,
+            "asset": "meta platforms inc  ",
+            "total investment": 854835854.3149754,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 506442608.69380647
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 18083196.910895202
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
@@ -3398,28 +3375,10 @@
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 84177877.11272441
-                }
-            ]
-        },
-        {
-            "asset": "alphabet inc class c",
-            "total investment": 708463941.083424,
-            "funding sources": [
-                {
-                    "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
-                    "ammount_invested": 463490398.42036045
                 },
                 {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 15655428.3144011
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 104016703.9075624
-                },
-                {
-                    "fund name:": "HIMALAYA CAPITAL INVESTMENT",
-                    "ammount_invested": 125301410.4411
+                    "fund name:": "ARROWSTREET GLOBAL 130\u201030",
+                    "ammount_invested": 77560349.1776
                 }
             ]
         },
@@ -3492,7 +3451,7 @@
             ]
         },
         {
-            "asset": "berkshire hathaway inc class b",
+            "asset": "berkshire hathaway inc  ",
             "total investment": 556241746.8505733,
             "funding sources": [
                 {
@@ -3549,7 +3508,7 @@
         },
         {
             "asset": "unitedhealth group inc",
-            "total investment": 1386661963.472571,
+            "total investment": 359112492.3045961,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
@@ -3557,7 +3516,7 @@
                 },
                 {
                     "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 1037928758.75553
+                    "ammount_invested": 10379287.5875553
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
@@ -3574,21 +3533,33 @@
             ]
         },
         {
-            "asset": "visa inc class a",
-            "total investment": 291971304.93016845,
+            "asset": "visa inc  ",
+            "total investment": 343923715.16743565,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 224955553.83828247
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 9551075.14866998
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 67015751.09188596
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 4374322.66909176
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 38027012.419505455
                 }
             ]
         },
         {
-            "asset": "novo nordisk class b",
+            "asset": "novo nordisk  ",
             "total investment": 211977359.69708568,
             "funding sources": [
                 {
@@ -3598,16 +3569,24 @@
             ]
         },
         {
-            "asset": "mastercard inc class a",
-            "total investment": 257530980.80735332,
+            "asset": "mastercard inc  ",
+            "total investment": 298407557.4665451,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 198539223.81203848
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 9190336.44639173
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 58991756.99531485
+                },
+                {
+                    "fund name:": "ARROWSTREET GLOBAL 130\u201030",
+                    "ammount_invested": 31686240.2128
                 }
             ]
         },
@@ -4126,16 +4105,28 @@
             ]
         },
         {
-            "asset": "accenture plc class a",
-            "total investment": 134918562.29567337,
+            "asset": "accenture plc  ",
+            "total investment": 159456728.1242275,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 100019057.14460346
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 5069271.28678991
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 34899505.15106991
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 2634041.7178768003
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 16834852.82388743
                 }
             ]
         },
@@ -4416,7 +4407,7 @@
             ]
         },
         {
-            "asset": "comcast corp class a",
+            "asset": "comcast corp  ",
             "total investment": 125344488.69287297,
             "funding sources": [
                 {
@@ -5078,26 +5069,42 @@
             ]
         },
         {
-            "asset": "nike inc class b",
-            "total investment": 77565313.78510152,
+            "asset": "nike inc  ",
+            "total investment": 91831123.94080436,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 58622615.80268794
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 3273510.00907485
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 18942697.98241357
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 865964.77708224
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 10126335.369545761
                 }
             ]
         },
         {
             "asset": "blackrock inc",
-            "total investment": 85276737.45176013,
+            "total investment": 87773600.28052193,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 58099736.08336951
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 2496862.8287618104
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
@@ -5194,7 +5201,7 @@
             ]
         },
         {
-            "asset": "united parcel service inc class b",
+            "asset": "united parcel service inc  ",
             "total investment": 73075397.75010507,
             "funding sources": [
                 {
@@ -5562,8 +5569,8 @@
             ]
         },
         {
-            "asset": "mondelez international inc class a",
-            "total investment": 63027675.45554374,
+            "asset": "mondelez international inc  ",
+            "total investment": 72223165.82981001,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
@@ -5572,6 +5579,14 @@
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 14627329.005184589
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 642097.4394300401
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 8553392.934836222
                 }
             ]
         },
@@ -6046,16 +6061,28 @@
             ]
         },
         {
-            "asset": "cme group inc class a",
-            "total investment": 50330518.89865949,
+            "asset": "cme group inc  ",
+            "total investment": 59332346.796284825,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 38777256.466535114
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 1743702.40691691
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 11553262.432124376
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 549644.9036452
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 6708480.587063224
                 }
             ]
         },
@@ -6248,16 +6275,28 @@
             ]
         },
         {
-            "asset": "zoetis inc class a",
-            "total investment": 50745921.44474818,
+            "asset": "zoetis inc  ",
+            "total investment": 59203126.77461228,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 37376008.180457786
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 1444906.2993083
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 13369913.264290396
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 521556.58996848005
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 6490742.440587317
                 }
             ]
         },
@@ -6272,12 +6311,16 @@
             ]
         },
         {
-            "asset": "airbnb inc class a",
-            "total investment": 53483984.842653975,
+            "asset": "airbnb inc  ",
+            "total investment": 54732628.62508555,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 36745348.15862448
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 1248643.78243157
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
@@ -6336,8 +6379,8 @@
             ]
         },
         {
-            "asset": "amphenol corp class a",
-            "total investment": 45630546.35875205,
+            "asset": "amphenol corp  ",
+            "total investment": 54086354.6385493,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
@@ -6346,6 +6389,14 @@
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 9489540.436835283
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 1937599.71677096
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 6518208.563026286
                 }
             ]
         },
@@ -6474,12 +6525,16 @@
             ]
         },
         {
-            "asset": "crowdstrike holdings inc class a",
-            "total investment": 35538827.53106372,
+            "asset": "crowdstrike holdings inc  ",
+            "total investment": 35546201.15441004,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 35538827.53106372
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 7373.623346320001
                 }
             ]
         },
@@ -6938,12 +6993,16 @@
             ]
         },
         {
-            "asset": "marriott international inc class a",
-            "total investment": 40369669.86309913,
+            "asset": "marriott international inc  ",
+            "total investment": 41916363.59512346,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 31260327.442808818
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 1546693.7320243302
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
@@ -7172,7 +7231,7 @@
             ]
         },
         {
-            "asset": "aon plc class a",
+            "asset": "aon plc  ",
             "total investment": 43986780.92363068,
             "funding sources": [
                 {
@@ -7260,7 +7319,7 @@
             ]
         },
         {
-            "asset": "brookfield corp class a",
+            "asset": "brookfield corp  ",
             "total investment": 28502222.134111583,
             "funding sources": [
                 {
@@ -7502,7 +7561,7 @@
             ]
         },
         {
-            "asset": "workday inc class a",
+            "asset": "workday inc  ",
             "total investment": 26586479.601020448,
             "funding sources": [
                 {
@@ -7738,12 +7797,16 @@
             ]
         },
         {
-            "asset": "atlas copco class a",
-            "total investment": 25433854.92385871,
+            "asset": "atlas copco  ",
+            "total investment": 36198382.46622758,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 25433854.92385871
+                },
+                {
+                    "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
+                    "ammount_invested": 10764527.542368874
                 }
             ]
         },
@@ -8278,7 +8341,7 @@
             ]
         },
         {
-            "asset": "snowflake class a",
+            "asset": "snowflake  ",
             "total investment": 22623259.153259024,
             "funding sources": [
                 {
@@ -8288,7 +8351,7 @@
             ]
         },
         {
-            "asset": "investor class b",
+            "asset": "investor  ",
             "total investment": 22616206.55701449,
             "funding sources": [
                 {
@@ -8594,16 +8657,28 @@
             ]
         },
         {
-            "asset": "constellation brands inc class a",
-            "total investment": 27764605.70604829,
+            "asset": "constellation brands inc  ",
+            "total investment": 34814106.9567324,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 21867572.05723229
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 3270950.1131127803
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 5897033.648816002
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 47951.23206896
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 3730599.9055023687
                 }
             ]
         },
@@ -8654,12 +8729,16 @@
             ]
         },
         {
-            "asset": "palantir technologies inc class a",
-            "total investment": 21564686.06906076,
+            "asset": "palantir technologies inc  ",
+            "total investment": 21571994.171488762,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 21564686.06906076
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 7308.102428
                 }
             ]
         },
@@ -8722,12 +8801,20 @@
             ]
         },
         {
-            "asset": "block inc class a",
-            "total investment": 21294432.497840323,
+            "asset": "block inc  ",
+            "total investment": 21498722.273629125,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 21294432.497840323
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 137380.318007484
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 66909.45778132
                 }
             ]
         },
@@ -8792,7 +8879,7 @@
             ]
         },
         {
-            "asset": "coinbase global inc class a",
+            "asset": "coinbase global inc  ",
             "total investment": 21191125.614974,
             "funding sources": [
                 {
@@ -9054,7 +9141,7 @@
             ]
         },
         {
-            "asset": "volvo class b",
+            "asset": "volvo  ",
             "total investment": 20660561.43830248,
             "funding sources": [
                 {
@@ -9105,7 +9192,7 @@
         },
         {
             "asset": "msci inc",
-            "total investment": 24844262.303694267,
+            "total investment": 31625930.927098174,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
@@ -9114,6 +9201,10 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 1028756.75483762
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 6781668.623403906
                 },
                 {
                     "fund name:": "SPDR MSCI",
@@ -9233,11 +9324,15 @@
         },
         {
             "asset": "kinder morgan inc",
-            "total investment": 23557707.97040356,
+            "total investment": 28637884.965778254,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 20242640.625571657
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 5080176.995374695
                 },
                 {
                     "fund name:": "SPDR MSCI",
@@ -9582,7 +9677,7 @@
             ]
         },
         {
-            "asset": "trade desk inc class a",
+            "asset": "trade desk inc  ",
             "total investment": 19229465.56565911,
             "funding sources": [
                 {
@@ -9794,7 +9889,7 @@
             ]
         },
         {
-            "asset": "datadog inc class a",
+            "asset": "datadog inc  ",
             "total investment": 18580222.119603164,
             "funding sources": [
                 {
@@ -9960,7 +10055,7 @@
             ]
         },
         {
-            "asset": "vertiv holdings class a",
+            "asset": "vertiv holdings  ",
             "total investment": 17892545.914033473,
             "funding sources": [
                 {
@@ -10060,7 +10155,7 @@
             ]
         },
         {
-            "asset": "doordash inc class a",
+            "asset": "doordash inc  ",
             "total investment": 17416980.776089888,
             "funding sources": [
                 {
@@ -10070,7 +10165,7 @@
             ]
         },
         {
-            "asset": "estee lauder inc class a",
+            "asset": "estee lauder inc  ",
             "total investment": 17404084.284788247,
             "funding sources": [
                 {
@@ -10091,7 +10186,7 @@
         },
         {
             "asset": "cognizant technology solutions cor",
-            "total investment": 18246220.585621633,
+            "total investment": 23966902.715831675,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
@@ -10100,6 +10195,10 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 871157.850471419
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 5720682.130210043
                 }
             ]
         },
@@ -10114,7 +10213,7 @@
             ]
         },
         {
-            "asset": "jd.com class a inc",
+            "asset": "jd.com  ",
             "total investment": 17304642.40730235,
             "funding sources": [
                 {
@@ -10410,7 +10509,7 @@
             ]
         },
         {
-            "asset": "baker hughes class a",
+            "asset": "baker hughes  ",
             "total investment": 16297755.401314702,
             "funding sources": [
                 {
@@ -10586,7 +10685,7 @@
             ]
         },
         {
-            "asset": "veeva systems inc class a",
+            "asset": "veeva systems inc  ",
             "total investment": 16088696.694688141,
             "funding sources": [
                 {
@@ -10674,12 +10773,16 @@
             ]
         },
         {
-            "asset": "dell technologies inc class c",
-            "total investment": 15619098.792143213,
+            "asset": "dell technologies inc  ",
+            "total investment": 15881783.1476555,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 15619098.792143213
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 262684.355512288
                 }
             ]
         },
@@ -11230,7 +11333,7 @@
             ]
         },
         {
-            "asset": "baidu class a inc",
+            "asset": "baidu  ",
             "total investment": 14235025.861011032,
             "funding sources": [
                 {
@@ -11240,12 +11343,16 @@
             ]
         },
         {
-            "asset": "atlassian corp class a",
-            "total investment": 14216623.543946216,
+            "asset": "atlassian corp  ",
+            "total investment": 14217581.157367816,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 14216623.543946216
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 957.6134216
                 }
             ]
         },
@@ -11326,12 +11433,16 @@
             ]
         },
         {
-            "asset": "mongodb inc class a",
-            "total investment": 14003712.88882192,
+            "asset": "mongodb inc  ",
+            "total investment": 14004085.85404928,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 14003712.88882192
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 372.96522736000003
                 }
             ]
         },
@@ -11492,7 +11603,7 @@
             ]
         },
         {
-            "asset": "cbre group inc class a",
+            "asset": "cbre group inc  ",
             "total investment": 17858823.02088178,
             "funding sources": [
                 {
@@ -11758,7 +11869,7 @@
             ]
         },
         {
-            "asset": "cloudflare inc class a",
+            "asset": "cloudflare inc  ",
             "total investment": 13244503.333468689,
             "funding sources": [
                 {
@@ -11932,8 +12043,8 @@
             ]
         },
         {
-            "asset": "charter communications inc class a",
-            "total investment": 17334563.97197757,
+            "asset": "charter communications inc  ",
+            "total investment": 19704472.82392292,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
@@ -11942,6 +12053,14 @@
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 4494597.877393054
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 101207.13848652
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 2268701.7134588324
                 }
             ]
         },
@@ -12342,7 +12461,7 @@
             ]
         },
         {
-            "asset": "sea ads representing ltd class a",
+            "asset": "sea ads representing ltd  ",
             "total investment": 12058704.284506181,
             "funding sources": [
                 {
@@ -12388,7 +12507,7 @@
             ]
         },
         {
-            "asset": "hexagon class b",
+            "asset": "hexagon  ",
             "total investment": 11952520.534168957,
             "funding sources": [
                 {
@@ -12583,11 +12702,15 @@
         },
         {
             "asset": "tata motors ltd",
-            "total investment": 11410350.01989843,
+            "total investment": 12278830.419605214,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 11410350.01989843
+                },
+                {
+                    "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
+                    "ammount_invested": 868480.399706785
                 }
             ]
         },
@@ -12827,11 +12950,15 @@
         },
         {
             "asset": "hubbell inc",
-            "total investment": 16334117.914373638,
+            "total investment": 19308475.95586309,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 11130698.227133317
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 2974358.0414894503
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
@@ -12874,12 +13001,16 @@
             ]
         },
         {
-            "asset": "ares management corp class a",
-            "total investment": 11064642.749826169,
+            "asset": "ares management corp  ",
+            "total investment": 11081539.58664677,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 11064642.749826169
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 16896.8368206
                 }
             ]
         },
@@ -13078,16 +13209,6 @@
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 10773635.620012255
-                }
-            ]
-        },
-        {
-            "asset": "atlas copco class b",
-            "total investment": 10764527.542368874,
-            "funding sources": [
-                {
-                    "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
-                    "ammount_invested": 10764527.542368874
                 }
             ]
         },
@@ -13600,7 +13721,7 @@
             ]
         },
         {
-            "asset": "hcl technologies ltd",
+            "asset": "h ",
             "total investment": 10078484.886579195,
             "funding sources": [
                 {
@@ -13866,12 +13987,16 @@
             ]
         },
         {
-            "asset": "pinterest inc class a",
-            "total investment": 9798148.59727723,
+            "asset": "pinterest inc  ",
+            "total investment": 9995507.392469555,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 9787173.84345863
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 197358.795192325
                 },
                 {
                     "fund name:": "SPDR MSCI",
@@ -14294,7 +14419,7 @@
             ]
         },
         {
-            "asset": "godaddy inc class a",
+            "asset": "godaddy inc  ",
             "total investment": 9800783.961237669,
             "funding sources": [
                 {
@@ -14620,12 +14745,16 @@
             ]
         },
         {
-            "asset": "draftkings inc class a",
-            "total investment": 8881113.146223772,
+            "asset": "draftkings inc  ",
+            "total investment": 8884835.238391412,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 8881113.146223772
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 3722.09216764
                 }
             ]
         },
@@ -14946,16 +15075,28 @@
             ]
         },
         {
-            "asset": "tyson foods inc class a",
-            "total investment": 10792571.8646065,
+            "asset": "tyson foods inc  ",
+            "total investment": 12900496.388615705,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 8633896.277899768
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 352653.793192663
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 2158675.5867067305
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 179489.515667
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 1575781.2151495432
                 }
             ]
         },
@@ -15178,7 +15319,7 @@
             ]
         },
         {
-            "asset": "epiroc class a",
+            "asset": "epiroc  ",
             "total investment": 8337321.154349247,
             "funding sources": [
                 {
@@ -15676,12 +15817,16 @@
             ]
         },
         {
-            "asset": "okta inc class a",
-            "total investment": 7927340.6222714195,
+            "asset": "okta inc  ",
+            "total investment": 7942594.39606338,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 7927340.6222714195
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 15253.77379196
                 }
             ]
         },
@@ -15710,7 +15855,7 @@
             ]
         },
         {
-            "asset": "roblox corp class a",
+            "asset": "roblox corp  ",
             "total investment": 7883398.628615449,
             "funding sources": [
                 {
@@ -15960,12 +16105,16 @@
             ]
         },
         {
-            "asset": "zebra technologies corp class a",
-            "total investment": 11242450.50721771,
+            "asset": "zebra technologies corp  ",
+            "total investment": 11711151.386777002,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 7728040.964285333
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 468700.879559291
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
@@ -16094,7 +16243,7 @@
             ]
         },
         {
-            "asset": "brown forman corp class b",
+            "asset": "brown forman corp  ",
             "total investment": 10311233.588076133,
             "funding sources": [
                 {
@@ -16186,7 +16335,7 @@
             ]
         },
         {
-            "asset": "snap inc class a",
+            "asset": "snap inc  ",
             "total investment": 7555221.332364411,
             "funding sources": [
                 {
@@ -16346,7 +16495,7 @@
             ]
         },
         {
-            "asset": "li auto class a inc",
+            "asset": "li auto  ",
             "total investment": 7438900.464271819,
             "funding sources": [
                 {
@@ -16422,7 +16571,7 @@
             ]
         },
         {
-            "asset": "essity class b",
+            "asset": "essity  ",
             "total investment": 7374602.447911024,
             "funding sources": [
                 {
@@ -17248,7 +17397,7 @@
             ]
         },
         {
-            "asset": "applovin corp class a",
+            "asset": "applovin corp  ",
             "total investment": 6730509.586566579,
             "funding sources": [
                 {
@@ -17494,7 +17643,7 @@
             ]
         },
         {
-            "asset": "carlsberg as cl b",
+            "asset": "carlsberg as  ",
             "total investment": 6547592.754904922,
             "funding sources": [
                 {
@@ -17990,7 +18139,7 @@
             ]
         },
         {
-            "asset": "molson coors brewing class b",
+            "asset": "molson coors brewing  ",
             "total investment": 6145869.66569911,
             "funding sources": [
                 {
@@ -18282,8 +18431,8 @@
             ]
         },
         {
-            "asset": "fox corp class a",
-            "total investment": 8077009.387001624,
+            "asset": "fox corp  ",
+            "total investment": 9286563.381984517,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
@@ -18294,8 +18443,20 @@
                     "ammount_invested": 168713.214996139
                 },
                 {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 83914.0783979
+                },
+                {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 1288363.5780969763
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 689612.4467604292
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 59059.54775952
                 },
                 {
                     "fund name:": "SPDR MSCI",
@@ -18304,6 +18465,10 @@
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 687501.008378379
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 376967.92206504324
                 }
             ]
         },
@@ -18318,7 +18483,7 @@
             ]
         },
         {
-            "asset": "bentley systems inc class b",
+            "asset": "bentley systems inc  ",
             "total investment": 5873849.677556728,
             "funding sources": [
                 {
@@ -18363,11 +18528,15 @@
         },
         {
             "asset": "a o smith corp",
-            "total investment": 8309041.918356615,
+            "total investment": 8541932.758263718,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 5843770.160628472
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 232890.839907102
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
@@ -18605,15 +18774,11 @@
         },
         {
             "asset": "universal health services inc clas",
-            "total investment": 7468344.164380474,
+            "total investment": 5665121.112818966,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 5665121.112818966
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 1803223.0515615083
                 }
             ]
         },
@@ -18706,7 +18871,7 @@
             ]
         },
         {
-            "asset": "tradeweb markets inc class a",
+            "asset": "tradeweb markets inc  ",
             "total investment": 5735048.731936029,
             "funding sources": [
                 {
@@ -18880,16 +19045,24 @@
             ]
         },
         {
-            "asset": "heico corp class a",
-            "total investment": 5486469.783906871,
+            "asset": "heico corp  ",
+            "total investment": 10772403.968824903,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 5476896.169726191
                 },
                 {
+                    "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
+                    "ammount_invested": 5278862.96581011
+                },
+                {
                     "fund name:": "SPDR MSCI",
                     "ammount_invested": 9573.61418068
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 7071.21910792
                 }
             ]
         },
@@ -18904,7 +19077,7 @@
             ]
         },
         {
-            "asset": "american homes rent reit class a",
+            "asset": "american homes rent reit  ",
             "total investment": 5463839.606812398,
             "funding sources": [
                 {
@@ -19212,7 +19385,7 @@
             ]
         },
         {
-            "asset": "twilio inc class a",
+            "asset": "twilio inc  ",
             "total investment": 5324319.026883668,
             "funding sources": [
                 {
@@ -19268,20 +19441,6 @@
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 5279435.813838833
-                }
-            ]
-        },
-        {
-            "asset": "heico corp",
-            "total investment": 5285934.18491803,
-            "funding sources": [
-                {
-                    "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
-                    "ammount_invested": 5278862.96581011
-                },
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 7071.21910792
                 }
             ]
         },
@@ -19472,12 +19631,20 @@
             ]
         },
         {
-            "asset": "royalty pharma plc class a",
-            "total investment": 5155655.269389494,
+            "asset": "royalty pharma plc  ",
+            "total investment": 12430546.573441844,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 5155655.269389494
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 7248695.536900951
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 26195.767151400003
                 }
             ]
         },
@@ -19552,7 +19719,7 @@
             ]
         },
         {
-            "asset": "erie indemnity class a",
+            "asset": "erie indemnity  ",
             "total investment": 5114558.486305873,
             "funding sources": [
                 {
@@ -19718,8 +19885,8 @@
             ]
         },
         {
-            "asset": "news corp class a",
-            "total investment": 7581199.786312376,
+            "asset": "news corp  ",
+            "total investment": 8327131.191824017,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
@@ -19730,12 +19897,20 @@
                     "ammount_invested": 1766712.2766797086
                 },
                 {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 478348.6985827326
+                },
+                {
                     "fund name:": "SPDR MSCI",
                     "ammount_invested": 32556.33629908
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 824794.7532947821
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 267582.70692890795
                 }
             ]
         },
@@ -20160,7 +20335,7 @@
             ]
         },
         {
-            "asset": "haier smart home class h ltd h",
+            "asset": "haier smart home  ",
             "total investment": 4701655.444348677,
             "funding sources": [
                 {
@@ -20220,7 +20395,7 @@
             ]
         },
         {
-            "asset": "ccl industries inc class b",
+            "asset": "c ",
             "total investment": 4648645.326616787,
             "funding sources": [
                 {
@@ -20580,7 +20755,7 @@
             ]
         },
         {
-            "asset": "stora enso class r",
+            "asset": "stora enso  ",
             "total investment": 4390194.669095555,
             "funding sources": [
                 {
@@ -20928,7 +21103,7 @@
             ]
         },
         {
-            "asset": "ivanhoe mines ltd class a",
+            "asset": "ivanhoe mines ltd  ",
             "total investment": 4237834.579107813,
             "funding sources": [
                 {
@@ -21454,7 +21629,7 @@
             ]
         },
         {
-            "asset": "dropbox inc class a",
+            "asset": "dropbox inc  ",
             "total investment": 4167148.6400081627,
             "funding sources": [
                 {
@@ -21774,7 +21949,7 @@
             ]
         },
         {
-            "asset": "lifco class b",
+            "asset": "lifco  ",
             "total investment": 3909040.7941319556,
             "funding sources": [
                 {
@@ -21972,12 +22147,16 @@
             ]
         },
         {
-            "asset": "robinhood markets inc class a",
-            "total investment": 3818887.321450316,
+            "asset": "robinhood markets inc  ",
+            "total investment": 3834511.540434316,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 3818887.321450316
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 15624.218984000001
                 }
             ]
         },
@@ -22084,7 +22263,7 @@
             ]
         },
         {
-            "asset": "toast inc class a",
+            "asset": "toast inc  ",
             "total investment": 3742821.5993657266,
             "funding sources": [
                 {
@@ -22182,7 +22361,7 @@
             ]
         },
         {
-            "asset": "nibe industrier class b",
+            "asset": "nibe industrier  ",
             "total investment": 3660244.928439196,
             "funding sources": [
                 {
@@ -22396,7 +22575,7 @@
             ]
         },
         {
-            "asset": "canadian utilities ltd class a",
+            "asset": "canadian utilities ltd  ",
             "total investment": 3571361.3516329303,
             "funding sources": [
                 {
@@ -22526,7 +22705,7 @@
             ]
         },
         {
-            "asset": "albertsons company inc class a",
+            "asset": "albertsons company inc  ",
             "total investment": 3512651.1015545325,
             "funding sources": [
                 {
@@ -22756,7 +22935,7 @@
             ]
         },
         {
-            "asset": "uipath inc class a",
+            "asset": "uipath inc  ",
             "total investment": 3430114.2060864735,
             "funding sources": [
                 {
@@ -22970,7 +23149,7 @@
             ]
         },
         {
-            "asset": "beijer ref class b",
+            "asset": "beijer ref  ",
             "total investment": 3342965.618512743,
             "funding sources": [
                 {
@@ -23028,12 +23207,16 @@
             ]
         },
         {
-            "asset": "roku inc class a",
-            "total investment": 3338501.1863803924,
+            "asset": "roku inc  ",
+            "total investment": 3343251.452958592,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 3338501.1863803924
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 4750.2665782
                 }
             ]
         },
@@ -23108,7 +23291,7 @@
             ]
         },
         {
-            "asset": "zillow group inc class c",
+            "asset": "zillow group inc  ",
             "total investment": 3317876.608496714,
             "funding sources": [
                 {
@@ -23138,7 +23321,7 @@
             ]
         },
         {
-            "asset": "bio rad laboratories inc class a",
+            "asset": "bio rad laboratories inc  ",
             "total investment": 4699078.173898239,
             "funding sources": [
                 {
@@ -23366,7 +23549,7 @@
             ]
         },
         {
-            "asset": "canadian tire ltd class a",
+            "asset": "canadian tire ltd  ",
             "total investment": 3216640.643373422,
             "funding sources": [
                 {
@@ -23786,7 +23969,7 @@
             ]
         },
         {
-            "asset": "samsara inc class a",
+            "asset": "samsara inc  ",
             "total investment": 3062599.0349138523,
             "funding sources": [
                 {
@@ -23806,17 +23989,21 @@
             ]
         },
         {
-            "asset": "rivian automotive inc class a",
-            "total investment": 3060053.128644453,
+            "asset": "rivian automotive inc  ",
+            "total investment": 3069649.423143013,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 3060053.128644453
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 9596.29449856
                 }
             ]
         },
         {
-            "asset": "wise plc class a",
+            "asset": "wise plc  ",
             "total investment": 3061459.818812092,
             "funding sources": [
                 {
@@ -23836,12 +24023,16 @@
             ]
         },
         {
-            "asset": "hyatt hotels corp class a",
-            "total investment": 3056101.5444388785,
+            "asset": "hyatt hotels corp  ",
+            "total investment": 3058694.6607831586,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 3056101.5444388785
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 2593.11634428
                 }
             ]
         },
@@ -24136,12 +24327,16 @@
             ]
         },
         {
-            "asset": "paramount global class b",
-            "total investment": 4506531.331850438,
+            "asset": "paramount global  ",
+            "total investment": 4670686.095337438,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 2947612.5612411075
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 164154.76348700002
                 },
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
@@ -24276,7 +24471,7 @@
             ]
         },
         {
-            "asset": "grab holdings ltd class a",
+            "asset": "grab holdings ltd  ",
             "total investment": 2917330.7972612213,
             "funding sources": [
                 {
@@ -24376,12 +24571,16 @@
             ]
         },
         {
-            "asset": "confluent inc class a",
-            "total investment": 2888549.0685882857,
+            "asset": "confluent inc  ",
+            "total investment": 3082498.495615881,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 2888549.0685882857
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 193949.42702759503
                 }
             ]
         },
@@ -25374,7 +25573,7 @@
             ]
         },
         {
-            "asset": "coca-cola femsa class ubl units",
+            "asset": "coca-cola femsa  ",
             "total investment": 2520681.3091633967,
             "funding sources": [
                 {
@@ -25524,12 +25723,16 @@
             ]
         },
         {
-            "asset": "liberty global ltd class c",
-            "total investment": 2479874.7496929336,
+            "asset": "liberty global ltd  ",
+            "total investment": 2534441.0744768935,
             "funding sources": [
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 2479874.7496929336
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 54566.32478395999
                 }
             ]
         },
@@ -25854,7 +26057,7 @@
             ]
         },
         {
-            "asset": "kesko class b",
+            "asset": "kesko  ",
             "total investment": 2366582.981163617,
             "funding sources": [
                 {
@@ -26104,7 +26307,7 @@
             ]
         },
         {
-            "asset": "fastighets balder class b",
+            "asset": "fastighets balder  ",
             "total investment": 2310831.4356100545,
             "funding sources": [
                 {
@@ -26184,7 +26387,7 @@
             ]
         },
         {
-            "asset": "icl group ltd",
+            "asset": "i ",
             "total investment": 2291714.1242460213,
             "funding sources": [
                 {
@@ -26384,7 +26587,7 @@
             ]
         },
         {
-            "asset": "sagax class b",
+            "asset": "sagax  ",
             "total investment": 2234886.9697454353,
             "funding sources": [
                 {
@@ -26644,7 +26847,7 @@
             ]
         },
         {
-            "asset": "orion class b",
+            "asset": "orion  ",
             "total investment": 2126534.7014920483,
             "funding sources": [
                 {
@@ -26694,7 +26897,7 @@
             ]
         },
         {
-            "asset": "xpeng class a inc",
+            "asset": "xpeng  ",
             "total investment": 2112507.744558491,
             "funding sources": [
                 {
@@ -27094,7 +27297,7 @@
             ]
         },
         {
-            "asset": "latour investment class b",
+            "asset": "latour investment  ",
             "total investment": 2001671.6575693106,
             "funding sources": [
                 {
@@ -27524,7 +27727,7 @@
             ]
         },
         {
-            "asset": "holmen class b",
+            "asset": "holmen  ",
             "total investment": 1861429.1345780117,
             "funding sources": [
                 {
@@ -27984,7 +28187,7 @@
             ]
         },
         {
-            "asset": "gcl technology holdings ltd",
+            "asset": "g ",
             "total investment": 1714050.4762179274,
             "funding sources": [
                 {
@@ -28118,7 +28321,7 @@
             ]
         },
         {
-            "asset": "lundbergforetagen class b",
+            "asset": "lundbergforetagen  ",
             "total investment": 1686153.1095338876,
             "funding sources": [
                 {
@@ -28448,7 +28651,7 @@
             ]
         },
         {
-            "asset": "empire ltd class a",
+            "asset": "empire ltd  ",
             "total investment": 1582788.6749718853,
             "funding sources": [
                 {
@@ -28458,7 +28661,7 @@
             ]
         },
         {
-            "asset": "grifols sa class a",
+            "asset": "grifols sa  ",
             "total investment": 1584294.888130201,
             "funding sources": [
                 {
@@ -29008,7 +29211,7 @@
             ]
         },
         {
-            "asset": "quebecor inc class b",
+            "asset": "quebecor inc  ",
             "total investment": 1411662.003996919,
             "funding sources": [
                 {
@@ -29318,7 +29521,7 @@
             ]
         },
         {
-            "asset": "kimberly-clark de mexico class a",
+            "asset": "kimberly-clark de mexico  ",
             "total investment": 1327615.91156929,
             "funding sources": [
                 {
@@ -29442,7 +29645,7 @@
             ]
         },
         {
-            "asset": "gulf energy development pcl non-vo",
+            "asset": "gulf energy development p ",
             "total investment": 1310781.4485915743,
             "funding sources": [
                 {
@@ -29502,7 +29705,7 @@
             ]
         },
         {
-            "asset": "haitong securities ltd class a",
+            "asset": "haitong securities ltd  ",
             "total investment": 1291714.618131541,
             "funding sources": [
                 {
@@ -30862,7 +31065,7 @@
             ]
         },
         {
-            "asset": "volvo car class b",
+            "asset": "volvo car  ",
             "total investment": 899571.4127139902,
             "funding sources": [
                 {
@@ -30968,16 +31171,6 @@
                 {
                     "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
                     "ammount_invested": 871889.1151876865
-                }
-            ]
-        },
-        {
-            "asset": "tata motors ltd class a dvr",
-            "total investment": 868480.399706785,
-            "funding sources": [
-                {
-                    "fund name:": "MSCI ACWI IMI TF EX\u2010TOB AND FF",
-                    "ammount_invested": 868480.399706785
                 }
             ]
         },
@@ -32156,20 +32349,6 @@
             ]
         },
         {
-            "asset": "meta platforms inc",
-            "total investment": 95643546.0884952,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 18083196.910895202
-                },
-                {
-                    "fund name:": "ARROWSTREET GLOBAL 130\u201030",
-                    "ammount_invested": 77560349.1776
-                }
-            ]
-        },
-        {
             "asset": "lilly (eli) & co.",
             "total investment": 70261627.27102885,
             "funding sources": [
@@ -32209,35 +32388,11 @@
         },
         {
             "asset": "broadcom ltd. (avago technologies)",
-            "total investment": 1048447290.9081969,
+            "total investment": 10484472.90908197,
             "funding sources": [
                 {
                     "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 1048447290.9081969
-                }
-            ]
-        },
-        {
-            "asset": "visa inc",
-            "total investment": 9551075.14866998,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 9551075.14866998
-                }
-            ]
-        },
-        {
-            "asset": "mastercard inc",
-            "total investment": 40876576.65919173,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 9190336.44639173
-                },
-                {
-                    "fund name:": "ARROWSTREET GLOBAL 130\u201030",
-                    "ammount_invested": 31686240.2128
+                    "ammount_invested": 10484472.90908197
                 }
             ]
         },
@@ -32290,16 +32445,6 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 7543255.762850351
-                }
-            ]
-        },
-        {
-            "asset": "royalty pharma plc",
-            "total investment": 7248695.536900951,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 7248695.536900951
                 }
             ]
         },
@@ -32364,16 +32509,6 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 5335500.46684519
-                }
-            ]
-        },
-        {
-            "asset": "accenture plc",
-            "total investment": 5069271.28678991,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 5069271.28678991
                 }
             ]
         },
@@ -32560,34 +32695,6 @@
             ]
         },
         {
-            "asset": "nike inc.",
-            "total investment": 3273510.00907485,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 3273510.00907485
-                }
-            ]
-        },
-        {
-            "asset": "constellation brands, inc.",
-            "total investment": 7049501.250684109,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 3270950.1131127803
-                },
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 47951.23206896
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 3730599.9055023687
-                }
-            ]
-        },
-        {
             "asset": "s&p global inc. (mcgraw-hill inc.)",
             "total investment": 3178851.25524871,
             "funding sources": [
@@ -32612,16 +32719,6 @@
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 15833390.072300648
-                }
-            ]
-        },
-        {
-            "asset": "hubbell inc class b",
-            "total investment": 2974358.0414894503,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 2974358.0414894503
                 }
             ]
         },
@@ -32772,16 +32869,6 @@
             ]
         },
         {
-            "asset": "blackrock inc. class a",
-            "total investment": 2496862.8287618104,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 2496862.8287618104
-                }
-            ]
-        },
-        {
             "asset": "enerplus corp",
             "total investment": 2485636.0204617903,
             "funding sources": [
@@ -32880,7 +32967,7 @@
             ]
         },
         {
-            "asset": "lennar corp. class a",
+            "asset": "lennar corp.  ",
             "total investment": 8457396.21573593,
             "funding sources": [
                 {
@@ -33050,24 +33137,6 @@
             ]
         },
         {
-            "asset": "cme group inc",
-            "total investment": 9001827.897625335,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 1743702.40691691
-                },
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 549644.9036452
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 6708480.587063224
-                }
-            ]
-        },
-        {
             "asset": "soleno therapeutics inc",
             "total investment": 1741257.30449574,
             "funding sources": [
@@ -33126,16 +33195,6 @@
             ]
         },
         {
-            "asset": "marriott international inc/md",
-            "total investment": 1546693.7320243302,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 1546693.7320243302
-                }
-            ]
-        },
-        {
             "asset": "azek company inc.",
             "total investment": 1501488.0356179099,
             "funding sources": [
@@ -33146,12 +33205,24 @@
             ]
         },
         {
-            "asset": "american tower corp., class a",
-            "total investment": 1496907.773336,
+            "asset": "american tower corp.,  ",
+            "total investment": 22521379.504560806,
             "funding sources": [
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 1496907.773336
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 13737450.801979681
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 84592.54562176
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 7202428.383623365
                 }
             ]
         },
@@ -33172,24 +33243,6 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 1452746.69815177
-                }
-            ]
-        },
-        {
-            "asset": "zoetis, inc.",
-            "total investment": 8457205.329864096,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 1444906.2993083
-                },
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 521556.58996848005
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 6490742.440587317
                 }
             ]
         },
@@ -33332,7 +33385,7 @@
             ]
         },
         {
-            "asset": "liberty broadband corp class c",
+            "asset": "liberty broadband corp  ",
             "total investment": 1306097.94965202,
             "funding sources": [
                 {
@@ -33384,16 +33437,6 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 1252409.0105730898
-                }
-            ]
-        },
-        {
-            "asset": "airbnb, inc.",
-            "total investment": 1248643.78243157,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 1248643.78243157
                 }
             ]
         },
@@ -33676,7 +33719,7 @@
             ]
         },
         {
-            "asset": "cbre group inc common stock class a",
+            "asset": "cbre group inc common stock  ",
             "total investment": 986428.932501563,
             "funding sources": [
                 {
@@ -34162,7 +34205,7 @@
             ]
         },
         {
-            "asset": "wayfair inc class a",
+            "asset": "wayfair inc  ",
             "total investment": 767094.061839342,
             "funding sources": [
                 {
@@ -34245,11 +34288,15 @@
         },
         {
             "asset": "sba communications corp.",
-            "total investment": 2675051.5302540385,
+            "total investment": 5935636.370092199,
             "funding sources": [
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 719721.06338073
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 3260584.8398381607
                 },
                 {
                     "fund name:": "SPDR MSCI",
@@ -34403,11 +34450,15 @@
         },
         {
             "asset": "estee lauder companies inc.",
-            "total investment": 677727.2902486919,
+            "total investment": 5999540.394692249,
             "funding sources": [
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 677727.2902486919
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 5321813.104443557
                 }
             ]
         },
@@ -34648,12 +34699,16 @@
             ]
         },
         {
-            "asset": "news inc. class a",
-            "total investment": 569890.237927232,
+            "asset": "news inc.  ",
+            "total investment": 637848.014140032,
             "funding sources": [
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 569890.237927232
+                },
+                {
+                    "fund name:": "ADAGE CAPITAL",
+                    "ammount_invested": 67957.7762128
                 }
             ]
         },
@@ -35020,16 +35075,6 @@
             ]
         },
         {
-            "asset": "zebra technologies corp",
-            "total investment": 468700.879559291,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 468700.879559291
-                }
-            ]
-        },
-        {
             "asset": "spdr metals & mining etf",
             "total investment": 467559.831762745,
             "funding sources": [
@@ -35138,7 +35183,7 @@
             ]
         },
         {
-            "asset": "gcm grosvenor class a",
+            "asset": "gcm grosvenor  ",
             "total investment": 448933.43181631103,
             "funding sources": [
                 {
@@ -35188,8 +35233,8 @@
             ]
         },
         {
-            "asset": "ralph lauren corp. class a",
-            "total investment": 1857401.1307550299,
+            "asset": "ralph lauren corp.  ",
+            "total investment": 2438023.8989313003,
             "funding sources": [
                 {
                     "fund name:": "ADAGE CAPITAL",
@@ -35198,6 +35243,10 @@
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 1418165.4572739508
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
+                    "ammount_invested": 580622.7681762705
                 }
             ]
         },
@@ -35495,11 +35544,15 @@
         },
         {
             "asset": "baker hughes company",
-            "total investment": 382373.840931673,
+            "total investment": 4800369.427066592,
             "funding sources": [
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 382373.840931673
+                },
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 4417995.586134919
                 }
             ]
         },
@@ -35682,16 +35735,6 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 353404.542950149
-                }
-            ]
-        },
-        {
-            "asset": "tyson foods, inc.",
-            "total investment": 352653.793192663,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 352653.793192663
                 }
             ]
         },
@@ -36061,11 +36104,15 @@
         },
         {
             "asset": "snowflake, inc.",
-            "total investment": 282753.710267835,
+            "total investment": 290830.423468435,
             "funding sources": [
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 282753.710267835
+                },
+                {
+                    "fund name:": "SPDR MSCI",
+                    "ammount_invested": 8076.7132006
                 }
             ]
         },
@@ -36174,16 +36221,6 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 263429.365592729
-                }
-            ]
-        },
-        {
-            "asset": "dell technologies inc",
-            "total investment": 262684.355512288,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 262684.355512288
                 }
             ]
         },
@@ -36342,16 +36379,6 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 233022.852479137
-                }
-            ]
-        },
-        {
-            "asset": "smith (a.o.) corp., class b",
-            "total investment": 232890.839907102,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 232890.839907102
                 }
             ]
         },
@@ -36524,16 +36551,6 @@
             ]
         },
         {
-            "asset": "pinterest inc",
-            "total investment": 197358.795192325,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 197358.795192325
-                }
-            ]
-        },
-        {
             "asset": "nuvei corp",
             "total investment": 196329.097130452,
             "funding sources": [
@@ -36560,16 +36577,6 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 194188.197592667
-                }
-            ]
-        },
-        {
-            "asset": "confluent inc",
-            "total investment": 193949.42702759503,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 193949.42702759503
                 }
             ]
         },
@@ -36858,16 +36865,6 @@
             ]
         },
         {
-            "asset": "paramount global",
-            "total investment": 164154.76348700002,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 164154.76348700002
-                }
-            ]
-        },
-        {
             "asset": "american water works co inc",
             "total investment": 2313840.9781539445,
             "funding sources": [
@@ -36990,20 +36987,6 @@
             ]
         },
         {
-            "asset": "block inc.",
-            "total investment": 204289.775788804,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 137380.318007484
-                },
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 66909.45778132
-                }
-            ]
-        },
-        {
             "asset": "clarivate plc",
             "total investment": 137055.452286737,
             "funding sources": [
@@ -37024,7 +37007,7 @@
             ]
         },
         {
-            "asset": "manchester united ltd class a",
+            "asset": "manchester united ltd  ",
             "total investment": 132221.496279438,
             "funding sources": [
                 {
@@ -37366,16 +37349,6 @@
             ]
         },
         {
-            "asset": "fox corp",
-            "total investment": 83914.0783979,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 83914.0783979
-                }
-            ]
-        },
-        {
             "asset": "zoominfo technologies inc.",
             "total investment": 83225.3171525,
             "funding sources": [
@@ -37522,16 +37495,6 @@
                 {
                     "fund name:": "ADAGE CAPITAL",
                     "ammount_invested": 69679.6793263
-                }
-            ]
-        },
-        {
-            "asset": "news inc. class b",
-            "total investment": 67957.7762128,
-            "funding sources": [
-                {
-                    "fund name:": "ADAGE CAPITAL",
-                    "ammount_invested": 67957.7762128
                 }
             ]
         },
@@ -37876,7 +37839,7 @@
             ]
         },
         {
-            "asset": "moog inc class a",
+            "asset": "moog inc  ",
             "total investment": 25943.3402434,
             "funding sources": [
                 {
@@ -37896,7 +37859,7 @@
             ]
         },
         {
-            "asset": "u-haul holding company class b",
+            "asset": "u-haul holding company  ",
             "total investment": 25024.9919162,
             "funding sources": [
                 {
@@ -37956,7 +37919,7 @@
             ]
         },
         {
-            "asset": "spirit aerosystems holdings inc. class a",
+            "asset": "spirit aerosystems holdings inc.  ",
             "total investment": 19055.7277894,
             "funding sources": [
                 {
@@ -38498,7 +38461,7 @@
             ]
         },
         {
-            "asset": "sdcl edge acquisition corp",
+            "asset": "sd ",
             "total investment": 560.192479592,
             "funding sources": [
                 {
@@ -38668,7 +38631,7 @@
             ]
         },
         {
-            "asset": "houlihan lokey, inc. class a ",
+            "asset": "houlihan lokey, inc.  ",
             "total investment": 9626085.144,
             "funding sources": [
                 {
@@ -38698,7 +38661,7 @@
             ]
         },
         {
-            "asset": "casella waste systems, inc. class a ",
+            "asset": "casella waste systems, inc.  ",
             "total investment": 7219563.858,
             "funding sources": [
                 {
@@ -38798,7 +38761,7 @@
             ]
         },
         {
-            "asset": "manchester united plc, class a",
+            "asset": "manchester united plc,  ",
             "total investment": 6017970.9968,
             "funding sources": [
                 {
@@ -38838,7 +38801,7 @@
             ]
         },
         {
-            "asset": "lazard, inc., class a",
+            "asset": "lazard, inc.,  ",
             "total investment": 16441956.473399999,
             "funding sources": [
                 {
@@ -39016,7 +38979,7 @@
             ]
         },
         {
-            "asset": "brady corp, class a",
+            "asset": "brady corp,  ",
             "total investment": 4620942.0154,
             "funding sources": [
                 {
@@ -39734,24 +39697,6 @@
             ]
         },
         {
-            "asset": "american tower corp",
-            "total investment": 21024471.731224805,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 13737450.801979681
-                },
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 84592.54562176
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 7202428.383623365
-                }
-            ]
-        },
-        {
             "asset": "sherwin-williams company",
             "total investment": 11384839.69825632,
             "funding sources": [
@@ -39898,16 +39843,6 @@
             ]
         },
         {
-            "asset": "msci inc. class a",
-            "total investment": 6781668.623403906,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 6781668.623403906
-                }
-            ]
-        },
-        {
             "asset": "williams companies inc.",
             "total investment": 6509532.269819076,
             "funding sources": [
@@ -39924,16 +39859,6 @@
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 6507741.899071807
-                }
-            ]
-        },
-        {
-            "asset": "cognizant technology solutions corp class a",
-            "total investment": 5720682.130210043,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 5720682.130210043
                 }
             ]
         },
@@ -39956,42 +39881,12 @@
             ]
         },
         {
-            "asset": "estee lauder companies inc. class a",
-            "total investment": 5321813.104443557,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 5321813.104443557
-                }
-            ]
-        },
-        {
-            "asset": "kinder morgan inc class p",
-            "total investment": 5080176.995374695,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 5080176.995374695
-                }
-            ]
-        },
-        {
             "asset": "willis towers watson public limited company",
             "total investment": 4448112.179776473,
             "funding sources": [
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 4448112.179776473
-                }
-            ]
-        },
-        {
-            "asset": "baker hughes company class a",
-            "total investment": 4417995.586134919,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 4417995.586134919
                 }
             ]
         },
@@ -40108,16 +40003,6 @@
                 {
                     "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
                     "ammount_invested": 3458420.807411343
-                }
-            ]
-        },
-        {
-            "asset": "sba communications corp. class a",
-            "total investment": 3260584.8398381607,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 3260584.8398381607
                 }
             ]
         },
@@ -40266,6 +40151,16 @@
             ]
         },
         {
+            "asset": "universal health services inc.  ",
+            "total investment": 1803223.0515615083,
+            "funding sources": [
+                {
+                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
+                    "ammount_invested": 1803223.0515615083
+                }
+            ]
+        },
+        {
             "asset": "eastman chemical company",
             "total investment": 1797468.2884452874,
             "funding sources": [
@@ -40294,7 +40189,7 @@
             ]
         },
         {
-            "asset": "molson coors beverage company class b",
+            "asset": "molson coors beverage company  ",
             "total investment": 1658842.4391567744,
             "funding sources": [
                 {
@@ -40478,52 +40373,6 @@
             ]
         },
         {
-            "asset": "fox corp class b",
-            "total investment": 1125639.9165849923,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 689612.4467604292
-                },
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 59059.54775952
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 376967.92206504324
-                }
-            ]
-        },
-        {
-            "asset": "news corp class b",
-            "total investment": 745931.4055116405,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX\u2010TOB UCRP",
-                    "ammount_invested": 478348.6985827326
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 267582.70692890795
-                }
-            ]
-        },
-        {
-            "asset": "visa inc class a shares",
-            "total investment": 42401335.088597216,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 4374322.66909176
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 38027012.419505455
-                }
-            ]
-        },
-        {
             "asset": "mastercard inc  a",
             "total investment": 37088545.00677981,
             "funding sources": [
@@ -40534,48 +40383,6 @@
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 33354895.957162295
-                }
-            ]
-        },
-        {
-            "asset": "alphabet inc cl a",
-            "total investment": 90166324.57238609,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 3570507.0030713603
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 86595817.56931472
-                }
-            ]
-        },
-        {
-            "asset": "alphabet inc cl c",
-            "total investment": 76593691.14018,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 3330629.8810312
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 73263061.2591488
-                }
-            ]
-        },
-        {
-            "asset": "accenture plc cl a",
-            "total investment": 19468894.54176423,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 2634041.7178768003
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 16834852.82388743
                 }
             ]
         },
@@ -40600,20 +40407,6 @@
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 21349361.67089288
-                }
-            ]
-        },
-        {
-            "asset": "amphenol corp cl a",
-            "total investment": 8455808.279797245,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 1937599.71677096
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 6518208.563026286
                 }
             ]
         },
@@ -40758,7 +40551,7 @@
             ]
         },
         {
-            "asset": "united parcel service cl b",
+            "asset": "united parcel service  ",
             "total investment": 10416038.42188374,
             "funding sources": [
                 {
@@ -40782,20 +40575,6 @@
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 2949161.071654872
-                }
-            ]
-        },
-        {
-            "asset": "nike inc cl b",
-            "total investment": 10992300.146628002,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 865964.77708224
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 10126335.369545761
                 }
             ]
         },
@@ -40852,20 +40631,6 @@
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 6023560.288175755
-                }
-            ]
-        },
-        {
-            "asset": "mondelez international inc a",
-            "total investment": 9195490.374266261,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 642097.4394300401
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 8553392.934836222
                 }
             ]
         },
@@ -40954,7 +40719,7 @@
             ]
         },
         {
-            "asset": "erie indemnity company cl a",
+            "asset": "erie indemnity company  ",
             "total investment": 436563.35873084,
             "funding sources": [
                 {
@@ -41168,20 +40933,6 @@
             ]
         },
         {
-            "asset": "tyson foods inc cl a",
-            "total investment": 1755270.7308165433,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 179489.515667
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 1575781.2151495432
-                }
-            ]
-        },
-        {
             "asset": "omnicom group",
             "total investment": 1856141.4788349597,
             "funding sources": [
@@ -41210,7 +40961,7 @@
             ]
         },
         {
-            "asset": "lyondellbasell indu cl a",
+            "asset": "lyondellbasell indu  ",
             "total investment": 2453841.240708078,
             "funding sources": [
                 {
@@ -41314,20 +41065,6 @@
             ]
         },
         {
-            "asset": "charter communications inc a",
-            "total investment": 2369908.8519453523,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 101207.13848652
-                },
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 2268701.7134588324
-                }
-            ]
-        },
-        {
             "asset": "baker hughes co",
             "total investment": 3035678.809633841,
             "funding sources": [
@@ -41422,7 +41159,7 @@
             ]
         },
         {
-            "asset": "albertsons cos inc  class a",
+            "asset": "albertsons cos inc   ",
             "total investment": 78531.86067716,
             "funding sources": [
                 {
@@ -41546,7 +41283,7 @@
             ]
         },
         {
-            "asset": "estee lauder companies cl a",
+            "asset": "estee lauder companies  ",
             "total investment": 3044895.5257492857,
             "funding sources": [
                 {
@@ -41612,16 +41349,6 @@
             ]
         },
         {
-            "asset": "liberty global ltd c",
-            "total investment": 54566.32478395999,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 54566.32478395999
-                }
-            ]
-        },
-        {
             "asset": "martin marietta materials",
             "total investment": 3384574.598945326,
             "funding sources": [
@@ -41660,7 +41387,7 @@
             ]
         },
         {
-            "asset": "first citizens bcshs  cl a",
+            "asset": "first citizens bcshs   ",
             "total investment": 52016.04904012,
             "funding sources": [
                 {
@@ -41818,7 +41545,7 @@
             ]
         },
         {
-            "asset": "marriott international cl a",
+            "asset": "marriott international  ",
             "total investment": 5260848.26363576,
             "funding sources": [
                 {
@@ -41894,16 +41621,6 @@
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 1357195.12126948
-                }
-            ]
-        },
-        {
-            "asset": "royalty pharma plc cl a",
-            "total investment": 26195.767151400003,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 26195.767151400003
                 }
             ]
         },
@@ -41992,42 +41709,12 @@
             ]
         },
         {
-            "asset": "ares management corp  a",
-            "total investment": 16896.8368206,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 16896.8368206
-                }
-            ]
-        },
-        {
             "asset": "liberty media corp lib new c",
             "total investment": 16458.35067492,
             "funding sources": [
                 {
                     "fund name:": "SPDR MSCI",
                     "ammount_invested": 16458.35067492
-                }
-            ]
-        },
-        {
-            "asset": "robinhood markets inc  a",
-            "total investment": 15624.218984000001,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 15624.218984000001
-                }
-            ]
-        },
-        {
-            "asset": "okta inc",
-            "total investment": 15253.77379196,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 15253.77379196
                 }
             ]
         },
@@ -42042,16 +41729,6 @@
             ]
         },
         {
-            "asset": "rivian automotive inc a",
-            "total investment": 9596.29449856,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 9596.29449856
-                }
-            ]
-        },
-        {
             "asset": "equity lifestyle properties",
             "total investment": 9223.3292712,
             "funding sources": [
@@ -42062,22 +41739,12 @@
             ]
         },
         {
-            "asset": "trade desk inc/the class a",
+            "asset": "trade desk inc/the  ",
             "total investment": 9059.5269754,
             "funding sources": [
                 {
                     "fund name:": "SPDR MSCI",
                     "ammount_invested": 9059.5269754
-                }
-            ]
-        },
-        {
-            "asset": "snowflake inc class a",
-            "total investment": 8076.7132006,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 8076.7132006
                 }
             ]
         },
@@ -42088,76 +41755,6 @@
                 {
                     "fund name:": "SPDR MSCI",
                     "ammount_invested": 7867.550269040001
-                }
-            ]
-        },
-        {
-            "asset": "crowdstrike holdings inc  a",
-            "total investment": 7373.623346320001,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 7373.623346320001
-                }
-            ]
-        },
-        {
-            "asset": "palantir technologies inc a",
-            "total investment": 7308.102428,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 7308.102428
-                }
-            ]
-        },
-        {
-            "asset": "roku inc",
-            "total investment": 4750.2665782,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 4750.2665782
-                }
-            ]
-        },
-        {
-            "asset": "draftkings inc cl a",
-            "total investment": 3722.09216764,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 3722.09216764
-                }
-            ]
-        },
-        {
-            "asset": "hyatt hotels corp  cl a",
-            "total investment": 2593.11634428,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 2593.11634428
-                }
-            ]
-        },
-        {
-            "asset": "atlassian corp cl a",
-            "total investment": 957.6134216,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 957.6134216
-                }
-            ]
-        },
-        {
-            "asset": "mongodb inc",
-            "total investment": 372.96522736000003,
-            "funding sources": [
-                {
-                    "fund name:": "SPDR MSCI",
-                    "ammount_invested": 372.96522736000003
                 }
             ]
         },
@@ -42188,16 +41785,6 @@
                 {
                     "fund name:": "SSGA S&P 500 EX-TOB AND FF",
                     "ammount_invested": 661915.1171399301
-                }
-            ]
-        },
-        {
-            "asset": "ralph lauren corp",
-            "total investment": 580622.7681762705,
-            "funding sources": [
-                {
-                    "fund name:": "SSGA S&P 500 EX-TOB AND FF",
-                    "ammount_invested": 580622.7681762705
                 }
             ]
         },
