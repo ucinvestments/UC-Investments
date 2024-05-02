@@ -11,10 +11,12 @@ app = Flask(__name__)
 
 
 
+
 @app.route("/listed-assets")
 def listed_assets():
     
     output = []
+
     
     index = 0
     with open("final-datasets/listed_investments.csv", mode ='r') as file:
@@ -87,3 +89,6 @@ def composition_search(class_grouping,estimation,query):
     suggestions = suggestions[:10]
 
     return suggestions
+
+if __name__ == '__main__':
+    app.run()
