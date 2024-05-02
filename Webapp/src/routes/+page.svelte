@@ -183,7 +183,7 @@
   "
 >
   The University of California Manages <b>164 billion </b>dollars of
-  investments. Explore where this money goes below:
+  investments. Unfortunately, the UC has so far only published $110 billion of this data. Explore where this money goes below:
 </p>
 <div class="flex justify-between but text-lg m-1">
   <button class:active-button={activeButton === "Company"} on:click={company}
