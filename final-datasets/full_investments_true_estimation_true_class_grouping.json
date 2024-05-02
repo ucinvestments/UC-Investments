@@ -66,7 +66,7 @@
         "servicenow inc",
         "union pacific corp",
         "american express",
-        "rtx corp",
+        "rtx corp (Raytheon)",
         "amgen inc",
         "siemens n ag",
         "pfizer inc",
@@ -4523,7 +4523,7 @@
             ]
         },
         {
-            "asset": "rtx corp",
+            "asset": "rtx corp (Raytheon)",
             "total investment": 106231043.41654994,
             "funding sources": [
                 {
