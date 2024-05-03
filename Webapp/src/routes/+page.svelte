@@ -338,6 +338,7 @@ if (filteredData.length === 0) {
     </div>
   </div>
 {/if}
+<!-- <a href="https://stephenokita.com/"> Stephen Okita</a> -->
 {#if activeButton == "Company"}
   <p class="p-3">
     Note: The UC does not have direct investments in any of these companies. All
@@ -346,8 +347,7 @@ if (filteredData.length === 0) {
     composition of these funds changes day to day, so this data is as of each
     fund’s most recent disclosure. Additionally, most funds do not publish full
     holdings, but instead their top 10 holdings, which is why you will see a
-    significant amount of the assets grayed out. We’ve developed novel
-    methodology to make evidence-based predictions of the compositions of our
+    significant amount of the assets grayed out. We’ve developed <a href="https://ucinvestments.info/about">novel methodology</a> to make evidence-based predictions of the compositions of our
     largest funds, and you can view our predictions by clicking “Include Estimated Figures”
   </p>
 {:else}{/if}
@@ -415,8 +415,9 @@ if (filteredData.length === 0) {
     font-size: 1rem; /* Adjust the size for mobile */
   }
   a {
-    margin: 3rem;
-  }
+		color: var(--sec);
+		text-decoration-line: underline;
+	}
   /* Media query for tablet and mobile screens */
   @media (max-width: 768px) {
     .cont {
