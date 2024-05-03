@@ -59,7 +59,7 @@
 href="https://github.com/g4cko/UC-Investments/tree/main/Data-Collection/csv-files">found here.</a> </p>
 	<h2>Contribute</h2>
 	<p> If you'd like to help continue this research by either contributing to data hunting or programming, check out this project's (incredibly disorganized) <a
-	href="https://github.com/g4cko/UC-Investments/">Github repository.</a> </p>
+	href="https://github.com/g4cko/UC-Investments/">Github repository. There was also a point in the final all-nighter where we were messing with eachother through our commits, which is the explanation to some clearly dumb field names. </a> </p>
 	<h2>About</h2>
 	<p> This project was started due to the conversations across college campuses about divesting from Israel. The first demand with most of these protests is disclosure of investment holdings, as most of the colleges where these protests were taking place were private, and did not have to publish the make up of their portfolio.
 		 Luckily, as students within the UC system, we are given some data on our investment holdings, which allowed us to analyze them.

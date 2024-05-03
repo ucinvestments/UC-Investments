@@ -217,7 +217,7 @@ if (filteredData.length === 0) {
   class="text-center text-xl my-3 p-1
   "
 >
-  The University of California Manages <b>164 billion </b>dollars of
+  The University of California Manages <b>162 billion </b>dollars of
   investments. Unfortunately, the UC has so far only published $110 billion of
   this data. Explore where this money goes below:
 </p>
@@ -348,8 +348,7 @@ if (filteredData.length === 0) {
     holdings, but instead their top 10 holdings, which is why you will see a
     significant amount of the assets grayed out. We’ve developed novel
     methodology to make evidence-based predictions of the compositions of our
-    largest funds, and you can view our predictions by clicking “Show informed
-    estimate”
+    largest funds, and you can view our predictions by clicking “Include Estimated Figures”
   </p>
 {:else}{/if}
 
