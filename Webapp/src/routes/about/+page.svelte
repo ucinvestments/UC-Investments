@@ -8,7 +8,7 @@
 	through the use of investing in index funds, public equity funds, and private hedge funds.</p>
 	<br> 
 <p>Some of these funds publish full composition data, but most do not. For example, our 
-	largest investment, in a fund managed by Morgan Stanley Capital Investments (MSCI), only publishes its top 10 holdings, 
+	largest investment, in a fund managed by Morgan Stanley Capital International (MSCI), only publishes its top 10 holdings, 
 	which only explains where 18% of this money goes. We employed 
 	three main strategies to provide accurate estimates:</p>
 
