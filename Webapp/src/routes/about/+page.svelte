@@ -24,15 +24,12 @@
     <ul>
       <li>
         As previously mentioned, our $35B investment in the MSCI ACWI IMI TF EX-TOB AND FF fund, only releases its top 10 holdings. They do, however, release the full composition of the non-ex-tobacco/ex-fossil fuel version of this fund (MSCI ACWI IMI).
-      </li>
-      <li>
+      
         With this composition data, we conduct a re-weighting procedure, by going through every company that this fund is invested in, checking it against a list of fossil fuel and tobacco companies, and removing those assets. We do this as this specific fund does not invest in tobacco or fossil fuel companies. 
 		This gives us an accurate representation of what this fund is comprised of, but creates a problem. Since we removed dozens of companies, the percentage of remaining companies no longer sums to 100%. 
-      </li>
-      <li>
+     
         Thus, we distribute the now missing weight across all companies proportional to their original weights, giving us a rough estimate of the composition of the specific fund.
-      </li>
-      <li>
+     
         This isn't a perfect system, but it's our best method for estimating what these specific funds are comprised of.
       </li>
     </ul>
