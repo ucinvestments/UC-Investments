@@ -50,7 +50,10 @@
 
 <p>Across all of the individual fund composition datasets, companies are often spelled slightly differently, due to abbreviations. We standardize these abbreviations and use a fuzzing matching process to group investments. Funds also invest in different classes of each stock, and when listed, we differentiate these holdings unless you click "Consolidate stock classes."</p>
 
-	
+	<h2>UC Finicial Structuring </h2>
+	Univerities within the UC system have their own endowments, but the large majority of their endowment comes from the GEP. For example, UC Berkeley itself has a $7.4B endowment, $2.9B of which is under the school's control, and managed by their own management firm, whereas the remaining $4.5B comes from the UC's $23B total endowment. The UC invests far more than $23B though, with the total portfolio totaling to roughly $162B, the majority of this being in the UC retirement plan (UCRP). Beyond this, the UC has about $55B across short term investment pools and retirement savings. None of those holdings are public, but the entire UCRP and UC endowment fund are, so that is what we analyzed. We've additionally submitted CPRA requests to both the UC and to UC Berkeley to obtain the remaining holdings, but are yet to get that data.
+
+
 	<h2>Sources</h2>
 <p> Our research began by looking at both the UCRP and GEP holding documents published on the UC's investment page. The data for the funds we analyzed came from a variety of sources as stated above, and all specific sources can be <a
 href="https://github.com/g4cko/UC-Investments/tree/main/Data-Collection/csv-files">found here.</a> </p>
