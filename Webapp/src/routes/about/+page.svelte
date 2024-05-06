@@ -50,7 +50,7 @@
 
 <p>Across all of the individual fund composition datasets, companies are often spelled slightly differently, due to abbreviations. We standardize these abbreviations and use a fuzzing matching process to group investments. Funds also invest in different classes of each stock, and when listed, we differentiate these holdings unless you click "Consolidate stock classes."</p>
 
-	<h2>UC Finicial Structuring </h2>
+	<h2>UC Financial Structuring </h2>
 	Univerities within the UC system have their own endowments, but the large majority of their endowment comes from the GEP. For example, UC Berkeley itself has a $7.4B endowment, $2.9B of which is under the school's control, and managed by their own management firm, whereas the remaining $4.5B comes from the UC's $23B total endowment. The UC invests far more than $23B though, with the total portfolio totaling to roughly $162B, the majority of this being in the UC retirement plan (UCRP). Beyond this, the UC has about $55B across short term investment pools and retirement savings. None of those holdings are public, but the entire UCRP and UC endowment fund are, so that is what we analyzed. We've additionally submitted CPRA requests to both the UC and to UC Berkeley to obtain the remaining holdings, but are yet to get that data.
 
 
@@ -59,7 +59,7 @@
 href="https://github.com/g4cko/UC-Investments/tree/main/Data-Collection/csv-files">found here.</a> </p>
 	<h2>Contribute</h2>
 	<p> If you'd like to help continue this research by either contributing to data hunting or programming, check out this project's (incredibly disorganized) <a
-	href="https://github.com/g4cko/UC-Investments/">Github repository. There was also a point in the final all-nighter where we were messing with eachother through our commits, which is the explanation to some clearly dumb field names. </a> </p>
+	href="https://github.com/g4cko/UC-Investments/">Github repository. </a> There was also a point in the final all-nighter where we were messing with eachother through our commits, which is the explanation to some clearly dumb field names.  </p>
 	<h2>About</h2>
 	<p> This project was started due to the conversations across college campuses about divesting from Israel. The first demand with most of these protests is disclosure of investment holdings, as most of the colleges where these protests were taking place were private, and did not have to publish the make up of their portfolio.
 		 Luckily, as students within the UC system, we are given some data on our investment holdings, which allowed us to analyze them.
