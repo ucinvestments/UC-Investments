@@ -1,7 +1,7 @@
 <script>
   import "../app.css";
   import { dev } from "$app/environment";
-  import { injectAnalytics } from "@vercel/analytics/sveltekit";
+  import { inject } from "@vercel/analytics";
   import { fade } from "svelte/transition";
   import { page } from "$app/stores";
   import Icon from "@iconify/svelte";
@@ -21,7 +21,7 @@
   onMount(() => {
     if (browser) {
       // Initialize Vercel Analytics
-      injectAnalytics({ mode: dev ? "development" : "production" });
+      inject({ mode: dev ? "development" : "production" });
       
       // Initialize PostHog
       posthog.init("phc_3vyk0G3UGOLR5TBAPt3ksbHbGbRNOI42aGZsoWvrBzU", {
