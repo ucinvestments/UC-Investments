@@ -5,22 +5,43 @@
   import { fade } from "svelte/transition";
   import { page } from "$app/stores";
   import Icon from "@iconify/svelte";
+  
+  // Track page views manually since we disabled automatic capture
+  $: if (browser && $page.url) {
+    posthog.capture('$pageview', {
+      $current_url: $page.url.href,
+      $pathname: $page.url.pathname,
+      $title: document.title
+    });
+  }
   inject({ mode: dev ? "development" : "production" });
   import posthog from "posthog-js";
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
 
-  export const load = async () => {
+  onMount(() => {
     if (browser) {
       posthog.init("phc_3vyk0G3UGOLR5TBAPt3ksbHbGbRNOI42aGZsoWvrBzU", {
         api_host: "https://us.i.posthog.com",
-        defaults: "2025-05-24",
-        person_profiles: "always", // or 'always' to create profiles for anonymous users as well
+        capture_pageview: false, // Disable automatic pageview capture
+        capture_pageleave: true, // Track when users leave pages
+        person_profiles: "always", // Create profiles for all users
+        session_recording: {
+          maskAllInputs: false,
+          maskInputOptions: { 
+            password: true,
+            email: true 
+          }
+        },
+        persistence: 'localStorage+cookie',
+        loaded: (posthog) => {
+          if (dev) {
+            console.log('PostHog loaded successfully');
+          }
+        }
       });
     }
-
-    return;
-  };
+  });
 </script>
 
 <nav class="navbar">
