@@ -4,96 +4,96 @@
   import Pi from "$lib/pi.svelte";
   import { onMount } from "svelte";
   import Loading from "$lib/loading.svelte";
-  import { fade, fly, scale } from 'svelte/transition';
-  import { quintOut } from 'svelte/easing';
-  import posthog from 'posthog-js';
-  import { browser } from '$app/environment';
-  
+  import { fade, fly, scale } from "svelte/transition";
+  import { quintOut } from "svelte/easing";
+  import posthog from "posthog-js";
+  import { browser } from "$app/environment";
+
   let end;
   type button = "Asset" | "Company" | "Fund";
-  
+
   let mounted = false;
 
   function asset() {
     const previousMode = activeButton;
     activeButton = "Asset";
-    
+
     // Track view mode switch
     if (browser && previousMode !== "Asset") {
-      posthog.capture('view_mode_changed', {
+      posthog.capture("view_mode_changed", {
         previous_mode: previousMode.toLowerCase(),
-        new_mode: 'asset',
-        view_context: 'asset_class'
+        new_mode: "asset",
+        view_context: "asset_class",
       });
     }
-    
+
     fetchListedAssets();
   }
-  
+
   function company() {
     const previousMode = activeButton;
     activeButton = "Company";
-    
+
     // Track view mode switch
     if (browser && previousMode !== "Company") {
-      posthog.capture('view_mode_changed', {
+      posthog.capture("view_mode_changed", {
         previous_mode: previousMode.toLowerCase(),
-        new_mode: 'company',
-        view_context: 'company'
+        new_mode: "company",
+        view_context: "company",
       });
     }
-    
+
     fetchListedAssets();
   }
-  
+
   function fund() {
     const previousMode = activeButton;
     activeButton = "Fund";
-    
+
     // Track view mode switch
     if (browser && previousMode !== "Fund") {
-      posthog.capture('view_mode_changed', {
+      posthog.capture("view_mode_changed", {
         previous_mode: previousMode.toLowerCase(),
-        new_mode: 'fund',
-        view_context: 'fund'
+        new_mode: "fund",
+        view_context: "fund",
       });
     }
-    
+
     fetchListedAssets();
   }
 
   function estim() {
     const newValue = estimation == "true" ? "false" : "true";
     estimation = newValue;
-    
+
     // Track estimation toggle
     if (browser) {
-      posthog.capture('estimation_toggled', {
+      posthog.capture("estimation_toggled", {
         view_mode: activeButton.toLowerCase(),
         include_estimates: newValue === "true",
-        previous_state: newValue === "true" ? "false" : "true"
+        previous_state: newValue === "true" ? "false" : "true",
       });
     }
-    
+
     fetchListedAssets();
   }
 
   function comp() {
     const newValue = composition == "true" ? "false" : "true";
     composition = newValue;
-    
+
     // Track composition toggle
     if (browser) {
-      posthog.capture('composition_toggled', {
+      posthog.capture("composition_toggled", {
         view_mode: activeButton.toLowerCase(),
         consolidate_shares: newValue === "true",
-        previous_state: newValue === "true" ? "false" : "true"
+        previous_state: newValue === "true" ? "false" : "true",
       });
     }
-    
+
     fetchListedAssets();
   }
-  
+
   const API = "https://uc-investments-80f94956a47a.herokuapp.com";
   let activeButton: button = "Company";
   let searchTerm = "";
@@ -104,7 +104,7 @@
   let loading = true;
   let composition = "true";
   let estimation = "true";
-  
+
   function cap(s) {
     if (s && typeof s === "string") {
       return s
@@ -134,16 +134,16 @@
     }
 
     try {
-      console.log('Fetching data for:', activeButton, 'from:', API + end);
+      console.log("Fetching data for:", activeButton, "from:", API + end);
       const response = await fetch(API + end);
       if (!response.ok) {
         throw new Error("Failed to fetch listed assets");
       }
       const d = await response.json();
-      console.log('Received data:', d);
-      
+      console.log("Received data:", d);
+
       if (!d || !Array.isArray(d) || d.length === 0) {
-        console.log('No valid data received');
+        console.log("No valid data received");
         data = [];
         selectedSlice = null;
         filteredData = [];
@@ -152,11 +152,11 @@
         selectedSlice = data[0];
         filteredData = data;
       }
-      
+
       loading = false;
       sumTotalInvestments();
     } catch (err) {
-      console.error('Error fetching data:', err);
+      console.error("Error fetching data:", err);
       loading = false;
       data = [];
       selectedSlice = null;
@@ -167,27 +167,33 @@
   function handleSliceClicked(event) {
     searchTerm = "";
     selectedSlice = event.detail;
-    
+
     // Track pie chart slice interaction
     if (browser) {
-      const sliceName = activeButton === 'Company' ? selectedSlice['asset'] :
-                       activeButton === 'Asset' ? selectedSlice['A.s.set ._Class'] :
-                       selectedSlice['Asset Name'];
-      
-      const sliceValue = activeButton === 'Company' ? selectedSlice['total investment'] :
-                        activeButton === 'Fund' ? selectedSlice['Total Investment'] :
-                        selectedSlice['Total Iℂnvest∈d'];
-      
-      posthog.capture('pie_slice_clicked', {
+      const sliceName =
+        activeButton === "Company"
+          ? selectedSlice["asset"]
+          : activeButton === "Asset"
+            ? selectedSlice["A.s.set ._Class"]
+            : selectedSlice["Asset Name"];
+
+      const sliceValue =
+        activeButton === "Company"
+          ? selectedSlice["total investment"]
+          : activeButton === "Fund"
+            ? selectedSlice["Total Investment"]
+            : selectedSlice["Total Iℂnvest∈d"];
+
+      posthog.capture("pie_slice_clicked", {
         view_mode: activeButton.toLowerCase(),
-        slice_name: sliceName || 'unknown',
+        slice_name: sliceName || "unknown",
         slice_value: sliceValue || 0,
         is_aggregate: selectedSlice.isAggregate || false,
-        aggregate_count: selectedSlice.aggregatedCount || null
+        aggregate_count: selectedSlice.aggregatedCount || null,
       });
     }
   }
-  
+
   function filterSearch() {
     const normalizedSearchTerm = searchTerm.trim().toLowerCase();
     if (activeButton == "Company") {
@@ -210,17 +216,21 @@
   function handleSearch() {
     clearTimeout(timeoutId);
     const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-    
+
     // Track search event with PostHog if search term is not empty
     if (normalizedSearchTerm && browser) {
-      posthog.capture('search_performed', {
+      posthog.capture("search_performed", {
         search_location: activeButton.toLowerCase(), // 'company', 'asset', or 'fund'
         search_query: normalizedSearchTerm,
-        search_context: activeButton === 'Company' ? 'company' : 
-                       activeButton === 'Asset' ? 'asset_class' : 'fund'
+        search_context:
+          activeButton === "Company"
+            ? "company"
+            : activeButton === "Asset"
+              ? "asset_class"
+              : "fund",
       });
     }
-    
+
     let matchingSlice;
     if (activeButton == "Company") {
       matchingSlice = data.find((item) =>
@@ -240,15 +250,18 @@
         selectedSlice = matchingSlice;
         filterSearch();
         sumTotalInvestments();
-        
+
         // Track successful search result
         if (browser) {
-          posthog.capture('search_result_found', {
+          posthog.capture("search_result_found", {
             search_location: activeButton.toLowerCase(),
             search_query: normalizedSearchTerm,
-            result_name: activeButton === 'Company' ? matchingSlice['asset'] :
-                        activeButton === 'Asset' ? matchingSlice['A.s.set ._Class'] :
-                        matchingSlice['Asset Name']
+            result_name:
+              activeButton === "Company"
+                ? matchingSlice["asset"]
+                : activeButton === "Asset"
+                  ? matchingSlice["A.s.set ._Class"]
+                  : matchingSlice["Asset Name"],
           });
         }
       }, 300);
@@ -259,12 +272,12 @@
       } else {
         selectedSlice = filteredData[0];
       }
-      
+
       // Track failed search
       if (normalizedSearchTerm && browser) {
-        posthog.capture('search_no_results', {
+        posthog.capture("search_no_results", {
           search_location: activeButton.toLowerCase(),
-          search_query: normalizedSearchTerm
+          search_query: normalizedSearchTerm,
         });
       }
     }
@@ -293,7 +306,10 @@
 <!-- Data Warning Banner -->
 <div class="warning-banner" in:fade={{ duration: 400 }}>
   <Icon icon="mdi:alert-circle" class="warning-icon" />
-  <span>This data is from 2023. The UC releases updated investment reports annually.</span>
+  <span
+    >This data is from 2023. The UC releases updated investment reports
+    annually.</span
+  >
 </div>
 
 <!-- Hero Section -->
@@ -319,7 +335,8 @@
         </div>
       </div>
       <p class="hero-description" in:fade={{ duration: 800, delay: 700 }}>
-        Explore UC's endowment and pension fund investments with full transparency.
+        Explore UC's endowment and pension fund investments with full
+        transparency.
       </p>
     </div>
   {/if}
@@ -333,25 +350,25 @@
   <div class="main-container" in:fade={{ duration: 600 }}>
     <!-- Navigation Tabs -->
     <div class="nav-tabs" in:fly={{ y: -20, duration: 500, delay: 200 }}>
-      <button 
-        class="nav-tab" 
-        class:active={activeButton === "Company"} 
+      <button
+        class="nav-tab"
+        class:active={activeButton === "Company"}
         on:click={company}
       >
         <Icon icon="mdi:company" class="tab-icon" />
         Companies
       </button>
-      <button 
-        class="nav-tab" 
-        class:active={activeButton === "Asset"} 
+      <button
+        class="nav-tab"
+        class:active={activeButton === "Asset"}
         on:click={asset}
       >
         <Icon icon="mdi:chart-pie" class="tab-icon" />
         Asset Classes
       </button>
-      <button 
-        class="nav-tab" 
-        class:active={activeButton === "Fund"} 
+      <button
+        class="nav-tab"
+        class:active={activeButton === "Fund"}
         on:click={fund}
       >
         <Icon icon="mdi:wallet" class="tab-icon" />
@@ -368,10 +385,10 @@
           placeholder={`Search ${activeButton === "Company" ? "companies" : activeButton === "Asset" ? "asset classes" : "funds"}...`}
           bind:value={searchTerm}
           on:input={handleSearch}
-          class="search-input"
+          class="search-input ml-2"
         />
         {#if searchTerm}
-          <button on:click={() => searchTerm = ''} class="clear-btn">
+          <button on:click={() => (searchTerm = "")} class="clear-btn">
             <Icon icon="mdi:close" />
           </button>
         {/if}
@@ -381,7 +398,10 @@
     <!-- Main Content Grid -->
     <div class="content-grid">
       <!-- Chart Section -->
-      <div class="chart-section glass-card" in:fly={{ x: -30, duration: 600, delay: 400 }}>
+      <div
+        class="chart-section glass-card"
+        in:fly={{ x: -30, duration: 600, delay: 400 }}
+      >
         <div class="chart-header">
           <h3 class="section-title">Portfolio Distribution</h3>
           <div class="chart-total">
@@ -400,7 +420,10 @@
       </div>
 
       <!-- Details Section -->
-      <div class="details-section glass-card" in:fly={{ x: 30, duration: 600, delay: 400 }}>
+      <div
+        class="details-section glass-card"
+        in:fly={{ x: 30, duration: 600, delay: 400 }}
+      >
         <div class="details-content">
           {#if !selectedSlice}
             <div class="no-data-message">
@@ -410,7 +433,9 @@
           {:else if selectedSlice && selectedSlice.isAggregate}
             <!-- Aggregated Others Item -->
             <div class="detail-header">
-              <h2 class="detail-title">Others ({selectedSlice.aggregatedCount} items)</h2>
+              <h2 class="detail-title">
+                Others ({selectedSlice.aggregatedCount} items)
+              </h2>
               <span class="detail-amount">
                 {#if activeButton == "Company"}
                   ${formatNumber(selectedSlice["total investment"])}
@@ -421,7 +446,7 @@
                 {/if}
               </span>
             </div>
-            
+
             <div class="detail-grid">
               <div class="detail-item">
                 <span class="detail-label">Aggregated Items</span>
@@ -430,8 +455,13 @@
                     <Icon icon="mdi:information-outline" class="info-icon" />
                     <div>
                       <p class="aggregated-text">
-                        This represents the combined value of {selectedSlice.aggregatedCount} smaller 
-                        {activeButton === "Company" ? "companies" : activeButton === "Fund" ? "funds" : "asset classes"} 
+                        This represents the combined value of {selectedSlice.aggregatedCount}
+                        smaller
+                        {activeButton === "Company"
+                          ? "companies"
+                          : activeButton === "Fund"
+                            ? "funds"
+                            : "asset classes"}
                         that individually have lower investment amounts.
                       </p>
                       <p class="aggregated-note">
@@ -446,14 +476,26 @@
                         {#each selectedSlice.aggregatedItems.slice(0, 5) as item}
                           <div class="preview-item">
                             {#if activeButton == "Company"}
-                              <span class="preview-name">{cap(item["asset"])}</span>
-                              <span class="preview-amount">${formatNumber(item["total investment"])}</span>
+                              <span class="preview-name"
+                                >{cap(item["asset"])}</span
+                              >
+                              <span class="preview-amount"
+                                >${formatNumber(item["total investment"])}</span
+                              >
                             {:else if activeButton == "Fund"}
-                              <span class="preview-name">{cap(item["Asset Name"])}</span>
-                              <span class="preview-amount">${formatNumber(item["Total Investment"])}</span>
+                              <span class="preview-name"
+                                >{cap(item["Asset Name"])}</span
+                              >
+                              <span class="preview-amount"
+                                >${formatNumber(item["Total Investment"])}</span
+                              >
                             {:else}
-                              <span class="preview-name">{cap(item["A.s.set ._Class"])}</span>
-                              <span class="preview-amount">${formatNumber(item["Total Iℂnvest∈d"])}</span>
+                              <span class="preview-name"
+                                >{cap(item["A.s.set ._Class"])}</span
+                              >
+                              <span class="preview-amount"
+                                >${formatNumber(item["Total Iℂnvest∈d"])}</span
+                              >
                             {/if}
                           </div>
                         {/each}
@@ -468,13 +510,12 @@
                 </div>
               </div>
             </div>
-            
           {:else if activeButton == "Fund"}
             <div class="detail-header">
               <h2 class="detail-title">{cap(selectedSlice["Asset Name"])}</h2>
               <span class="detail-badge">{selectedSlice["Asset Type"]}</span>
             </div>
-            
+
             <div class="detail-grid">
               <div class="detail-item">
                 <span class="detail-label">Funding Sources</span>
@@ -482,13 +523,14 @@
                   {#each selectedSlice["Funding Sources"] as f}
                     <div class="funding-item" in:fade={{ duration: 300 }}>
                       <span class="funding-name">{f["Source:"]}</span>
-                      <span class="funding-amount">${formatNumber(f["Ammount"])}</span>
+                      <span class="funding-amount"
+                        >${formatNumber(f["Ammount"])}</span
+                      >
                     </div>
                   {/each}
                 </div>
               </div>
             </div>
-            
           {:else if activeButton == "Company"}
             <div class="detail-header">
               <h2 class="detail-title">{cap(selectedSlice["asset"])}</h2>
@@ -496,7 +538,7 @@
                 ${formatNumber(selectedSlice["total investment"])}
               </span>
             </div>
-            
+
             <div class="detail-grid">
               <div class="detail-item">
                 <span class="detail-label">Investment Sources</span>
@@ -512,7 +554,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Control Buttons -->
             <div class="control-buttons">
               <button
@@ -520,7 +562,10 @@
                 class:active={estimation === "true"}
                 on:click={estim}
               >
-                <Icon icon={estimation === "true" ? "mdi:check" : "mdi:close"} class="btn-icon" />
+                <Icon
+                  icon={estimation === "true" ? "mdi:check" : "mdi:close"}
+                  class="btn-icon"
+                />
                 Include Estimates
               </button>
               <button
@@ -528,19 +573,23 @@
                 class:active={composition === "true"}
                 on:click={comp}
               >
-                <Icon icon={composition === "true" ? "mdi:check" : "mdi:close"} class="btn-icon" />
+                <Icon
+                  icon={composition === "true" ? "mdi:check" : "mdi:close"}
+                  class="btn-icon"
+                />
                 Consolidate Shares
               </button>
             </div>
-            
           {:else}
             <div class="detail-header">
-              <h2 class="detail-title">{cap(selectedSlice["A.s.set ._Class"])}</h2>
+              <h2 class="detail-title">
+                {cap(selectedSlice["A.s.set ._Class"])}
+              </h2>
               <span class="detail-amount">
                 ${formatNumber(selectedSlice["Total Iℂnvest∈d"])}
               </span>
             </div>
-            
+
             <div class="detail-grid">
               <div class="detail-item">
                 <span class="detail-label">Investment Breakdown</span>
@@ -563,10 +612,12 @@
       <div class="disclaimer" in:fade={{ duration: 600, delay: 500 }}>
         <Icon icon="mdi:information-outline" class="disclaimer-icon" />
         <p>
-          The UC does not have direct investments in these companies. Data is constructed by analyzing 
-          index fund compositions and aggregating holdings across all funds. Fund compositions change daily; 
-          this data reflects the most recent disclosures. View our 
-          <a href="/about" class="disclaimer-link">methodology</a> for evidence-based predictions.
+          The UC does not have direct investments in these companies. Data is
+          constructed by analyzing index fund compositions and aggregating
+          holdings across all funds. Fund compositions change daily; this data
+          reflects the most recent disclosures. View our
+          <a href="/about" class="disclaimer-link">methodology</a> for evidence-based
+          predictions.
         </p>
       </div>
     {/if}
@@ -591,7 +642,7 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   :global(.warning-icon) {
@@ -607,7 +658,7 @@
   }
 
   .hero-section::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -625,7 +676,7 @@
   }
 
   .hero-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 2.25rem;
     font-weight: 700;
     color: white;
@@ -653,7 +704,7 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--sec);
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
   }
 
   .stat-divider {
@@ -707,7 +758,7 @@
   }
 
   .nav-tab::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -771,7 +822,9 @@
   .search-input:focus {
     outline: none;
     border-color: var(--founder);
-    box-shadow: 0 0 0 3px rgba(59, 126, 161, 0.1), var(--shadow-md);
+    box-shadow:
+      0 0 0 3px rgba(59, 126, 161, 0.1),
+      var(--shadow-md);
     transform: translateY(-1px);
   }
 
@@ -849,6 +902,9 @@
     justify-content: center;
     align-items: center;
     flex: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .details-section {
@@ -942,7 +998,7 @@
   .funding-amount {
     font-weight: 700;
     color: var(--founder);
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
   }
 
   .control-buttons {
@@ -1067,7 +1123,7 @@
     font-size: 0.875rem;
     color: var(--founder);
     font-weight: 600;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
   }
 
   .preview-more {
@@ -1138,18 +1194,72 @@
   @media (max-width: 1024px) {
     .content-grid {
       grid-template-columns: 1fr;
+      gap: 1rem;
     }
-    
+
     .hero-title {
       font-size: 2rem;
     }
-    
+
     .hero-stats {
       gap: 1.5rem;
     }
-    
+
     .stat-value {
       font-size: 1.25rem;
+    }
+
+    .main-container {
+      padding: 1.5rem 1rem;
+    }
+
+    .glass-card {
+      padding: 1.25rem;
+    }
+
+    .chart-section {
+      overflow: hidden;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-tabs {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .nav-tab {
+      flex: 1;
+      min-width: 0;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    .search-input {
+      padding: 0.875rem 3rem 0.875rem 2.5rem;
+      font-size: 0.925rem;
+    }
+
+    .chart-total {
+      font-size: 2rem;
+    }
+
+    .detail-title {
+      font-size: 1.5rem;
+    }
+
+    .funding-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+      padding: 0.75rem 1rem;
+    }
+
+    .control-buttons {
+      flex-direction: column;
+      gap: 0.75rem;
     }
   }
 
@@ -1157,7 +1267,7 @@
     .hero-section {
       padding: 1rem 0.75rem;
     }
-    
+
     .hero-title {
       font-size: 1.5rem;
       margin-bottom: 0.75rem;
@@ -1183,29 +1293,67 @@
 
     .hero-description {
       font-size: 0.925rem;
-      padding: 0 1rem;
+      padding: 0 0.5rem;
     }
 
     .warning-banner {
       font-size: 0.875rem;
       padding: 0.625rem 0.75rem;
+      text-align: center;
     }
-    
+
     .main-container {
-      padding: 2rem 1rem;
+      padding: 1rem 0.75rem;
     }
-    
+
     .nav-tab {
-      padding: 0.75rem 1.25rem;
+      padding: 0.625rem 0.75rem;
+      font-size: 0.8125rem;
+    }
+
+    .search-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .search-input {
+      padding: 0.75rem 2.5rem 0.75rem 2rem;
       font-size: 0.875rem;
     }
-    
+
     .chart-total {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
-    
+
+    .section-title {
+      font-size: 0.875rem;
+    }
+
     .detail-title {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+    }
+
+    .glass-card {
+      padding: 1rem;
+    }
+
+    .chart-section {
+      padding: 0.75rem;
+      overflow: hidden;
+    }
+
+    .chart-container {
+      min-height: 250px;
+    }
+
+    .disclaimer {
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    .disclaimer p {
+      font-size: 0.875rem;
     }
   }
 </style>

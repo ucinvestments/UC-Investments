@@ -10,6 +10,7 @@
   let width = 380;
   let height = 380;
   let radius = Math.min(width, height) / 2;
+  let containerElement;
   let svg;
   let g;
   let tooltip;
@@ -19,6 +20,48 @@
   const dispatch = createEventDispatcher();
   
   const MAX_ITEMS = 25; // Maximum items to show before aggregating
+
+  function updateDimensions() {
+    if (!containerElement) return;
+    
+    const containerRect = containerElement.getBoundingClientRect();
+    const containerWidth = containerRect.width;
+    
+    // Make chart responsive with min/max constraints
+    const maxSize = 380;
+    const minSize = 200;
+    const mobileSize = Math.min(containerWidth - 40, maxSize); // 40px for padding
+    
+    width = Math.max(minSize, mobileSize);
+    height = width; // Keep it square
+    radius = Math.min(width, height) / 2;
+    
+    // Update SVG dimensions if it exists
+    if (svg) {
+      svg.attr("width", width).attr("height", height);
+      
+      // Update group position
+      if (g) {
+        g.attr("transform", `translate(${width / 2}, ${height / 2})`);
+      }
+      
+      // Update arc generators with new radius
+      if (arcPath && arcHover) {
+        arcPath = d3.arc()
+          .outerRadius(radius - 20)
+          .innerRadius(radius - 80)
+          .cornerRadius(4);
+
+        arcHover = d3.arc()
+          .outerRadius(radius - 15)
+          .innerRadius(radius - 85)
+          .cornerRadius(4);
+          
+        // Redraw chart with new dimensions
+        drawChart();
+      }
+    }
+  }
 
   const colorPalette = [
     "#3B7EA1", "#FDB515", "#003262", "#C4820E", "#00B0DA", 
@@ -364,6 +407,13 @@
   }
 
   onMount(() => {
+    // Initialize dimensions
+    updateDimensions();
+    
+    // Add resize listener
+    const handleResize = () => updateDimensions();
+    window.addEventListener('resize', handleResize);
+    
     // Create tooltip
     tooltip = d3.select("body")
       .append("div")
@@ -455,6 +505,7 @@
     // Cleanup on unmount
     return () => {
       if (tooltip) tooltip.remove();
+      window.removeEventListener('resize', handleResize);
     };
   });
 
@@ -491,7 +542,7 @@
   });
 </script>
 
-<div class="pie-chart m-auto" />
+<div class="pie-chart m-auto" bind:this={containerElement} />
 
 <style>
   .pie-chart {
@@ -499,6 +550,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  @media (max-width: 768px) {
+    .pie-chart {
+      max-width: calc(100vw - 3rem);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .pie-chart {
+      max-width: calc(100vw - 2rem);
+    }
   }
 
   :global(.arc-path) {
