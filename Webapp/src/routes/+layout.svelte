@@ -1,7 +1,7 @@
 <script>
   import "../app.css";
   import { dev } from "$app/environment";
-  import { inject } from "@vercel/analytics";
+  import { injectAnalytics } from "@vercel/analytics/sveltekit";
   import { fade } from "svelte/transition";
   import { page } from "$app/stores";
   import Icon from "@iconify/svelte";
@@ -14,13 +14,16 @@
       $title: document.title
     });
   }
-  inject({ mode: dev ? "development" : "production" });
   import posthog from "posthog-js";
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
 
   onMount(() => {
     if (browser) {
+      // Initialize Vercel Analytics
+      injectAnalytics({ mode: dev ? "development" : "production" });
+      
+      // Initialize PostHog
       posthog.init("phc_3vyk0G3UGOLR5TBAPt3ksbHbGbRNOI42aGZsoWvrBzU", {
         api_host: "https://us.i.posthog.com",
         capture_pageview: false, // Disable automatic pageview capture
