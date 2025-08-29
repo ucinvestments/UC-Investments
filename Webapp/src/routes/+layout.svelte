@@ -23,9 +23,10 @@
       // Initialize Vercel Analytics
       inject({ mode: dev ? "development" : "production" });
       
-      // Initialize PostHog
+      // Initialize PostHog with proxy
       posthog.init("phc_3vyk0G3UGOLR5TBAPt3ksbHbGbRNOI42aGZsoWvrBzU", {
-        api_host: "https://us.i.posthog.com",
+        api_host: "/ingest", // Use our Vercel proxy
+        ui_host: "https://us.posthog.com",
         capture_pageview: false, // Disable automatic pageview capture
         capture_pageleave: true, // Track when users leave pages
         person_profiles: "always", // Create profiles for all users
@@ -37,9 +38,11 @@
           }
         },
         persistence: 'localStorage+cookie',
+        cross_subdomain_cookie: false,
+        secure_cookie: true,
         loaded: (posthog) => {
           if (dev) {
-            console.log('PostHog loaded successfully');
+            console.log('PostHog loaded successfully with proxy');
           }
         }
       });
