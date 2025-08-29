@@ -2,10 +2,25 @@
   import "../app.css";
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
-  import { fade } from 'svelte/transition';
-  import { page } from '$app/stores';
+  import { fade } from "svelte/transition";
+  import { page } from "$app/stores";
   import Icon from "@iconify/svelte";
   inject({ mode: dev ? "development" : "production" });
+  import posthog from "posthog-js";
+  import { browser } from "$app/environment";
+  import { onMount } from "svelte";
+
+  export const load = async () => {
+    if (browser) {
+      posthog.init("phc_3vyk0G3UGOLR5TBAPt3ksbHbGbRNOI42aGZsoWvrBzU", {
+        api_host: "https://us.i.posthog.com",
+        defaults: "2025-05-24",
+        person_profiles: "always", // or 'always' to create profiles for anonymous users as well
+      });
+    }
+
+    return;
+  };
 </script>
 
 <nav class="navbar">
@@ -16,26 +31,22 @@
         <span class="logo-text">UC Investments</span>
       </div>
     </a>
-    
+
     <div class="nav-links">
-      <a 
-        href="/" 
-        class="nav-link"
-        class:active={$page.url.pathname === '/'}
-      >
+      <a href="/" class="nav-link" class:active={$page.url.pathname === "/"}>
         <Icon icon="mdi:home" class="nav-icon" />
         Explorer
       </a>
-      <a 
-        href="/about" 
+      <a
+        href="/about"
         class="nav-link"
-        class:active={$page.url.pathname === '/about'}
+        class:active={$page.url.pathname === "/about"}
       >
         <Icon icon="mdi:information" class="nav-icon" />
         About
       </a>
-      <a 
-        href="https://github.com/anthropics/uc-investments"
+      <a
+        href="https://github.com/TheArctesian/UC-Investments"
         target="_blank"
         rel="noopener noreferrer"
         class="nav-link external"
@@ -60,28 +71,33 @@
         Transparency in university endowment and pension fund management.
       </p>
     </div>
-    
+
     <div class="footer-section">
       <h4 class="footer-title">Quick Links</h4>
       <div class="footer-links">
         <a href="/" class="footer-link">Explorer</a>
         <a href="/about" class="footer-link">Methodology</a>
-        <a href="https://www.ucop.edu/investment-office/" target="_blank" rel="noopener noreferrer" class="footer-link">
+        <a
+          href="https://www.ucop.edu/investment-office/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
+        >
           UC Investment Office
           <Icon icon="mdi:open-in-new" class="footer-external" />
         </a>
       </div>
     </div>
-    
+
     <div class="footer-section">
       <h4 class="footer-title">Data Sources</h4>
       <p class="footer-text">
-        Last updated: May 2024<br>
+        Last updated: May 2024<br />
         Data accuracy: ~68%
       </p>
     </div>
   </div>
-  
+
   <div class="footer-bottom">
     <p>&copy; 2024 UC Investment Explorer. Educational purposes only.</p>
   </div>
@@ -132,7 +148,7 @@
   }
 
   .logo-text {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--pri);
@@ -210,7 +226,7 @@
   }
 
   .footer-title {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-size: 1.125rem;
     font-weight: 600;
     color: var(--pri);

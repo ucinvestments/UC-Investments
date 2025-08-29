@@ -155,7 +155,7 @@
           <div class="source-link">
             <Icon icon="mdi:github" class="link-icon" />
             <a
-              href="https://github.com/g4cko/UC-Investments/tree/main/Data-Collection/csv-files"
+              href="https://github.com/TheArctesian/UC-Investments/tree/main/Data-Collection/csv-files"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -183,7 +183,7 @@
           </p>
           <div class="contribute-actions">
             <a
-              href="https://github.com/g4cko/UC-Investments/"
+              href="https://github.com/thearctesian/UC-Investments/"
               target="_blank"
               rel="noopener noreferrer"
               class="action-button"
@@ -244,7 +244,7 @@
                 class="member-link"
               >
                 <Icon icon="mdi:web" class="social-icon" />
-                Portfolio Website
+                Website
               </a>
             </div>
           </div>

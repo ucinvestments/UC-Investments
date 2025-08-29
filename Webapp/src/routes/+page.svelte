@@ -6,6 +6,8 @@
   import Loading from "$lib/loading.svelte";
   import { fade, fly, scale } from 'svelte/transition';
   import { quintOut } from 'svelte/easing';
+  import posthog from 'posthog-js';
+  import { browser } from '$app/environment';
   
   let end;
   type button = "Asset" | "Company" | "Fund";
@@ -13,36 +15,83 @@
   let mounted = false;
 
   function asset() {
+    const previousMode = activeButton;
     activeButton = "Asset";
+    
+    // Track view mode switch
+    if (browser && previousMode !== "Asset") {
+      posthog.capture('view_mode_changed', {
+        previous_mode: previousMode.toLowerCase(),
+        new_mode: 'asset',
+        view_context: 'asset_class'
+      });
+    }
+    
     fetchListedAssets();
   }
+  
   function company() {
+    const previousMode = activeButton;
     activeButton = "Company";
+    
+    // Track view mode switch
+    if (browser && previousMode !== "Company") {
+      posthog.capture('view_mode_changed', {
+        previous_mode: previousMode.toLowerCase(),
+        new_mode: 'company',
+        view_context: 'company'
+      });
+    }
+    
     fetchListedAssets();
   }
+  
   function fund() {
+    const previousMode = activeButton;
     activeButton = "Fund";
+    
+    // Track view mode switch
+    if (browser && previousMode !== "Fund") {
+      posthog.capture('view_mode_changed', {
+        previous_mode: previousMode.toLowerCase(),
+        new_mode: 'fund',
+        view_context: 'fund'
+      });
+    }
+    
     fetchListedAssets();
   }
 
   function estim() {
-    if (estimation == "true") {
-      estimation = "false";
-      fetchListedAssets();
-    } else {
-      estimation = "true";
-      fetchListedAssets();
+    const newValue = estimation == "true" ? "false" : "true";
+    estimation = newValue;
+    
+    // Track estimation toggle
+    if (browser) {
+      posthog.capture('estimation_toggled', {
+        view_mode: activeButton.toLowerCase(),
+        include_estimates: newValue === "true",
+        previous_state: newValue === "true" ? "false" : "true"
+      });
     }
+    
+    fetchListedAssets();
   }
 
   function comp() {
-    if (composition == "true") {
-      composition = "false";
-      fetchListedAssets();
-    } else {
-      composition = "true";
-      fetchListedAssets();
+    const newValue = composition == "true" ? "false" : "true";
+    composition = newValue;
+    
+    // Track composition toggle
+    if (browser) {
+      posthog.capture('composition_toggled', {
+        view_mode: activeButton.toLowerCase(),
+        consolidate_shares: newValue === "true",
+        previous_state: newValue === "true" ? "false" : "true"
+      });
     }
+    
+    fetchListedAssets();
   }
   
   const API = "https://uc-investments-80f94956a47a.herokuapp.com";
@@ -118,6 +167,25 @@
   function handleSliceClicked(event) {
     searchTerm = "";
     selectedSlice = event.detail;
+    
+    // Track pie chart slice interaction
+    if (browser) {
+      const sliceName = activeButton === 'Company' ? selectedSlice['asset'] :
+                       activeButton === 'Asset' ? selectedSlice['A.s.set ._Class'] :
+                       selectedSlice['Asset Name'];
+      
+      const sliceValue = activeButton === 'Company' ? selectedSlice['total investment'] :
+                        activeButton === 'Fund' ? selectedSlice['Total Investment'] :
+                        selectedSlice['Total Iℂnvest∈d'];
+      
+      posthog.capture('pie_slice_clicked', {
+        view_mode: activeButton.toLowerCase(),
+        slice_name: sliceName || 'unknown',
+        slice_value: sliceValue || 0,
+        is_aggregate: selectedSlice.isAggregate || false,
+        aggregate_count: selectedSlice.aggregatedCount || null
+      });
+    }
   }
   
   function filterSearch() {
@@ -142,6 +210,17 @@
   function handleSearch() {
     clearTimeout(timeoutId);
     const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+    
+    // Track search event with PostHog if search term is not empty
+    if (normalizedSearchTerm && browser) {
+      posthog.capture('search_performed', {
+        search_location: activeButton.toLowerCase(), // 'company', 'asset', or 'fund'
+        search_query: normalizedSearchTerm,
+        search_context: activeButton === 'Company' ? 'company' : 
+                       activeButton === 'Asset' ? 'asset_class' : 'fund'
+      });
+    }
+    
     let matchingSlice;
     if (activeButton == "Company") {
       matchingSlice = data.find((item) =>
@@ -161,6 +240,17 @@
         selectedSlice = matchingSlice;
         filterSearch();
         sumTotalInvestments();
+        
+        // Track successful search result
+        if (browser) {
+          posthog.capture('search_result_found', {
+            search_location: activeButton.toLowerCase(),
+            search_query: normalizedSearchTerm,
+            result_name: activeButton === 'Company' ? matchingSlice['asset'] :
+                        activeButton === 'Asset' ? matchingSlice['A.s.set ._Class'] :
+                        matchingSlice['Asset Name']
+          });
+        }
       }, 300);
     } else {
       selectedSlice = data[0];
@@ -168,6 +258,14 @@
         selectedSlice = data[0];
       } else {
         selectedSlice = filteredData[0];
+      }
+      
+      // Track failed search
+      if (normalizedSearchTerm && browser) {
+        posthog.capture('search_no_results', {
+          search_location: activeButton.toLowerCase(),
+          search_query: normalizedSearchTerm
+        });
       }
     }
   }
