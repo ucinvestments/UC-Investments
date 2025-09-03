@@ -209,14 +209,15 @@
       >
         <div class="section-header">
           <Icon icon="mdi:account-group" class="section-icon" />
-          <h2 class="section-title">Our Team</h2>
+          <h2 class="section-title">Who Made This</h2>
         </div>
 
         <div class="content-card">
           <p class="team-intro">
-            This project emerged from campus conversations about divestment and
-            investment transparency. As UC students, we leveraged publicly
-            available data to create this comprehensive analysis.
+            This project emerged from conversations about divestment and
+            investment transparency. We decided to figure out what we as a
+            university were actually invested in and present that in the best
+            way we knew how.
           </p>
 
           <div class="team-grid">

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { fade } from 'svelte/transition';
-  
+  import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
+
   let mounted = false;
-  
+
   onMount(() => {
     mounted = true;
   });
@@ -23,7 +23,7 @@
           stroke-width="3"
           opacity="0.3"
         />
-        
+
         <!-- Animated segments -->
         <circle
           cx="60"
@@ -37,7 +37,7 @@
           class="segment segment-1"
           transform="rotate(-90 60 60)"
         />
-        
+
         <circle
           cx="60"
           cy="60"
@@ -51,7 +51,7 @@
           class="segment segment-2"
           transform="rotate(-90 60 60)"
         />
-        
+
         <circle
           cx="60"
           cy="60"
@@ -65,7 +65,7 @@
           class="segment segment-3"
           transform="rotate(-90 60 60)"
         />
-        
+
         <circle
           cx="60"
           cy="60"
@@ -79,7 +79,7 @@
           class="segment segment-4"
           transform="rotate(-90 60 60)"
         />
-        
+
         <!-- Center logo -->
         <g class="center-logo">
           <circle
@@ -98,11 +98,11 @@
             font-family="Space Grotesk, sans-serif"
             font-weight="700"
             font-size="14"
-            fill="var(--pri)"
-          >UC</text>
+            fill="var(--pri)">UC</text
+          >
         </g>
       </svg>
-      
+
       <!-- Pulsing dots -->
       <div class="loading-dots">
         <div class="dot dot-1"></div>
@@ -110,7 +110,7 @@
         <div class="dot dot-3"></div>
       </div>
     </div>
-    
+
     <div class="loading-text">
       <p class="loading-message">Loading investment data...</p>
     </div>
@@ -205,6 +205,7 @@
     color: var(--text-secondary);
     font-weight: 500;
     margin: 0;
+    margin-top: 1rem;
     animation: fadeInOut 2s ease-in-out infinite;
   }
 
@@ -218,7 +219,8 @@
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
       opacity: 1;
     }
@@ -229,7 +231,8 @@
   }
 
   @keyframes fadeInOut {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
     }
     50% {
@@ -238,7 +241,9 @@
   }
 
   @keyframes bounce {
-    0%, 80%, 100% {
+    0%,
+    80%,
+    100% {
       transform: scale(0.8);
       opacity: 0.5;
     }

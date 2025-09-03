@@ -73,6 +73,14 @@
         About
       </a>
       <a
+        href="/resources"
+        class="nav-link"
+        class:active={$page.url.pathname === "/resources"}
+      >
+        <Icon icon="mdi:book-open-page-variant" class="nav-icon" />
+        Resources
+      </a>
+      <a
         href="https://github.com/TheArctesian/UC-Investments"
         target="_blank"
         rel="noopener noreferrer"
@@ -104,6 +112,7 @@
       <div class="footer-links">
         <a href="/" class="footer-link">Explorer</a>
         <a href="/about" class="footer-link">Methodology</a>
+        <a href="/resources" class="footer-link">Resources</a>
         <a
           href="https://www.ucop.edu/investment-office/"
           target="_blank"
