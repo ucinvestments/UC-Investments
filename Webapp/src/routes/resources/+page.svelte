@@ -101,6 +101,28 @@
               <Icon icon="mdi:arrow-right" class="link-arrow" />
             </a>
           </div>
+
+          <!-- SEC 13F Filings -->
+          <div class="resource-card">
+            <div class="resource-header">
+              <Icon icon="mdi:file-document-multiple" class="resource-icon" />
+              <h3>SEC 13F Filings</h3>
+            </div>
+            <p class="resource-description">
+              Quarterly SEC Form 13F-HR filings showing UC's institutional
+              investment holdings. These regulatory filings provide detailed
+              disclosure of equity positions managed by the UC.
+            </p>
+            <a
+              href="https://www.sec.gov/edgar/search/#/ciks=0000315054&entityName=REGENTS%2520OF%2520THE%2520UNIVERSITY%2520OF%2520CALIFORNIA%2520(CIK%25200000315054)&filter_forms=13F-HR"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="resource-link"
+            >
+              <span>View SEC Filings</span>
+              <Icon icon="mdi:arrow-right" class="link-arrow" />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -114,43 +136,87 @@
           <h2 class="section-title">Critical Analysis</h2>
         </div>
 
-        <div class="analysis-card">
-          <div class="analysis-header">
-            <Icon icon="mdi:file-document-outline" class="analysis-icon" />
-            <div>
-              <h3>Unmasking UCLA Whitepaper</h3>
-              <span class="analysis-source">by Unmasking UCLA</span>
+        <div class="analysis-grid">
+          <!-- Unmasking UCLA Whitepaper -->
+          <div class="analysis-card">
+            <div class="analysis-header">
+              <Icon icon="mdi:file-document-outline" class="analysis-icon" />
+              <div>
+                <h3>Unmasking UCLA Whitepaper</h3>
+                <span class="analysis-source">by Unmasking UCLA</span>
+              </div>
             </div>
+            <p class="analysis-description">
+              An in-depth critical examination of UC's investment practices by
+              our friends over at UCLA. It clearly explains what the UC is
+              invested in and what our money funds.
+            </p>
+            <div class="analysis-highlights">
+              <div class="highlight">
+                <Icon icon="mdi:world" class="highlight-icon" />
+                <span>Ethical Critque</span>
+              </div>
+              <div class="highlight">
+                <Icon icon="mdi:eye" class="highlight-icon" />
+                <span>Transparency Issues</span>
+              </div>
+              <div class="highlight">
+                <Icon icon="mdi:leaf" class="highlight-icon" />
+                <span>Sustainability Impact</span>
+              </div>
+            </div>
+            <a
+              href="https://unmaskingucla.org/whitepaper"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="analysis-link"
+            >
+              <span>Read the Full Whitepaper</span>
+              <Icon icon="mdi:arrow-right" class="link-arrow" />
+            </a>
           </div>
-          <p class="analysis-description">
-            An in-depth critical examination of UC's investment practices by our
-            friends over at UCLA. The paper focuses on ethical concerns,
-            transparency issues, and the impact of investment decisions on
-            campus communities and if it is alignmened with humananity.
-          </p>
-          <div class="analysis-highlights">
-            <div class="highlight">
-              <Icon icon="mdi:world" class="highlight-icon" />
-              <span>Ethical Critque</span>
+
+          <!-- Who Rules the UC -->
+          <div class="analysis-card">
+            <div class="analysis-header">
+              <Icon icon="mdi:account-group-outline" class="analysis-icon" />
+              <div>
+                <h3>Who Rules the UC</h3>
+                <span class="analysis-source"
+                  >by BDS Exploratory Committee at UC Berkeley</span
+                >
+              </div>
             </div>
-            <div class="highlight">
-              <Icon icon="mdi:eye" class="highlight-icon" />
-              <span>Transparency Issues</span>
+            <p class="analysis-description">
+              A comprehensive analysis examining the power structures and
+              decision-making processes within the UC system. This paper
+              explores the relationships between UC governance, UC investments,
+              and the economic/political influences on university policy.
+            </p>
+            <div class="analysis-highlights">
+              <div class="highlight">
+                <Icon icon="mdi:sitemap" class="highlight-icon" />
+                <span>Governance Structure</span>
+              </div>
+              <div class="highlight">
+                <Icon icon="mdi:handshake" class="highlight-icon" />
+                <span>Power Dynamics</span>
+              </div>
+              <div class="highlight">
+                <Icon icon="mdi:scale-balance" class="highlight-icon" />
+                <span>Decision Making</span>
+              </div>
             </div>
-            <div class="highlight">
-              <Icon icon="mdi:leaf" class="highlight-icon" />
-              <span>Sustainability Impact</span>
-            </div>
+            <a
+              href="https://docs.google.com/document/d/1-6ElQ_yAAXaDA7arZTqvXOQJWOTd-1gDDBPxMnwWT2c/edit?tab=t.0#heading=h.698vkyeikquj"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="analysis-link"
+            >
+              <span>Read the Document</span>
+              <Icon icon="mdi:arrow-right" class="link-arrow" />
+            </a>
           </div>
-          <a
-            href="https://unmaskingucla.org/whitepaper"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="analysis-link"
-          >
-            <span>Read the Full Whitepaper</span>
-            <Icon icon="mdi:arrow-right" class="link-arrow" />
-          </a>
         </div>
       </section>
 
@@ -370,6 +436,12 @@
     transform: translateX(4px);
   }
 
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+  }
+
   .analysis-card {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
@@ -377,6 +449,12 @@
     border: 1px solid var(--border);
     padding: 2.5rem;
     box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+  }
+
+  .analysis-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
   }
 
   .analysis-header {
@@ -546,6 +624,10 @@
     .analysis-card,
     .content-card {
       padding: 1.5rem;
+    }
+
+    .analysis-grid {
+      grid-template-columns: 1fr;
     }
 
     .analysis-highlights {
