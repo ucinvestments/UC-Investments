@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  bds-unifier:
+    build: .
+    container_name: bds-data-unifier
+    volumes:
+      # Mount the source data directories
+      - ./boycott.thewitness/output:/app/boycott.thewitness/output:ro
+      - ./dontbuyintooccupation.org/output:/app/dontbuyintooccupation.org/output:ro
+      - ./investigate.afsc.org:/app/investigate.afsc.org:ro
+      # Mount output directory for unified data
+      - ./unified_output:/app/data
+    environment:
+      - TZ=America/Los_Angeles
+    command: >
+      python -u unify_bds_data.py
+      --path /app
+      --output /app/data/unified_bds_data.json
+
+networks:
+  default:
+    name: bds-network

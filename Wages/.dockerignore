@@ -1,0 +1,45 @@
+# Ignore scraped data directories
+ALL/
+ASUCLA/
+Berkeley/
+Davis/
+UC_SF_Law/
+Irvine/
+Los_Angeles/
+Merced/
+Riverside/
+San_Diego/
+San_Francisco/
+Santa_Barbara/
+Santa_Cruz/
+UCOP/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+scrape.log
+
+# Git
+.git/
+.gitignore
