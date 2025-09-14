@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  pdf-scraper:
+    build: .
+    container_name: uc-policy-scraper
+    volumes:
+      # Mount the PDFs directory to persist downloaded files
+      - ./PDFs:/app/PDFs
+    environment:
+      # Optional: Can add environment variables if needed in future
+      - TZ=America/Los_Angeles
+    # Restart policy
+    restart: "no"
+    # Resource limits (optional)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 256M

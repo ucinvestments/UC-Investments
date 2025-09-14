@@ -22,7 +22,7 @@
     if (browser) {
       // Initialize Vercel Analytics
       inject({ mode: dev ? "development" : "production" });
-      
+
       // Initialize PostHog with proxy
       posthog.init("phc_3vyk0G3UGOLR5TBAPt3ksbHbGbRNOI42aGZsoWvrBzU", {
         api_host: "/ingest", // Use our Vercel proxy
@@ -32,9 +32,9 @@
         person_profiles: "always", // Create profiles for all users
         session_recording: {
           maskAllInputs: false,
-          maskInputOptions: { 
+          maskInputOptions: {
             password: true,
-            email: true 
+            email: true
           }
         },
         persistence: 'localStorage+cookie',
@@ -46,6 +46,14 @@
           }
         }
       });
+
+      // Make toggle function globally available
+      window.toggleDonationInfo = function() {
+        const donationInfo = document.getElementById('donationInfo');
+        if (donationInfo) {
+          donationInfo.style.display = donationInfo.style.display === 'none' ? 'block' : 'none';
+        }
+      };
     }
   });
 </script>
@@ -81,6 +89,22 @@
         Resources
       </a>
       <a
+        href="/press"
+        class="nav-link"
+        class:active={$page.url.pathname.startsWith("/press")}
+      >
+        <Icon icon="mdi:newspaper-variant" class="nav-icon" />
+        Press
+      </a>
+      <a
+        href="/todo"
+        class="nav-link"
+        class:active={$page.url.pathname === "/todo"}
+      >
+        <Icon icon="mdi:clipboard-list" class="nav-icon" />
+        Roadmap
+      </a>
+      <a
         href="https://github.com/TheArctesian/UC-Investments"
         target="_blank"
         rel="noopener noreferrer"
@@ -113,6 +137,8 @@
         <a href="/" class="footer-link">Explorer</a>
         <a href="/about" class="footer-link">Methodology</a>
         <a href="/resources" class="footer-link">Resources</a>
+        <a href="/press" class="footer-link">Press</a>
+        <a href="/todo" class="footer-link">Roadmap</a>
         <a
           href="https://www.ucop.edu/investment-office/"
           target="_blank"
@@ -122,6 +148,41 @@
           UC Investment Office
           <Icon icon="mdi:open-in-new" class="footer-external" />
         </a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h4 class="footer-title">Contact</h4>
+      <div class="footer-links">
+        <a href="mailto:admin@ucinvestments.info" class="footer-link">Contact Us</a>
+        <a href="mailto:press@ucinvestments.info" class="footer-link">Submit Research</a>
+        <a href="mailto:dev@ucinvestments.info" class="footer-link">Development</a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h4 class="footer-title">Support This Project</h4>
+      <p class="footer-text">
+        This project is self-funded by Stephen. Donations help cover hosting and API costs.
+      </p>
+      <div class="donation-links">
+        <button class="donate-button" onclick="toggleDonationInfo()">
+          <Icon icon="mdi:heart" class="donate-icon" />
+          Donate
+        </button>
+        <div class="donation-info" id="donationInfo" style="display: none;">
+          <div class="crypto-address">
+            <strong>ETH:</strong>
+            <code class="address">0x623c7559ddC51BAf15Cc81bf5bc13c0B0EA14c01</code>
+          </div>
+          <div class="crypto-address">
+            <strong>XMR:</strong>
+            <code class="address">44bvXALNkxUgSkGChKQPnj79v6JwkeYEkGijgKyp2zRq3EiuL6oewAv5u2c7FN7jbN1z7uj1rrPfL77bbsJ3cC8U2ADFoTj</code>
+          </div>
+          <p class="alt-contact">
+            Or contact <a href="mailto:sdokita@berkeley.edu">Stephen</a> for alternatives.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -250,8 +311,8 @@
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 2rem;
     margin-bottom: 2rem;
   }
 
@@ -316,6 +377,86 @@
     margin: 0;
   }
 
+  /* Donation Styles */
+  .donation-links {
+    margin-top: 1rem;
+  }
+
+  .donate-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: linear-gradient(135deg, var(--golden-gate), var(--sec));
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+  }
+
+  .donate-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  :global(.donate-icon) {
+    font-size: 1rem;
+    color: white;
+  }
+
+  .donation-info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+  }
+
+  .crypto-address {
+    margin-bottom: 0.75rem;
+  }
+
+  .crypto-address strong {
+    display: block;
+    color: var(--pri);
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .address {
+    display: block;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    word-break: break-all;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    cursor: text;
+    user-select: all;
+  }
+
+  .alt-contact {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0.75rem 0 0;
+  }
+
+  .alt-contact a {
+    color: var(--founder);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .alt-contact a:hover {
+    color: var(--pri);
+    text-decoration: underline;
+  }
+
   @media (max-width: 768px) {
     .nav-container {
       flex-direction: column;
@@ -345,6 +486,10 @@
       grid-template-columns: 1fr;
       gap: 2rem;
       padding: 0 1.5rem;
+    }
+
+    .address {
+      font-size: 0.7rem;
     }
 
     .footer-section {

@@ -5,8 +5,25 @@
 
   let mounted = false;
 
+  function copyToClipboard(text, type) {
+    navigator.clipboard.writeText(text).then(() => {
+      // Show success feedback
+      const button = event.target.closest('.copy-button');
+      const originalText = button.innerHTML;
+      button.innerHTML = '<Icon icon="mdi:check" style="color: #10b981;" />';
+      setTimeout(() => {
+        button.innerHTML = originalText;
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  }
+
   onMount(() => {
     mounted = true;
+
+    // Make copy function globally available
+    window.copyToClipboard = copyToClipboard;
   });
 </script>
 
@@ -192,7 +209,7 @@
               View Repository
             </a>
             <a
-              href="mailto:sdokita@berkeley.edu"
+              href="mailto:dev@ucinvestments.info"
               class="action-button secondary"
             >
               <Icon icon="mdi:email" class="button-icon" />
@@ -247,6 +264,70 @@
                 <Icon icon="mdi:web" class="social-icon" />
                 Website
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Support Section -->
+      <section
+        class="content-section"
+        in:fly={{ y: 30, duration: 600, delay: 1200 }}
+      >
+        <div class="section-header">
+          <Icon icon="mdi:heart" class="section-icon" />
+          <h2 class="section-title">Support This Project</h2>
+        </div>
+
+        <div class="content-card">
+          <p class="support-intro">
+            This project is currently self-funded by Stephen. He would love any monetary help to cover hosting costs, API fees, and development resources. Every contribution helps maintain transparency in UC investments.
+          </p>
+
+          <div class="donation-section">
+            <h3 class="donation-title">Crypto Donations</h3>
+
+            <div class="crypto-options">
+              <div class="crypto-option">
+                <div class="crypto-header">
+                  <Icon icon="cryptocurrency:eth" class="crypto-icon eth" />
+                  <strong>Ethereum (ETH)</strong>
+                </div>
+                <div class="address-container">
+                  <code class="crypto-address">0x623c7559ddC51BAf15Cc81bf5bc13c0B0EA14c01</code>
+                  <button class="copy-button" onclick="copyToClipboard('0x623c7559ddC51BAf15Cc81bf5bc13c0B0EA14c01', 'eth')" aria-label="Copy ETH address">
+                    <Icon icon="mdi:content-copy" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="crypto-option">
+                <div class="crypto-header">
+                  <Icon icon="cryptocurrency:xmr" class="crypto-icon xmr" />
+                  <strong>Monero (XMR)</strong>
+                </div>
+                <div class="address-container">
+                  <code class="crypto-address">44bvXALNkxUgSkGChKQPnj79v6JwkeYEkGijgKyp2zRq3EiuL6oewAv5u2c7FN7jbN1z7uj1rrPfL77bbsJ3cC8U2ADFoTj</code>
+                  <button class="copy-button" onclick="copyToClipboard('44bvXALNkxUgSkGChKQPnj79v6JwkeYEkGijgKyp2zRq3EiuL6oewAv5u2c7FN7jbN1z7uj1rrPfL77bbsJ3cC8U2ADFoTj', 'xmr')" aria-label="Copy XMR address">
+                    <Icon icon="mdi:content-copy" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="alternative-donation">
+              <Icon icon="mdi:email" class="email-icon" />
+              <p>
+                For alternative donation options, contact Stephen directly at
+                <a href="mailto:sdokita@berkeley.edu">sdokita@berkeley.edu</a>
+              </p>
+            </div>
+
+            <div class="usage-note">
+              <Icon icon="mdi:information" class="info-icon" />
+              <p>
+                <strong>How donations are used:</strong> Hosting infrastructure, API costs, domain fees, and development tools that keep this platform running and data current.
+              </p>
             </div>
           </div>
         </div>
@@ -555,6 +636,163 @@
     color: var(--pri);
   }
 
+  /* Support Section Styles */
+  .support-intro {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+  }
+
+  .donation-section {
+    background: var(--bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid var(--border);
+  }
+
+  .donation-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--pri);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .crypto-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .crypto-option {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .crypto-option:hover {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .crypto-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  :global(.crypto-icon.eth) {
+    font-size: 1.5rem;
+    color: #627eea;
+  }
+
+  :global(.crypto-icon.xmr) {
+    font-size: 1.5rem;
+    color: #ff6600;
+  }
+
+  .crypto-header strong {
+    font-size: 1rem;
+    color: var(--pri);
+  }
+
+  .address-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--bg-secondary);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+  }
+
+  .crypto-address {
+    flex: 1;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.8rem;
+    word-break: break-all;
+    color: var(--text-primary);
+    background: none;
+    user-select: all;
+    cursor: text;
+  }
+
+  .copy-button {
+    background: var(--founder);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+  }
+
+  .copy-button:hover {
+    background: var(--pri);
+    transform: scale(1.05);
+  }
+
+  .alternative-donation {
+    background: linear-gradient(135deg, var(--bg-secondary), white);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  :global(.email-icon) {
+    font-size: 1.5rem;
+    color: var(--founder);
+    flex-shrink: 0;
+  }
+
+  .alternative-donation p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  .usage-note {
+    background: linear-gradient(135deg, var(--sec), var(--founder));
+    color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  :global(.info-icon) {
+    font-size: 1.5rem;
+    color: white;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .usage-note p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .usage-note strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
   /* Global link styling */
   :global(a) {
     color: var(--founder);
@@ -629,6 +867,23 @@
 
     .team-grid {
       grid-template-columns: 1fr;
+    }
+
+    .crypto-address {
+      font-size: 0.7rem;
+    }
+
+    .donation-section {
+      padding: 1.5rem;
+    }
+
+    .crypto-option {
+      padding: 1rem;
+    }
+
+    .alternative-donation,
+    .usage-note {
+      padding: 1rem;
     }
   }
 </style>

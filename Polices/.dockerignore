@@ -1,0 +1,6 @@
+PDFs/
+*.pdf
+.git
+.gitignore
+README.md
+*.log
