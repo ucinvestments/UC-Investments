@@ -217,6 +217,43 @@
               <Icon icon="mdi:arrow-right" class="link-arrow" />
             </a>
           </div>
+
+          <!-- Bay Area Current Article -->
+          <div class="analysis-card">
+            <div class="analysis-header">
+              <Icon icon="mdi:newspaper" class="analysis-icon" />
+              <div>
+                <h3>"This is How We Win": Lessons from the Bay's Pro-Palestine Encampments</h3>
+                <span class="analysis-source">by Bay Area Current</span>
+              </div>
+            </div>
+            <p class="analysis-description">
+              An insightful article examining the pro-Palestine encampment movements across Bay Area universities, including UC campuses. The piece analyzes the strategies, successes, and lessons learned from these student-led protests, providing context for understanding campus activism and its relationship to university policies including divestment demands.
+            </p>
+            <div class="analysis-highlights">
+              <div class="highlight">
+                <Icon icon="mdi:account-group" class="highlight-icon" />
+                <span>Student Activism</span>
+              </div>
+              <div class="highlight">
+                <Icon icon="mdi:school" class="highlight-icon" />
+                <span>UC Campuses</span>
+              </div>
+              <div class="highlight">
+                <Icon icon="mdi:strategy" class="highlight-icon" />
+                <span>Movement Strategy</span>
+              </div>
+            </div>
+            <a
+              href="https://bayareacurrent.com/this-is-how-we-win-lessons-from-the-bays-pro-palestine-encampments/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="analysis-link"
+            >
+              <span>Read the Article</span>
+              <Icon icon="mdi:arrow-right" class="link-arrow" />
+            </a>
+          </div>
         </div>
       </section>
 
