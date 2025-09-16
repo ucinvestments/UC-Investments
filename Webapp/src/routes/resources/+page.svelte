@@ -89,7 +89,7 @@
             <p class="resource-description">
               The 10 pillars guiding UC's investment strategy, including their
               approach to risk management, asset allocation, and long-term value
-              creation. It's a slideshow very quick read.
+              creation. It's a slideshow-- very quick read.
             </p>
             <a
               href="https://www.ucop.edu/investment-office/10pillarspowerpoint-1.pdf"
@@ -255,7 +255,6 @@
             </a>
           </div>
         </div>
-      </section>
 
           <!-- AFSCME Report on Campus Workers' Housing Crisis -->
           <div class="analysis-card">
