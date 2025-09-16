@@ -89,7 +89,7 @@
             <p class="resource-description">
               The 10 pillars guiding UC's investment strategy, including their
               approach to risk management, asset allocation, and long-term value
-              creation. It's a slideshow very quick read.
+              creation. It's a slideshow-- very quick read.
             </p>
             <a
               href="https://www.ucop.edu/investment-office/10pillarspowerpoint-1.pdf"
@@ -246,6 +246,39 @@
             </div>
             <a
               href="https://bayareacurrent.com/this-is-how-we-win-lessons-from-the-bays-pro-palestine-encampments/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="analysis-link"
+            >
+              <span>Read the Article</span>
+              <Icon icon="mdi:arrow-right" class="link-arrow" />
+            </a>
+          </div>
+        </div>
+
+          <!-- AFSCME Report on Campus Workers' Housing Crisis -->
+          <div class="analysis-card">
+            <div class="analysis-header">
+              <Icon icon="mdi:newspaper" class="analysis-icon" />
+              <div>
+                <h3>Public Cost of UC Workers' Frontline Housing Crisis</h3>
+                <span class="analysis-source">American Federation of State, County, and Municipal Workers Local 3299</span>
+              </div>
+            </div>
+            <p class="analysis-description"> A brief report on the housing crisis among rank-and-file campus workers in the AFSCME 3299 union, which represents many custodial and maintenance workers across the University of California. The report illustrates the disparity in real wage increases for low- and high-level UC employees; the fact that the vast majority of AFSCME workers qualify for housing assistance; and the UC's holdings of over $9B in surplus developable land. 
+            <div class="analysis-highlights">
+              <div class="highlight">
+                <Icon icon="mdi:account-group" class="highlight-icon" />
+                <span>Unions and Labor</span>
+              </div>
+              <div class="highlight">
+                <Icon icon="mdi:school" class="highlight-icon" />
+                <span>UC Campuses</span>
+              </div>
+
+            </div>
+            <a
+              href="https://actionnetwork.org/user_files/user_files/000/110/931/original/Public_Cost_of_UC_Housing_Crisis_-_revised_pub_date.pdf"
               target="_blank"
               rel="noopener noreferrer"
               class="analysis-link"
