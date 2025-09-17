@@ -1,2 +1,0 @@
-# Python dependencies for BDS data unification
-# No external dependencies required - uses only Python standard library
