@@ -15,7 +15,7 @@
     { value: 162e9, label: "Total UC Portfolio" },
     { value: 89e9, label: "UCRP Holdings" },
     { value: 23e9, label: "Endowment Fund" },
-    { value: 55e9, label: "Short-term & Retirement" }
+    { value: 55e9, label: "Short-term & Retirement" },
   ];
 
   const teamMembers = [
@@ -24,15 +24,15 @@
       icon: "mdi:chart-bar",
       link: "https://www.linkedin.com/in/alex-k-forman/",
       linkIcon: "mdi:linkedin",
-      linkText: "LinkedIn Profile"
+      linkText: "LinkedIn Profile",
     },
     {
       name: "Stephen Okita",
       icon: "mdi:web",
       link: "https://stephenokita.com/",
       linkIcon: "mdi:web",
-      linkText: "Website"
-    }
+      linkText: "Website",
+    },
   ];
 
   const cryptoAddresses = [
@@ -40,19 +40,20 @@
       name: "Ethereum (ETH)",
       icon: "cryptocurrency:eth",
       address: "0x623c7559ddC51BAf15Cc81bf5bc13c0B0EA14c01",
-      color: "#627eea"
+      color: "#627eea",
     },
     {
       name: "Monero (XMR)",
       icon: "cryptocurrency:xmr",
-      address: "44bvXALNkxUgSkGChKQPnj79v6JwkeYEkGijgKyp2zRq3EiuL6oewAv5u2c7FN7jbN1z7uj1rrPfL77bbsJ3cC8U2ADFoTj",
-      color: "#ff6600"
-    }
+      address:
+        "44bvXALNkxUgSkGChKQPnj79v6JwkeYEkGijgKyp2zRq3EiuL6oewAv5u2c7FN7jbN1z7uj1rrPfL77bbsJ3cC8U2ADFoTj",
+      color: "#ff6600",
+    },
   ];
 
   function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
-      const button = event.target.closest('.copy-button');
+      const button = event.target.closest(".copy-button");
       const originalHTML = button.innerHTML;
       button.innerHTML = '<span style="color: #10b981;">✓</span>';
       setTimeout(() => {
@@ -185,7 +186,7 @@
           </p>
           <div class="contribute-actions">
             <Button
-              href="https://github.com/thearctesian/UC-Investments/"
+              href="https://github.com/ucinvestments/UC-Investments/"
               icon="mdi:github"
               external
             >
@@ -234,7 +235,10 @@
       <Section title="Support This Project" icon="mdi:heart" delay={1200}>
         <Card>
           <p class="support-intro">
-            This project is currently self-funded by Stephen. He would love any monetary help to cover hosting costs, API fees, and development resources. Every contribution helps maintain transparency in UC investments.
+            This project is currently self-funded by Stephen. He would love any
+            monetary help to cover hosting costs, API fees, and development
+            resources. Every contribution helps maintain transparency in UC
+            investments.
           </p>
 
           <div class="donation-section">
@@ -244,7 +248,11 @@
               {#each cryptoAddresses as crypto}
                 <div class="crypto-option">
                   <div class="crypto-header">
-                    <Icon icon={crypto.icon} class="crypto-icon" style="color: {crypto.color}" />
+                    <Icon
+                      icon={crypto.icon}
+                      class="crypto-icon"
+                      style="color: {crypto.color}"
+                    />
                     <strong>{crypto.name}</strong>
                   </div>
                   <div class="address-container">
@@ -272,7 +280,9 @@
             <div class="usage-note">
               <Icon icon="mdi:information" class="info-icon" />
               <p>
-                <strong>How donations are used:</strong> Hosting infrastructure, API costs, domain fees, and development tools that keep this platform running and data current.
+                <strong>How donations are used:</strong> Hosting infrastructure,
+                API costs, domain fees, and development tools that keep this platform
+                running and data current.
               </p>
             </div>
           </div>
@@ -645,3 +655,4 @@
     }
   }
 </style>
+
