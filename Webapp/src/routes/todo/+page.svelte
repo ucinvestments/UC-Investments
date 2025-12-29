@@ -12,88 +12,253 @@
       title: "Data Collection & Processing",
       icon: "mdi:database-search",
       items: [
-        { id: 1, text: "Automate quarterly UC investment report downloads", completed: false, priority: "high" },
-        { id: 2, text: "Implement PDF parser for new investment disclosures", completed: false, priority: "high" },
-        { id: 3, text: "Create data validation pipeline for fund holdings", completed: false, priority: "medium" },
-        { id: 4, text: "Set up automated SEC filing scraper (13F, 13D, 13G)", completed: false, priority: "high" },
-        { id: 5, text: "Build historical data archive system", completed: false, priority: "low" },
-        { id: 6, text: "Integrate Whale Wisdom API for hedge fund data", completed: false, priority: "medium" }
-      ]
+        {
+          id: 1,
+          text: "Automate quarterly UC investment report downloads",
+          completed: false,
+          priority: "high",
+        },
+        {
+          id: 2,
+          text: "Implement PDF parser for new investment disclosures",
+          completed: false,
+          priority: "high",
+        },
+        {
+          id: 3,
+          text: "Create data validation pipeline for fund holdings",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 4,
+          text: "Set up automated SEC filing scraper (13F, 13D, 13G)",
+          completed: false,
+          priority: "high",
+        },
+        {
+          id: 5,
+          text: "Build historical data archive system",
+          completed: false,
+          priority: "low",
+        },
+        {
+          id: 6,
+          text: "Integrate Whale Wisdom API for hedge fund data",
+          completed: false,
+          priority: "medium",
+        },
+      ],
     },
     frontend: {
       title: "Frontend Features",
       icon: "mdi:application-brackets",
       items: [
-        { id: 7, text: "Add search functionality for specific investments", completed: false, priority: "high" },
-        { id: 8, text: "Implement time-series visualization for portfolio changes", completed: false, priority: "medium" },
-        { id: 9, text: "Create detailed investment drill-down views", completed: false, priority: "medium" },
-        { id: 10, text: "Add export functionality (CSV, PDF reports)", completed: false, priority: "low" },
-        { id: 11, text: "Build comparison tool for UC campuses", completed: false, priority: "medium" },
-        { id: 12, text: "Implement dark mode toggle", completed: false, priority: "low" },
-        { id: 13, text: "Add mobile-responsive data tables", completed: false, priority: "high" }
-      ]
+        {
+          id: 7,
+          text: "Add search functionality for specific investments",
+          completed: false,
+          priority: "high",
+        },
+        {
+          id: 8,
+          text: "Implement time-series visualization for portfolio changes",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 9,
+          text: "Create detailed investment drill-down views",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 10,
+          text: "Add export functionality (CSV, PDF reports)",
+          completed: false,
+          priority: "low",
+        },
+        {
+          id: 11,
+          text: "Build comparison tool for UC campuses",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 12,
+          text: "Implement dark mode toggle",
+          completed: false,
+          priority: "low",
+        },
+        {
+          id: 13,
+          text: "Add mobile-responsive data tables",
+          completed: false,
+          priority: "high",
+        },
+      ],
     },
     analysis: {
       title: "Analysis & Research",
       icon: "mdi:chart-line",
       items: [
-        { id: 14, text: "Analyze remaining $59B unaccounted investments", completed: false, priority: "high" },
-        { id: 15, text: "Research foreign hedge fund holdings", completed: false, priority: "medium" },
-        { id: 16, text: "Create ESG scoring methodology", completed: false, priority: "medium" },
-        { id: 17, text: "Implement carbon footprint calculator", completed: false, priority: "low" },
-        { id: 18, text: "Track fossil fuel divestment progress", completed: false, priority: "high" },
-        { id: 19, text: "Analyze investment performance metrics", completed: false, priority: "medium" }
-      ]
+        {
+          id: 14,
+          text: "Analyze remaining $59B unaccounted investments",
+          completed: false,
+          priority: "high",
+        },
+        {
+          id: 15,
+          text: "Research foreign hedge fund holdings",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 16,
+          text: "Create ESG scoring methodology",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 17,
+          text: "Implement carbon footprint calculator",
+          completed: false,
+          priority: "low",
+        },
+        {
+          id: 18,
+          text: "Track fossil fuel divestment progress",
+          completed: false,
+          priority: "high",
+        },
+        {
+          id: 19,
+          text: "Analyze investment performance metrics",
+          completed: false,
+          priority: "medium",
+        },
+      ],
     },
     infrastructure: {
       title: "Infrastructure & DevOps",
       icon: "mdi:server",
       items: [
-        { id: 20, text: "Migrate backend to edge functions", completed: false, priority: "medium" },
-        { id: 21, text: "Implement caching strategy for API responses", completed: false, priority: "high" },
-        { id: 22, text: "Set up CI/CD pipeline for automated testing", completed: false, priority: "medium" },
-        { id: 23, text: "Create backup and recovery system", completed: false, priority: "high" },
-        { id: 24, text: "Implement rate limiting for API endpoints", completed: false, priority: "low" },
-        { id: 25, text: "Set up monitoring and alerting", completed: false, priority: "medium" }
-      ]
+        {
+          id: 20,
+          text: "Migrate backend to edge functions",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 21,
+          text: "Implement caching strategy for API responses",
+          completed: false,
+          priority: "high",
+        },
+        {
+          id: 22,
+          text: "Set up CI/CD pipeline for automated testing",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 23,
+          text: "Create backup and recovery system",
+          completed: false,
+          priority: "high",
+        },
+        {
+          id: 24,
+          text: "Implement rate limiting for API endpoints",
+          completed: false,
+          priority: "low",
+        },
+        {
+          id: 25,
+          text: "Set up monitoring and alerting",
+          completed: false,
+          priority: "medium",
+        },
+      ],
     },
     documentation: {
       title: "Documentation & Outreach",
       icon: "mdi:book-open-variant",
       items: [
-        { id: 26, text: "Write comprehensive API documentation", completed: false, priority: "medium" },
-        { id: 27, text: "Create contributor guidelines", completed: false, priority: "low" },
-        { id: 28, text: "Document data collection methodology", completed: false, priority: "high" },
-        { id: 29, text: "Publish research findings whitepaper", completed: false, priority: "medium" },
-        { id: 30, text: "Create video tutorials for using the platform", completed: false, priority: "low" },
-        { id: 31, text: "Reach out to other UC campuses for collaboration", completed: false, priority: "medium" }
-      ]
-    }
+        {
+          id: 26,
+          text: "Write comprehensive API documentation",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 27,
+          text: "Create contributor guidelines",
+          completed: false,
+          priority: "low",
+        },
+        {
+          id: 28,
+          text: "Document data collection methodology",
+          completed: false,
+          priority: "high",
+        },
+        {
+          id: 29,
+          text: "Publish research findings whitepaper",
+          completed: false,
+          priority: "medium",
+        },
+        {
+          id: 30,
+          text: "Create video tutorials for using the platform",
+          completed: false,
+          priority: "low",
+        },
+        {
+          id: 31,
+          text: "Reach out to other UC campuses for collaboration",
+          completed: false,
+          priority: "medium",
+        },
+      ],
+    },
   };
 
   // Stats calculation
-  $: totalTodos = Object.values(todos).reduce((acc, cat) => acc + cat.items.length, 0);
+  $: totalTodos = Object.values(todos).reduce(
+    (acc, cat) => acc + cat.items.length,
+    0,
+  );
   $: completedTodos = Object.values(todos).reduce(
-    (acc, cat) => acc + cat.items.filter(item => item.completed).length,
-    0
+    (acc, cat) => acc + cat.items.filter((item) => item.completed).length,
+    0,
   );
   $: highPriorityCount = Object.values(todos).reduce(
-    (acc, cat) => acc + cat.items.filter(item => item.priority === "high" && !item.completed).length,
-    0
+    (acc, cat) =>
+      acc +
+      cat.items.filter((item) => item.priority === "high" && !item.completed)
+        .length,
+    0,
   );
 
   function toggleTodo(categoryKey, todoId) {
-    todos[categoryKey].items = todos[categoryKey].items.map(item =>
-      item.id === todoId ? { ...item, completed: !item.completed } : item
+    todos[categoryKey].items = todos[categoryKey].items.map((item) =>
+      item.id === todoId ? { ...item, completed: !item.completed } : item,
     );
   }
 
   function getPriorityColor(priority) {
-    switch(priority) {
-      case 'high': return 'var(--golden-gate)';
-      case 'medium': return 'var(--founder)';
-      case 'low': return 'var(--sec)';
-      default: return 'var(--text-secondary)';
+    switch (priority) {
+      case "high":
+        return "var(--golden-gate)";
+      case "medium":
+        return "var(--founder)";
+      case "low":
+        return "var(--sec)";
+      default:
+        return "var(--text-secondary)";
     }
   }
 
@@ -127,7 +292,9 @@
       <div class="stat-item">
         <Icon icon="mdi:progress-clock" class="stat-icon" />
         <div class="stat-content">
-          <div class="stat-value">{Math.round((completedTodos / totalTodos) * 100)}%</div>
+          <div class="stat-value">
+            {Math.round((completedTodos / totalTodos) * 100)}%
+          </div>
           <div class="stat-label">Overall Progress</div>
         </div>
       </div>
@@ -151,7 +318,8 @@
             <Icon icon={category.icon} class="section-icon" />
             <h2 class="section-title">{category.title}</h2>
             <div class="section-progress">
-              {category.items.filter(item => item.completed).length}/{category.items.length}
+              {category.items.filter((item) => item.completed).length}/{category
+                .items.length}
             </div>
           </div>
 
@@ -167,7 +335,9 @@
                     class="todo-checkbox"
                     class:checked={todo.completed}
                     on:click={() => toggleTodo(categoryKey, todo.id)}
-                    aria-label={todo.completed ? "Mark as incomplete" : "Mark as complete"}
+                    aria-label={todo.completed
+                      ? "Mark as incomplete"
+                      : "Mark as complete"}
                   >
                     {#if todo.completed}
                       <Icon icon="mdi:check" class="check-icon" />
@@ -178,7 +348,9 @@
 
                   <span
                     class="priority-badge"
-                    style="background-color: {getPriorityColor(todo.priority)}20; color: {getPriorityColor(todo.priority)}"
+                    style="background-color: {getPriorityColor(
+                      todo.priority,
+                    )}20; color: {getPriorityColor(todo.priority)}"
                   >
                     {todo.priority}
                   </span>
@@ -198,8 +370,9 @@
           <Icon icon="mdi:rocket-launch" class="cta-icon" />
           <h2 class="cta-title">Want to Help?</h2>
           <p class="cta-text">
-            Join us in making UC investments more transparent. Whether you're interested in
-            data analysis, web development, or research, there's a place for you in this project.
+            Join us in making UC investments more transparent. Whether you're
+            interested in data analysis, web development, or research, there's a
+            place for you in this project.
           </p>
           <div class="cta-actions">
             <a

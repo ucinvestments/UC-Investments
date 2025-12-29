@@ -316,7 +316,7 @@
 <div class="hero-section">
   {#if mounted}
     <div class="hero-content" in:fade={{ duration: 800, delay: 200 }}>
-      <h1 class="hero-title">UC Investment Explorer</h1>
+      <h1 class="hero-title">Explorer for UC Investment Data</h1>
       <div class="hero-stats">
         <div class="stat-item" in:fade={{ duration: 600, delay: 400 }}>
           <span class="stat-value">$162B</span>

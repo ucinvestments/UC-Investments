@@ -6,7 +6,7 @@
   export let selectedSlice;
   export let activeButton;
   export let totalInvestedInChart;
-  
+
   let width = 380;
   let height = 380;
   let radius = Math.min(width, height) / 2;
@@ -18,45 +18,47 @@
   let arcPath;
   let arcHover;
   const dispatch = createEventDispatcher();
-  
+
   const MAX_ITEMS = 25; // Maximum items to show before aggregating
 
   function updateDimensions() {
     if (!containerElement) return;
-    
+
     const containerRect = containerElement.getBoundingClientRect();
     const containerWidth = containerRect.width;
-    
+
     // Make chart responsive with min/max constraints
     const maxSize = 380;
     const minSize = 200;
     const mobileSize = Math.min(containerWidth - 40, maxSize); // 40px for padding
-    
+
     width = Math.max(minSize, mobileSize);
     height = width; // Keep it square
     radius = Math.min(width, height) / 2;
-    
+
     // Update SVG dimensions if it exists
     if (svg) {
       svg.attr("width", width).attr("height", height);
-      
+
       // Update group position
       if (g) {
         g.attr("transform", `translate(${width / 2}, ${height / 2})`);
       }
-      
+
       // Update arc generators with new radius
       if (arcPath && arcHover) {
-        arcPath = d3.arc()
+        arcPath = d3
+          .arc()
           .outerRadius(radius - 20)
           .innerRadius(radius - 80)
           .cornerRadius(4);
 
-        arcHover = d3.arc()
+        arcHover = d3
+          .arc()
           .outerRadius(radius - 15)
           .innerRadius(radius - 85)
           .cornerRadius(4);
-          
+
         // Redraw chart with new dimensions
         drawChart();
       }
@@ -64,12 +66,32 @@
   }
 
   const colorPalette = [
-    "#3B7EA1", "#FDB515", "#003262", "#C4820E", "#00B0DA", 
-    "#00A598", "#859438", "#ED4E33", "#D9661F", "#EE1F60", 
-    "#46535E", "#6C3302", "#CFDD45", "#B9D3B6", "#DDD5C7",
+    "#3B7EA1",
+    "#FDB515",
+    "#003262",
+    "#C4820E",
+    "#00B0DA",
+    "#00A598",
+    "#859438",
+    "#ED4E33",
+    "#D9661F",
+    "#EE1F60",
+    "#46535E",
+    "#6C3302",
+    "#CFDD45",
+    "#B9D3B6",
+    "#DDD5C7",
     // Additional colors for more variety
-    "#8B4513", "#2E8B57", "#4682B4", "#CD853F", "#FF6347",
-    "#4169E1", "#32CD32", "#FFD700", "#FF69B4", "#8A2BE2"
+    "#8B4513",
+    "#2E8B57",
+    "#4682B4",
+    "#CD853F",
+    "#FF6347",
+    "#4169E1",
+    "#32CD32",
+    "#FFD700",
+    "#FF69B4",
+    "#8A2BE2",
   ];
 
   function getColor(index) {
@@ -96,8 +118,9 @@
 
     // Sort data by value (descending) - handle different value fields
     const sortedData = [...data].sort((a, b) => {
-      let valueA = 0, valueB = 0;
-      
+      let valueA = 0,
+        valueB = 0;
+
       if (activeButton == "Company") {
         valueA = Number(a["total investment"]) || 0;
         valueB = Number(b["total investment"]) || 0;
@@ -108,11 +131,13 @@
         valueA = Number(a["Total Iℂnvest∈d"]) || 0;
         valueB = Number(b["Total Iℂnvest∈d"]) || 0;
       }
-      
+
       return valueB - valueA;
     });
 
-    console.log(`Processing ${sortedData.length} items for ${activeButton}, MAX_ITEMS: ${MAX_ITEMS}`);
+    console.log(
+      `Processing ${sortedData.length} items for ${activeButton}, MAX_ITEMS: ${MAX_ITEMS}`,
+    );
 
     // If we have more than MAX_ITEMS, aggregate the rest
     if (sortedData.length <= MAX_ITEMS) {
@@ -122,12 +147,14 @@
 
     const topItems = sortedData.slice(0, MAX_ITEMS - 1);
     const remainingItems = sortedData.slice(MAX_ITEMS - 1);
-    
-    console.log(`Limiting to ${topItems.length} items, aggregating ${remainingItems.length} others`);
-    
+
+    console.log(
+      `Limiting to ${topItems.length} items, aggregating ${remainingItems.length} others`,
+    );
+
     // Calculate aggregate value for remaining items
     let aggregateValue = 0;
-    remainingItems.forEach(item => {
+    remainingItems.forEach((item) => {
       let itemValue = 0;
       if (activeButton == "Company") {
         itemValue = Number(item["total investment"]) || 0;
@@ -143,7 +170,7 @@
     const othersItem = {
       isAggregate: true,
       aggregatedCount: remainingItems.length,
-      aggregatedItems: remainingItems
+      aggregatedItems: remainingItems,
     };
 
     if (activeButton == "Company") {
@@ -156,9 +183,12 @@
       othersItem["Asset Type"] = "Aggregated";
       othersItem["Funding Sources"] = [];
     } else {
-      othersItem["A.s.set ._Class"] = `Others (${remainingItems.length} asset classes)`;
+      othersItem["A.s.set ._Class"] =
+        `Others (${remainingItems.length} asset classes)`;
       othersItem["Total Iℂnvest∈d"] = aggregateValue;
-      othersItem["InVesTmeNts"] = [`${remainingItems.length} aggregated asset classes`];
+      othersItem["InVesTmeNts"] = [
+        `${remainingItems.length} aggregated asset classes`,
+      ];
     }
 
     console.log(`Created Others item with value: ${aggregateValue}`);
@@ -167,26 +197,28 @@
 
   function drawChart() {
     if (!g) return;
-    
+
     // Handle null or undefined data
     if (!filteredData || !Array.isArray(filteredData)) {
-      console.log('No valid data available for chart:', filteredData);
+      console.log("No valid data available for chart:", filteredData);
       // Clear chart if no data
       g.selectAll(".arc").remove();
       g.selectAll(".center-text").remove();
       return;
     }
 
-    console.log(`Drawing chart for ${activeButton} with ${filteredData.length} raw items`);
+    console.log(
+      `Drawing chart for ${activeButton} with ${filteredData.length} raw items`,
+    );
     const processedData = processDataForChart(filteredData);
     console.log(`Processed data has ${processedData.length} items for chart`);
-    
+
     // Clear previous chart
     g.selectAll(".arc").remove();
     g.selectAll(".center-text").remove();
 
     if (processedData.length === 0) {
-      console.log('No processed data available for chart');
+      console.log("No processed data available for chart");
       return;
     }
 
@@ -195,17 +227,19 @@
     console.log(`Created ${pieData.length} pie slices`);
 
     // Create arcs
-    const arcs = g.selectAll(".arc")
+    const arcs = g
+      .selectAll(".arc")
       .data(pieData)
       .enter()
       .append("g")
       .attr("class", "arc")
       .style("cursor", "pointer");
-    
+
     console.log(`Created ${arcs.size()} arc elements`);
 
     // Add paths with animation
-    arcs.append("path")
+    arcs
+      .append("path")
       .attr("class", "arc-path")
       .attr("fill", (d, i) => {
         // Use a slightly different color for "Others" item
@@ -214,17 +248,19 @@
         }
         return getColor(i);
       })
-      .attr("stroke", (d) => d.data === selectedSlice ? "white" : "none")
-      .attr("stroke-width", (d) => d.data === selectedSlice ? "3px" : "0px")
-      .style("filter", (d) => d.data === selectedSlice ? "brightness(1.1)" : "none")
+      .attr("stroke", (d) => (d.data === selectedSlice ? "white" : "none"))
+      .attr("stroke-width", (d) => (d.data === selectedSlice ? "3px" : "0px"))
+      .style("filter", (d) =>
+        d.data === selectedSlice ? "brightness(1.1)" : "none",
+      )
       .on("click", handleSliceClick)
       .on("mouseenter", handleMouseEnter)
       .on("mouseleave", handleMouseLeave)
       .transition()
       .duration(750)
-      .attrTween("d", function(d) {
+      .attrTween("d", function (d) {
         const interpolate = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
-        return function(t) {
+        return function (t) {
           return arcPath(interpolate(t));
         };
       });
@@ -239,7 +275,8 @@
     // Remove existing center text
     g.selectAll(".center-text").remove();
 
-    const centerGroup = g.append("g")
+    const centerGroup = g
+      .append("g")
       .attr("class", "center-text")
       .style("opacity", 0);
 
@@ -272,14 +309,15 @@
       }
     }
 
-    percentage = totalInvestedInChart > 0 ? (value / totalInvestedInChart) * 100 : 0;
+    percentage =
+      totalInvestedInChart > 0 ? (value / totalInvestedInChart) * 100 : 0;
 
     // Split long names
     const words = name.split(" ");
     const lines = [];
     let currentLine = "";
-    
-    words.forEach(word => {
+
+    words.forEach((word) => {
       if ((currentLine + " " + word).length > 20) {
         if (currentLine) lines.push(currentLine);
         currentLine = word;
@@ -291,9 +329,10 @@
 
     // Add name lines
     lines.forEach((line, i) => {
-      centerGroup.append("text")
+      centerGroup
+        .append("text")
         .attr("text-anchor", "middle")
-        .attr("y", -20 + (i * 18))
+        .attr("y", -20 + i * 18)
         .style("font-size", "14px")
         .style("font-weight", "600")
         .style("fill", selectedSlice.isAggregate ? "#8B8B8B" : "var(--pri)")
@@ -301,7 +340,8 @@
     });
 
     // Add value
-    centerGroup.append("text")
+    centerGroup
+      .append("text")
       .attr("text-anchor", "middle")
       .attr("y", lines.length * 18)
       .style("font-size", "20px")
@@ -311,7 +351,8 @@
 
     // Add percentage
     if (percentage > 0) {
-      centerGroup.append("text")
+      centerGroup
+        .append("text")
         .attr("text-anchor", "middle")
         .attr("y", lines.length * 18 + 25)
         .style("font-size", "14px")
@@ -321,9 +362,7 @@
     }
 
     // Animate in
-    centerGroup.transition()
-      .duration(300)
-      .style("opacity", 1);
+    centerGroup.transition().duration(300).style("opacity", 1);
   }
 
   function handleMouseEnter(event, data) {
@@ -332,11 +371,14 @@
       .transition()
       .duration(200)
       .attr("d", arcHover)
-      .style("filter", "brightness(1.1) drop-shadow(0 4px 8px rgba(0,0,0,0.15))");
+      .style(
+        "filter",
+        "brightness(1.1) drop-shadow(0 4px 8px rgba(0,0,0,0.15))",
+      );
 
     // Show tooltip
     let name, value;
-    
+
     if (data.data.isAggregate) {
       name = `Others (${data.data.aggregatedCount} items)`;
       if (activeButton == "Company") {
@@ -359,7 +401,8 @@
       }
     }
 
-    const percentage = totalInvestedInChart > 0 ? (value / totalInvestedInChart) * 100 : 0;
+    const percentage =
+      totalInvestedInChart > 0 ? (value / totalInvestedInChart) * 100 : 0;
 
     let tooltipContent = `
       <div style="font-weight: 600; margin-bottom: 4px;">${name}</div>
@@ -376,8 +419,8 @@
     tooltip
       .style("opacity", 1)
       .html(tooltipContent)
-      .style("left", (event.pageX + 10) + "px")
-      .style("top", (event.pageY - 10) + "px");
+      .style("left", event.pageX + 10 + "px")
+      .style("top", event.pageY - 10 + "px");
   }
 
   function handleMouseLeave(event, data) {
@@ -386,7 +429,10 @@
       .transition()
       .duration(200)
       .attr("d", arcPath)
-      .style("filter", data.data === selectedSlice ? "brightness(1.1)" : "none");
+      .style(
+        "filter",
+        data.data === selectedSlice ? "brightness(1.1)" : "none",
+      );
 
     // Hide tooltip
     if (tooltip) tooltip.style("opacity", 0);
@@ -396,26 +442,29 @@
     // Update selected slice
     selectedSlice = data.data;
     dispatch("sliceClicked", data.data);
-    
+
     // Update visual selection
     d3.selectAll(".arc path")
-      .attr("stroke", (d) => d.data === selectedSlice ? "white" : "none")
-      .attr("stroke-width", (d) => d.data === selectedSlice ? "3px" : "0px")
-      .style("filter", (d) => d.data === selectedSlice ? "brightness(1.1)" : "none");
-    
+      .attr("stroke", (d) => (d.data === selectedSlice ? "white" : "none"))
+      .attr("stroke-width", (d) => (d.data === selectedSlice ? "3px" : "0px"))
+      .style("filter", (d) =>
+        d.data === selectedSlice ? "brightness(1.1)" : "none",
+      );
+
     updateCenterLabel();
   }
 
   onMount(() => {
     // Initialize dimensions
     updateDimensions();
-    
+
     // Add resize listener
     const handleResize = () => updateDimensions();
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("resize", handleResize);
+
     // Create tooltip
-    tooltip = d3.select("body")
+    tooltip = d3
+      .select("body")
       .append("div")
       .attr("class", "chart-tooltip")
       .style("opacity", 0)
@@ -433,70 +482,86 @@
 
     // Initialize pie generator based on active button
     if (activeButton == "Company") {
-      pie = d3.pie()
+      pie = d3
+        .pie()
         .value((d) => {
           const value = d["total investment"];
-          return isNaN(value) || value === null || value === undefined ? 0 : Number(value);
+          return isNaN(value) || value === null || value === undefined
+            ? 0
+            : Number(value);
         })
         .sort(null)
         .padAngle(0.02);
     } else if (activeButton == "Fund") {
-      pie = d3.pie()
+      pie = d3
+        .pie()
         .value((d) => {
           const value = d["Total Investment"];
-          return isNaN(value) || value === null || value === undefined ? 0 : Number(value);
+          return isNaN(value) || value === null || value === undefined
+            ? 0
+            : Number(value);
         })
         .sort(null)
         .padAngle(0.02);
     } else {
-      pie = d3.pie()
+      pie = d3
+        .pie()
         .value((d) => {
           const value = d["Total Iℂnvest∈d"];
-          return isNaN(value) || value === null || value === undefined ? 0 : Number(value);
+          return isNaN(value) || value === null || value === undefined
+            ? 0
+            : Number(value);
         })
         .sort(null)
         .padAngle(0.02);
     }
 
     // Initialize arc generators
-    arcPath = d3.arc()
+    arcPath = d3
+      .arc()
       .outerRadius(radius - 20)
       .innerRadius(radius - 80)
       .cornerRadius(4);
 
-    arcHover = d3.arc()
+    arcHover = d3
+      .arc()
       .outerRadius(radius - 15)
       .innerRadius(radius - 85)
       .cornerRadius(4);
 
     // Create SVG
-    svg = d3.select(".pie-chart")
+    svg = d3
+      .select(".pie-chart")
       .append("svg")
       .attr("width", width)
       .attr("height", height);
 
     // Add gradient definitions
     const defs = svg.append("defs");
-    
+
     colorPalette.forEach((color, i) => {
-      const gradient = defs.append("radialGradient")
+      const gradient = defs
+        .append("radialGradient")
         .attr("id", `gradient-${i}`)
         .attr("cx", "30%")
         .attr("cy", "30%");
-      
-      gradient.append("stop")
+
+      gradient
+        .append("stop")
         .attr("offset", "0%")
         .attr("stop-color", color)
         .attr("stop-opacity", 1);
-      
-      gradient.append("stop")
+
+      gradient
+        .append("stop")
         .attr("offset", "100%")
         .attr("stop-color", d3.color(color).darker(0.5))
         .attr("stop-opacity", 1);
     });
 
     // Create group for chart
-    g = svg.append("g")
+    g = svg
+      .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
     // Draw initial chart
@@ -505,7 +570,7 @@
     // Cleanup on unmount
     return () => {
       if (tooltip) tooltip.remove();
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   });
 
@@ -513,31 +578,40 @@
   afterUpdate(() => {
     // Update pie generator based on active button
     if (activeButton == "Company") {
-      pie = d3.pie()
+      pie = d3
+        .pie()
         .value((d) => {
           const value = d["total investment"];
-          return isNaN(value) || value === null || value === undefined ? 0 : Number(value);
+          return isNaN(value) || value === null || value === undefined
+            ? 0
+            : Number(value);
         })
         .sort(null)
         .padAngle(0.02);
     } else if (activeButton == "Fund") {
-      pie = d3.pie()
+      pie = d3
+        .pie()
         .value((d) => {
           const value = d["Total Investment"];
-          return isNaN(value) || value === null || value === undefined ? 0 : Number(value);
+          return isNaN(value) || value === null || value === undefined
+            ? 0
+            : Number(value);
         })
         .sort(null)
         .padAngle(0.02);
     } else {
-      pie = d3.pie()
+      pie = d3
+        .pie()
         .value((d) => {
           const value = d["Total Iℂnvest∈d"];
-          return isNaN(value) || value === null || value === undefined ? 0 : Number(value);
+          return isNaN(value) || value === null || value === undefined
+            ? 0
+            : Number(value);
         })
         .sort(null)
         .padAngle(0.02);
     }
-    
+
     drawChart();
   });
 </script>
@@ -554,13 +628,13 @@
     max-width: 100%;
     overflow: hidden;
   }
-  
+
   @media (max-width: 768px) {
     .pie-chart {
       max-width: calc(100vw - 3rem);
     }
   }
-  
+
   @media (max-width: 640px) {
     .pie-chart {
       max-width: calc(100vw - 2rem);
@@ -572,6 +646,6 @@
   }
 
   :global(.center-text text) {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 </style>

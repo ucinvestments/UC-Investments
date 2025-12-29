@@ -69,9 +69,9 @@
  */
 
 /* Import all modules in order */
-@import './variables.css';
-@import './base.css';
-@import './components.css';
-@import './animations.css';
-@import './utilities.css';
-@import './responsive.css';
+@import "./variables.css";
+@import "./base.css";
+@import "./components.css";
+@import "./animations.css";
+@import "./utilities.css";
+@import "./responsive.css";

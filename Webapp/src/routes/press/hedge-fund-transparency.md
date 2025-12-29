@@ -3,7 +3,7 @@ layout: research
 title: Breaking Down UC's Hedge Fund Investments
 author: Stephen Okita
 date: 2024-02-28
-tags: ['hedge funds', 'transparency', 'analysis']
+tags: ["hedge funds", "transparency", "analysis"]
 ---
 
 ## Introduction
@@ -23,13 +23,13 @@ Our research methodology involved:
 
 ### Top 10 Hedge Fund Managers
 
-| Manager | AUM Allocated | Strategy | Est. Annual Fees |
-|---------|--------------|----------|-----------------|
-| Bridgewater Associates | $3.2B | Macro | $48M + 20% |
-| Renaissance Technologies | $2.8B | Quant | $56M + 44% |
-| Two Sigma | $2.1B | Quant | $31M + 20% |
-| Citadel | $1.9B | Multi-strat | $38M + 20% |
-| DE Shaw | $1.7B | Quant | $25M + 20% |
+| Manager                  | AUM Allocated | Strategy    | Est. Annual Fees |
+| ------------------------ | ------------- | ----------- | ---------------- |
+| Bridgewater Associates   | $3.2B         | Macro       | $48M + 20%       |
+| Renaissance Technologies | $2.8B         | Quant       | $56M + 44%       |
+| Two Sigma                | $2.1B         | Quant       | $31M + 20%       |
+| Citadel                  | $1.9B         | Multi-strat | $38M + 20%       |
+| DE Shaw                  | $1.7B         | Quant       | $25M + 20%       |
 
 ### Strategy Breakdown
 
@@ -56,6 +56,7 @@ This represents a 3.5% annual cost drag on the hedge fund portfolio.
 ### Fee Comparison
 
 Compared to traditional asset management:
+
 - Index funds: 0.05% average fees
 - Active mutual funds: 0.75% average fees
 - Hedge funds: 3.5% all-in costs
@@ -75,6 +76,7 @@ The hedge fund portfolio has underperformed both equity markets and a simple bal
 ### Risk-Adjusted Returns
 
 When adjusting for risk:
+
 - **Sharpe Ratio**: 0.72 (hedge funds) vs 0.85 (60/40 portfolio)
 - **Maximum Drawdown**: -18% (hedge funds) vs -22% (S&P 500)
 - **Volatility**: 11.2% (hedge funds) vs 15.8% (S&P 500)
@@ -93,6 +95,7 @@ Several issues emerged:
 ### Regulatory Gaps
 
 Many UC hedge fund investments avoid full SEC disclosure through:
+
 - Foreign entity structures
 - Private fund exemptions
 - Delayed reporting requirements
@@ -102,6 +105,7 @@ Many UC hedge fund investments avoid full SEC disclosure through:
 ### Concentration Risk
 
 Top 10 managers control 45% of hedge fund allocation, creating:
+
 - Manager-specific risk
 - Strategy concentration
 - Liquidity constraints
@@ -109,6 +113,7 @@ Top 10 managers control 45% of hedge fund allocation, creating:
 ### Leverage Exposure
 
 Estimated leverage across portfolio:
+
 - Average gross leverage: 3.2x
 - Maximum fund leverage: 8x (certain quant strategies)
 - Potential loss amplification in market stress
@@ -118,6 +123,7 @@ Estimated leverage across portfolio:
 ### Renaissance Technologies Medallion Fund
 
 Despite stellar historical returns, concerns include:
+
 - Closed to new investors since 1993
 - UC access through employee fund with lower returns
 - Actual UC returns: 18% vs advertised 66% (Medallion main fund)
@@ -125,6 +131,7 @@ Despite stellar historical returns, concerns include:
 ### Bridgewater Pure Alpha
 
 Analysis reveals:
+
 - Significant underperformance vs stated benchmarks
 - High correlation to simple trend-following strategies
 - Questionable value proposition given fees
@@ -148,11 +155,11 @@ Analysis reveals:
 ### Peer Comparison
 
 | Institution | HF Allocation | Annual Fees | 5-Year Return |
-|------------|--------------|-------------|---------------|
-| UC System | 21% | 3.5% | 8.2% |
-| Yale | 23% | 3.2% | 10.1% |
-| Harvard | 33% | 3.8% | 7.9% |
-| Stanford | 15% | 2.9% | 9.5% |
+| ----------- | ------------- | ----------- | ------------- |
+| UC System   | 21%           | 3.5%        | 8.2%          |
+| Yale        | 23%           | 3.2%        | 10.1%         |
+| Harvard     | 33%           | 3.8%        | 7.9%          |
+| Stanford    | 15%           | 2.9%        | 9.5%          |
 
 ## Conclusion
 
@@ -168,4 +175,4 @@ The UC's $35 billion hedge fund portfolio presents significant transparency and 
 
 ---
 
-*For detailed fund-level analysis and supporting data, contact research@ucinvestments.info*
+_For detailed fund-level analysis and supporting data, contact research@ucinvestments.info_

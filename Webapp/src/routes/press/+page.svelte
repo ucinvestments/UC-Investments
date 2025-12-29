@@ -64,7 +64,7 @@
     filteredArticles = articles;
   });
 
-  $: searchQuery, selectedTag, searchArticles();
+  $: (searchQuery, selectedTag, searchArticles());
 </script>
 
 {#if mounted}
@@ -134,14 +134,14 @@
         <Icon icon="mdi:file-document-plus" class="no-articles-icon" />
         <h3 class="no-articles-title">Research Articles Coming Soon</h3>
         <p class="no-articles-text">
-          We're preparing independent research and analysis on UC investment practices.
-          Articles will be published here as they become available.
+          We're preparing independent research and analysis on UC investment
+          practices. Articles will be published here as they become available.
         </p>
 
         <div class="contribute-prompt">
           <Icon icon="mdi:lightbulb" class="contribute-icon" />
           <p>
-            <strong>Have research to contribute?</strong><br>
+            <strong>Have research to contribute?</strong><br />
             Submit your findings in markdown format to help expand our analysis.
           </p>
           <a href="mailto:press@ucinvestments.info" class="contribute-button">

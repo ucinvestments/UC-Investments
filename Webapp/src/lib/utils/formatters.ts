@@ -5,8 +5,8 @@
 
 export function formatNumber(num: number): string {
   const numStr = num.toString();
-  const [integerPart] = numStr.split('.');
-  return integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const [integerPart] = numStr.split(".");
+  return integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 export function formatCurrency(value: number): string {
@@ -17,24 +17,24 @@ export function formatCurrency(value: number): string {
 }
 
 export function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }
 
 export function capitalize(s: string): string {
-  if (!s || typeof s !== 'string') return '';
+  if (!s || typeof s !== "string") return "";
   return s
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 export function truncate(str: string, maxLength: number): string {
   if (str.length <= maxLength) return str;
-  return str.slice(0, maxLength) + '...';
+  return str.slice(0, maxLength) + "...";
 }
 
 export function formatPercentage(value: number, decimals: number = 1): string {
