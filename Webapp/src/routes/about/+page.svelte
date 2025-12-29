@@ -33,6 +33,13 @@
       linkIcon: "mdi:web",
       linkText: "Website",
     },
+    {
+      name: "Avi Wong",
+      icon: "mdi:web",
+      link: "https://www.linkedin.com/in/avi-wong-2b2230198/",
+      linkIcon: "mdi:linkedin",
+      linkText: "LinkedIn Profile",
+    },
   ];
 
   const cryptoAddresses = [
@@ -71,7 +78,7 @@
   <PageLayout>
     <Hero
       icon="mdi:information-outline"
-      title="About UC Investment Explorer"
+      title="About STEM4Pal's UC Investment Explorer"
       subtitle="Transparency in university endowment management through data-driven analysis"
     />
 
@@ -280,8 +287,8 @@
             <div class="usage-note">
               <Icon icon="mdi:information" class="info-icon" />
               <p>
-                <strong>How donations are used:</strong> Hosting infrastructure,
-                API costs, domain fees, and development tools that keep this platform
+                <strong>How donations are used:</strong> Hosting infrastructure, API
+                costs, domain fees, and development tools that keep this platform
                 running and data current.
               </p>
             </div>
@@ -655,4 +662,3 @@
     }
   }
 </style>
-

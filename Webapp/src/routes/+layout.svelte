@@ -5,13 +5,13 @@
   import { fade } from "svelte/transition";
   import { page } from "$app/stores";
   import Icon from "@iconify/svelte";
-  
+
   // Track page views manually since we disabled automatic capture
   $: if (browser && $page.url) {
-    posthog.capture('$pageview', {
+    posthog.capture("$pageview", {
       $current_url: $page.url.href,
       $pathname: $page.url.pathname,
-      $title: document.title
+      $title: document.title,
     });
   }
   import posthog from "posthog-js";
@@ -34,24 +34,25 @@
           maskAllInputs: false,
           maskInputOptions: {
             password: true,
-            email: true
-          }
+            email: true,
+          },
         },
-        persistence: 'localStorage+cookie',
+        persistence: "localStorage+cookie",
         cross_subdomain_cookie: false,
         secure_cookie: true,
         loaded: (posthog) => {
           if (dev) {
-            console.log('PostHog loaded successfully with proxy');
+            console.log("PostHog loaded successfully with proxy");
           }
-        }
+        },
       });
 
       // Make toggle function globally available
-      window.toggleDonationInfo = function() {
-        const donationInfo = document.getElementById('donationInfo');
+      window.toggleDonationInfo = function () {
+        const donationInfo = document.getElementById("donationInfo");
         if (donationInfo) {
-          donationInfo.style.display = donationInfo.style.display === 'none' ? 'block' : 'none';
+          donationInfo.style.display =
+            donationInfo.style.display === "none" ? "block" : "none";
         }
       };
     }
@@ -63,7 +64,10 @@
     <a href="/" class="logo-link">
       <div class="logo">
         <Icon icon="mdi:chart-donut" class="logo-icon" />
-        <span class="logo-text">UC Investments</span>
+        <span class="logo-text"
+          ><strong>UC Investments</strong>
+          <small class="small-subtitle">by STEM4Palestine</small></span
+        >
       </div>
     </a>
 
@@ -125,7 +129,7 @@
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-section">
-      <h4 class="footer-title">UC Investment Explorer</h4>
+      <h4 class="footer-title">STEM4Palestine's UC Investment Data Explorer</h4>
       <p class="footer-text">
         Transparency in university endowment and pension fund management.
       </p>
@@ -154,16 +158,23 @@
     <div class="footer-section">
       <h4 class="footer-title">Contact</h4>
       <div class="footer-links">
-        <a href="mailto:admin@ucinvestments.info" class="footer-link">Contact Us</a>
-        <a href="mailto:press@ucinvestments.info" class="footer-link">Submit Research</a>
-        <a href="mailto:dev@ucinvestments.info" class="footer-link">Development</a>
+        <a href="mailto:admin@ucinvestments.info" class="footer-link"
+          >Contact Us</a
+        >
+        <a href="mailto:press@ucinvestments.info" class="footer-link"
+          >Submit Research</a
+        >
+        <a href="mailto:dev@ucinvestments.info" class="footer-link"
+          >Development</a
+        >
       </div>
     </div>
 
     <div class="footer-section">
       <h4 class="footer-title">Support This Project</h4>
       <p class="footer-text">
-        This project is self-funded by Stephen. Donations help cover hosting and API costs.
+        This project is self-funded by Stephen. Donations help cover hosting and
+        API costs.
       </p>
       <div class="donation-links">
         <button class="donate-button" onclick="toggleDonationInfo()">
@@ -173,11 +184,15 @@
         <div class="donation-info" id="donationInfo" style="display: none;">
           <div class="crypto-address">
             <strong>ETH:</strong>
-            <code class="address">0x623c7559ddC51BAf15Cc81bf5bc13c0B0EA14c01</code>
+            <code class="address"
+              >0x623c7559ddC51BAf15Cc81bf5bc13c0B0EA14c01</code
+            >
           </div>
           <div class="crypto-address">
             <strong>XMR:</strong>
-            <code class="address">44bvXALNkxUgSkGChKQPnj79v6JwkeYEkGijgKyp2zRq3EiuL6oewAv5u2c7FN7jbN1z7uj1rrPfL77bbsJ3cC8U2ADFoTj</code>
+            <code class="address"
+              >44bvXALNkxUgSkGChKQPnj79v6JwkeYEkGijgKyp2zRq3EiuL6oewAv5u2c7FN7jbN1z7uj1rrPfL77bbsJ3cC8U2ADFoTj</code
+            >
           </div>
           <p class="alt-contact">
             Or contact <a href="mailto:sdokita@berkeley.edu">Stephen</a> for alternatives.
@@ -196,7 +211,10 @@
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2024 UC Investment Explorer. Educational purposes only.</p>
+    <p>
+      &copy; 2024 STEM4Palestine. Educational purposes only.<br />
+      This website is not affiliated with or authorized by the University of California.
+    </p>
   </div>
 </footer>
 
@@ -247,9 +265,14 @@
   .logo-text {
     font-family: "Space Grotesk", sans-serif;
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 900;
     color: var(--pri);
     letter-spacing: -0.01em;
+  }
+
+  .small-subtitle {
+    font-weight: 400;
+    font-size: 0.9rem;
   }
 
   .nav-links {

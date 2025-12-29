@@ -3,7 +3,7 @@ layout: research
 title: UC System Makes Progress on Fossil Fuel Divestment
 author: Alex Forman
 date: 2024-03-15
-tags: ['divestment', 'fossil fuels', 'climate']
+tags: ["divestment", "fossil fuels", "climate"]
 ---
 
 ## Executive Summary
@@ -45,11 +45,11 @@ Private equity investments totaling $12 billion lack transparency:
 When compared to peer institutions:
 
 | Institution | Direct FF Holdings | Total Divestment Target |
-|------------|-------------------|------------------------|
-| UC System | 8.2% | 2030 |
-| Harvard | 6.5% | 2050 |
-| Yale | 7.1% | No commitment |
-| Stanford | 5.9% | 2029 |
+| ----------- | ------------------ | ----------------------- |
+| UC System   | 8.2%               | 2030                    |
+| Harvard     | 6.5%               | 2050                    |
+| Yale        | 7.1%               | No commitment           |
+| Stanford    | 5.9%               | 2029                    |
 
 ## Recommendations
 
@@ -80,6 +80,7 @@ Preliminary analysis suggests minimal performance impact:
 ### Carbon Footprint
 
 Estimated emissions reduction:
+
 - Scope 3 emissions reduced by 28% through divestment actions
 - Avoided emissions: 2.3 million tons CO2e annually
 
@@ -98,11 +99,11 @@ While the UC system has made meaningful progress on fossil fuel divestment, achi
 
 ## References
 
-- UC Office of the Chief Investment Officer. (2023). *Annual Report on Sustainable Investing*
-- Regents of the University of California. (2019). *Climate Action and Sustainability Policy*
-- SEC EDGAR Database. (2024). *Form 13F Filings Analysis*
-- Climate Action 100+. (2023). *Institutional Investor Progress Report*
+- UC Office of the Chief Investment Officer. (2023). _Annual Report on Sustainable Investing_
+- Regents of the University of California. (2019). _Climate Action and Sustainability Policy_
+- SEC EDGAR Database. (2024). _Form 13F Filings Analysis_
+- Climate Action 100+. (2023). _Institutional Investor Progress Report_
 
 ---
 
-*This research is part of the UC Investment Transparency Project. For questions or additional data, contact research@ucinvestments.info*
+_This research is part of the UC Investment Transparency Project. For questions or additional data, contact research@ucinvestments.info_

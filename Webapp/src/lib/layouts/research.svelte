@@ -1,11 +1,11 @@
 <script>
-  import { page } from '$app/stores';
-  import Icon from '@iconify/svelte';
-  import { fade, fly } from 'svelte/transition';
+  import { page } from "$app/stores";
+  import Icon from "@iconify/svelte";
+  import { fade, fly } from "svelte/transition";
 
-  export let title = '';
-  export let author = '';
-  export let date = '';
+  export let title = "";
+  export let author = "";
+  export let date = "";
   export let tags = [];
 </script>
 
@@ -28,7 +28,13 @@
       {#if date}
         <div class="meta-item">
           <Icon icon="mdi:calendar" class="meta-icon" />
-          <span>{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span
+            >{new Date(date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}</span
+          >
         </div>
       {/if}
     </div>
