@@ -2,9 +2,24 @@
   import "../app.css";
   import { dev } from "$app/environment";
   import { inject } from "@vercel/analytics";
-  import { fade } from "svelte/transition";
+  import { fade, slide } from "svelte/transition";
   import { page } from "$app/stores";
   import Icon from "@iconify/svelte";
+
+  let mobileMenuOpen = false;
+
+  function toggleMenu() {
+    mobileMenuOpen = !mobileMenuOpen;
+  }
+
+  function closeMenu() {
+    mobileMenuOpen = false;
+  }
+
+  // Close menu on navigation
+  $: if ($page.url) {
+    mobileMenuOpen = false;
+  }
 
   // Track page views manually since we disabled automatic capture
   $: if (browser && $page.url) {
@@ -71,8 +86,12 @@
       </div>
     </a>
 
-    <div class="nav-links">
-      <a href="/" class="nav-link" class:active={$page.url.pathname === "/"}>
+    <button class="burger-btn" on:click={toggleMenu} aria-label="Toggle menu">
+      <Icon icon={mobileMenuOpen ? "mdi:close" : "mdi:menu"} class="burger-icon" />
+    </button>
+
+    <div class="nav-links" class:mobile-open={mobileMenuOpen}>
+      <a href="/" class="nav-link" class:active={$page.url.pathname === "/"} on:click={closeMenu}>
         <Icon icon="mdi:home" class="nav-icon" />
         Explorer
       </a>
@@ -80,6 +99,7 @@
         href="/about"
         class="nav-link"
         class:active={$page.url.pathname === "/about"}
+        on:click={closeMenu}
       >
         <Icon icon="mdi:information" class="nav-icon" />
         About
@@ -88,6 +108,7 @@
         href="/resources"
         class="nav-link"
         class:active={$page.url.pathname === "/resources"}
+        on:click={closeMenu}
       >
         <Icon icon="mdi:book-open-page-variant" class="nav-icon" />
         Resources
@@ -96,6 +117,7 @@
         href="/press"
         class="nav-link"
         class:active={$page.url.pathname.startsWith("/press")}
+        on:click={closeMenu}
       >
         <Icon icon="mdi:newspaper-variant" class="nav-icon" />
         Press
@@ -104,15 +126,17 @@
         href="/todo"
         class="nav-link"
         class:active={$page.url.pathname === "/todo"}
+        on:click={closeMenu}
       >
         <Icon icon="mdi:clipboard-list" class="nav-icon" />
         Roadmap
       </a>
       <a
-        href="https://github.com/TheArctesian/UC-Investments"
+        href="https://github.com/ucinvestments/UC-Investments"
         target="_blank"
         rel="noopener noreferrer"
         class="nav-link external"
+        on:click={closeMenu}
       >
         <Icon icon="mdi:github" class="nav-icon" />
         GitHub
@@ -204,8 +228,9 @@
     <div class="footer-section">
       <h4 class="footer-title">Data Sources</h4>
       <p class="footer-text">
-        Last updated: May 2024<br />
-        Data accuracy: ~68%
+        Last updated: April 2026<br />
+        Holdings as of: June 30, 2025<br />
+        Coverage: ~55% analyzed
       </p>
     </div>
   </div>
@@ -236,7 +261,7 @@
   .nav-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -285,7 +310,7 @@
     display: flex;
     align-items: center;
     gap: 0.375rem;
-    padding: 0.625rem 1.25rem;
+    padding: 0.5rem 1rem;
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
@@ -316,6 +341,25 @@
   :global(.external-icon) {
     font-size: 0.875rem;
     margin-left: -0.125rem;
+  }
+
+  .burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background 0.2s ease;
+  }
+
+  .burger-btn:hover {
+    background: var(--bg-secondary);
+  }
+
+  :global(.burger-icon) {
+    font-size: 1.5rem;
+    color: var(--pri);
   }
 
   main {
@@ -481,20 +525,41 @@
   }
 
   @media (max-width: 768px) {
-    .nav-container {
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
+    .burger-btn {
+      display: block;
     }
 
     .nav-links {
-      width: 100%;
-      justify-content: center;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+    }
+
+    .nav-links.mobile-open {
+      display: flex;
+    }
+
+    .nav-container {
+      position: relative;
+      flex-direction: row;
+      padding: 0.75rem 1rem;
     }
 
     .nav-link {
-      padding: 0.5rem 1rem;
-      font-size: 0.875rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.925rem;
+      width: 100%;
+      justify-content: flex-start;
+      border-radius: 0.5rem;
     }
 
     :global(.nav-icon) {
@@ -521,18 +586,6 @@
 
     .footer-links {
       align-items: center;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .nav-links {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .nav-link {
-      width: 100%;
-      justify-content: center;
     }
   }
 </style>

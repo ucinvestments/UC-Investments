@@ -376,7 +376,7 @@
           </p>
           <div class="cta-actions">
             <a
-              href="https://github.com/TheArctesian/UC-Investments"
+              href="https://github.com/ucinvestments/UC-Investments"
               target="_blank"
               rel="noopener noreferrer"
               class="action-button"

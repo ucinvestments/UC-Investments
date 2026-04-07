@@ -9,7 +9,7 @@
   import posthog from "posthog-js";
   import { browser } from "$app/environment";
 
-  let end;
+  let end: string;
   type button = "Asset" | "Company" | "Fund";
 
   let mounted = false;
@@ -94,7 +94,6 @@
     fetchListedAssets();
   }
 
-  const API = "https://uc-investments-80f94956a47a.herokuapp.com";
   let activeButton: button = "Company";
   let searchTerm = "";
   let totalInvestedInChart = 0;
@@ -125,17 +124,18 @@
 
   async function fetchListedAssets() {
     loading = true;
+    let dataUrl: string;
     if (activeButton == "Company") {
-      end = "/company-composition/" + composition + "/" + estimation;
+      dataUrl = `/data/full_investments_${estimation}_estimation_${composition}_class_grouping.json`;
     } else if (activeButton == "Fund") {
-      end = "/listed-assets";
+      dataUrl = "/data/listed-assets.json";
     } else {
-      end = "/asset-classes";
+      dataUrl = "/data/asset-classes.json";
     }
 
     try {
-      console.log("Fetching data for:", activeButton, "from:", API + end);
-      const response = await fetch(API + end);
+      console.log("Fetching data for:", activeButton, "from:", dataUrl);
+      const response = await fetch(dataUrl);
       if (!response.ok) {
         throw new Error("Failed to fetch listed assets");
       }
@@ -211,75 +211,23 @@
     }
   }
 
-  let timeoutId;
-
   function handleSearch() {
-    clearTimeout(timeoutId);
+    filterSearch();
+
+    if (filteredData.length > 0) {
+      selectedSlice = filteredData[0];
+    } else {
+      selectedSlice = null;
+    }
+    sumTotalInvestments();
+
+    // Track search with PostHog
     const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-
-    // Track search event with PostHog if search term is not empty
     if (normalizedSearchTerm && browser) {
-      posthog.capture("search_performed", {
-        search_location: activeButton.toLowerCase(), // 'company', 'asset', or 'fund'
+      posthog.capture(filteredData.length > 0 ? "search_result_found" : "search_no_results", {
+        search_location: activeButton.toLowerCase(),
         search_query: normalizedSearchTerm,
-        search_context:
-          activeButton === "Company"
-            ? "company"
-            : activeButton === "Asset"
-              ? "asset_class"
-              : "fund",
       });
-    }
-
-    let matchingSlice;
-    if (activeButton == "Company") {
-      matchingSlice = data.find((item) =>
-        item["asset"].toLowerCase().includes(normalizedSearchTerm),
-      );
-    } else if (activeButton == "Asset") {
-      matchingSlice = data.find((item) =>
-        item["A.s.set ._Class"].toLowerCase().includes(normalizedSearchTerm),
-      );
-    } else {
-      matchingSlice = data.find((item) =>
-        item["Asset Name"].toLowerCase().includes(normalizedSearchTerm),
-      );
-    }
-    if (matchingSlice) {
-      timeoutId = setTimeout(() => {
-        selectedSlice = matchingSlice;
-        filterSearch();
-        sumTotalInvestments();
-
-        // Track successful search result
-        if (browser) {
-          posthog.capture("search_result_found", {
-            search_location: activeButton.toLowerCase(),
-            search_query: normalizedSearchTerm,
-            result_name:
-              activeButton === "Company"
-                ? matchingSlice["asset"]
-                : activeButton === "Asset"
-                  ? matchingSlice["A.s.set ._Class"]
-                  : matchingSlice["Asset Name"],
-          });
-        }
-      }, 300);
-    } else {
-      selectedSlice = data[0];
-      if (filteredData.length === 0) {
-        selectedSlice = data[0];
-      } else {
-        selectedSlice = filteredData[0];
-      }
-
-      // Track failed search
-      if (normalizedSearchTerm && browser) {
-        posthog.capture("search_no_results", {
-          search_location: activeButton.toLowerCase(),
-          search_query: normalizedSearchTerm,
-        });
-      }
     }
   }
 
@@ -305,10 +253,9 @@
 
 <!-- Data Warning Banner -->
 <div class="warning-banner" in:fade={{ duration: 400 }}>
-  <Icon icon="mdi:alert-circle" class="warning-icon" />
+  <Icon icon="mdi:information" class="warning-icon" />
   <span
-    >This data is from 2023. The UC releases updated investment reports
-    annually.</span
+    >This data represents that available on April 6th, 2026. Source: UC Holdings Disclosure (June 30, 2025), SEC 13F filings, and public ETF holdings.</span
   >
 </div>
 
@@ -319,17 +266,17 @@
       <h1 class="hero-title">Explorer for UC Investment Data</h1>
       <div class="hero-stats">
         <div class="stat-item" in:fade={{ duration: 600, delay: 400 }}>
-          <span class="stat-value">$162B</span>
+          <span class="stat-value">$129B</span>
           <span class="stat-divider">•</span>
-          <span class="stat-label">Total AUM</span>
+          <span class="stat-label">Published Holdings</span>
         </div>
         <div class="stat-item" in:fade={{ duration: 600, delay: 500 }}>
-          <span class="stat-value">$110B</span>
+          <span class="stat-value">$71B</span>
           <span class="stat-divider">•</span>
-          <span class="stat-label">Published</span>
+          <span class="stat-label">Analyzed</span>
         </div>
         <div class="stat-item" in:fade={{ duration: 600, delay: 600 }}>
-          <span class="stat-value">68%</span>
+          <span class="stat-value">55%</span>
           <span class="stat-divider">•</span>
           <span class="stat-label">Transparent</span>
         </div>
@@ -348,36 +295,35 @@
   </div>
 {:else}
   <div class="main-container" in:fade={{ duration: 600 }}>
-    <!-- Navigation Tabs -->
-    <div class="nav-tabs" in:fly={{ y: -20, duration: 500, delay: 200 }}>
-      <button
-        class="nav-tab"
-        class:active={activeButton === "Company"}
-        on:click={company}
-      >
-        <Icon icon="mdi:company" class="tab-icon" />
-        Companies
-      </button>
-      <button
-        class="nav-tab"
-        class:active={activeButton === "Asset"}
-        on:click={asset}
-      >
-        <Icon icon="mdi:chart-pie" class="tab-icon" />
-        Asset Classes
-      </button>
-      <button
-        class="nav-tab"
-        class:active={activeButton === "Fund"}
-        on:click={fund}
-      >
-        <Icon icon="mdi:wallet" class="tab-icon" />
-        Funds
-      </button>
-    </div>
+    <!-- Navigation Tabs + Search Bar -->
+    <div class="toolbar" in:fly={{ y: -20, duration: 500, delay: 200 }}>
+      <div class="nav-tabs">
+        <button
+          class="nav-tab"
+          class:active={activeButton === "Company"}
+          on:click={company}
+        >
+          <Icon icon="mdi:company" class="tab-icon" />
+          Companies
+        </button>
+        <button
+          class="nav-tab"
+          class:active={activeButton === "Asset"}
+          on:click={asset}
+        >
+          <Icon icon="mdi:chart-pie" class="tab-icon" />
+          Asset Classes
+        </button>
+        <button
+          class="nav-tab"
+          class:active={activeButton === "Fund"}
+          on:click={fund}
+        >
+          <Icon icon="mdi:wallet" class="tab-icon" />
+          Funds
+        </button>
+      </div>
 
-    <!-- Search Bar -->
-    <div class="search-section" in:fly={{ y: 20, duration: 500, delay: 300 }}>
       <div class="search-wrapper">
         <Icon icon="mdi:magnify" class="search-icon" />
         <input
@@ -409,13 +355,20 @@
           </div>
         </div>
         <div class="chart-container">
-          <Pi
-            {filteredData}
-            {selectedSlice}
-            {activeButton}
-            {totalInvestedInChart}
-            on:sliceClicked={handleSliceClicked}
-          />
+          {#if filteredData.length === 0 && searchTerm}
+            <div class="no-chart-message">
+              <Icon icon="mdi:chart-donut" class="no-chart-icon" />
+              <p>No results</p>
+            </div>
+          {:else}
+            <Pi
+              {filteredData}
+              {selectedSlice}
+              {activeButton}
+              {totalInvestedInChart}
+              on:sliceClicked={handleSliceClicked}
+            />
+          {/if}
         </div>
       </div>
 
@@ -427,8 +380,11 @@
         <div class="details-content">
           {#if !selectedSlice}
             <div class="no-data-message">
-              <Icon icon="mdi:information-outline" class="no-data-icon" />
-              <p>No data available to display</p>
+              <Icon icon="mdi:magnify-close" class="no-data-icon" />
+              <p>No {activeButton === "Company" ? "companies" : activeButton === "Asset" ? "asset classes" : "funds"} found for "{searchTerm}"</p>
+              <button class="clear-search-btn" on:click={() => { searchTerm = ""; filteredData = data; selectedSlice = data[0]; sumTotalInvestments(); }}>
+                Clear search
+              </button>
             </div>
           {:else if selectedSlice && selectedSlice.isAggregate}
             <!-- Aggregated Others Item -->
@@ -630,7 +586,7 @@
   }
 
   .warning-banner {
-    background: linear-gradient(135deg, var(--golden-gate), var(--wellman));
+    background: linear-gradient(135deg, var(--founder), var(--pri));
     color: white;
     padding: 0.75rem 1rem;
     display: flex;
@@ -651,7 +607,7 @@
   }
 
   .hero-section {
-    padding: 1.5rem 1rem;
+    padding: 0.75rem 1rem;
     background: linear-gradient(135deg, var(--pri) 0%, var(--founder) 100%);
     position: relative;
     overflow: hidden;
@@ -677,10 +633,10 @@
 
   .hero-title {
     font-family: "Space Grotesk", sans-serif;
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
   }
 
@@ -688,8 +644,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    margin-bottom: 1rem;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
     flex-wrap: nowrap;
   }
 
@@ -701,7 +657,7 @@
   }
 
   .stat-value {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--sec);
     font-family: "Space Grotesk", sans-serif;
@@ -721,22 +677,30 @@
   .hero-description {
     max-width: 600px;
     margin: 0 auto;
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.95);
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   .main-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 1rem 2rem;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .nav-tabs {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    justify-content: center;
+    gap: 0.75rem;
+    align-items: center;
     flex-wrap: wrap;
   }
 
@@ -744,12 +708,12 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
+    padding: 0.625rem 1.5rem;
     background: white;
     border: 2px solid var(--border);
     border-radius: 1rem;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
@@ -787,16 +751,11 @@
     font-size: 1.25rem;
   }
 
-  .search-section {
-    margin-bottom: 3rem;
-    display: flex;
-    justify-content: center;
-  }
-
   .search-wrapper {
     position: relative;
-    width: 100%;
-    max-width: 600px;
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
   }
 
   :global(.search-icon) {
@@ -810,10 +769,10 @@
 
   .search-input {
     width: 100%;
-    padding: 1rem 3.5rem;
+    padding: 0.75rem 3.5rem;
     border: 2px solid var(--border);
     border-radius: 1rem;
-    font-size: 1rem;
+    font-size: 0.925rem;
     transition: all 0.3s ease;
     background: white;
     box-shadow: var(--shadow-sm);
@@ -860,15 +819,15 @@
   .glass-card {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     border: 1px solid var(--border);
     box-shadow: var(--shadow-md);
-    padding: 2rem;
+    padding: 1rem;
     transition: all 0.3s ease;
   }
 
   .glass-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
   }
 
@@ -878,20 +837,20 @@
   }
 
   .chart-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     text-align: center;
   }
 
   .section-title {
-    font-size: 1.125rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     letter-spacing: -0.01em;
   }
 
   .chart-total {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--pri);
     letter-spacing: -0.02em;
@@ -919,16 +878,16 @@
   }
 
   .detail-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
     border-bottom: 2px solid var(--border);
   }
 
   .detail-title {
-    font-size: 1.875rem;
+    font-size: 1.375rem;
     font-weight: 700;
     color: var(--pri);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.375rem;
     letter-spacing: -0.01em;
   }
 
@@ -943,7 +902,7 @@
   }
 
   .detail-amount {
-    font-size: 1.5rem;
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--founder);
   }
@@ -953,15 +912,15 @@
   }
 
   .detail-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .detail-label {
     display: block;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -969,16 +928,16 @@
   .funding-list {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.375rem;
   }
 
   .funding-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.875rem 1.25rem;
+    padding: 0.5rem 0.75rem;
     background: var(--bg-secondary);
-    border-radius: 0.75rem;
+    border-radius: 0.5rem;
     transition: all 0.2s ease;
     border: 1px solid transparent;
   }
@@ -992,11 +951,13 @@
 
   .funding-name {
     font-weight: 500;
+    font-size: 0.85rem;
     color: var(--text-primary);
   }
 
   .funding-amount {
     font-weight: 700;
+    font-size: 0.85rem;
     color: var(--founder);
     font-family: "Space Grotesk", sans-serif;
   }
@@ -1155,6 +1116,44 @@
     margin: 0;
   }
 
+  .clear-search-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(135deg, var(--founder), var(--pri));
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .clear-search-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .no-chart-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+  }
+
+  :global(.no-chart-icon) {
+    font-size: 3rem;
+    color: var(--border);
+    margin-bottom: 0.5rem;
+  }
+
+  .no-chart-message p {
+    font-size: 0.925rem;
+    margin: 0;
+  }
+
   .disclaimer {
     display: flex;
     gap: 1rem;
@@ -1223,23 +1222,30 @@
   }
 
   @media (max-width: 768px) {
+    .toolbar {
+      flex-direction: column;
+    }
+
+    .search-wrapper {
+      max-width: 100%;
+      width: 100%;
+    }
+
     .nav-tabs {
-      flex-direction: row;
-      flex-wrap: wrap;
       gap: 0.5rem;
-      margin-bottom: 1rem;
+      justify-content: center;
     }
 
     .nav-tab {
       flex: 1;
       min-width: 0;
-      padding: 0.75rem 1rem;
+      padding: 0.625rem 0.75rem;
       font-size: 0.875rem;
     }
 
     .search-input {
-      padding: 0.875rem 3rem 0.875rem 2.5rem;
-      font-size: 0.925rem;
+      padding: 0.625rem 3rem 0.625rem 2.5rem;
+      font-size: 0.875rem;
     }
 
     .chart-total {
@@ -1265,40 +1271,48 @@
 
   @media (max-width: 640px) {
     .hero-section {
-      padding: 1rem 0.75rem;
+      padding: 0.75rem;
     }
 
     .hero-title {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
     }
 
     .hero-stats {
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 0.75rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0.25rem 1rem;
+      margin-bottom: 0.5rem;
+      justify-content: center;
     }
 
     .stat-item {
       justify-content: center;
+      gap: 0.375rem;
+    }
+
+    .stat-divider {
+      display: none;
     }
 
     .stat-value {
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
 
     .stat-label {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
     }
 
     .hero-description {
-      font-size: 0.925rem;
+      font-size: 0.8rem;
       padding: 0 0.5rem;
+      margin-bottom: 0;
     }
 
     .warning-banner {
-      font-size: 0.875rem;
-      padding: 0.625rem 0.75rem;
+      font-size: 0.8rem;
+      padding: 0.5rem 0.75rem;
       text-align: center;
     }
 

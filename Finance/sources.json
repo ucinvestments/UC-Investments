@@ -1,0 +1,32 @@
+{
+  "uc_holdings": {
+    "ucrp": "https://www.ucop.edu/investment-office/ucrp-holdings-disclosure-6-30-2025-final.pdf",
+    "gep": "https://www.ucop.edu/investment-office/gep-holdings-disclosure-6-30-2025-final.pdf"
+  },
+  "sec_13f": {
+    "uc_regents": "https://www.sec.gov/Archives/edgar/data/315054/000114036126004783/informationtable.xml"
+  },
+  "etf_holdings": {
+    "ishares_acwi": "https://www.ishares.com/us/products/239600/ishares-msci-acwi-etf/1467271812596.ajax?fileType=csv&fileName=ACWI_holdings&dataType=fund",
+    "spdr_spyx": "https://www.ssga.com/us/en/institutional/etfs/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spyx.xlsx",
+    "spdr_qus": "https://www.ssga.com/us/en/institutional/etfs/library-content/products/fund-data/etfs/us/holdings-daily-us-en-qus.xlsx"
+  },
+  "whale_wisdom_13f": {
+    "adage_capital": {
+      "cik": "0001165408",
+      "name": "ADAGE CAPITAL PARTNERS GP LLC"
+    },
+    "himalaya_capital": {
+      "cik": "0001397076",
+      "name": "HIMALAYA CAPITAL MANAGEMENT LLC"
+    }
+  },
+  "fund_websites": {
+    "ariel_small_cap": "https://www.arielinvestments.com/ariel-fund/",
+    "kotak_india_growth": "https://www.alpsfunds.com/mutual-funds/indix"
+  },
+  "fund_manual": {
+    "arrowstreet_130_30": "https://mim.fgsfulfillment.com/download.aspx?sku=PRRP-AGEF-ANZ",
+    "earnest_partners_scv": "https://www.morganstanley.com/content/dam/msdotcom/en/wealth-investmentsolutions/pdfs/uma/epl-s.pdf"
+  }
+}

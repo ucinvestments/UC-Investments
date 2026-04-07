@@ -127,7 +127,7 @@
       title: "GitHub Repository",
       description: "Access raw data and contribute to the project",
       icon: "mdi:github",
-      href: "https://github.com/TheArctesian/UC-Investments",
+      href: "https://github.com/ucinvestments/UC-Investments",
       external: true,
     },
   ];

@@ -1,0 +1,604 @@
+name,ticker,weight
+UNITEDHEALTH GROUP INC,UNH,0.942434
+VERIZON COMMUNICATIONS INC,VZ,0.936514
+PEPSICO INC,PEP,0.89803
+JPMORGAN CHASE + CO,JPM,0.880129
+CATERPILLAR INC,CAT,0.833768
+LAM RESEARCH CORP,LRCX,0.802741
+LINDE PLC,LIN,0.794703
+APPLIED MATERIALS INC,AMAT,0.790472
+TJX COMPANIES INC,TJX,0.789416
+AMPHENOL CORP CL A,APH,0.765606
+CHEVRON CORP,CVX,0.762851
+VERTEX PHARMACEUTICALS INC,VRTX,0.733898
+LOCKHEED MARTIN CORP,LMT,0.722779
+ABBOTT LABORATORIES,ABT,0.719809
+AT+T INC,T,0.71073
+AMAZON.COM INC,AMZN,0.70967
+MCKESSON CORP,MCK,0.657434
+KLA CORP,KLAC,0.657037
+CHUBB LTD,CB,0.650811
+MOTOROLA SOLUTIONS INC,MSI,0.645708
+ACCENTURE PLC CL A,ACN,0.645256
+DUKE ENERGY CORP,DUK,0.62606
+TEXAS INSTRUMENTS INC,TXN,0.617254
+BANK OF AMERICA CORP,BAC,0.59514
+SOUTHERN CO/THE,SO,0.59274
+CME GROUP INC,CME,0.589791
+CENCORA INC,COR,0.568664
+WASTE MANAGEMENT INC,WM,0.534979
+ADOBE INC,ADBE,0.527758
+INTUIT INC,INTU,0.510101
+CONSOLIDATED EDISON INC,ED,0.505068
+MCDONALD S CORP,MCD,0.503111
+INTL BUSINESS MACHINES CORP,IBM,0.485767
+NEWMONT CORP,NEM,0.485749
+T MOBILE US INC,TMUS,0.478026
+CITIGROUP INC,C,0.471783
+REPUBLIC SERVICES INC,RSG,0.463579
+ARISTA NETWORKS INC,ANET,0.456443
+WASTE CONNECTIONS INC,WCN,0.43877
+QUALCOMM INC,QCOM,0.435074
+PROGRESSIVE CORP,PGR,0.426707
+TRAVELERS COS INC/THE,TRV,0.425234
+NORTHROP GRUMMAN CORP,NOC,0.417007
+CBOE GLOBAL MARKETS INC,CBOE,0.408331
+GILEAD SCIENCES INC,GILD,0.396341
+WELLS FARGO + CO,WFC,0.392002
+ELECTRONIC ARTS INC,EA,0.386978
+SALESFORCE INC,CRM,0.385136
+KROGER CO,KR,0.367882
+MONSTER BEVERAGE CORP,MNST,0.350721
+BLACKROCK INC,BLK,0.344468
+MARSH + MCLENNAN COS,MRSH,0.339425
+INTUITIVE SURGICAL INC,ISRG,0.338491
+AUTODESK INC,ADSK,0.337736
+WEC ENERGY GROUP INC,WEC,0.331228
+ABBVIE INC,ABBV,0.329269
+ROPER TECHNOLOGIES INC,ROP,0.328757
+FORTINET INC,FTNT,0.328512
+YUM  BRANDS INC,YUM,0.327316
+COLGATE PALMOLIVE CO,CL,0.327245
+TELEDYNE TECHNOLOGIES INC,TDY,0.326823
+EATON CORP PLC,ETN,0.324718
+CONOCOPHILLIPS,COP,0.318922
+PFIZER INC,PFE,0.312001
+MONDELEZ INTERNATIONAL INC A,MDLZ,0.306559
+AUTOZONE INC,AZO,0.304396
+COMCAST CORP CLASS A,CMCSA,0.299199
+COGNIZANT TECH SOLUTIONS A,CTSH,0.295547
+CVS HEALTH CORP,CVS,0.289996
+WELLTOWER INC,WELL,0.283163
+BROADCOM INC,AVGO,0.278501
+O REILLY AUTOMOTIVE INC,ORLY,0.276911
+REALTY INCOME CORP,O,0.275186
+SERVICENOW INC,NOW,0.273998
+GENERAL MOTORS CO,GM,0.272201
+AUTOMATIC DATA PROCESSING,ADP,0.270348
+PARKER HANNIFIN CORP,PH,0.263447
+PHILIP MORRIS INTERNATIONAL,PM,0.254607
+VERISIGN INC,VRSN,0.249785
+THE CIGNA GROUP,CI,0.248228
+CORNING INC,GLW,0.24785
+SSI US GOV MONEY MARKET CLASS,-,0.24459
+TRANE TECHNOLOGIES PLC,TT,0.243285
+AMERICAN ELECTRIC POWER,AEP,0.243103
+CHURCH + DWIGHT CO INC,CHD,0.240843
+F5 INC,FFIV,0.239235
+ELEVANCE HEALTH INC,ELV,0.237428
+GOLDMAN SACHS GROUP INC,GS,0.235968
+GENERAL DYNAMICS CORP,GD,0.232347
+VALERO ENERGY CORP,VLO,0.23049
+MICRON TECHNOLOGY INC,MU,0.229587
+ILLINOIS TOOL WORKS,ITW,0.226659
+TE CONNECTIVITY PLC,TEL,0.226148
+ARCH CAPITAL GROUP LTD,ACGL,0.222766
+RTX CORP,RTX,0.220118
+HOME DEPOT INC,HD,0.219734
+ALLSTATE CORP,ALL,0.219589
+XCEL ENERGY INC,XEL,0.21953
+CADENCE DESIGN SYS INC,CDNS,0.216066
+APPLOVIN CORP CLASS A,APP,0.215931
+MARATHON PETROLEUM CORP,MPC,0.208053
+CUMMINS INC,CMI,0.206496
+WILLIAMS COS INC,WMB,0.196443
+PTC INC,PTC,0.195559
+PHILLIPS 66,PSX,0.195375
+EOG RESOURCES INC,EOG,0.19485
+KEURIG DR PEPPER INC,KDP,0.194833
+LIBERTY MEDIA CORP FORMULA C,FWONK,0.194648
+HOWMET AEROSPACE INC,HWM,0.19343
+ANALOG DEVICES INC,ADI,0.191893
+AMGEN INC,AMGN,0.190603
+SUN COMMUNITIES INC,SUI,0.187706
+INCYTE CORP,INCY,0.182966
+AON PLC CLASS A,AON,0.178592
+PALO ALTO NETWORKS INC,PANW,0.176622
+PALANTIR TECHNOLOGIES INC A,PLTR,0.176212
+ADVANCED MICRO DEVICES,AMD,0.17321
+INTEL CORP,INTC,0.170966
+SHERWIN WILLIAMS CO/THE,SHW,0.169199
+MORGAN STANLEY,MS,0.167097
+ROLLINS INC,ROL,0.166706
+HARTFORD INSURANCE GROUP INC,HIG,0.166587
+CINTAS CORP,CTAS,0.166495
+PNC FINANCIAL SERVICES GROUP,PNC,0.166351
+MOODY S CORP,MCO,0.166326
+EXPAND ENERGY CORP,EXE,0.165361
+WR BERKLEY CORP,WRB,0.163403
+NEXTERA ENERGY INC,NEE,0.163263
+HERSHEY CO/THE,HSY,0.162639
+US BANCORP,USB,0.161241
+BRISTOL MYERS SQUIBB CO,BMY,0.159097
+CORTEVA INC,CTVA,0.158298
+WALT DISNEY CO/THE,DIS,0.155737
+WW GRAINGER INC,GWW,0.155019
+FORD MOTOR CO,F,0.154784
+TYLER TECHNOLOGIES INC,TYL,0.154327
+TESLA INC,TSLA,0.153935
+CARDINAL HEALTH INC,CAH,0.153418
+FEDEX CORP,FDX,0.150981
+CHENIERE ENERGY INC,LNG,0.149382
+LOEWS CORP,L,0.148944
+ZOETIS INC,ZTS,0.148319
+ORACLE CORP,ORCL,0.146406
+INTERCONTINENTAL EXCHANGE IN,ICE,0.146083
+MONOLITHIC POWER SYSTEMS INC,MPWR,0.145665
+SYNOPSYS INC,SNPS,0.143591
+FASTENAL CO,FAST,0.143382
+FIRST CITIZENS BCSHS   CL A,FCNCA,0.143331
+IDEXX LABORATORIES INC,IDXX,0.141372
+WORKDAY INC CLASS A,WDAY,0.140716
+DOMINION ENERGY INC,D,0.138853
+DEERE + CO,DE,0.138413
+TARGET CORP,TGT,0.138262
+DR HORTON INC,DHI,0.136876
+BOSTON SCIENTIFIC CORP,BSX,0.136677
+WILLIS TOWERS WATSON PLC,WTW,0.135917
+NIKE INC  CL B,NKE,0.135835
+UNITED THERAPEUTICS CORP,UTHR,0.135478
+MEDTRONIC PLC,MDT,0.134264
+ARTHUR J GALLAGHER + CO,AJG,0.13387
+GODADDY INC   CLASS A,GDDY,0.132313
+TRUIST FINANCIAL CORP,TFC,0.132149
+CAPITAL ONE FINANCIAL CORP,COF,0.132048
+FIRST SOLAR INC,FSLR,0.130653
+UBER TECHNOLOGIES INC,UBER,0.128014
+COMFORT SYSTEMS USA INC,FIX,0.125675
+CENTENE CORP,CNC,0.124953
+MERCADOLIBRE INC,MELI,0.124785
+AMEREN CORPORATION,AEE,0.124425
+FERGUSON ENTERPRISES INC,FERG,0.122309
+PAYPAL HOLDINGS INC,PYPL,0.121078
+DOW INC,DOW,0.120663
+UNITED PARCEL SERVICE CL B,UPS,0.119868
+AMETEK INC,AME,0.119383
+HCA HEALTHCARE INC,HCA,0.118991
+OCCIDENTAL PETROLEUM CORP,OXY,0.11852
+ARCHER DANIELS MIDLAND CO,ADM,0.118373
+AMERIPRISE FINANCIAL INC,AMP,0.118041
+TYSON FOODS INC CL A,TSN,0.117478
+WARNER BROS DISCOVERY INC,WBD,0.114268
+EDWARDS LIFESCIENCES CORP,EW,0.113458
+CHIPOTLE MEXICAN GRILL INC,CMG,0.112726
+TERADYNE INC,TER,0.109608
+COTERRA ENERGY INC,CTRA,0.109311
+GE VERNOVA INC,GEV,0.108706
+NEUROCRINE BIOSCIENCES INC,NBIX,0.105691
+CIENA CORP,CIEN,0.103225
+ALNYLAM PHARMACEUTICALS INC,ALNY,0.102758
+LOWE S COS INC,LOW,0.102614
+THERMO FISHER SCIENTIFIC INC,TMO,0.102113
+OLD DOMINION FREIGHT LINE,ODFL,0.101298
+GARMIN LTD,GRMN,0.097912
+SLB LTD,SLB,0.097562
+REGENERON PHARMACEUTICALS,REGN,0.097469
+AMERICAN INTERNATIONAL GROUP,AIG,0.097356
+FAIR ISAAC CORP,FICO,0.097094
+EMCOR GROUP INC,EME,0.097075
+CMS ENERGY CORP,CMS,0.093975
+UNION PACIFIC CORP,UNP,0.092951
+HONEYWELL INTERNATIONAL INC,HON,0.091419
+SNOWFLAKE INC,SNOW,0.089938
+TRADEWEB MARKETS INC CLASS A,TW,0.089717
+JABIL INC,JBL,0.086922
+NUCOR CORP,NUE,0.086515
+SCHWAB (CHARLES) CORP,SCHW,0.086163
+PROLOGIS INC,PLD,0.085496
+PULTEGROUP INC,PHM,0.084581
+ALTRIA GROUP INC,MO,0.084154
+BANK OF NEW YORK MELLON CORP,BK,0.083897
+LYONDELLBASELL INDU CL A,LYB,0.08388
+DEVON ENERGY CORP,DVN,0.083169
+AMERICAN EXPRESS CO,AXP,0.082972
+ZOOM COMMUNICATIONS INC,ZM,0.082673
+RESMED INC,RMD,0.082046
+GENERAL MILLS INC,GIS,0.081834
+GENERAL ELECTRIC,GE,0.080416
+PAYCHEX INC,PAYX,0.08038
+FREEPORT MCMORAN INC,FCX,0.07998
+DANAHER CORP,DHR,0.079886
+KIMBERLY CLARK CORP,KMB,0.077679
+FIFTH THIRD BANCORP,FITB,0.07711
+PACCAR INC,PCAR,0.07675
+PRUDENTIAL FINANCIAL INC,PRU,0.075577
+COPART INC,CPRT,0.07507
+AGILENT TECHNOLOGIES INC,A,0.075036
+M + T BANK CORP,MTB,0.074591
+MARVELL TECHNOLOGY INC,MRVL,0.073325
+GEN DIGITAL INC,GEN,0.071842
+P G + E CORP,PCG,0.07145
+CHARTER COMMUNICATIONS INC A,CHTR,0.070589
+VENTAS INC,VTR,0.069403
+BALL CORP,BALL,0.06896
+ULTA BEAUTY INC,ULTA,0.068415
+DOORDASH INC   A,DASH,0.068073
+METLIFE INC,MET,0.067863
+TEXAS PACIFIC LAND CORP,TPL,0.067657
+EXELON CORP,EXC,0.06728
+CITIZENS FINANCIAL GROUP,CFG,0.066851
+NVR INC,NVR,0.066787
+WILLIAMS SONOMA INC,WSM,0.066605
+ONEOK INC,OKE,0.065495
+HEWLETT PACKARD ENTERPRISE,HPE,0.065223
+T ROWE PRICE GROUP INC,TROW,0.065017
+DIAMONDBACK ENERGY INC,FANG,0.063914
+CRH PLC,CRH,0.063602
+AFLAC INC,AFL,0.063597
+HUMANA INC,HUM,0.063525
+CDW CORP/DE,CDW,0.063313
+HUBBELL INC,HUBB,0.063302
+KINDER MORGAN INC,KMI,0.063159
+SEMPRA,SRE,0.063049
+HUNTINGTON BANCSHARES INC,HBAN,0.062539
+BAKER HUGHES CO,BKR,0.061168
+HALLIBURTON CO,HAL,0.060904
+EXPEDITORS INTL WASH INC,EXPD,0.060236
+CSX CORP,CSX,0.060018
+BUNGE GLOBAL SA,BG,0.05851
+NETAPP INC,NTAP,0.058105
+VEEVA SYSTEMS INC CLASS A,VEEV,0.057899
+LULULEMON ATHLETICA INC,LULU,0.05697
+SYSCO CORP,SYY,0.05614
+KRAFT HEINZ CO/THE,KHC,0.056017
+3M CO,MMM,0.055841
+BEST BUY CO INC,BBY,0.055698
+S+P GLOBAL INC,SPGI,0.055041
+WATERS CORP,WAT,0.054806
+EDISON INTERNATIONAL,EIX,0.054267
+SNAP ON INC,SNA,0.054024
+STARBUCKS CORP,SBUX,0.053587
+FISERV INC,FISV,0.05343
+STATE STREET CORP,STT,0.053335
+L3HARRIS TECHNOLOGIES INC,LHX,0.053302
+C.H. ROBINSON WORLDWIDE INC,CHRW,0.053227
+DTE ENERGY COMPANY,DTE,0.051904
+JOHNSON CONTROLS INTERNATION,JCI,0.051618
+REGIONS FINANCIAL CORP,RF,0.051549
+VERALTO CORP,VLTO,0.051275
+VERISK ANALYTICS INC,VRSK,0.05081
+ENTERGY CORP,ETR,0.049626
+AIR PRODUCTS + CHEMICALS INC,APD,0.048998
+EMERSON ELECTRIC CO,EMR,0.048989
+ATMOS ENERGY CORP,ATO,0.048287
+ERIE INDEMNITY COMPANY CL A,ERIE,0.048264
+PPL CORP,PPL,0.048173
+STRYKER CORP,SYK,0.047286
+DECKERS OUTDOOR CORP,DECK,0.047231
+DOLLAR GENERAL CORP,DG,0.047224
+LENNOX INTERNATIONAL INC,LII,0.046678
+STEEL DYNAMICS INC,STLD,0.04582
+HP INC,HPQ,0.044986
+WEST PHARMACEUTICAL SERVICES,WST,0.044747
+BECTON DICKINSON AND CO,BDX,0.044461
+BROADRIDGE FINANCIAL SOLUTIO,BR,0.044236
+NORFOLK SOUTHERN CORP,NSC,0.044063
+SYNCHRONY FINANCIAL,SYF,0.043524
+BOEING CO/THE,BA,0.042669
+CARLISLE COS INC,CSL,0.041762
+CROWDSTRIKE HOLDINGS INC   A,CRWD,0.0417
+CF INDUSTRIES HOLDINGS INC,CF,0.041289
+DELL TECHNOLOGIES  C,DELL,0.041218
+DUPONT DE NEMOURS INC,DD,0.040733
+BIOGEN INC,BIIB,0.040711
+BOOKING HOLDINGS INC,BKNG,0.040581
+ROSS STORES INC,ROST,0.040485
+OMNICOM GROUP,OMC,0.040367
+ON SEMICONDUCTOR,ON,0.04018
+LENNAR CORP W/D,LEN,0.038728
+AMERICAN WATER WORKS CO INC,AWK,0.038644
+GARTNER INC,IT,0.038258
+NXP SEMICONDUCTORS NV,NXPI,0.038229
+PUBLIC SERVICE ENTERPRISE GP,PEG,0.037161
+PRINCIPAL FINANCIAL GROUP,PFG,0.036927
+AMRIZE LTD,AMRZ,0.036619
+CARRIER GLOBAL CORP,CARR,0.036087
+WATSCO INC,WSO,0.035726
+EQT CORP,EQT,0.035663
+US DOLLAR,-,0.035551
+AMERICAN TOWER CORP,AMT,0.035335
+VICI PROPERTIES INC,VICI,0.035258
+KEYCORP,KEY,0.035118
+PENTAIR PLC,PNR,0.035029
+SMURFIT WESTROCK PLC,SW,0.034434
+GRACO INC,GGG,0.034434
+EVEREST GROUP LTD,EG,0.034356
+KENVUE INC,KVUE,0.034015
+MARKEL GROUP INC,MKL,0.033971
+UNITED RENTALS INC,URI,0.033887
+ALLIANT ENERGY CORP,LNT,0.033305
+ALLEGION PLC,ALLE,0.03252
+FIRSTENERGY CORP,FE,0.032329
+GE HEALTHCARE TECHNOLOGY,GEHC,0.032299
+DIGITAL REALTY TRUST INC,DLR,0.032287
+INTERNATIONAL PAPER CO,IP,0.03222
+BLOCK INC,XYZ,0.032153
+QUANTA SERVICES INC,PWR,0.031921
+TARGA RESOURCES CORP,TRGP,0.031692
+SIMON PROPERTY GROUP INC,SPG,0.031663
+DOLLAR TREE INC,DLTR,0.031279
+CONSTELLATION ENERGY,CEG,0.031068
+NORTHERN TRUST CORP,NTRS,0.030754
+GLOBAL PAYMENTS INC,GPN,0.030535
+JACK HENRY + ASSOCIATES INC,JKHY,0.030484
+CINCINNATI FINANCIAL CORP,CINF,0.029529
+PPG INDUSTRIES INC,PPG,0.029521
+CBRE GROUP INC   A,CBRE,0.028886
+APPLE INC,AAPL,0.028689339999999997
+FLEX LTD,FLEX,0.028211
+PINNACLE FINANCIAL PARTNERS,PNFP,0.028074
+RAYMOND JAMES FINANCIAL INC,RJF,0.027814
+EVERSOURCE ENERGY,ES,0.026837
+KEYSIGHT TECHNOLOGIES IN,KEYS,0.026678
+APOLLO GLOBAL MANAGEMENT INC,APO,0.026621
+MARRIOTT INTERNATIONAL  CL A,MAR,0.026593
+RELIANCE INC,RS,0.026549
+EQUINIX INC,EQIX,0.026391
+MICROCHIP TECHNOLOGY INC,MCHP,0.026333
+CENTERPOINT ENERGY INC,CNP,0.026305
+AMCOR PLC,AMCR,0.026185
+APTIV PLC,APTV,0.02599
+AIRBNB INC CLASS A,ABNB,0.025709
+ECOLAB INC,ECL,0.025699
+CNH INDUSTRIAL NV,CNH,0.025647
+LABCORP HOLDINGS INC,LH,0.025493
+WABTEC CORP,WAB,0.025309
+MICROSOFT CORP,MSFT,0.02517928
+ROYAL CARIBBEAN CRUISES LTD,RCL,0.024985
+DELTA AIR LINES INC,DAL,0.024266
+NVIDIA CORP,NVDA,0.024051100000000002
+WEYERHAEUSER CO,WY,0.024045
+ZIMMER BIOMET HOLDINGS INC,ZBH,0.024041
+INTL FLAVORS + FRAGRANCES,IFF,0.023948
+WESTERN DIGITAL CORP,WDC,0.023591
+IQVIA HOLDINGS INC,IQV,0.022842
+PUBLIC STORAGE,PSA,0.022754
+COREBRIDGE FINANCIAL INC,CRBG,0.02264
+EBAY INC,EBAY,0.022365
+VISTRA CORP,VST,0.022151
+CONSTELLATION BRANDS INC A,STZ,0.022049
+BLACKSTONE INC,BX,0.02164
+KKR + CO INC,KKR,0.021521
+EVERGY INC,EVRG,0.021283
+META PLATFORMS INC CLASS A,META,0.02127465
+DOVER CORP,DOV,0.021186
+TEXTRON INC,TXT,0.021053
+EXTRA SPACE STORAGE INC,EXR,0.021011
+HUNT (JB) TRANSPRT SVCS INC,JBHT,0.020868
+NISOURCE INC,NI,0.020855
+NRG ENERGY INC,NRG,0.020619
+BUILDERS FIRSTSOURCE INC,BLDR,0.020432
+DATADOG INC   CLASS A,DDOG,0.020417
+CASEY S GENERAL STORES INC,CASY,0.020388
+JOHNSON + JOHNSON,JNJ,0.02026256
+GENUINE PARTS CO,GPC,0.020152
+FORTIVE CORP,FTV,0.019865
+TAPESTRY INC,TPR,0.019608
+QUEST DIAGNOSTICS INC,DGX,0.019241
+ROCKWELL AUTOMATION INC,ROK,0.019107
+DARDEN RESTAURANTS INC,DRI,0.018982
+ASTERA LABS INC,ALAB,0.018925
+UNITED AIRLINES HOLDINGS INC,UAL,0.018864
+EQUITY RESIDENTIAL,EQR,0.018736
+HOLOGIC INC,HOLX,0.01872
+ECHOSTAR CORP A,SATS,0.018693
+ELI LILLY + CO,LLY,0.01867323
+TRACTOR SUPPLY COMPANY,TSCO,0.01867
+INSULET CORP,PODD,0.01853
+LEIDOS HOLDINGS INC,LDOS,0.018484
+VISA INC CLASS A SHARES,V,0.018313120000000002
+INGERSOLL RAND INC,IR,0.018194
+OKLO INC,OKLO,0.018094
+HUBSPOT INC,HUBS,0.018001
+VULCAN MATERIALS CO,VMC,0.017903
+CARNIVAL CORP,CCL,0.017819
+NASDAQ INC,NDAQ,0.017775
+STRATEGY INC,MSTR,0.017758
+WP CAREY INC,WPC,0.017682
+AVALONBAY COMMUNITIES INC,AVB,0.017646
+EQUITABLE HOLDINGS INC,EQH,0.01729
+MARTIN MARIETTA MATERIALS,MLM,0.017001
+XYLEM INC,XYL,0.016974
+OTIS WORLDWIDE CORP,OTIS,0.016931
+WALMART INC,WMT,0.01684671
+ANNALY CAPITAL MANAGEMENT IN,NLY,0.016807
+FIDELITY NATIONAL INFO SERV,FIS,0.016739
+HILTON WORLDWIDE HOLDINGS IN,HLT,0.016684
+PACKAGING CORP OF AMERICA,PKG,0.016338
+EXXON MOBIL CORP,XOM,0.01608929
+QNITY ELECTRONICS INC,Q,0.015736
+UNIVERSAL HEALTH SERVICES B,UHS,0.015645
+CREDO TECHNOLOGY GROUP HOLDI,CRDO,0.015366
+EXPEDIA GROUP INC,EXPE,0.015337
+FOX CORP   CLASS A,FOXA,0.015318
+KIMCO REALTY CORP,KIM,0.015149
+ALPHABET INC CL A,GOOGL,0.01511908
+ROYALTY PHARMA PLC  CL A,RPRX,0.015102
+MASTERCARD INC   A,MA,0.01500881
+INTERACTIVE BROKERS GRO CL A,IBKR,0.014806
+CROWN CASTLE INC,CCI,0.014676
+FIDELITY NATIONAL FINANCIAL,FNF,0.014614
+HEALTHPEAK PROPERTIES INC,DOC,0.014429
+DICK S SPORTING GOODS INC,DKS,0.014321
+ALPHABET INC CL C,GOOG,0.01395412
+COHERENT CORP,COHR,0.013926
+MERCK + CO. INC.,MRK,0.013846849999999999
+VERTIV HOLDINGS CO A,VRT,0.013768
+JACOBS SOLUTIONS INC,J,0.013572
+BROWN + BROWN INC,BRO,0.013528
+LIVE NATION ENTERTAINMENT IN,LYV,0.013454
+INVITATION HOMES INC,INVH,0.013306
+STERIS PLC,STE,0.013184
+COSTCO WHOLESALE CORP,COST,0.01317442
+CORPAY INC,CPAY,0.01317
+SEAGATE TECHNOLOGY HOLDINGS,STX,0.01315
+LPL FINANCIAL HOLDINGS INC,LPLA,0.013082
+SS+C TECHNOLOGIES HOLDINGS,SSNC,0.013008
+CISCO SYSTEMS INC,CSCO,0.012863409999999999
+BURLINGTON STORES INC,BURL,0.012814
+SUPER MICRO COMPUTER INC,SMCI,0.012788
+COOPER COS INC/THE,COO,0.012714
+ENTEGRIS INC,ENTG,0.012672
+PROCTER + GAMBLE CO/THE,PG,0.01247762
+TRANSDIGM GROUP INC,TDG,0.012266
+MASCO CORP,MAS,0.011934
+EQUIFAX INC,EFX,0.011896
+ESSEX PROPERTY TRUST INC,ESS,0.011449
+NETFLIX INC,NFLX,0.011300280000000001
+COCA COLA CO/THE,KO,0.01127368
+HORMEL FOODS CORP,HRL,0.010842
+IDEX CORP,IEX,0.010726
+ESTEE LAUDER COMPANIES CL A,EL,0.010666
+BERKSHIRE HATHAWAY INC CL B,BRK.B,0.01066278
+AVERY DENNISON CORP,AVY,0.010634
+NEWS CORP   CLASS A,NWSA,0.010369
+REGENCY CENTERS CORP,REG,0.010127
+FOX CORP   CLASS B,FOX,0.010106
+CLOROX COMPANY,CLX,0.009877
+GAMING AND LEISURE PROPERTIE,GLPI,0.009412
+METTLER TOLEDO INTERNATIONAL,MTD,0.009121
+TRIMBLE INC,TRMB,0.009079
+AECOM,ACM,0.008962
+MID AMERICA APARTMENT COMM,MAA,0.008936
+FLUTTER ENTERTAINMENT PLC DI,FLUT,0.008819
+LAS VEGAS SANDS CORP,LVS,0.008726
+DEXCOM INC,DXCM,0.008692
+MSCI INC,MSCI,0.008684
+TRANSUNION,TRU,0.008637
+CURTISS WRIGHT CORP,CW,0.00861
+SOLVENTUM CORP,SOLV,0.008558
+MCCORMICK + CO NON VTG SHRS,MKC,0.008422
+RPM INTERNATIONAL INC,RPM,0.008306
+CARVANA CO,CVNA,0.008085
+TWILIO INC   A,TWLO,0.008076
+SBA COMMUNICATIONS CORP,SBAC,0.007868
+LUMENTUM HOLDINGS INC,LITE,0.007828
+ILLUMINA INC,ILMN,0.007315
+ZEBRA TECHNOLOGIES CORP CL A,ZBRA,0.007285
+CARLYLE GROUP INC/THE,CG,0.007258
+IRON MOUNTAIN INC,IRM,0.007176
+UDR INC,UDR,0.006722
+TAKE TWO INTERACTIVE SOFTWRE,TTWO,0.006567
+COINBASE GLOBAL INC  CLASS A,COIN,0.006194
+RIVIAN AUTOMOTIVE INC A,RIVN,0.006151
+NORDSON CORP,NDSN,0.006117
+COEUR MINING INC,CDE,0.005887
+ARES MANAGEMENT CORP   A,ARES,0.005362
+OKTA INC,OKTA,0.005269
+PINTEREST INC  CLASS A,PINS,0.00525
+COSTAR GROUP INC,CSGP,0.005189
+DOMINO S PIZZA INC,DPZ,0.005007
+FTAI AVIATION LTD,FTAI,0.004899
+AXON ENTERPRISE INC,AXON,0.004368
+HEICO CORP CLASS A,HEI.A,0.004201
+SOFI TECHNOLOGIES INC,SOFI,0.003917
+COREWEAVE INC CL A,CRWV,0.003624
+EVERPURE INC A,PSTG,0.00331
+HEICO CORP,HEI,0.003216
+ROBINHOOD MARKETS INC   A,HOOD,0.003079
+CLOUDFLARE INC   CLASS A,NET,0.002387
+HYATT HOTELS CORP   CL A,H,0.002187
+ZILLOW GROUP INC   C,Z,0.002097
+AFFIRM HOLDINGS INC,AFRM,0.001902
+TRADE DESK INC/THE  CLASS A,TTD,0.001549
+MONGODB INC,MDB,0.00148
+NATERA INC,NTRA,0.00139
+BLOOM ENERGY CORP  A,BE,0.00118
+DRAFTKINGS INC CL A,DKNG,0.001098
+ROBLOX CORP  CLASS A,RBLX,0.001092
+SNAP INC   A,SNAP,0.000967
+REDDIT INC CL A,RDDT,0.000928
+INSMED INC,INSM,0.000882
+TOAST INC CLASS A,TOST,0.000881
+ROCKET LAB CORP,RKLB,0.000853
+ZSCALER INC,ZS,0.000743
+IONQ INC,IONQ,0.000494
+ATLASSIAN CORP CL A,TEAM,0.000418
+SAMSARA INC CL A,IOT,0.000234
+ROCKET COS INC CLASS A,RKT,4e-06
+CONTRA ABIOMED INC,2223637D,3e-06
+VERSIGENT PLC,VGNT,2e-06
+State Street Global Advisors (SSGA) is now State Street Investment Management. Please click here for more information.,,0.0
+"Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate, so you may have a gain or loss when shares are sold. Current performance may be higher or lower than that quoted. All results are historical and assume the reinvestment of dividends and capital gains. Visit www.ssga.com for most recent month-end performance.",,0.0
+"Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be considered a recommendation to buy individual securities. For most recent information visit www.ssga.com.",,0.0
+"Bonds generally present less short-term risk and volatility than stocks, but contain interest rate risk (as interest rates raise, bond prices usually fall); issuer default risk; issuer credit risk; liquidity risk; and inflation risk. These effects are usually pronounced for longer-term securities. Any fixed income security sold or redeemed prior to maturity may be subject to a substantial gain or loss.
+
+International Government bonds and corporate bonds generally have more moderate short-term price fluctuations than stocks, but provide lower potential long-term returns.
+Investing in high yield fixed income securities, otherwise known as ""junk bonds"", is considered speculative and involves greater risk of loss of principal and interest than investing in investment grade fixed income securities. These Lower-quality debt securities involve greater risk of default or price changes due to potential changes in the credit quality of the issuer.
+
+Equity securities may fluctuate in value and can decline significantly in response to the activities of individual companies and general market and economic conditions.
+
+There are risks associated with investing in Real Assets and the Real Assets sector, including real estate, precious metals and natural resources.  Investments can be significantly affected by events relating to these industries.
+
+Investing in foreign domiciled securities may involve risk of capital loss from unfavorable fluctuation in currency values, withholding taxes, from differences in generally accepted accounting principles or from economic or political instability in other nations.  Investments in emerging or developing markets may be more volatile and less liquid than investing in developed markets and may involve exposure to economic structures that are generally less diverse and mature and to political systems which have less stability than those of more developed countries. 
+
+The trademarks and service marks referenced herein are the property of their respective owners. Third party data providers make no warranties or representations of any kind relating to the accuracy, completeness or timeliness of the data and have no liability for damages of any kind relating to the use of such data. Investing involves risk including the risk of loss of principal.
+
+The whole or any part of this work may not be reproduced, copied or transmitted or any of its contents disclosed to third parties without SSGA's express written consent.
+
+ETFs trade like stocks, are subject to investment risk and will fluctuate in market value. The investment return and principal value of an investment will fluctuate in value, so that when shares are sold or redeemed, they may be worth more or less than when they were purchased.  Although shares may be bought or sold on an exchange through any brokerage account, shares are not individually redeemable from the fund.  Investors may acquire shares and tender them for redemption through the fund in large aggregations known as “creation units.”  Please see the fund’s prospectus for more details.
+
+Investing in REITs involves certain distinct risks in addition to those risks associated with investing in the real estate industry in general. Equity REITs may be affected by changes in the value of the underlying property owned by the REITs, while mortgage REITs may be affected by the quality of credit extended. REITs are subject to heavy cash flow dependency, default by borrowers and self-liquidation. REITs, especially mortgage REITs, are also subject to interest rate risk (i.e., as interest rates rise, the value of the REIT may decline).
+
+Multi-Cap investments include exposure to all market caps, including small and medium capitalization (“cap”) stocks that generally have a higher risk of business failure, lesser liquidity and greater volatility in market price. As a consequence, small and medium cap stocks have a greater possibility of price decline or loss as compared to large cap stocks. This may cause the Fund not to meet its investment objective. 
+
+Concentrated investments in a particular Sector tend to be more volatile than the overall market and increases risk that events negatively affecting such sectors or industries could reduce returns, potentially causing the value of the Fund’s shares to decrease.
+
+Technology companies, including cyber security companies, can be significantly affected by obsolescence of existing technology, limited product lines, and competition for financial resources, qualified personnel, new market entrants or impairment of patent and intellectual property rights that can adversely affect profit margins.
+
+This communication is not intended to be an investment recommendation or investment advice and should not be relied upon as such.
+
+The information provided does not constitute investment advice and it should not be relied on as such. It should not be considered a solicitation to buy or an offer to sell a security. It does not take into account any investor's particular investment objectives, strategies, tax status or investment horizon.  You should consult your tax and financial advisor.
+
+Disclosure: State Street Global Advisors Funds Distributors, LLC is the distributor for some registered products on behalf of the adviser. SSGA Funds Management has retained Blackstone Liquid Credit Strategies LLC, Nuveen Asset Management, DoubleLine Capital LP Loomis Sayles,  Galaxy Digital Capital Management LP, and Bridgewater Associates, LP as the sub-adviser. State Street Global Advisors Funds Distributors, LLC is not affiliated with Blackstone Liquid Credit Strategies LLC, DoubleLine Capital LP, Nuveen Asset Management Loomis Sayles, Galaxy Digital Capital Management LP or Bridgewater Associates, LP. 
+
+Kensho is not an investment adviser or broker-dealer and Kensho makes no representation regarding the advisability of investing in any investment fund, other investment vehicle, security or other financial product regardless of whether or not it is based on, derived from, or included as a constituent of any Kensho New Economies© family index. Kensho bears no responsibility or liability for any business decision, input, recommendation, or action taken based on Kensho indices or any products based on, derived from, or included as a constituent of any such index. All referenced names and trademarks are the property of their respective owners.
+
+Apollo is not a sponsor, distributor, promoter, or investment adviser to the Fund. Apollo has entered into a contractual agreement with the Fund whereby it is obligated to provide firm bids on asset-backed and corporate finance instruments sourced by Apollo (each an “AOS Investment”) to the Fund on a daily basis at certain intervals and is required to repurchase AOS Investments that the Fund has purchased at the firm bid price offered by Apollo, subject to, but not limited to, contractual levels designed to cover the estimated seven-day stress redemption rate as of the date hereof. The sale of AOS Investments to Apollo is not exclusive and the Fund may seek to sell AOS Investments to other counterparties.
+
+Bridgewater provides a daily model portfolio to SSGA Funds Management Inc. (SSGA FM) based on their proprietary All Weather® asset allocation approach.  The model portfolio is specific to the Fund. Based on Bridgewater's investment recommendations, SSGA FM purchases and sells securities and/or instruments for the Fund. SSGA FM seeks to implement Bridgewater's investment recommendations, but may change the Fund's investment allocation at any time. 
+
+The S&P 500® Index is a product of S&P Dow Jones Indices LLC or its affiliates (“S&P DJI”) and have been licensed for use by State Street Global Advisors.  S&P®, SPDR®, S&P 500®,US 500 and the 500 are trademarks of Standard & Poor’s Financial Services LLC (“S&P”); Dow Jones® is a registered trademark of Dow Jones Trademark Holdings LLC (“Dow Jones”) and has been licensed for use by S&P Dow Jones Indices; and these trademarks have been licensed for use by S&P DJI and sublicensed for certain purposes by State Street Global Advisors. The fund is not sponsored, endorsed, sold or promoted by S&P DJI, Dow Jones, S&P, their respective affiliates, and none of such parties make any representation regarding the advisability of investing in such product(s) nor do they have any liability for any errors, omissions, or interruptions of these indices.
+
+The returns on a portfolio of securities which exclude companies that do not meet the portfolio's specified ESG criteria may trail the returns on a portfolio of securities which include such companies. A portfolio's ESG criteria may result in the portfolio investing in industry sectors or securities which underperform the market as a whole. 
+
+If your account holds Russian securities and instruments, then as of the date of this publication, they have been fair valued.  Such fair value may be zero.  If your portfolio holds such Russian securities and instruments, then the portfolio may not be able to dispose of such securities and instruments depending on the relevant market, applicable sanctions requirements, and/or Russian capital controls or other counter measures. In such circumstances, the portfolio would continue to own and have exposure to Russian-related issuers and markets.  Please refer to your portfolio holdings report. 
+
+Prior to 10/31/2025, the ticker for SPYM was SPLG.",,0.0
+"DoubleLine® is a registered trademark of DoubleLine Capital LP.
+
+Investing involves risk including the risk of loss of principal.
+
+All information is from SSGA unless otherwise noted and has been obtained from sources believed to be reliable, but its accuracy is not guaranteed.  There is no representation or warranty as to the current accuracy, reliability or completeness of, nor liability for, decisions based on such information and it should not be relied on as such.",,0.0
+"Distributor: State Street Global Advisors Funds Distributors, LLC, member FINRA(http://www.finra.org), SIPC(http://www.sipc.org), an indirect wholly owned subsidiary of State Street Corporation. References to State Street may include State Street Corporation and its affiliates. Certain State Street affiliates provide services and receive fees from the SPDR ETFs. ALPS Distributors, Inc., member FINRA, is the distributor for DIA, MDY and SPY, all unit investment trusts. ALPS Portfolio Solutions Distributor, Inc., member FINRA, is the distributor for Select Sector SPDRs. ALPS Distributors, Inc. and ALPS Portfolio Solutions Distributor, Inc. are not affiliated with State Street Global Advisors Funds Distributors, LLC.",,0.0
+"Before investing in a fund, consider its investment objectives, risks, charges, and expenses. A prospectus (and/or summary prospectus) containing this and other information is available here (https://www.ssga.com/us/en/individual/fund-finder) or by calling 1-866-787-2257. Read it carefully.
+
+Not FDIC Insured * No Bank Guarantee * May Lose Value
+
+© 2026 State Street Corporation - All Rights Reserved.
+State Street Investment Management, One Congress Street, Boston, MA 02114.
+
+4503082.10.3.AM.RTL
+Expiration: 01/31/2027
+SPD004409",,0.0
+S+P500 EMINI FUT  JUN26,ESM6,-0.003238

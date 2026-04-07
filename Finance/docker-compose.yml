@@ -1,0 +1,6 @@
+services:
+  scraper:
+    build: .
+    volumes:
+      - ./sources:/app/sources
+      - ./outputs:/app/outputs

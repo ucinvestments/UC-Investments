@@ -174,7 +174,7 @@
           </p>
           <div class="source-link">
             <Button
-              href="https://github.com/TheArctesian/UC-Investments/tree/main/Data-Collection/csv-files"
+              href="https://github.com/ucinvestments/UC-Investments/tree/main/Data-Collection/csv-files"
               icon="mdi:github"
               external
             >

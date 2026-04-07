@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<informationTable xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sec.gov/edgar/document/thirteenf/informationtable">
+    <infoTable>
+        <nameOfIssuer>ASML HOLDING NV NY REG SHS</nameOfIssuer>
+        <titleOfClass>DEPOSITORY RECEIPTS</titleOfClass>
+        <cusip>N07059210</cusip>
+        <value>456786356</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>426959</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>426959</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>BLUE OWL CAPITAL INC</nameOfIssuer>
+        <titleOfClass>COMMON STOCK</titleOfClass>
+        <cusip>09581B103</cusip>
+        <value>89514131</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>5991575</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>5991575</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>BROOKFIELD CORP</nameOfIssuer>
+        <titleOfClass>COMMON STOCK</titleOfClass>
+        <cusip>11271J107</cusip>
+        <value>412055740</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>8979206</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>8979206</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>DIGITALBRIDGE GROUP INC</nameOfIssuer>
+        <titleOfClass>COMMON STOCK</titleOfClass>
+        <cusip>25401T603</cusip>
+        <value>27058794</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>1763937</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>1763937</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>FACTSET RESEARCH SYSTEMS INC</nameOfIssuer>
+        <titleOfClass>COMMON STOCK</titleOfClass>
+        <cusip>303075105</cusip>
+        <value>30111275</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>103764</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>103764</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>ISHARES NASDAQ TOP 30 STOCKS E</nameOfIssuer>
+        <titleOfClass>MUTUAL FUNDS</titleOfClass>
+        <cusip>46438G562</cusip>
+        <value>32144505</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>1005773</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>1005773</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>STATE STREET CORP</nameOfIssuer>
+        <titleOfClass>COMMON STOCK</titleOfClass>
+        <cusip>857477103</cusip>
+        <value>1123186217</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>8706195</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>8706195</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>SURROZEN INC</nameOfIssuer>
+        <titleOfClass>COMMON STOCK</titleOfClass>
+        <cusip>86889P208</cusip>
+        <value>3010478</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>133207</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>133207</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+    <infoTable>
+        <nameOfIssuer>SURROZEN INC</nameOfIssuer>
+        <titleOfClass>WARRANTS</titleOfClass>
+        <cusip>86889P117</cusip>
+        <value>1667</value>
+        <shrsOrPrnAmt>
+            <sshPrnamt>83333</sshPrnamt>
+            <sshPrnamtType>SH</sshPrnamtType>
+        </shrsOrPrnAmt>
+        <investmentDiscretion>SOLE</investmentDiscretion>
+        <votingAuthority>
+            <Sole>83333</Sole>
+            <Shared>0</Shared>
+            <None>0</None>
+        </votingAuthority>
+    </infoTable>
+</informationTable>

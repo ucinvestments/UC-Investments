@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?><informationTable xmlns="http://www.sec.gov/edgar/document/thirteenf/informationtable" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<infoTable>
+		<nameOfIssuer> <![CDATA[AVIDIA BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COMMON STOCK</titleOfClass>
+		<cusip>05369T100</cusip>
+
+		<value>672400</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>40000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>40000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[BV FINL INC]]> </nameOfIssuer>
+		<titleOfClass>COM NEW</titleOfClass>
+		<cusip>05603E208</cusip>
+
+		<value>1723300</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>95000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>95000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[CATALYST BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COMMON STOCK</titleOfClass>
+		<cusip>14888L101</cusip>
+
+		<value>4011478</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>254697</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>254697</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[CENTRAL PLAINS BANCSHARES IN]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>15486W100</cusip>
+
+		<value>6207965</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>366901</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>366901</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[ECB BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>26828M106</cusip>
+
+		<value>347800</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>20000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>20000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[FB BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>31425A109</cusip>
+
+		<value>257000</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>20000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>20000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[FIFTH DIST BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>316926104</cusip>
+
+		<value>1200000</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>80000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>80000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[FS BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>30263Y104</cusip>
+
+		<value>3086762</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>74976</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>74976</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[HOME FED BANCORP INC LA NEW]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>43708L108</cusip>
+
+		<value>1440000</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>80000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>80000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[IF BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>44951J105</cusip>
+
+		<value>7418853</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>275180</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>275180</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[KINGSWAY FINL SVCS INC]]> </nameOfIssuer>
+		<titleOfClass>COM NEW</titleOfClass>
+		<cusip>496904202</cusip>
+
+		<value>45238403</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>3363450</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>3363450</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[LAKE SHORE BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>510704109</cusip>
+
+		<value>11342076</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>773675</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>773675</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[MAGYAR BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>55977T208</cusip>
+
+		<value>691200</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>40000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>40000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[MARATHON BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM NEW</titleOfClass>
+		<cusip>565759206</cusip>
+
+		<value>243200</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>20000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>20000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[METLIFE INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>59156R108</cusip>
+
+		<value>4736</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>60</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>60</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[NB BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>63945M107</cusip>
+
+		<value>1288300</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>65000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>65000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[NORTHEAST CMNTY BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>664121100</cusip>
+
+		<value>2487100</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>110000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>110000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[PONCE FINANCIAL GROUP INC]]> </nameOfIssuer>
+		<titleOfClass>COMMON STOCK</titleOfClass>
+		<cusip>732344106</cusip>
+
+		<value>327000</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>20000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>20000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[PRINCIPAL FINANCIAL GROUP IN]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>74251V102</cusip>
+
+		<value>48251</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>547</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>547</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[SOUND FINL BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>83607A100</cusip>
+
+		<value>17889129</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>410019</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>410019</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[SR BANCORP INC]]> </nameOfIssuer>
+		<titleOfClass>COM</titleOfClass>
+		<cusip>85227J106</cusip>
+
+		<value>629600</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>40000</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>40000</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[WHEELER REAL ESTATE INVT TR]]> </nameOfIssuer>
+		<titleOfClass>COM NEW</titleOfClass>
+		<cusip>963025770</cusip>
+
+		<value>97068</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>57099</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>57099</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[WHEELER REAL ESTATE INVT TR]]> </nameOfIssuer>
+		<titleOfClass>7% SR NT 31</titleOfClass>
+		<cusip>963025804</cusip>
+
+		<value>70790163</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>883221</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>883221</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		<infoTable>
+		<nameOfIssuer> <![CDATA[WHEELER REAL ESTATE INVT TR]]> </nameOfIssuer>
+		<titleOfClass>CV PFD SER B</titleOfClass>
+		<cusip>963025309</cusip>
+
+		<value>3952009</value>
+		<shrsOrPrnAmt>
+			<sshPrnamt>761466</sshPrnamt>
+			<sshPrnamtType>SH</sshPrnamtType>
+		</shrsOrPrnAmt>
+				<investmentDiscretion>DFND</investmentDiscretion>
+				<votingAuthority>
+			<Sole>761466</Sole>
+			<Shared>0</Shared>
+			<None>0</None>
+		</votingAuthority>
+	</infoTable>
+		</informationTable>
