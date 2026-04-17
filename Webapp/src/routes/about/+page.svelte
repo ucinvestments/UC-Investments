@@ -77,14 +77,14 @@
 {#if mounted}
   <PageLayout>
     <Hero
-      icon="mdi:information-outline"
       title="About STEM4Pal's UC Investment Explorer"
       subtitle="Transparency in university endowment management through data-driven analysis"
     />
 
-    <Container>
+    <Container padding="2rem 2rem">
+      <div class="about-page">
       <Section title="Methodology" icon="mdi:chart-line" delay={200}>
-        <Card>
+        <Card padding="1.75rem">
           <p class="section-intro">
             We have analyzed <strong>$108 billion</strong> of the UC's total
             investment portfolio. Within this, we were able to analyze the
@@ -146,7 +146,7 @@
       </Section>
 
       <Section title="UC Financial Structure" icon="mdi:bank" delay={400}>
-        <Card>
+        <Card padding="1.75rem">
           <p>
             Universities within the UC system maintain individual endowments,
             with the majority sourced from the GEP. UC Berkeley, for example,
@@ -166,7 +166,7 @@
       </Section>
 
       <Section title="Data Sources" icon="mdi:source-branch" delay={600}>
-        <Card>
+        <Card padding="1.75rem">
           <p>
             Our research began with UCRP and GEP holding documents from the UC's
             investment office. Fund-specific data was gathered from multiple
@@ -185,7 +185,7 @@
       </Section>
 
       <Section title="Contribute" icon="mdi:hand-heart" delay={800}>
-        <Card>
+        <Card padding="1.75rem">
           <p>
             Help expand this research by contributing to data collection or
             development. Join our open-source project to improve transparency in
@@ -211,7 +211,7 @@
       </Section>
 
       <Section title="Who Made This" icon="mdi:account-group" delay={1000}>
-        <Card>
+        <Card padding="1.75rem">
           <p class="team-intro">
             This project emerged from conversations about divestment and
             investment transparency. We decided to figure out what we as a
@@ -240,7 +240,7 @@
       </Section>
 
       <Section title="Support This Project" icon="mdi:heart" delay={1200}>
-        <Card>
+        <Card padding="1.75rem">
           <p class="support-intro">
             This project is currently self-funded by Stephen. He would love any
             monetary help to cover hosting costs, API fees, and development
@@ -295,6 +295,7 @@
           </div>
         </Card>
       </Section>
+      </div>
     </Container>
   </PageLayout>
 {/if}
@@ -302,24 +303,42 @@
 <style>
   /* Styles specific to About page - leveraging reusable components */
 
-  .section-intro {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
+  .about-page :global(.section) {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-page :global(.section-header) {
+    margin-bottom: 1.25rem;
+  }
+
+  .about-page :global(.section-title) {
+    font-size: 1.5rem;
+  }
+
+  .about-page :global(.section-icon) {
+    font-size: 1.5rem;
+  }
+
+  .section-intro,
+  .team-intro,
+  .support-intro {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
     color: var(--text-primary);
   }
 
   .methodology-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.25rem;
   }
 
   .method-card {
     background: var(--bg-secondary);
-    border-radius: 1rem;
-    padding: 1.5rem;
+    border-radius: 0.875rem;
+    padding: 1.125rem;
     border: 1px solid var(--border);
     transition: all 0.3s ease;
   }
@@ -332,17 +351,17 @@
   .method-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+    gap: 0.625rem;
+    margin-bottom: 0.625rem;
   }
 
   :global(.method-icon) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--founder);
   }
 
   .method-card h3 {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--pri);
     margin: 0;
@@ -350,85 +369,85 @@
 
   .method-card p {
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.55;
+    font-size: 0.875rem;
     margin: 0;
   }
 
   .note-card {
     background: linear-gradient(135deg, var(--bg-secondary), white);
-    border-radius: 1rem;
-    padding: 1.5rem;
+    border-radius: 0.875rem;
+    padding: 1rem 1.125rem;
     border: 1px solid var(--border);
     display: flex;
-    gap: 1rem;
-    align-items: flex-start;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .note-card p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
   }
 
   :global(.note-icon) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--golden-gate);
     flex-shrink: 0;
-    margin-top: 0.125rem;
   }
 
   .financial-breakdown {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.875rem;
+    margin-top: 1.25rem;
   }
 
   .breakdown-item {
     text-align: center;
-    padding: 1.5rem;
+    padding: 1rem 0.75rem;
     background: var(--bg);
-    border-radius: 1rem;
+    border-radius: 0.875rem;
     border: 1px solid var(--border);
   }
 
   .breakdown-value {
     font-family: "Space Grotesk", sans-serif;
-    font-size: 1.75rem;
+    font-size: 1.375rem;
     font-weight: 700;
     color: var(--founder);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
   }
 
   .breakdown-label {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--text-secondary);
     font-weight: 500;
   }
 
   .source-link {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
   }
 
   .contribute-actions {
     display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
     flex-wrap: wrap;
-  }
-
-  .team-intro {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    color: var(--text-primary);
   }
 
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 
   .team-member {
     text-align: center;
-    padding: 2rem;
+    padding: 1.25rem 1rem;
     background: var(--bg);
-    border-radius: 1rem;
+    border-radius: 0.875rem;
     border: 1px solid var(--border);
     transition: all 0.3s ease;
   }
@@ -439,16 +458,16 @@
   }
 
   :global(.member-icon) {
-    font-size: 2.5rem;
+    font-size: 1.875rem;
     color: var(--sec);
-    margin-bottom: 1rem;
+    margin-bottom: 0.625rem;
   }
 
   .team-member h3 {
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
     font-weight: 600;
     color: var(--pri);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.375rem;
   }
 
   .member-link {
@@ -458,6 +477,7 @@
     color: var(--founder);
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.875rem;
     transition: all 0.2s ease;
   }
 
@@ -466,45 +486,38 @@
   }
 
   :global(.social-icon) {
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
   /* Support Section Styles */
-  .support-intro {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    color: var(--text-primary);
-  }
-
   .donation-section {
     background: var(--bg);
-    border-radius: 1rem;
-    padding: 2rem;
+    border-radius: 0.875rem;
+    padding: 1.25rem;
     border: 1px solid var(--border);
   }
 
   .donation-title {
-    font-size: 1.25rem;
+    font-size: 1.0625rem;
     font-weight: 600;
     color: var(--pri);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
 
   .crypto-options {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+    margin-bottom: 1rem;
   }
 
   .crypto-option {
     background: white;
-    border-radius: 0.75rem;
-    padding: 1.5rem;
+    border-radius: 0.625rem;
+    padding: 1rem;
     border: 1px solid var(--border);
     transition: all 0.3s ease;
   }
@@ -516,34 +529,37 @@
   .crypto-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
+    gap: 0.5rem;
+    margin-bottom: 0.625rem;
   }
 
   :global(.crypto-icon) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .crypto-header strong {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     color: var(--pri);
   }
 
   .address-container {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     background: var(--bg-secondary);
-    padding: 0.75rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
     border: 1px solid var(--border);
   }
 
   .crypto-address {
     flex: 1;
+    min-width: 0;
     font-family: "JetBrains Mono", monospace;
-    font-size: 0.8rem;
-    word-break: break-all;
+    font-size: 0.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     color: var(--text-primary);
     background: none;
     user-select: all;
@@ -554,15 +570,16 @@
     background: var(--founder);
     color: white;
     border: none;
-    padding: 0.5rem;
+    padding: 0.375rem;
     border-radius: 0.375rem;
     cursor: pointer;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 2rem;
-    height: 2rem;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
   }
 
   .copy-button:hover {
@@ -572,38 +589,39 @@
 
   .alternative-donation {
     background: linear-gradient(135deg, var(--bg-secondary), white);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
+    border-radius: 0.625rem;
+    padding: 0.875rem 1rem;
     border: 1px solid var(--border);
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+    gap: 0.75rem;
+    margin-bottom: 0.875rem;
   }
 
   :global(.email-icon) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--founder);
     flex-shrink: 0;
   }
 
   .alternative-donation p {
     margin: 0;
+    font-size: 0.875rem;
     color: var(--text-secondary);
   }
 
   .usage-note {
     background: linear-gradient(135deg, var(--sec), var(--founder));
     color: white;
-    border-radius: 0.75rem;
-    padding: 1.5rem;
+    border-radius: 0.625rem;
+    padding: 0.875rem 1rem;
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   :global(.info-icon) {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: white;
     flex-shrink: 0;
     margin-top: 0.125rem;
@@ -611,23 +629,38 @@
 
   .usage-note p {
     margin: 0;
-    line-height: 1.6;
+    font-size: 0.875rem;
+    line-height: 1.5;
   }
 
   .usage-note strong {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     font-weight: 600;
   }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .methodology-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .financial-breakdown {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .crypto-options {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .methodology-grid {
+      grid-template-columns: 1fr;
     }
 
     .contribute-actions {
@@ -644,21 +677,12 @@
       grid-template-columns: 1fr;
     }
 
-    .crypto-address {
-      font-size: 0.7rem;
-    }
-
     .donation-section {
-      padding: 1.5rem;
+      padding: 1rem;
     }
 
     .crypto-option {
-      padding: 1rem;
-    }
-
-    .alternative-donation,
-    .usage-note {
-      padding: 1rem;
+      padding: 0.875rem;
     }
   }
 </style>

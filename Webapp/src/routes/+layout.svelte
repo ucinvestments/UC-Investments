@@ -114,24 +114,6 @@
         Resources
       </a>
       <a
-        href="/press"
-        class="nav-link"
-        class:active={$page.url.pathname.startsWith("/press")}
-        on:click={closeMenu}
-      >
-        <Icon icon="mdi:newspaper-variant" class="nav-icon" />
-        Press
-      </a>
-      <a
-        href="/todo"
-        class="nav-link"
-        class:active={$page.url.pathname === "/todo"}
-        on:click={closeMenu}
-      >
-        <Icon icon="mdi:clipboard-list" class="nav-icon" />
-        Roadmap
-      </a>
-      <a
         href="https://github.com/ucinvestments/UC-Investments"
         target="_blank"
         rel="noopener noreferrer"
@@ -165,8 +147,6 @@
         <a href="/" class="footer-link">Explorer</a>
         <a href="/about" class="footer-link">Methodology</a>
         <a href="/resources" class="footer-link">Resources</a>
-        <a href="/press" class="footer-link">Press</a>
-        <a href="/todo" class="footer-link">Roadmap</a>
         <a
           href="https://www.ucop.edu/investment-office/"
           target="_blank"

@@ -108,6 +108,20 @@
         { icon: "mdi:school", text: "UC Campuses" },
       ],
     },
+    {
+      title:
+        "Divestment is Complicated. Regents Can't Use That as an Excuse Anymore",
+      source: "by Leela Mehta-Harwitz, The Daily Californian",
+      description:
+        "An opinion piece arguing that the UC Board of Regents has both the precedent and the responsibility to divest from companies enabling warfare. The author points to UC's prior successful divestments from apartheid South Africa and Sudan as proof that the complexity of modern investment structures is not a legitimate excuse for inaction, and highlights the April 2026 undergraduate ballot measure pushing for disclosure and divestment from surveillance and weapons companies.",
+      icon: "mdi:newspaper",
+      href: "https://www.dailycal.org/opinion/the_soapbox/divestment-is-complicated-regents-can-t-use-that-as-an-excuse-anymore/article_e96c4f89-a95a-41fa-acee-8a7e7149cdc5.html",
+      highlights: [
+        { icon: "mdi:history", text: "Historical Precedent" },
+        { icon: "mdi:ballot", text: "Student Ballot Measure" },
+        { icon: "mdi:scale-balance", text: "Regental Accountability" },
+      ],
+    },
   ];
 
   const relatedLinks = [
@@ -140,78 +154,79 @@
 {#if mounted}
   <PageLayout>
     <Hero
-      icon="mdi:book-open-page-variant"
       title="Resources"
       subtitle="Official reports, documentation, and critical analysis of UC investments"
     />
 
-    <Container>
-      <Section title="Official UC Resources" icon="mdi:school" delay={200}>
-        <div class="resources-grid">
-          {#each officialResources as resource}
-            <Card hover padding="2rem">
-              <div class="resource-header">
-                <Icon icon={resource.icon} class="resource-icon" />
-                <h3>{resource.title}</h3>
-              </div>
-              <p class="resource-description">{resource.description}</p>
-              <Button href={resource.href} external>View Resource</Button>
-            </Card>
-          {/each}
-        </div>
-      </Section>
-
-      <Section title="Critical Analysis" icon="mdi:magnify-scan" delay={400}>
-        <div class="analysis-grid">
-          {#each criticalAnalysis as analysis}
-            <Card hover padding="2.5rem">
-              <div class="analysis-header">
-                <Icon icon={analysis.icon} class="analysis-icon" />
-                <div>
-                  <h3>{analysis.title}</h3>
-                  <span class="analysis-source">{analysis.source}</span>
+    <Container padding="2rem 2rem">
+      <div class="resources-page">
+        <Section title="Official UC Resources" icon="mdi:school" delay={200}>
+          <div class="resources-grid">
+            {#each officialResources as resource}
+              <Card hover padding="1.5rem">
+                <div class="resource-header">
+                  <Icon icon={resource.icon} class="resource-icon" />
+                  <h3>{resource.title}</h3>
                 </div>
-              </div>
-              <p class="analysis-description">{analysis.description}</p>
-
-              <div class="analysis-highlights">
-                {#each analysis.highlights as highlight}
-                  <div class="highlight">
-                    <Icon icon={highlight.icon} class="highlight-icon" />
-                    <span>{highlight.text}</span>
-                  </div>
-                {/each}
-              </div>
-
-              <Button href={analysis.href} variant="accent" external>
-                Read the Document
-              </Button>
-            </Card>
-          {/each}
-        </div>
-      </Section>
-
-      <Section title="Related Links" icon="mdi:link-variant" delay={600}>
-        <Card>
-          <div class="related-links">
-            {#each relatedLinks as link}
-              <div class="link-item">
-                <Icon icon={link.icon} class="link-icon" />
-                <div>
-                  <Button
-                    href={link.href}
-                    variant="secondary"
-                    external={link.external}
-                  >
-                    {link.title}
-                  </Button>
-                  <p class="link-description">{link.description}</p>
-                </div>
-              </div>
+                <p class="resource-description">{resource.description}</p>
+                <Button href={resource.href} external>View Resource</Button>
+              </Card>
             {/each}
           </div>
-        </Card>
-      </Section>
+        </Section>
+
+        <Section title="Critical Analysis" icon="mdi:magnify-scan" delay={400}>
+          <div class="analysis-grid">
+            {#each criticalAnalysis as analysis}
+              <Card hover padding="1.75rem">
+                <div class="analysis-header">
+                  <Icon icon={analysis.icon} class="analysis-icon" />
+                  <div>
+                    <h3>{analysis.title}</h3>
+                    <span class="analysis-source">{analysis.source}</span>
+                  </div>
+                </div>
+                <p class="analysis-description">{analysis.description}</p>
+
+                <div class="analysis-highlights">
+                  {#each analysis.highlights as highlight}
+                    <div class="highlight">
+                      <Icon icon={highlight.icon} class="highlight-icon" />
+                      <span>{highlight.text}</span>
+                    </div>
+                  {/each}
+                </div>
+
+                <Button href={analysis.href} variant="accent" external>
+                  Read the Document
+                </Button>
+              </Card>
+            {/each}
+          </div>
+        </Section>
+
+        <Section title="Related Links" icon="mdi:link-variant" delay={600}>
+          <div class="related-links">
+            {#each relatedLinks as link}
+              <Card hover padding="1.5rem">
+                <div class="link-item">
+                  <Icon icon={link.icon} class="link-icon" />
+                  <div class="link-body">
+                    <Button
+                      href={link.href}
+                      variant="secondary"
+                      external={link.external}
+                    >
+                      {link.title}
+                    </Button>
+                    <p class="link-description">{link.description}</p>
+                  </div>
+                </div>
+              </Card>
+            {/each}
+          </div>
+        </Section>
+      </div>
     </Container>
   </PageLayout>
 {/if}
@@ -219,27 +234,55 @@
 <style>
   /* Component-specific styles for Resources page */
 
+  .resources-page :global(.section) {
+    margin-bottom: 2.5rem;
+  }
+
+  .resources-page :global(.section-header) {
+    margin-bottom: 1.25rem;
+  }
+
+  .resources-page :global(.section-title) {
+    font-size: 1.5rem;
+  }
+
+  .resources-page :global(.section-icon) {
+    font-size: 1.5rem;
+  }
+
+  .resources-page :global(.card) {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
   .resources-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .resources-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .resource-header {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 
   :global(.resource-icon) {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--sec);
   }
 
   .resource-header h3 {
     font-family: "Space Grotesk", sans-serif;
-    font-size: 1.375rem;
+    font-size: 1.125rem;
     font-weight: 600;
     color: var(--pri);
     margin: 0;
@@ -247,112 +290,148 @@
 
   .resource-description {
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+    font-size: 0.9375rem;
     flex-grow: 1;
+  }
+
+  .resources-page :global(.resources-grid .card > a),
+  .resources-page :global(.resources-grid .card > button) {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  .resources-page :global(.analysis-grid .card > a),
+  .resources-page :global(.analysis-grid .card > button) {
+    align-self: flex-start;
   }
 
   .analysis-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .analysis-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .analysis-header {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
   }
 
   :global(.analysis-icon) {
-    font-size: 2.5rem;
+    font-size: 1.875rem;
     color: var(--golden-gate);
   }
 
   .analysis-header h3 {
     font-family: "Space Grotesk", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--pri);
     margin: 0;
   }
 
   .analysis-source {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--text-secondary);
-    margin-top: 0.25rem;
+    margin-top: 0.125rem;
     display: block;
   }
 
   .analysis-description {
     color: var(--text-primary);
-    line-height: 1.8;
-    margin-bottom: 2rem;
-    font-size: 1.0625rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    font-size: 0.9375rem;
+    flex-grow: 1;
   }
 
   .analysis-highlights {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.625rem;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
   }
 
   .highlight {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    gap: 0.375rem;
+    padding: 0.3125rem 0.75rem;
     background: var(--bg-secondary);
     border-radius: 2rem;
     border: 1px solid var(--border);
   }
 
   :global(.highlight-icon) {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: var(--founder);
   }
 
   .highlight span {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: var(--text-secondary);
   }
 
   .related-links {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
 
   .link-item {
     display: flex;
-    gap: 1.25rem;
+    gap: 0.875rem;
     align-items: flex-start;
   }
 
+  .link-body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
   :global(.link-icon) {
-    font-size: 1.75rem;
+    font-size: 1.375rem;
     color: var(--founder);
-    margin-top: 0.125rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
   }
 
   .link-description {
-    margin: 0.25rem 0 0;
-    font-size: 0.875rem;
+    margin: 0.5rem 0 0;
+    font-size: 0.8125rem;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 1024px) {
+    .related-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   /* Responsive Design */
   @media (max-width: 768px) {
     .resources-grid {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .analysis-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .related-links {
       grid-template-columns: 1fr;
     }
 
@@ -366,7 +445,8 @@
 
     .link-item {
       flex-direction: column;
-      gap: 0.75rem;
+      align-items: flex-start;
+      gap: 0.5rem;
     }
   }
 
@@ -374,7 +454,7 @@
     .analysis-header {
       flex-direction: column;
       align-items: flex-start;
-      gap: 1rem;
+      gap: 0.75rem;
     }
   }
 </style>
