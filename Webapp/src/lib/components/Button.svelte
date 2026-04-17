@@ -1,12 +1,24 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
+  import type { Snippet } from "svelte";
 
-  export let href: string = "";
-  export let variant: "primary" | "secondary" | "accent" = "primary";
-  export let icon: string = "";
-  export let external: boolean = false;
-  export let onClick: (() => void) | undefined = undefined;
-  export let disabled: boolean = false;
+  let {
+    href = "",
+    variant = "primary",
+    icon = "",
+    external = false,
+    onClick,
+    disabled = false,
+    children,
+  }: {
+    href?: string;
+    variant?: "primary" | "secondary" | "accent";
+    icon?: string;
+    external?: boolean;
+    onClick?: () => void;
+    disabled?: boolean;
+    children?: Snippet;
+  } = $props();
 </script>
 
 {#if href}
@@ -20,17 +32,17 @@
     {#if icon}
       <Icon {icon} class="button-icon" />
     {/if}
-    <slot />
+    {@render children?.()}
     {#if external}
       <Icon icon="mdi:open-in-new" class="external-icon" />
     {/if}
   </a>
 {:else}
-  <button class="button {variant}" class:disabled on:click={onClick} {disabled}>
+  <button class="button {variant}" class:disabled onclick={onClick} {disabled}>
     {#if icon}
       <Icon {icon} class="button-icon" />
     {/if}
-    <slot />
+    {@render children?.()}
   </button>
 {/if}
 

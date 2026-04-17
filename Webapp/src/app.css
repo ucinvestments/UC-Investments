@@ -1,21 +1,14 @@
 /*
  * UC Investment Explorer - Main CSS Entry Point
  *
- * This file follows the UNIX philosophy:
- * - Each CSS module does one thing well
- * - Modules are composable and reusable
- * - Can be copy-pasted to any Tailwind + SvelteKit project
+ * UNIX philosophy: each module does one thing well.
  */
 
-/* Import Modular CSS System - must come before Tailwind directives */
-@import "./styles/variables.css"; /* Design tokens and CSS variables */
-@import "./styles/base.css"; /* Base styles and resets */
-@import "./styles/components.css"; /* Reusable component classes */
-@import "./styles/animations.css"; /* Animation library */
-@import "./styles/utilities.css"; /* Utility classes */
-@import "./styles/responsive.css"; /* Responsive design system */
+@import "./styles/variables.css";
+@import "./styles/base.css";
+@import "./styles/components.css";
+@import "./styles/animations.css";
+@import "./styles/utilities.css";
+@import "./styles/responsive.css";
 
-/* Tailwind Base Layers */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";

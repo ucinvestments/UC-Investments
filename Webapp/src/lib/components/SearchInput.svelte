@@ -1,10 +1,17 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
 
-  export let value: string = "";
-  export let placeholder: string = "Search...";
-  export let onInput: ((value: string) => void) | undefined = undefined;
-  export let onClear: (() => void) | undefined = undefined;
+  let {
+    value = $bindable(""),
+    placeholder = "Search...",
+    onInput,
+    onClear,
+  }: {
+    value?: string;
+    placeholder?: string;
+    onInput?: (value: string) => void;
+    onClear?: () => void;
+  } = $props();
 </script>
 
 <div class="search-wrapper">
@@ -13,12 +20,12 @@
     type="text"
     {placeholder}
     bind:value
-    on:input={() => onInput?.(value)}
+    oninput={() => onInput?.(value)}
     class="search-input"
   />
   {#if value}
     <button
-      on:click={() => {
+      onclick={() => {
         value = "";
         onClear?.();
       }}

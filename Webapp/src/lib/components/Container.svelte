@@ -1,10 +1,19 @@
 <script lang="ts">
-  export let maxWidth: string = "1200px";
-  export let padding: string = "3rem 2rem";
+  import type { Snippet } from "svelte";
+
+  let {
+    maxWidth = "1200px",
+    padding = "3rem 2rem",
+    children,
+  }: {
+    maxWidth?: string;
+    padding?: string;
+    children?: Snippet;
+  } = $props();
 </script>
 
 <div class="container" style="max-width: {maxWidth}; padding: {padding}">
-  <slot />
+  {@render children?.()}
 </div>
 
 <style>

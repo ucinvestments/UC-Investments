@@ -1,9 +1,17 @@
 <script lang="ts">
-  export let backgroundGradient: boolean = true;
+  import type { Snippet } from "svelte";
+
+  let {
+    backgroundGradient = true,
+    children,
+  }: {
+    backgroundGradient?: boolean;
+    children?: Snippet;
+  } = $props();
 </script>
 
 <div class="page-layout" class:gradient={backgroundGradient}>
-  <slot />
+  {@render children?.()}
 </div>
 
 <style>

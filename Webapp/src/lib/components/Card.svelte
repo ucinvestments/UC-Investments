@@ -1,9 +1,18 @@
 <script lang="ts">
   import { fly } from "svelte/transition";
+  import type { Snippet } from "svelte";
 
-  export let hover: boolean = true;
-  export let padding: string = "2.5rem";
-  export let delay: number = 0;
+  let {
+    hover = true,
+    padding = "2.5rem",
+    delay = 0,
+    children,
+  }: {
+    hover?: boolean;
+    padding?: string;
+    delay?: number;
+    children?: Snippet;
+  } = $props();
 </script>
 
 <div
@@ -12,7 +21,7 @@
   style="padding: {padding}"
   in:fly={{ y: 30, duration: 600, delay }}
 >
-  <slot />
+  {@render children?.()}
 </div>
 
 <style>

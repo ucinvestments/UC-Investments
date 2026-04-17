@@ -1,21 +1,30 @@
 <script lang="ts">
   import { fade } from "svelte/transition";
+  import type { Snippet } from "svelte";
 
-  export let title: string;
-  export let subtitle: string = "";
-  export let pattern: boolean = true;
+  let {
+    title,
+    subtitle = "",
+    pattern = true,
+    children,
+  }: {
+    title: string;
+    subtitle?: string;
+    pattern?: boolean;
+    children?: Snippet;
+  } = $props();
 </script>
 
 <div class="hero" in:fade={{ duration: 800 }}>
   {#if pattern}
-    <div class="hero-pattern" />
+    <div class="hero-pattern"></div>
   {/if}
   <div class="hero-content">
     <h1 class="hero-title">{title}</h1>
     {#if subtitle}
       <p class="hero-subtitle">{subtitle}</p>
     {/if}
-    <slot />
+    {@render children?.()}
   </div>
 </div>
 

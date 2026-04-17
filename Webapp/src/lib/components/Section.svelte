@@ -1,10 +1,19 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
   import { fly } from "svelte/transition";
+  import type { Snippet } from "svelte";
 
-  export let title: string;
-  export let icon: string = "";
-  export let delay: number = 0;
+  let {
+    title,
+    icon = "",
+    delay = 0,
+    children,
+  }: {
+    title: string;
+    icon?: string;
+    delay?: number;
+    children?: Snippet;
+  } = $props();
 </script>
 
 <section class="section" in:fly={{ y: 30, duration: 600, delay }}>
@@ -16,7 +25,7 @@
       <h2 class="section-title">{title}</h2>
     </div>
   {/if}
-  <slot />
+  {@render children?.()}
 </section>
 
 <style>

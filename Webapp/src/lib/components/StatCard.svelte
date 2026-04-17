@@ -2,10 +2,17 @@
   import Icon from "@iconify/svelte";
   import { fade } from "svelte/transition";
 
-  export let icon: string;
-  export let value: string;
-  export let label: string;
-  export let delay: number = 0;
+  let {
+    icon,
+    value,
+    label,
+    delay = 0,
+  }: {
+    icon: string;
+    value: string;
+    label: string;
+    delay?: number;
+  } = $props();
 </script>
 
 <div class="stat-card" in:fade={{ duration: 600, delay }}>
@@ -33,11 +40,6 @@
     font-weight: 700;
     color: var(--sec);
     font-family: "Space Grotesk", sans-serif;
-  }
-
-  .stat-divider {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 1.25rem;
   }
 
   .stat-label {
