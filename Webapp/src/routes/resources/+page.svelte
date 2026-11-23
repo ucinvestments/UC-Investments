@@ -157,9 +157,9 @@
     },
     {
       title: "Campus endowment data",
-      description: "Download campus endowment market values and foundation allocations from UC’s annual endowment report.",
+      description: "Compare campus endowment market values and foundation allocations from UC’s annual endowment report.",
       icon: "mdi:download",
-      href: "/data/campus-endowments.json",
+      href: "/campuses",
     },
     {
       title: "GitHub Repository",

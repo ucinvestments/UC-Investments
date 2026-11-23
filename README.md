@@ -31,7 +31,7 @@ alternative investment fee reports. These figures supplement the holdings
 records. The Regents 13F view identifies UCBG by CUSIP and calculates indirect
 equity exposure only when the ETF holdings and the 13F report date match.
 
-The Resources page links the campus endowment dataset. Refresh that separate
+The Resources page links the campus endowments view and its downloadable data. Refresh that separate
 dataset with `python Finance/scrapers/campus_endowments.py`. Some campus
 endowment assets already appear in UC investment pool disclosures.
 
