@@ -1,13 +1,11 @@
 {
-  "uc_holdings": {
-    "ucrp": "https://www.ucop.edu/investment-office/ucrp-holdings-disclosure-6-30-2025-final.pdf",
-    "gep": "https://www.ucop.edu/investment-office/gep-holdings-disclosure-6-30-2025-final.pdf"
+  "uc_policy_pages": {
+    "ucrp": "https://www.ucop.edu/investment-office/investment-policies/index.html",
+    "gep": "https://www.ucop.edu/investment-office/investment-policies/gep-policy-holdings/index.html"
   },
-  "sec_13f": {
-    "uc_regents": "https://www.sec.gov/Archives/edgar/data/315054/000114036126004783/informationtable.xml"
-  },
+  "regents_cik": "0000315054",
   "etf_holdings": {
-    "ishares_acwi": "https://www.ishares.com/us/products/239600/ishares-msci-acwi-etf/1467271812596.ajax?fileType=csv&fileName=ACWI_holdings&dataType=fund",
+    "ishares_acwi": "https://www.ishares.com/us/products/239600/ishares-msci-acwi-etf/latest-holdings.csv",
     "spdr_spyx": "https://www.ssga.com/us/en/institutional/etfs/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spyx.xlsx",
     "spdr_qus": "https://www.ssga.com/us/en/institutional/etfs/library-content/products/fund-data/etfs/us/holdings-daily-us-en-qus.xlsx"
   },
@@ -28,5 +26,16 @@
   "fund_manual": {
     "arrowstreet_130_30": "https://mim.fgsfulfillment.com/download.aspx?sku=PRRP-AGEF-ANZ",
     "earnest_partners_scv": "https://www.morganstanley.com/content/dam/msdotcom/en/wealth-investmentsolutions/pdfs/uma/epl-s.pdf"
+  },
+  "private_markets": {
+    "private_equity": "https://www.ucop.edu/investment-office/_files/updates/pe_irr_06-30-21.pdf",
+    "alternative_fees": "https://www.ucop.edu/investment-office/investment-reports/ucrp-fee-disclosure-final-1122020.pdf"
+  },
+  "regents_etfs": {
+    "78468R374": {
+      "ticker": "UCBG",
+      "name": "State Street SPDR UC Investments 90/10 Endowment Strategy Index ETF",
+      "url": "https://www.ssga.com/library-content/products/fund-data/etfs/us/holdings-daily-us-en-ucbg.xlsx"
+    }
   }
 }

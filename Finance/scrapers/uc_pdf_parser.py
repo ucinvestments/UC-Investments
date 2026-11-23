@@ -1,263 +1,137 @@
-"""
-UC Holdings PDF Parser
-Parses UCRP and GEP holdings disclosure PDFs from UCOP.
-Downloads PDFs, extracts text, and produces a combined CSV of all fund allocations.
-
-Usage:
-    python Finance/scrapers/uc_pdf_parser.py
-
-Output:
-    Finance/outputs/ucrp_holdings.csv
-    Finance/outputs/gep_holdings.csv
-    Finance/outputs/listed_investments.csv  (combined)
-"""
+"""Read UC pension and endowment holdings disclosures."""
 
 import csv
+from datetime import datetime
+from decimal import Decimal
+from html.parser import HTMLParser
+from io import BytesIO
 import json
-import os
+from pathlib import Path
 import re
-import sys
+from urllib.parse import urljoin, urlsplit
+
+import pdfplumber
 import requests
 
-try:
-    import pdfplumber
-except ImportError:
-    print("Missing dependency: pip install pdfplumber")
-    sys.exit(1)
+BASE_DIR = Path(__file__).resolve().parents[1]
+SOURCES_PATH = BASE_DIR / "sources.json"
+OUTPUTS_DIR = BASE_DIR / "outputs"
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SOURCES_PATH = os.path.join(BASE_DIR, "sources.json")
-SOURCES_DIR = os.path.join(BASE_DIR, "sources")
-OUTPUTS_DIR = os.path.join(BASE_DIR, "outputs")
-
-# Asset class sections as they appear in UC holdings PDFs (matched case-insensitively)
-ASSET_CLASSES = [
-    "PUBLIC EQUITY",
-    "FIXED INCOME",
-    "PRIVATE EQUITY",
-    "PRIVATE CREDIT",
-    "REAL ESTATE",
-    "REAL ASSETS",
-    "ABSOLUTE RETURN",
-]
-
-# Lines containing these exact phrases (case-insensitive) are skipped entirely.
-# Note: "TOTAL" by itself is too aggressive -- it would kill fund names like
-# "NOMURA HIGH YIELD TOTAL RETURN".  Instead we match lines that START with
-# "TOTAL" or contain specific total-line patterns.
-SKIP_PATTERNS = [
-    "MARKET VALUE",
-    "INVESTMENT NAME",
-    "AS OF",
-    "ASSET NAME",
-    "BASE MARKET VALUE",
-    "INDIVIDUAL HOLDINGS",
-    "PUBLIC ASSETS",
-    "ALTERNATIVE ASSETS",
-    "TOTAL PUBLIC",
-    "TOTAL ALTERNATIVE",
-    "TOTAL NET",
-    "TOTAL CASH",
-    "RECEIVABLES/PAYABLES",
-    "HOLDINGS AS OF",
-    "HOLDINGS DISCLOSURE",
-]
+ASSET_CLASSES = {
+    "PUBLIC EQUITY", "FIXED INCOME", "PRIVATE EQUITY", "PRIVATE CREDIT",
+    "REAL ESTATE", "REAL ASSETS", "ABSOLUTE RETURN",
+}
+REPORTED_TOTAL = "TOTAL PUBLIC & ALTERNATIVE ASSETS"
+AMOUNT = re.compile(r"[+-]?\$?\d[\d,]*(?:\.\d{1,2})?")
 
 
-def download_pdf(url, filename):
-    """Download PDF to sources directory."""
-    path = os.path.join(SOURCES_DIR, filename)
-    if os.path.exists(path):
-        print(f"  Already downloaded: {filename}")
-        return path
-    print(f"  Downloading: {filename}")
-    resp = requests.get(url, timeout=60)
-    resp.raise_for_status()
-    with open(path, "wb") as f:
-        f.write(resp.content)
-    return path
+class HoldingsLinks(HTMLParser):
+    """Read PDF links labeled as the pool's holdings on the UC policy page."""
+
+    def __init__(self, pool):
+        super().__init__()
+        self.pool = pool
+        self.href = None
+        self.label = ""
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "a":
+            self.href = dict(attrs).get("href")
+            self.label = ""
+
+    def handle_data(self, data):
+        if self.href:
+            self.label += data
+
+    def handle_endtag(self, tag):
+        if tag == "a" and self.href:
+            label = " ".join(self.label.lower().split())
+            if re.search(rf"\b{self.pool} holdings\b", label):
+                self.links.append(self.href)
+            self.href = None
 
 
-def _is_skip_line(upper_line):
-    """Return True if this line should be skipped (headers, totals, etc.)."""
-    for pat in SKIP_PATTERNS:
-        if pat in upper_line:
-            return True
-    # Lines that are exactly "TOTAL <asset_class>" or start with "TOTAL "
-    # but allow fund names that *contain* the word TOTAL mid-name.
-    if upper_line.startswith("TOTAL ") or upper_line == "TOTAL":
-        return True
-    return False
+def amount_columns(chars):
+    # Inter-column whitespace comes from the PDF coordinates. It is much wider
+    # than the gaps between digits or words introduced by the text extractor.
+    gaps = ((right["x0"] - left["x1"], index)
+            for index, (left, right) in enumerate(zip(chars, chars[1:]), 1))
+    gap, index = max(gaps, default=(0, 0))
+    if gap < 20:
+        return None
+    value = "".join(char["text"] for char in chars[index:]).replace(" ", "")
+    negative = value.startswith("(") and value.endswith(")")
+    value = value[1:-1] if negative else value
+    if not AMOUNT.fullmatch(value):
+        return None
+    amount = Decimal(value.replace(",", "").replace("$", ""))
+    name = pdfplumber.utils.extract_text(chars[:index], x_tolerance=2).strip()
+    return name, -amount if negative else amount
 
 
-def _is_page_number(stripped):
-    """Return True if the line is just a page number (bare integer)."""
-    return stripped.isdigit()
+def read_disclosure(pdf_path):
+    """Extract listed holdings and verify them against the printed report total."""
+    holdings = []
+    asset_class = None
+    report_date = reported_total = None
+    with pdfplumber.open(pdf_path) as pdf:
+        for page in pdf.pages:
+            for line in page.extract_text_lines():
+                text = " ".join(line["text"].split())
+                if match := re.fullmatch(r"Holdings as of (\w+ \d{1,2}, \d{4})", text, re.I):
+                    report_date = datetime.strptime(match[1], "%B %d, %Y").date().isoformat()
+                if text.upper() in ASSET_CLASSES:
+                    asset_class = text.upper()
+                    continue
+                columns = amount_columns(line["chars"])
+                if not columns:
+                    continue
+                name, amount = columns
+                if name.upper() == REPORTED_TOTAL:
+                    reported_total = amount
+                elif name.upper().startswith("TOTAL "):
+                    asset_class = None
+                elif asset_class and not name.replace(",", "").isdigit():
+                    holdings.append({
+                        "name": "Name not disclosed" if name.upper() == "#N/A" else name,
+                        "type": asset_class,
+                        "amount": amount,
+                    })
+
+    if not report_date or not holdings or reported_total is None or reported_total <= 0:
+        raise ValueError("UC disclosure is missing its report date, holdings, or printed total")
+    parsed_total = sum(holding["amount"] for holding in holdings)
+    # UC displays some rows rounded to whole dollars.
+    if abs(parsed_total - reported_total) > Decimal(len(holdings) + 1) / 2:
+        raise ValueError(f"UC disclosure {report_date} lists {parsed_total:,}, expected {reported_total:,}")
+    return report_date, holdings
 
 
-def _fix_split_amount(name, amount_str):
-    """
-    Fix a common pdfplumber extraction artifact where leading digit(s) of a
-    right-aligned dollar amount get grouped with the left-aligned fund name.
-
-    Example: pdfplumber extracts the line
-        "SEQUOIA CAPITAL CHINA GROWTH VI        122,885,808"
-    as text "SEQUOIA CAPITAL CHINA GROWTH VI 1 22,885,808" (the '1' drifts left).
-
-    Two split modes:
-      A) Comma-boundary split: "1,791,431,073" -> name gets "1", amount "791,431,073"
-         Reconstruction: prefix + "," + amount_str == formatted(prefix + amount)
-      B) Within-group split: "122,885,808" -> name gets "1", amount "22,885,808"
-         The extracted amount starts with a leading-zero or the leading group is
-         incomplete AND the base name (without the digit suffix) doesn't look like
-         it naturally has a numeric component.
-
-    Returns (fixed_name, fixed_amount_str).
-    """
-    # Check if name ends with a short digit suffix (1-3 digits) separated by space
-    m = re.match(r"^(.+?)\s+(\d{1,3})$", name)
-    if not m:
-        return name, amount_str
-
-    base_name = m.group(1)
-    digit_prefix = m.group(2)
-
-    # Reconstruct the full amount by prepending the stray digits
-    raw_amount = amount_str.replace(",", "")
-    candidate = digit_prefix + raw_amount
-    candidate_int = int(candidate)
-    formatted = f"{candidate_int:,}"
-
-    # Check A: comma-boundary split.
-    # "1" + "," + "791,431,073" = "1,791,431,073" == formatted
-    literal_concat = digit_prefix + "," + amount_str
-    if formatted == literal_concat:
-        return base_name, str(candidate_int)
-
-    # Check B: within-group split where amount starts with "0".
-    # Real dollar amounts never have a leading zero, so this is definitive.
-    # E.g., "80,548,888" split as name+"8" and "0,548,888"
-    if raw_amount.startswith("0"):
-        return base_name, str(candidate_int)
-
-    # No valid reconstruction; the digit is part of the fund name.
-    return name, amount_str
-
-
-def _is_subtotal_line(name, amount):
-    """
-    Detect lines that are section subtotals rather than real fund entries.
-    Subtotals appear as bare numbers or very short 'names' that are actually
-    the leading digits of the subtotal amount that got split off.
-    """
-    # A 'name' that is purely digits (e.g. "8", "3", "5") is a subtotal fragment
-    if name.isdigit():
-        return True
-    # #N/A entries from the PDF
-    if name.upper() in ("#N/A",):
-        return True
-    return False
+def fetch_disclosure(session, pool, policy_url):
+    page = session.get(policy_url, timeout=30)
+    page.raise_for_status()
+    parser = HoldingsLinks(pool.lower())
+    parser.feed(page.text)
+    reports = []
+    for link in dict.fromkeys(parser.links):
+        url = urljoin(page.url, link)
+        target = urlsplit(url)
+        if target.scheme != "https" or target.netloc != urlsplit(policy_url).netloc:
+            continue
+        if not target.path.lower().endswith(".pdf"):
+            continue
+        response = session.get(url, timeout=60)
+        response.raise_for_status()
+        date, holdings = read_disclosure(BytesIO(response.content))
+        reports.append((date, url, holdings))
+    if not reports:
+        raise ValueError(f"No {pool} holdings PDF found on {policy_url}")
+    return max(reports, key=lambda report: report[0])
 
 
 def parse_holdings_pdf(pdf_path):
-    """
-    Extract fund holdings from a UC holdings PDF.
-    Returns list of dicts: [{"name": str, "type": str, "amount": int}, ...]
-    """
-    holdings = []
-    current_asset_class = None
-
-    with pdfplumber.open(pdf_path) as pdf:
-        full_text = ""
-        for page in pdf.pages:
-            # Try layout-aware extraction first (pdfplumber >= 0.7.0) which
-            # preserves column alignment and prevents right-aligned numbers
-            # from merging with left-aligned fund names.
-            try:
-                text = page.extract_text(layout=True)
-            except TypeError:
-                text = page.extract_text()
-            if text:
-                full_text += text + "\n"
-
-    lines = full_text.split("\n")
-
-    for line in lines:
-        stripped = line.strip()
-        if not stripped:
-            continue
-
-        # Skip bare page numbers
-        if _is_page_number(stripped):
-            continue
-
-        # Collapse runs of whitespace for pattern matching, but first
-        # note whether there was a large gap (layout mode inserts spaces
-        # to preserve column alignment).
-        normalized = re.sub(r"\s+", " ", stripped)
-
-        # Check if this line is an asset class header
-        upper = normalized.upper()
-        matched_class = None
-        for ac in ASSET_CLASSES:
-            if upper == ac or upper.startswith(ac + " ") or upper.endswith(ac):
-                matched_class = ac
-                break
-
-        if matched_class:
-            current_asset_class = matched_class
-            continue
-
-        if current_asset_class is None:
-            continue
-
-        # Skip header/total/meta lines
-        if _is_skip_line(upper):
-            continue
-
-        # Try to extract: FUND NAME followed by a dollar amount
-        # Amount format: digits with commas, optionally followed by decimal cents
-        # e.g., "58,248,850,263.68" or "3,523,218,069"
-        # Pattern: name (non-greedy), whitespace, then a properly comma-formatted
-        # number with 1-3 leading digits followed by comma groups of 3.
-        match = re.match(
-            r"^(.+?)\s+\$?([\d]{1,3}(?:,\d{3})+(?:\.\d+)?)\s*$", normalized
-        )
-
-        if match:
-            name = match.group(1).strip()
-            amount_str = match.group(2)
-
-            # Strip decimal portion (we store whole dollars)
-            if "." in amount_str:
-                amount_str = amount_str.split(".")[0]
-
-            # Fix pdfplumber split-amount artifact (leading digits of amount
-            # absorbed into fund name)
-            name, amount_str = _fix_split_amount(name, amount_str)
-
-            # Parse amount
-            amount_clean = amount_str.replace(",", "")
-            try:
-                amount = int(amount_clean)
-            except ValueError:
-                continue
-
-            # Skip subtotal lines and zero/negative amounts
-            if amount <= 0:
-                continue
-            if _is_subtotal_line(name, amount):
-                continue
-
-            holdings.append(
-                {
-                    "name": name,
-                    "type": current_asset_class,
-                    "amount": amount,
-                }
-            )
-
-    return holdings
+    return read_disclosure(pdf_path)[1]
 
 
 def write_holdings_csv(holdings, output_path):
@@ -280,7 +154,7 @@ def combine_holdings(ucrp_holdings, gep_holdings, output_path):
     combined = {}
 
     for h in ucrp_holdings:
-        key = h["name"].upper()
+        key = (h["name"].upper(), h["type"])
         if key not in combined:
             combined[key] = {
                 "Name": h["name"],
@@ -293,7 +167,7 @@ def combine_holdings(ucrp_holdings, gep_holdings, output_path):
         combined[key]["Total_investment"] += h["amount"]
 
     for h in gep_holdings:
-        key = h["name"].upper()
+        key = (h["name"].upper(), h["type"])
         if key not in combined:
             combined[key] = {
                 "Name": h["name"],
@@ -318,37 +192,15 @@ def combine_holdings(ucrp_holdings, gep_holdings, output_path):
 
 
 def main():
-    os.makedirs(SOURCES_DIR, exist_ok=True)
-    os.makedirs(OUTPUTS_DIR, exist_ok=True)
+    sources = json.loads(SOURCES_PATH.read_text())
+    with requests.Session() as session:
+        _, _, ucrp = fetch_disclosure(session, "UCRP", sources["uc_policy_pages"]["ucrp"])
+        _, _, gep = fetch_disclosure(session, "GEP", sources["uc_policy_pages"]["gep"])
 
-    with open(SOURCES_PATH) as f:
-        sources = json.load(f)
-
-    print("=== UC Holdings PDF Parser ===\n")
-
-    # Download PDFs
-    print("Downloading PDFs...")
-    ucrp_pdf = download_pdf(sources["uc_holdings"]["ucrp"], "ucrp_holdings.pdf")
-    gep_pdf = download_pdf(sources["uc_holdings"]["gep"], "gep_holdings.pdf")
-
-    # Parse
-    print("\nParsing UCRP holdings...")
-    ucrp_holdings = parse_holdings_pdf(ucrp_pdf)
-    print(f"  Found {len(ucrp_holdings)} holdings")
-
-    print("\nParsing GEP holdings...")
-    gep_holdings = parse_holdings_pdf(gep_pdf)
-    print(f"  Found {len(gep_holdings)} holdings")
-
-    # Write individual CSVs
-    print("\nWriting output files...")
-    write_holdings_csv(ucrp_holdings, os.path.join(OUTPUTS_DIR, "ucrp_holdings.csv"))
-    write_holdings_csv(gep_holdings, os.path.join(OUTPUTS_DIR, "gep_holdings.csv"))
-
-    # Combine
-    combine_holdings(ucrp_holdings, gep_holdings, os.path.join(OUTPUTS_DIR, "listed_investments.csv"))
-
-    print("\nDone!")
+    OUTPUTS_DIR.mkdir(exist_ok=True)
+    write_holdings_csv(ucrp, OUTPUTS_DIR / "ucrp_holdings.csv")
+    write_holdings_csv(gep, OUTPUTS_DIR / "gep_holdings.csv")
+    combine_holdings(ucrp, gep, OUTPUTS_DIR / "listed_investments.csv")
 
 
 if __name__ == "__main__":

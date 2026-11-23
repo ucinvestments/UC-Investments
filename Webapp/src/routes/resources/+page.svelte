@@ -26,6 +26,24 @@
       href: "https://www.ucop.edu/investment-office/annual-report-240923_ucar24_final.pdf",
     },
     {
+      title: "FY 2025–26 Regents investment review",
+      description: "Systemwide assets under management and fiscal-year investment performance.",
+      icon: "mdi:file-chart",
+      href: "https://regents.universityofcalifornia.edu/regmeet/sept26/i1.pdf",
+    },
+    {
+      title: "FY 2025–26 retirement system financial report",
+      description: "Retirement system financial statements and fiduciary net position.",
+      icon: "mdi:file-chart",
+      href: "https://regents.universityofcalifornia.edu/regmeet/nov26/f3attach2.pdf",
+    },
+    {
+      title: "Monthly pool unit values",
+      description: "Historical unit values for the Blue & Gold, General Endowment, Short-Term Investment, and Total Return Investment pools.",
+      icon: "mdi:chart-timeline-variant",
+      href: "https://www.ucop.edu/investment-office/investment-reports/investment-pool-unit-values/index.html",
+    },
+    {
       title: "Investment Philosophy",
       description:
         "The 10 pillars guiding UC's investment strategy, including their approach to risk management, asset allocation, and long-term value creation. It's a slideshow very quick read.",
@@ -136,6 +154,12 @@
       description: "Learn about our data collection and analysis process",
       icon: "mdi:information",
       href: "/about",
+    },
+    {
+      title: "Campus endowment data",
+      description: "Download campus endowment market values and foundation allocations from UC’s annual endowment report.",
+      icon: "mdi:download",
+      href: "/data/campus-endowments.json",
     },
     {
       title: "GitHub Repository",

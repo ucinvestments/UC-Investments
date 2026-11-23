@@ -12,35 +12,73 @@ Output:
 """
 
 import csv
+from datetime import datetime
+from io import BytesIO
 import json
 import os
-import sys
+from pathlib import Path
 import xml.etree.ElementTree as ET
 
 import requests
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOURCES_PATH = os.path.join(BASE_DIR, "sources.json")
-SOURCES_DIR = os.path.join(BASE_DIR, "sources")
 OUTPUTS_DIR = os.path.join(BASE_DIR, "outputs")
 
 # 13F XML namespaces
 NS = {"ns": "http://www.sec.gov/edgar/document/thirteenf/informationtable"}
 
 
-def download_xml(url, filename):
-    """Download 13F XML to sources directory."""
-    path = os.path.join(SOURCES_DIR, filename)
-    if os.path.exists(path):
-        print(f"  Already downloaded: {filename}")
-        return path
-    print(f"  Downloading: {filename}")
-    headers = {"User-Agent": "UC-Investments-Research research@example.com"}
-    resp = requests.get(url, headers=headers, timeout=60)
-    resp.raise_for_status()
-    with open(path, "wb") as f:
-        f.write(resp.content)
-    return path
+SEC_HEADERS = {
+    "User-Agent": os.environ.get("SEC_USER_AGENT", "UC Investment Explorer admin@ucinvestments.info"),
+}
+EDGAR_ARCHIVES = "https://www.sec.gov/Archives/edgar/data"
+
+
+def fetch_latest_filing(session, cik):
+    def fetch(url):
+        response = session.get(url, headers=SEC_HEADERS, timeout=45)
+        response.raise_for_status()
+        return response
+
+    recent = fetch(f"https://data.sec.gov/submissions/CIK{int(cik):010}.json").json()["filings"]["recent"]
+    filings = [
+        (period, filed, int(accession.replace("-", "")), accession, primary, form)
+        for form, period, filed, accession, primary in zip(
+            recent["form"], recent["reportDate"], recent["filingDate"],
+            recent["accessionNumber"], recent["primaryDocument"], strict=True,
+        )
+        if form in {"13F-HR", "13F-HR/A"} and period
+    ]
+    if not filings:
+        raise ValueError(f"No holdings filing found for SEC filer {cik}")
+
+    period, filed, _, accession, primary, form = max(filings)
+    base = f"{EDGAR_ARCHIVES}/{int(cik)}/{accession.replace('-', '')}"
+    cover = ET.fromstring(fetch(f"{base}/{Path(primary).name}").content)
+    cover_period = cover.findtext(".//{*}periodOfReport")
+    if not cover_period or datetime.strptime(cover_period, "%m-%d-%Y").date().isoformat() != period:
+        raise ValueError(f"SEC cover page date does not match submissions metadata for {accession}")
+    if form.endswith("/A") and cover.findtext(".//{*}amendmentType") != "RESTATEMENT":
+        raise ValueError(f"SEC amendment {accession} requires combining multiple information tables")
+
+    files = fetch(f"{base}/index.json").json()["directory"]["item"]
+    table_files = [
+        item["name"] for item in files
+        if item["name"].endswith(".xml") and item["name"] != Path(primary).name
+    ]
+    if len(table_files) != 1:
+        raise ValueError(f"Expected one SEC information table for {accession}, got {len(table_files)}")
+    positions = parse_13f_xml(BytesIO(fetch(f"{base}/{table_files[0]}").content))
+    count = int(cover.findtext(".//{*}tableEntryTotal"))
+    total = int(cover.findtext(".//{*}tableValueTotal"))
+    if count == 0 or len(positions) != count or sum(row["value"] for row in positions) != total:
+        raise ValueError(f"SEC holdings do not reconcile to the cover sheet for {accession}")
+    return {
+        "date": period,
+        "filed": filed,
+        "url": f"{base}/{accession}-index.html",
+    }, positions
 
 
 def parse_13f_xml(xml_path):
@@ -53,15 +91,6 @@ def parse_13f_xml(xml_path):
 
     holdings = []
 
-    # Try with namespace first, then without
-    info_tables = root.findall(".//ns:infoTable", NS)
-    if not info_tables:
-        # Try without namespace
-        info_tables = root.findall(".//{*}infoTable")
-    if not info_tables:
-        # Try as direct children or any tag containing the data
-        info_tables = root.iter()
-
     for entry in root.findall(".//ns:infoTable", NS) or root.findall(".//{*}infoTable"):
         holding = {}
 
@@ -70,9 +99,9 @@ def parse_13f_xml(xml_path):
             ("nameOfIssuer", "name"),
             ("titleOfClass", "title_of_class"),
             ("cusip", "cusip"),
-            ("value", "value_thousands"),
+            ("value", "value"),
             ("investmentDiscretion", "discretion"),
-            ("votingAuthority", None),
+            ("putCall", "option"),
         ]:
             el = entry.find(f"ns:{tag}", NS)
             if el is None:
@@ -109,14 +138,8 @@ def parse_13f_xml(xml_path):
                 if vel is not None:
                     holding[f"voting_{vtype.lower()}"] = vel.text
 
-        # Convert value from thousands to actual
-        if "value_thousands" in holding:
-            try:
-                holding["value"] = int(holding["value_thousands"]) * 1000
-            except (ValueError, TypeError):
-                holding["value"] = 0
-
         if holding.get("name"):
+            holding["value"] = int(holding["value"])
             holdings.append(holding)
 
     return holdings
@@ -162,40 +185,17 @@ def write_outputs(holdings, csv_path, json_path):
 
 
 def main():
-    os.makedirs(SOURCES_DIR, exist_ok=True)
-    os.makedirs(OUTPUTS_DIR, exist_ok=True)
-
     with open(SOURCES_PATH) as f:
         sources = json.load(f)
-
-    print("=== SEC 13F Parser ===\n")
-
-    # Download XML
-    print("Downloading 13F filing...")
-    xml_path = download_xml(
-        sources["sec_13f"]["uc_regents"], "uc_regents_13f.xml"
-    )
-
-    # Parse
-    print("\nParsing 13F XML...")
-    holdings = parse_13f_xml(xml_path)
-    print(f"  Found {len(holdings)} positions")
-
-    # Write outputs
-    print("\nWriting outputs...")
+    with requests.Session() as session:
+        filing, holdings = fetch_latest_filing(session, sources["regents_cik"])
+    os.makedirs(OUTPUTS_DIR, exist_ok=True)
     write_outputs(
         holdings,
         os.path.join(OUTPUTS_DIR, "sec_13f_holdings.csv"),
         os.path.join(OUTPUTS_DIR, "sec_13f_holdings.json"),
     )
-
-    # Top 10 preview
-    print("\nTop 10 holdings by value:")
-    sorted_h = sorted(holdings, key=lambda x: x.get("value", 0), reverse=True)
-    for h in sorted_h[:10]:
-        print(f"  {h['name']:40s} ${h.get('value', 0):>15,.0f}")
-
-    print("\nDone!")
+    print(f"Regents holdings as of {filing['date']}: {filing['url']}")
 
 
 if __name__ == "__main__":
