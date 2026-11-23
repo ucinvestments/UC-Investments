@@ -11,12 +11,17 @@
   let { children } = $props();
 
   const navLinks = [
-    { href: "/", label: "Explorer" },
-    { href: "/about", label: "About" },
-    { href: "/resources", label: "Resources" },
+    { href: "/", label: "Explorer", icon: "mdi:home" },
+    { href: "/about", label: "About", icon: "mdi:information" },
+    {
+      href: "/resources",
+      label: "Resources",
+      icon: "mdi:book-open-page-variant",
+    },
     {
       href: "https://github.com/ucinvestments/UC-Investments",
       label: "GitHub",
+      icon: "mdi:github",
       external: true,
     },
   ];
@@ -75,7 +80,11 @@
   });
 </script>
 
-<Navbar links={navLinks} />
+<Navbar
+  appName="UC Investments"
+  subtitle="by STEM4Palestine"
+  links={navLinks}
+/>
 
 <main>
   {@render children?.()}
