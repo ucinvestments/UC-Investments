@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import Icon from "@iconify/svelte";
   import Hero from "$lib/components/Hero.svelte";
@@ -7,16 +7,8 @@
   import Container from "$lib/components/Container.svelte";
   import PageLayout from "$lib/components/PageLayout.svelte";
   import Button from "$lib/components/Button.svelte";
-  import { formatCurrency } from "$lib/utils/formatters";
 
   let mounted = false;
-
-  const financialData = [
-    { value: 162e9, label: "Total UC Portfolio" },
-    { value: 89e9, label: "UCRP Holdings" },
-    { value: 23e9, label: "Endowment Fund" },
-    { value: 55e9, label: "Short-term & Retirement" },
-  ];
 
   const teamMembers = [
     {
@@ -58,9 +50,8 @@
     },
   ];
 
-  function copyToClipboard(text) {
+  function copyToClipboard(text: string, button: HTMLButtonElement) {
     navigator.clipboard.writeText(text).then(() => {
-      const button = event.target.closest(".copy-button");
       const originalHTML = button.innerHTML;
       button.innerHTML = '<span style="color: #10b981;">✓</span>';
       setTimeout(() => {
@@ -86,35 +77,37 @@
       <Section title="Methodology" icon="mdi:chart-line" delay={200}>
         <Card padding="1.75rem">
           <p class="section-intro">
-            We have analyzed <strong>$108 billion</strong> of the UC's total
-            investment portfolio. Within this, we were able to analyze the
-            composition of funds totaling approximately <strong>$49B</strong>.
-            The majority of these funds are stored in the UC Retirement Plan
-            (UCRP) at $89.2B and the General Endowment Pool (GEP) at $20.7B.
+            The explorer uses the latest holdings disclosures linked by the
+            UC Retirement Plan (UCRP) and General Endowment Pool (GEP).
+            Coverage is based on the reported public and alternative investment
+            line items, excluding fund-level cash and other net-asset adjustments.
+            Each disclosure date appears in the explorer.
           </p>
 
           <div class="methodology-grid">
             <div class="method-card">
               <div class="method-header">
                 <Icon icon="mdi:database" class="method-icon" />
-                <h3>Direct Data Usage</h3>
+                <h3>Disclosed fund allocations</h3>
               </div>
               <p>
-                When funds release their full composition data, we use this
-                information directly for our analysis.
+                The Funds and Asset classes views show amounts from the two
+                UC holdings disclosures.
               </p>
             </div>
 
             <div class="method-card">
               <div class="method-header">
                 <Icon icon="mdi:calculator" class="method-icon" />
-                <h3>Re-weighting Analysis</h3>
+                <h3>ETF-based estimates</h3>
               </div>
               <p>
-                For funds like our $35B MSCI investment that only publish top 10
-                holdings (18% of total), we reconstruct data by analyzing
-                similar funds and applying exclusion filters for tobacco and
-                fossil fuel companies.
+                The explorer estimates company exposure by multiplying some
+                UC fund allocations by the holdings weights of a similar ETF.
+                The proxy ETF can hold different companies from the UC fund,
+                including when the UC fund has investment exclusions. The
+                explorer shows the date of each proxy alongside the estimate.
+                Proxy dates can be later than the UC fund allocation dates.
               </p>
             </div>
 
@@ -124,13 +117,11 @@
                 <h3>SEC Filings</h3>
               </div>
               <p>
-                For direct hedge fund investments, we utilize SEC forms 13F,
-                13D, and G obtained from sources like
-                <a
-                  href="https://whalewisdom.com"
-                  target="_blank"
-                  rel="noopener noreferrer">whalewisdom.com</a
-                >.
+                The explorer also uses publicly reported Form 13F holdings
+                to estimate exposure for some managers. These filings cover
+                qualifying securities and may capture only part of a manager’s portfolio.
+                The Regents 13F view shows the Regents’ reported securities and
+                values separately from the modeled company exposure.
               </p>
             </div>
           </div>
@@ -145,22 +136,17 @@
         </Card>
       </Section>
 
-      <Section title="UC Financial Structure" icon="mdi:bank" delay={400}>
+      <Section title="UC investment assets" icon="mdi:bank" delay={400}>
         <Card padding="1.75rem">
-          <p>
-            Universities within the UC system maintain individual endowments,
-            with the majority sourced from the GEP. UC Berkeley, for example,
-            manages a $7.4B endowment: $2.9B under direct school control and
-            $4.5B from the UC's $23B total endowment.
+          <p class="aum-summary"><strong>$235.9 billion</strong> in systemwide assets under management as of June 30, 2026.</p>
+          <p class="aum-scope">
+            The Regents’ figure covers UC Investments’ retirement, endowment, working capital, and insurance assets.
+            The explorer shows the listed holdings in the pension and General Endowment Pool disclosures, with the reporting date beside each source.
           </p>
-
-          <div class="financial-breakdown">
-            {#each financialData as item}
-              <div class="breakdown-item">
-                <div class="breakdown-value">{formatCurrency(item.value)}</div>
-                <div class="breakdown-label">{item.label}</div>
-              </div>
-            {/each}
+          <div class="source-link">
+            <Button href="https://regents.universityofcalifornia.edu/regmeet/sept26/i1.pdf" external>
+              Read the FY 2025–26 Regents report
+            </Button>
           </div>
         </Card>
       </Section>
@@ -266,7 +252,7 @@
                     <code class="crypto-address">{crypto.address}</code>
                     <button
                       class="copy-button"
-                      on:click={() => copyToClipboard(crypto.address)}
+                      on:click={(event) => copyToClipboard(crypto.address, event.currentTarget)}
                       aria-label="Copy {crypto.name} address"
                     >
                       <Icon icon="mdi:content-copy" />
@@ -397,33 +383,12 @@
     flex-shrink: 0;
   }
 
-  .financial-breakdown {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.875rem;
-    margin-top: 1.25rem;
+  .aum-summary {
+    font-size: 1.125rem;
   }
 
-  .breakdown-item {
-    text-align: center;
-    padding: 1rem 0.75rem;
-    background: var(--bg);
-    border-radius: 0.875rem;
-    border: 1px solid var(--border);
-  }
-
-  .breakdown-value {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: var(--founder);
-    margin-bottom: 0.25rem;
-  }
-
-  .breakdown-label {
-    font-size: 0.8125rem;
-    color: var(--text-secondary);
-    font-weight: 500;
+  .aum-scope {
+    margin-top: 0.625rem;
   }
 
   .source-link {
@@ -649,10 +614,6 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .financial-breakdown {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
     .crypto-options {
       grid-template-columns: 1fr;
     }
@@ -669,10 +630,6 @@
   }
 
   @media (max-width: 480px) {
-    .financial-breakdown {
-      grid-template-columns: 1fr;
-    }
-
     .team-grid {
       grid-template-columns: 1fr;
     }

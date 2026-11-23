@@ -4,3 +4,4 @@ services:
     volumes:
       - ./sources:/app/sources
       - ./outputs:/app/outputs
+      - ../Webapp/static/data:/Webapp/static/data

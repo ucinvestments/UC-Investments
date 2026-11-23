@@ -2,7 +2,6 @@
   import "../app.css";
   import { dev, browser } from "$app/environment";
   import { inject } from "@vercel/analytics";
-  import { fade } from "svelte/transition";
   import { page } from "$app/stores";
   import posthog from "posthog-js";
   import { onMount } from "svelte";
@@ -12,13 +11,12 @@
   let { children } = $props();
 
   const navLinks = [
-    { href: "/", label: "Explorer", icon: "mdi:home" },
-    { href: "/about", label: "About", icon: "mdi:information" },
-    { href: "/resources", label: "Resources", icon: "mdi:book-open-page-variant" },
+    { href: "/", label: "Explorer" },
+    { href: "/about", label: "About" },
+    { href: "/resources", label: "Resources" },
     {
       href: "https://github.com/ucinvestments/UC-Investments",
       label: "GitHub",
-      icon: "mdi:github",
       external: true,
     },
   ];
@@ -77,14 +75,9 @@
   });
 </script>
 
-<Navbar
-  appName="UC Investments"
-  subtitle="by STEM4Palestine"
-  logoIcon="mdi:chart-donut"
-  links={navLinks}
-/>
+<Navbar links={navLinks} />
 
-<main in:fade={{ duration: 300 }}>
+<main>
   {@render children?.()}
 </main>
 
@@ -95,7 +88,6 @@
   contactEmail="admin@ucinvestments.info"
   altContactEmail="sdokita@berkeley.edu"
   {cryptoAddresses}
-  dataSources={"Last updated: April 2026<br />Holdings as of: June 30, 2025<br />Coverage: ~55% analyzed"}
   copyrightHolder="STEM4Palestine"
   affiliationDisclaimer="Not affiliated with or authorized by the University of California."
 />

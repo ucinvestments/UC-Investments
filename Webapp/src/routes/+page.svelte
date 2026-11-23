@@ -1,1373 +1,515 @@
 <script lang="ts">
-  import "../app.css";
-  import Icon from "@iconify/svelte";
-  import Pi from "$lib/pi.svelte";
-  import { onMount } from "svelte";
-  import Loading from "$lib/loading.svelte";
-  import { fade, fly, scale } from "svelte/transition";
-  import { quintOut } from "svelte/easing";
+  import { onMount, tick } from "svelte";
   import posthog from "posthog-js";
-  import { browser } from "$app/environment";
+  import FundDisclosures from "$lib/explorer/FundDisclosures.svelte";
+  import HoldingsChart from "$lib/explorer/HoldingsChart.svelte";
+  import {
+    formatCompact,
+    formatDollars,
+    formatShare,
+    formatSourceDate,
+    loadSnapshot,
+    sumHoldings,
+    views,
+  } from "$lib/explorer/holdings";
+  import type { Holding, HoldingsSnapshot, View } from "$lib/explorer/holdings";
+  import "$lib/explorer/explorer.css";
 
-  let end: string;
-  type button = "Asset" | "Company" | "Fund";
+  const order: View[] = ["company", "fund", "asset", "reported"];
+  const pageSize = 12;
 
-  let mounted = false;
+  let view: View = $state("company");
+  let consolidate = $state(true);
+  let snapshot = $state.raw<HoldingsSnapshot>();
+  let search = $state("");
+  let page = $state(0);
+  let selection = $state.raw<Holding>();
+  let loading = $state(false);
+  let failed = $state(false);
+  let detailHeading = $state<HTMLHeadingElement>();
+  let searchInput: HTMLInputElement;
 
-  function asset() {
-    const previousMode = activeButton;
-    activeButton = "Asset";
-
-    // Track view mode switch
-    if (browser && previousMode !== "Asset") {
-      posthog.capture("view_mode_changed", {
-        previous_mode: previousMode.toLowerCase(),
-        new_mode: "asset",
-        view_context: "asset_class",
-      });
+  const rows = $derived.by(() => {
+    if (!snapshot) return [];
+    switch (view) {
+      case "company":
+        return snapshot.companies[consolidate ? "grouped" : "separate"];
+      case "fund":
+        return snapshot.funds;
+      case "asset":
+        return snapshot.assetClasses;
+      case "reported":
+        return snapshot.reported;
     }
+  });
+  const coverage = $derived(snapshot?.coverage);
+  const sharedDisclosureDate = $derived(
+    snapshot && snapshot.disclosures.ucrp.date === snapshot.disclosures.gep.date
+      ? snapshot.disclosures.ucrp.date
+      : undefined,
+  );
+  const query = $derived(search.trim().toLowerCase());
+  const matches = $derived(
+    rows.filter((row) => row.name.toLowerCase().includes(query)),
+  );
+  const selected = $derived(
+    selection ??
+      matches.find((row) => row.name.toLowerCase() === query) ??
+      matches[0],
+  );
+  const visible = $derived(
+    matches.slice(page * pageSize, (page + 1) * pageSize),
+  );
+  const viewTotal = $derived(sumHoldings(rows));
+  const assignedShare = $derived(
+    coverage && coverage.total > 0 ? coverage.assigned / coverage.total : 0,
+  );
 
-    fetchListedAssets();
-  }
-
-  function company() {
-    const previousMode = activeButton;
-    activeButton = "Company";
-
-    // Track view mode switch
-    if (browser && previousMode !== "Company") {
-      posthog.capture("view_mode_changed", {
-        previous_mode: previousMode.toLowerCase(),
-        new_mode: "company",
-        view_context: "company",
-      });
-    }
-
-    fetchListedAssets();
-  }
-
-  function fund() {
-    const previousMode = activeButton;
-    activeButton = "Fund";
-
-    // Track view mode switch
-    if (browser && previousMode !== "Fund") {
-      posthog.capture("view_mode_changed", {
-        previous_mode: previousMode.toLowerCase(),
-        new_mode: "fund",
-        view_context: "fund",
-      });
-    }
-
-    fetchListedAssets();
-  }
-
-  function estim() {
-    const newValue = estimation == "true" ? "false" : "true";
-    estimation = newValue;
-
-    // Track estimation toggle
-    if (browser) {
-      posthog.capture("estimation_toggled", {
-        view_mode: activeButton.toLowerCase(),
-        include_estimates: newValue === "true",
-        previous_state: newValue === "true" ? "false" : "true",
-      });
-    }
-
-    fetchListedAssets();
-  }
-
-  function comp() {
-    const newValue = composition == "true" ? "false" : "true";
-    composition = newValue;
-
-    // Track composition toggle
-    if (browser) {
-      posthog.capture("composition_toggled", {
-        view_mode: activeButton.toLowerCase(),
-        consolidate_shares: newValue === "true",
-        previous_state: newValue === "true" ? "false" : "true",
-      });
-    }
-
-    fetchListedAssets();
-  }
-
-  let activeButton: button = "Company";
-  let searchTerm = "";
-  let totalInvestedInChart = 0;
-  let data;
-  let selectedSlice;
-  let filteredData;
-  let loading = true;
-  let composition = "true";
-  let estimation = "true";
-
-  function cap(s) {
-    if (s && typeof s === "string") {
-      return s
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-    } else {
-      return "";
-    }
-  }
-
-  function formatNumber(num) {
-    let numStr = num.toString();
-    let [integerPart, decimalPart] = numStr.split(".");
-    let formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return formattedInteger;
-  }
-
-  async function fetchListedAssets() {
+  async function refreshView() {
+    if (loading || snapshot) return;
     loading = true;
-    let dataUrl: string;
-    if (activeButton == "Company") {
-      dataUrl = `/data/full_investments_${estimation}_estimation_${composition}_class_grouping.json`;
-    } else if (activeButton == "Fund") {
-      dataUrl = "/data/listed-assets.json";
-    } else {
-      dataUrl = "/data/asset-classes.json";
-    }
-
+    failed = false;
     try {
-      console.log("Fetching data for:", activeButton, "from:", dataUrl);
-      const response = await fetch(dataUrl);
-      if (!response.ok) {
-        throw new Error("Failed to fetch listed assets");
-      }
-      const d = await response.json();
-      console.log("Received data:", d);
-
-      if (!d || !Array.isArray(d) || d.length === 0) {
-        console.log("No valid data received");
-        data = [];
-        selectedSlice = null;
-        filteredData = [];
-      } else {
-        data = d;
-        selectedSlice = data[0];
-        filteredData = data;
-      }
-
+      snapshot = await loadSnapshot();
+    } catch {
+      failed = true;
+    } finally {
       loading = false;
-      sumTotalInvestments();
-    } catch (err) {
-      console.error("Error fetching data:", err);
-      loading = false;
-      data = [];
-      selectedSlice = null;
-      filteredData = [];
     }
   }
 
-  function handleSliceClicked(event) {
-    searchTerm = "";
-    selectedSlice = event.detail;
-
-    // Track pie chart slice interaction
-    if (browser) {
-      const sliceName =
-        activeButton === "Company"
-          ? selectedSlice["asset"]
-          : activeButton === "Asset"
-            ? selectedSlice["A.s.set ._Class"]
-            : selectedSlice["Asset Name"];
-
-      const sliceValue =
-        activeButton === "Company"
-          ? selectedSlice["total investment"]
-          : activeButton === "Fund"
-            ? selectedSlice["Total Investment"]
-            : selectedSlice["Total Iℂnvest∈d"];
-
-      posthog.capture("pie_slice_clicked", {
-        view_mode: activeButton.toLowerCase(),
-        slice_name: sliceName || "unknown",
-        slice_value: sliceValue || 0,
-        is_aggregate: selectedSlice.isAggregate || false,
-        aggregate_count: selectedSlice.aggregatedCount || null,
+  function changeView(next: View, query = "") {
+    const previous = view;
+    view = next;
+    updateSearch(query);
+    if (previous !== next) {
+      posthog.capture("view_mode_changed", {
+        previous_mode: previous,
+        new_mode: next,
       });
     }
   }
 
-  function filterSearch() {
-    const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-    if (activeButton == "Company") {
-      filteredData = data.filter((item) =>
-        item["asset"].toLowerCase().includes(normalizedSearchTerm),
-      );
-    } else if (activeButton == "Asset") {
-      filteredData = data.filter((item) =>
-        item["A.s.set ._Class"].toLowerCase().includes(normalizedSearchTerm),
-      );
-    } else {
-      filteredData = data.filter((item) =>
-        item["Asset Name"].toLowerCase().includes(normalizedSearchTerm),
-      );
-    }
+  async function openFund(name: string) {
+    changeView("fund", name);
+    await tick();
+    searchInput.focus();
   }
 
-  function handleSearch() {
-    filterSearch();
-
-    if (filteredData.length > 0) {
-      selectedSlice = filteredData[0];
-    } else {
-      selectedSlice = null;
-    }
-    sumTotalInvestments();
-
-    // Track search with PostHog
-    const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-    if (normalizedSearchTerm && browser) {
-      posthog.capture(filteredData.length > 0 ? "search_result_found" : "search_no_results", {
-        search_location: activeButton.toLowerCase(),
-        search_query: normalizedSearchTerm,
-      });
-    }
+  function clearSearch() {
+    updateSearch("");
+    searchInput.focus();
   }
 
-  function sumTotalInvestments() {
-    let totalSum = 0;
-    for (let i = 0; i < filteredData.length; i++) {
-      if (activeButton == "Company") {
-        totalSum += parseInt(filteredData[i]["total investment"]);
-      } else if (activeButton == "Fund") {
-        totalSum += parseInt(filteredData[i]["Total Investment"]);
-      } else {
-        totalSum += parseInt(filteredData[i]["Total Iℂnvest∈d"]);
-      }
+  function turnPage(offset: number) {
+    page += offset;
+    selection = visible[0];
+  }
+
+  function updateSearch(value: string) {
+    search = value;
+    selection = undefined;
+    page = 0;
+  }
+
+  function toggleShares() {
+    consolidate = !consolidate;
+    page = 0;
+    selection = undefined;
+    posthog.capture("composition_toggled", {
+      view_mode: view,
+      consolidate_shares: consolidate,
+    });
+  }
+
+  async function selectHolding(row: Holding) {
+    selection = row;
+    page = Math.floor(matches.indexOf(row) / pageSize);
+    if (window.matchMedia("(max-width: 900px)").matches) {
+      await tick();
+      detailHeading?.focus();
     }
-    totalInvestedInChart = totalSum;
   }
 
   onMount(() => {
-    mounted = true;
-    fetchListedAssets();
+    void refreshView();
   });
 </script>
 
-<!-- Data Warning Banner -->
-<div class="warning-banner" in:fade={{ duration: 400 }}>
-  <Icon icon="mdi:information" class="warning-icon" />
-  <span
-    >This data represents that available on April 6th, 2026. Source: UC Holdings Disclosure (June 30, 2025), SEC 13F filings, and public ETF holdings.</span
-  >
-</div>
+<svelte:head>
+  <title>UC Investment Explorer</title>
+  <meta
+    name="description"
+    content="Explore University of California pension and endowment disclosures by company, fund, and asset class."
+  />
+</svelte:head>
 
-<!-- Hero Section -->
-<div class="hero-section">
-  {#if mounted}
-    <div class="hero-content" in:fade={{ duration: 800, delay: 200 }}>
-      <h1 class="hero-title">Explorer for UC Investment Data</h1>
-      <div class="hero-stats">
-        <div class="stat-item" in:fade={{ duration: 600, delay: 400 }}>
-          <span class="stat-value">$129B</span>
-          <span class="stat-divider">•</span>
-          <span class="stat-label">Published Holdings</span>
+<div class="investment-explorer">
+  <section class="coverage-hero" aria-labelledby="explorer-title">
+    <div class="explorer-frame coverage-layout">
+      <div class="coverage-intro">
+        <div class="snapshot">
+          <span></span>
+          {sharedDisclosureDate
+            ? `UC holdings as of ${formatSourceDate(sharedDisclosureDate)}`
+            : "UC holdings disclosures"}
         </div>
-        <div class="stat-item" in:fade={{ duration: 600, delay: 500 }}>
-          <span class="stat-value">$71B</span>
-          <span class="stat-divider">•</span>
-          <span class="stat-label">Analyzed</span>
-        </div>
-        <div class="stat-item" in:fade={{ duration: 600, delay: 600 }}>
-          <span class="stat-value">55%</span>
-          <span class="stat-divider">•</span>
-          <span class="stat-label">Transparent</span>
-        </div>
-      </div>
-      <p class="hero-description" in:fade={{ duration: 800, delay: 700 }}>
-        Explore UC's endowment and pension fund investments with full
-        transparency.
-      </p>
-    </div>
-  {/if}
-</div>
-
-{#if loading}
-  <div in:fade={{ duration: 300 }}>
-    <Loading />
-  </div>
-{:else}
-  <div class="main-container" in:fade={{ duration: 600 }}>
-    <!-- Navigation Tabs + Search Bar -->
-    <div class="toolbar" in:fly={{ y: -20, duration: 500, delay: 200 }}>
-      <div class="nav-tabs">
-        <button
-          class="nav-tab"
-          class:active={activeButton === "Company"}
-          on:click={company}
+        <h1 id="explorer-title">
+          UC Investment<br class="desktop-break" /> Explorer
+        </h1>
+        <p>
+          Follow the University of California’s pension and endowment
+          investments from disclosed funds to estimated company exposure.
+        </p>
+        <a href="/about"
+          >Read the methodology <span aria-hidden="true">↗</span></a
         >
-          <Icon icon="mdi:company" class="tab-icon" />
-          Companies
-        </button>
-        <button
-          class="nav-tab"
-          class:active={activeButton === "Asset"}
-          on:click={asset}
-        >
-          <Icon icon="mdi:chart-pie" class="tab-icon" />
-          Asset Classes
-        </button>
-        <button
-          class="nav-tab"
-          class:active={activeButton === "Fund"}
-          on:click={fund}
-        >
-          <Icon icon="mdi:wallet" class="tab-icon" />
-          Funds
-        </button>
       </div>
 
-      <div class="search-wrapper">
-        <Icon icon="mdi:magnify" class="search-icon" />
-        <input
-          type="text"
-          placeholder={`Search ${activeButton === "Company" ? "companies" : activeButton === "Asset" ? "asset classes" : "funds"}...`}
-          bind:value={searchTerm}
-          on:input={handleSearch}
-          class="search-input ml-2"
-        />
-        {#if searchTerm}
-          <button on:click={() => (searchTerm = "")} class="clear-btn">
-            <Icon icon="mdi:close" />
-          </button>
+      <div class="coverage-panel" aria-live="polite">
+        <div class="coverage-meta">
+          <h2>Disclosure coverage</h2>
+          <span>UCRP + GEP</span>
+        </div>
+        {#if coverage}
+          <div class="coverage-total">{formatCompact(coverage.total)}</div>
+          <p>Listed pension and endowment holdings</p>
+          <div class="coverage-bar" aria-hidden="true">
+            <div
+              style:width={`${Math.min(1, Math.max(0, assignedShare)) * 100}%`}
+            ></div>
+          </div>
+          <div class="coverage-key">
+            <div>
+              <strong>{formatCompact(coverage.assigned)}</strong><span
+                ><i></i>Mapped to companies using estimates</span
+              >
+            </div>
+            <div>
+              <strong
+                >{formatCompact(coverage.total - coverage.assigned)}</strong
+              ><span><i></i>Without a company breakdown</span>
+            </div>
+          </div>
+        {:else if failed}
+          <p class="coverage-status">
+            Coverage totals are unavailable. <button onclick={refreshView}
+              >Try again</button
+            >
+          </p>
+        {:else}
+          <p class="coverage-status">Loading coverage totals…</p>
         {/if}
       </div>
     </div>
+  </section>
 
-    <!-- Main Content Grid -->
-    <div class="content-grid">
-      <!-- Chart Section -->
-      <div
-        class="chart-section glass-card"
-        in:fly={{ x: -30, duration: 600, delay: 400 }}
-      >
-        <div class="chart-header">
-          <h3 class="section-title">Portfolio Distribution</h3>
-          <div class="chart-total">
-            ${formatNumber(totalInvestedInChart)}
+  <section
+    class="explorer-frame holdings-section"
+    aria-labelledby="holdings-title"
+  >
+    <header class="holdings-header">
+      <div>
+        <h2 id="holdings-title">Explore holdings</h2>
+        <p>{views[view].description}</p>
+      </div>
+      <div class="view-switch" role="group" aria-label="Holdings view">
+        {#each order as mode (mode)}
+          <button aria-pressed={view === mode} onclick={() => changeView(mode)}
+            >{views[mode].label}</button
+          >
+        {/each}
+      </div>
+    </header>
+
+    <div class="holdings-grid">
+      {#if selected && !loading}
+        <HoldingsChart
+          holdings={matches}
+          {selected}
+          filtered={Boolean(query)}
+          estimated={view === "company"}
+          onselect={selectHolding}
+        />
+      {/if}
+      <div class="holdings-panel" aria-busy={loading}>
+        <div class="explorer-tools">
+          <div class="holdings-search">
+            <span class="search-mark" aria-hidden="true"></span>
+            <input
+              type="search"
+              aria-label={`Search ${views[view].label.toLowerCase()}`}
+              placeholder={`Search ${views[view].label.toLowerCase()}`}
+              bind:this={searchInput}
+              value={search}
+              oninput={(event) => updateSearch(event.currentTarget.value)}
+            />
+            {#if search}<button aria-label="Clear search" onclick={clearSearch}
+                >×</button
+              >{/if}
           </div>
+          {#if view === "company"}
+            <label class="share-setting"
+              ><input
+                type="checkbox"
+                checked={consolidate}
+                onchange={toggleShares}
+              /> Group share classes</label
+            >
+          {/if}
         </div>
-        <div class="chart-container">
-          {#if filteredData.length === 0 && searchTerm}
-            <div class="no-chart-message">
-              <Icon icon="mdi:chart-donut" class="no-chart-icon" />
-              <p>No results</p>
-            </div>
-          {:else}
-            <Pi
-              {filteredData}
-              {selectedSlice}
-              {activeButton}
-              {totalInvestedInChart}
-              on:sliceClicked={handleSliceClicked}
+
+        {#if loading || (!snapshot && !failed)}
+          <p class="explorer-status" role="status">
+            Loading {views[view].label.toLowerCase()}…
+          </p>
+        {:else if failed}
+          <div class="explorer-status" role="status">
+            <p>Couldn’t load this view.</p>
+            <button onclick={refreshView}>Try again</button>
+          </div>
+        {:else if matches.length === 0}
+          <div class="explorer-status" role="status">
+            {#if search}<p>No matches for “{search}”.</p>
+              <button onclick={clearSearch}>Clear search</button>
+            {:else}<p>No holdings are available for this view.</p>{/if}
+          </div>
+        {:else}
+          <table class="holdings-table">
+            <thead
+              ><tr
+                ><th scope="col">{views[view].singular}</th><th scope="col"
+                  >{view === "company"
+                    ? "Estimated exposure"
+                    : view === "reported"
+                      ? "Reported value"
+                      : "Market value"}</th
+                ><th scope="col">Share</th></tr
+              ></thead
+            >
+            <tbody>
+              {#each visible as row, index (row)}
+                <tr class:current={selected === row}>
+                  <td>
+                    <button
+                      class="holding-name"
+                      aria-pressed={selected === row}
+                      onclick={() => selectHolding(row)}
+                    >
+                      <span class="holding-rank" aria-hidden="true"
+                        >{page * pageSize + index + 1}</span
+                      ><span>{row.name}</span>
+                    </button>
+                  </td>
+                  <td
+                    title={row.basis === "estimate"
+                      ? undefined
+                      : formatDollars(row.amount)}
+                    >{formatCompact(row.amount)}</td
+                  >
+                  <td
+                    ><div class="share-cell">
+                      <span class="share-track" aria-hidden="true"
+                        ><i
+                          style:width={`${Math.max(0, (row.amount / (viewTotal || 1)) * 100)}%`}
+                        ></i></span
+                      >
+                      <span>{formatShare(row.amount, viewTotal)}</span>
+                    </div></td
+                  >
+                </tr>
+              {/each}
+            </tbody>
+          </table>
+          <div class="holdings-pagination">
+            <span aria-live="polite"
+              >{page * pageSize + 1}–{Math.min(
+                (page + 1) * pageSize,
+                matches.length,
+              )} of {matches.length.toLocaleString("en-US")}</span
+            >
+            {#if matches.length > pageSize}
+              <div>
+                <button disabled={page === 0} onclick={() => turnPage(-1)}
+                  >Previous</button
+                >
+                <button
+                  disabled={(page + 1) * pageSize >= matches.length}
+                  onclick={() => turnPage(1)}>Next</button
+                >
+              </div>
+            {/if}
+          </div>
+        {/if}
+      </div>
+
+      {#if selected && !loading}
+        <aside class="holding-detail" aria-labelledby="holding-detail-name">
+          <div class="detail-kicker">
+            {view === "company"
+              ? "Estimated company exposure"
+              : view === "reported"
+                ? "Reported by the UC Regents"
+                : view === "fund"
+                  ? "Fund allocation"
+                  : "Asset class allocation"}
+          </div>
+          <h3 id="holding-detail-name" tabindex="-1" bind:this={detailHeading}>
+            {selected.name}
+          </h3>
+          <div
+            class="detail-amount"
+            title={selected.basis === "estimate"
+              ? undefined
+              : formatDollars(selected.amount)}
+          >
+            {formatCompact(selected.amount)}
+          </div>
+          <p class="detail-share">
+            {#if selected.basis !== "estimate"}{formatDollars(selected.amount)} ·
+            {/if}{formatShare(selected.amount, viewTotal)} of {view ===
+            "company"
+              ? "estimated exposure"
+              : view === "reported"
+                ? "reported 13F value"
+                : "listed holdings"}
+          </p>
+
+          {#if selected.category}<p class="detail-category">
+              {selected.category}
+            </p>{/if}
+
+          {#if selected.funds}
+            <h4>Funds in this class <span>{selected.funds.length}</span></h4>
+            <ul class="detail-list">
+              {#each selected.funds as fund}
+                <li>
+                  <button onclick={() => openFund(fund)}
+                    >{fund} <span aria-hidden="true">↗</span></button
+                  >
+                </li>
+              {/each}
+            </ul>
+          {:else if selected.allocations.length}
+            <h4>
+              {view === "company" ? "Contributing funds" : "Source pools"}
+            </h4>
+            <ul class="detail-list">
+              {#each selected.allocations as allocation (allocation.name)}
+                {@const proxy =
+                  allocation.source && snapshot?.proxies[allocation.source]}
+                {@const disclosure =
+                  snapshot?.disclosures[allocation.name.toLowerCase()]}
+                <li>
+                  {#if proxy}
+                    <div>
+                      <button onclick={() => openFund(allocation.name)}
+                        >{allocation.name}
+                        <span aria-hidden="true">↗</span></button
+                      >
+                      <a class="allocation-source" href={proxy.url}>
+                        {proxy.method} · {formatSourceDate(proxy.date)}
+                        <span>{proxy.name}</span>
+                      </a>
+                    </div>
+                  {:else if disclosure}
+                    <a class="allocation-source" href={disclosure.url}>
+                      {disclosure.name} · {formatSourceDate(disclosure.date)}
+                    </a>
+                  {:else}
+                    <span>{allocation.name}</span>
+                  {/if}
+                  <strong
+                    title={proxy ? undefined : formatDollars(allocation.amount)}
+                    >{formatCompact(allocation.amount)}</strong
+                  >
+                </li>
+              {/each}
+            </ul>
+          {/if}
+          {#if selected.disclosures && snapshot?.privateMarkets}
+            <FundDisclosures
+              disclosures={selected.disclosures}
+              sources={snapshot.privateMarkets}
             />
           {/if}
-        </div>
-      </div>
-
-      <!-- Details Section -->
-      <div
-        class="details-section glass-card"
-        in:fly={{ x: 30, duration: 600, delay: 400 }}
-      >
-        <div class="details-content">
-          {#if !selectedSlice}
-            <div class="no-data-message">
-              <Icon icon="mdi:magnify-close" class="no-data-icon" />
-              <p>No {activeButton === "Company" ? "companies" : activeButton === "Asset" ? "asset classes" : "funds"} found for "{searchTerm}"</p>
-              <button class="clear-search-btn" on:click={() => { searchTerm = ""; filteredData = data; selectedSlice = data[0]; sumTotalInvestments(); }}>
-                Clear search
-              </button>
-            </div>
-          {:else if selectedSlice && selectedSlice.isAggregate}
-            <!-- Aggregated Others Item -->
-            <div class="detail-header">
-              <h2 class="detail-title">
-                Others ({selectedSlice.aggregatedCount} items)
-              </h2>
-              <span class="detail-amount">
-                {#if activeButton == "Company"}
-                  ${formatNumber(selectedSlice["total investment"])}
-                {:else if activeButton == "Fund"}
-                  ${formatNumber(selectedSlice["Total Investment"])}
-                {:else}
-                  ${formatNumber(selectedSlice["Total Iℂnvest∈d"])}
-                {/if}
-              </span>
-            </div>
-
-            <div class="detail-grid">
-              <div class="detail-item">
-                <span class="detail-label">Aggregated Items</span>
-                <div class="aggregated-info">
-                  <div class="aggregated-summary">
-                    <Icon icon="mdi:information-outline" class="info-icon" />
-                    <div>
-                      <p class="aggregated-text">
-                        This represents the combined value of {selectedSlice.aggregatedCount}
-                        smaller
-                        {activeButton === "Company"
-                          ? "companies"
-                          : activeButton === "Fund"
-                            ? "funds"
-                            : "asset classes"}
-                        that individually have lower investment amounts.
-                      </p>
-                      <p class="aggregated-note">
-                        Showing top 24 items individually for clarity.
-                      </p>
-                    </div>
-                  </div>
-                  {#if selectedSlice.aggregatedItems && selectedSlice.aggregatedItems.length > 0}
-                    <div class="aggregated-preview">
-                      <span class="preview-label">Sample items:</span>
-                      <div class="preview-list">
-                        {#each selectedSlice.aggregatedItems.slice(0, 5) as item}
-                          <div class="preview-item">
-                            {#if activeButton == "Company"}
-                              <span class="preview-name"
-                                >{cap(item["asset"])}</span
-                              >
-                              <span class="preview-amount"
-                                >${formatNumber(item["total investment"])}</span
-                              >
-                            {:else if activeButton == "Fund"}
-                              <span class="preview-name"
-                                >{cap(item["Asset Name"])}</span
-                              >
-                              <span class="preview-amount"
-                                >${formatNumber(item["Total Investment"])}</span
-                              >
-                            {:else}
-                              <span class="preview-name"
-                                >{cap(item["A.s.set ._Class"])}</span
-                              >
-                              <span class="preview-amount"
-                                >${formatNumber(item["Total Iℂnvest∈d"])}</span
-                              >
-                            {/if}
-                          </div>
-                        {/each}
-                        {#if selectedSlice.aggregatedItems.length > 5}
-                          <div class="preview-more">
-                            ... and {selectedSlice.aggregatedItems.length - 5} more
-                          </div>
-                        {/if}
-                      </div>
-                    </div>
-                  {/if}
-                </div>
-              </div>
-            </div>
-          {:else if activeButton == "Fund"}
-            <div class="detail-header">
-              <h2 class="detail-title">{cap(selectedSlice["Asset Name"])}</h2>
-              <span class="detail-badge">{selectedSlice["Asset Type"]}</span>
-            </div>
-
-            <div class="detail-grid">
-              <div class="detail-item">
-                <span class="detail-label">Funding Sources</span>
-                <div class="funding-list">
-                  {#each selectedSlice["Funding Sources"] as f}
-                    <div class="funding-item" in:fade={{ duration: 300 }}>
-                      <span class="funding-name">{f["Source:"]}</span>
-                      <span class="funding-amount"
-                        >${formatNumber(f["Ammount"])}</span
-                      >
-                    </div>
-                  {/each}
-                </div>
-              </div>
-            </div>
-          {:else if activeButton == "Company"}
-            <div class="detail-header">
-              <h2 class="detail-title">{cap(selectedSlice["asset"])}</h2>
-              <span class="detail-amount">
-                ${formatNumber(selectedSlice["total investment"])}
-              </span>
-            </div>
-
-            <div class="detail-grid">
-              <div class="detail-item">
-                <span class="detail-label">Investment Sources</span>
-                <div class="funding-list">
-                  {#each selectedSlice["funding sources"] as fund}
-                    <div class="funding-item" in:fade={{ duration: 300 }}>
-                      <span class="funding-name">{fund["fund name:"]}</span>
-                      <span class="funding-amount">
-                        ${formatNumber(fund["ammount_invested"])}
-                      </span>
-                    </div>
-                  {/each}
-                </div>
-              </div>
-            </div>
-
-            <!-- Control Buttons -->
-            <div class="control-buttons">
-              <button
-                class="control-btn"
-                class:active={estimation === "true"}
-                on:click={estim}
+          {#if selected.basis === "estimate"}
+            <p class="detail-note">
+              We apply weights from the sources above to UC’s reported fund
+              allocations. Proxy holdings can differ from the UC funds. <a
+                href="/about">How estimates work</a
               >
-                <Icon
-                  icon={estimation === "true" ? "mdi:check" : "mdi:close"}
-                  class="btn-icon"
-                />
-                Include Estimates
-              </button>
-              <button
-                class="control-btn"
-                class:active={composition === "true"}
-                on:click={comp}
-              >
-                <Icon
-                  icon={composition === "true" ? "mdi:check" : "mdi:close"}
-                  class="btn-icon"
-                />
-                Consolidate Shares
-              </button>
-            </div>
-          {:else}
-            <div class="detail-header">
-              <h2 class="detail-title">
-                {cap(selectedSlice["A.s.set ._Class"])}
-              </h2>
-              <span class="detail-amount">
-                ${formatNumber(selectedSlice["Total Iℂnvest∈d"])}
-              </span>
-            </div>
-
-            <div class="detail-grid">
-              <div class="detail-item">
-                <span class="detail-label">Investment Breakdown</span>
-                <div class="funding-list">
-                  {#each selectedSlice["InVesTmeNts"] as f}
-                    <div class="funding-item" in:fade={{ duration: 300 }}>
-                      <span class="funding-name">{f}</span>
-                    </div>
-                  {/each}
-                </div>
-              </div>
-            </div>
+            </p>
+          {:else if selected.basis === "reported" && snapshot}
+            <p class="detail-note">
+              <a href={snapshot.regents.url}>Regents Form 13F</a> for {formatSourceDate(
+                snapshot.regents.date,
+              )}, filed {formatSourceDate(snapshot.regents.filed)}.
+            </p>
           {/if}
-        </div>
-      </div>
+          {#if selected.lookThrough && snapshot}
+            {@const etf = selected.lookThrough}
+            <h4>{etf.ticker} ETF holdings</h4>
+            <a class="allocation-source" href={etf.url}
+              >State Street workbook · {formatSourceDate(etf.date)}</a
+            >
+            {#if etf.estimates}
+              <details class="look-through">
+                <summary>Estimated indirect company exposure</summary>
+                <p>
+                  Estimate based on the ETF equity weights and Regents position
+                  dated {formatSourceDate(snapshot.regents.date)}.
+                </p>
+                <ul class="detail-list">
+                  {#each etf.estimates as holding}
+                    <li>
+                      <span>{holding.name} · {holding.ticker}</span><strong
+                        >{formatCompact(holding.amount)}</strong
+                      >
+                    </li>
+                  {/each}
+                </ul>
+              </details>
+            {:else}
+              <p class="detail-note">
+                Company estimates require an ETF holdings file dated {formatSourceDate(
+                  snapshot.regents.date,
+                )} to match the Regents position.
+              </p>
+            {/if}
+          {/if}
+        </aside>
+      {/if}
     </div>
-
-    <!-- Disclaimer -->
-    {#if activeButton == "Company"}
-      <div class="disclaimer" in:fade={{ duration: 600, delay: 500 }}>
-        <Icon icon="mdi:information-outline" class="disclaimer-icon" />
+    {#if snapshot}
+      <div class="source-line">
+        <h3>Source dates</h3>
+        <ul>
+          {#each Object.values(snapshot.disclosures) as source (source.name)}
+            <li>
+              <a href={source.url}>{source.name} holdings</a> as of {formatSourceDate(
+                source.date,
+              )}
+            </li>
+          {/each}
+          {#each Object.values(snapshot.privateMarkets ?? {}) as source (source.name)}
+            <li>
+              <a href={source.url}>{source.name}</a> as of {formatSourceDate(
+                source.date,
+              )}
+            </li>
+          {/each}
+          <li>
+            <a href={snapshot.regents.url}>Regents Form 13F</a> as of {formatSourceDate(
+              snapshot.regents.date,
+            )}
+          </li>
+        </ul>
         <p>
-          The UC does not have direct investments in these companies. Data is
-          constructed by analyzing index fund compositions and aggregating
-          holdings across all funds. Fund compositions change daily; this data
-          reflects the most recent disclosures. View our
-          <a href="/about" class="disclaimer-link">methodology</a> for evidence-based
-          predictions.
+          Sources checked {formatSourceDate(snapshot.checkedAt)}.
+          <a href="/resources">More sources</a>
         </p>
       </div>
     {/if}
-  </div>
-{/if}
-
-<style lang="postcss">
-  :global(body) {
-    overflow-x: hidden;
-  }
-
-  .warning-banner {
-    background: linear-gradient(135deg, var(--founder), var(--pri));
-    color: white;
-    padding: 0.75rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    font-size: 0.925rem;
-    font-weight: 500;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-  :global(.warning-icon) {
-    font-size: 1.25rem;
-    flex-shrink: 0;
-  }
-
-  .hero-section {
-    padding: 0.75rem 1rem;
-    background: linear-gradient(135deg, var(--pri) 0%, var(--founder) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  .hero-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-title {
-    font-family: "Space Grotesk", sans-serif;
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
-  }
-
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 0.5rem;
-    flex-wrap: nowrap;
-  }
-
-  .stat-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: white;
-  }
-
-  .stat-value {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--sec);
-    font-family: "Space Grotesk", sans-serif;
-  }
-
-  .stat-divider {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 1.25rem;
-  }
-
-  .stat-label {
-    font-size: 0.925rem;
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 500;
-  }
-
-  .hero-description {
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.95);
-    line-height: 1.4;
-  }
-
-  .main-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-  }
-
-  .toolbar {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .nav-tabs {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .nav-tab {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.625rem 1.5rem;
-    background: white;
-    border: 2px solid var(--border);
-    border-radius: 1rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .nav-tab::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(90deg, var(--founder), var(--pri));
-    transition: width 0.3s ease;
-    z-index: -1;
-  }
-
-  .nav-tab:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--founder);
-  }
-
-  .nav-tab.active {
-    background: linear-gradient(135deg, var(--founder), var(--pri));
-    color: white;
-    border-color: transparent;
-    transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
-  }
-
-  :global(.tab-icon) {
-    font-size: 1.25rem;
-  }
-
-  .search-wrapper {
-    position: relative;
-    flex: 1;
-    min-width: 200px;
-    max-width: 400px;
-  }
-
-  :global(.search-icon) {
-    position: absolute;
-    left: 1.25rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-secondary);
-    font-size: 1.25rem;
-  }
-
-  .search-input {
-    width: 100%;
-    padding: 0.75rem 3.5rem;
-    border: 2px solid var(--border);
-    border-radius: 1rem;
-    font-size: 0.925rem;
-    transition: all 0.3s ease;
-    background: white;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .search-input:focus {
-    outline: none;
-    border-color: var(--founder);
-    box-shadow:
-      0 0 0 3px rgba(59, 126, 161, 0.1),
-      var(--shadow-md);
-    transform: translateY(-1px);
-  }
-
-  .clear-btn {
-    position: absolute;
-    right: 1.25rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    padding: 0.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-  }
-
-  .clear-btn:hover {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-  }
-
-  .content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .glass-card {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(20px);
-    border-radius: 1rem;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
-    padding: 1rem;
-    transition: all 0.3s ease;
-  }
-
-  .glass-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .chart-section {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .chart-header {
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-
-  .section-title {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 0.25rem;
-    letter-spacing: -0.01em;
-  }
-
-  .chart-total {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--pri);
-    letter-spacing: -0.02em;
-  }
-
-  .chart-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .details-section {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .details-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .detail-header {
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--border);
-  }
-
-  .detail-title {
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: var(--pri);
-    margin-bottom: 0.375rem;
-    letter-spacing: -0.01em;
-  }
-
-  .detail-badge {
-    display: inline-block;
-    padding: 0.375rem 1rem;
-    background: linear-gradient(135deg, var(--sec), var(--medalist));
-    color: white;
-    border-radius: 2rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-  }
-
-  .detail-amount {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--founder);
-  }
-
-  .detail-grid {
-    flex: 1;
-  }
-
-  .detail-item {
-    margin-bottom: 0.75rem;
-  }
-
-  .detail-label {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .funding-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-  }
-
-  .funding-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0.75rem;
-    background: var(--bg-secondary);
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-  }
-
-  .funding-item:hover {
-    background: white;
-    border-color: var(--founder);
-    transform: translateX(4px);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .funding-name {
-    font-weight: 500;
-    font-size: 0.85rem;
-    color: var(--text-primary);
-  }
-
-  .funding-amount {
-    font-weight: 700;
-    font-size: 0.85rem;
-    color: var(--founder);
-    font-family: "Space Grotesk", sans-serif;
-  }
-
-  .control-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .control-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.25rem;
-    background: white;
-    border: 2px solid var(--border);
-    border-radius: 0.75rem;
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .control-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .control-btn.active {
-    background: linear-gradient(135deg, var(--soybean), var(--lap-lane));
-    color: white;
-    border-color: transparent;
-  }
-
-  :global(.btn-icon) {
-    font-size: 1rem;
-  }
-
-  .aggregated-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .aggregated-summary {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    padding: 1rem;
-    background: linear-gradient(135deg, var(--bg-secondary), white);
-    border-radius: 0.75rem;
-    border: 1px solid var(--border);
-  }
-
-  :global(.info-icon) {
-    font-size: 1.5rem;
-    color: var(--founder);
-    flex-shrink: 0;
-    margin-top: 0.125rem;
-  }
-
-  .aggregated-text {
-    color: var(--text-primary);
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-    font-size: 0.925rem;
-  }
-
-  .aggregated-note {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-    font-style: italic;
-    margin: 0;
-  }
-
-  .aggregated-preview {
-    background: var(--bg);
-    border-radius: 0.75rem;
-    padding: 1rem;
-    border: 1px solid var(--border);
-  }
-
-  .preview-label {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .preview-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .preview-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .preview-item:last-child {
-    border-bottom: none;
-  }
-
-  .preview-name {
-    font-size: 0.875rem;
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-
-  .preview-amount {
-    font-size: 0.875rem;
-    color: var(--founder);
-    font-weight: 600;
-    font-family: "Space Grotesk", sans-serif;
-  }
-
-  .preview-more {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-    font-style: italic;
-    text-align: center;
-    padding: 0.5rem;
-  }
-
-  .no-data-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 1rem;
-    text-align: center;
-    color: var(--text-secondary);
-  }
-
-  :global(.no-data-icon) {
-    font-size: 3rem;
-    color: var(--border);
-    margin-bottom: 1rem;
-  }
-
-  .no-data-message p {
-    font-size: 1rem;
-    margin: 0;
-  }
-
-  .clear-search-btn {
-    margin-top: 1rem;
-    padding: 0.5rem 1.25rem;
-    background: linear-gradient(135deg, var(--founder), var(--pri));
-    color: white;
-    border: none;
-    border-radius: 0.75rem;
-    font-weight: 600;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .clear-search-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .no-chart-message {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 1rem;
-    color: var(--text-secondary);
-  }
-
-  :global(.no-chart-icon) {
-    font-size: 3rem;
-    color: var(--border);
-    margin-bottom: 0.5rem;
-  }
-
-  .no-chart-message p {
-    font-size: 0.925rem;
-    margin: 0;
-  }
-
-  .disclaimer {
-    display: flex;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, var(--bg-secondary), white);
-    border-radius: 1rem;
-    border: 1px solid var(--border);
-    margin-top: 2rem;
-  }
-
-  :global(.disclaimer-icon) {
-    flex-shrink: 0;
-    color: var(--founder);
-    font-size: 1.5rem;
-    margin-top: 0.125rem;
-  }
-
-  .disclaimer p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    font-size: 0.925rem;
-  }
-
-  .disclaimer-link {
-    color: var(--founder);
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border-bottom: 2px solid transparent;
-  }
-
-  .disclaimer-link:hover {
-    color: var(--pri);
-    border-bottom-color: var(--pri);
-  }
-
-  @media (max-width: 1024px) {
-    .content-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .hero-title {
-      font-size: 2rem;
-    }
-
-    .hero-stats {
-      gap: 1.5rem;
-    }
-
-    .stat-value {
-      font-size: 1.25rem;
-    }
-
-    .main-container {
-      padding: 1.5rem 1rem;
-    }
-
-    .glass-card {
-      padding: 1.25rem;
-    }
-
-    .chart-section {
-      overflow: hidden;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .toolbar {
-      flex-direction: column;
-    }
-
-    .search-wrapper {
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .nav-tabs {
-      gap: 0.5rem;
-      justify-content: center;
-    }
-
-    .nav-tab {
-      flex: 1;
-      min-width: 0;
-      padding: 0.625rem 0.75rem;
-      font-size: 0.875rem;
-    }
-
-    .search-input {
-      padding: 0.625rem 3rem 0.625rem 2.5rem;
-      font-size: 0.875rem;
-    }
-
-    .chart-total {
-      font-size: 2rem;
-    }
-
-    .detail-title {
-      font-size: 1.5rem;
-    }
-
-    .funding-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.25rem;
-      padding: 0.75rem 1rem;
-    }
-
-    .control-buttons {
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .hero-section {
-      padding: 0.75rem;
-    }
-
-    .hero-title {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-stats {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 0.25rem 1rem;
-      margin-bottom: 0.5rem;
-      justify-content: center;
-    }
-
-    .stat-item {
-      justify-content: center;
-      gap: 0.375rem;
-    }
-
-    .stat-divider {
-      display: none;
-    }
-
-    .stat-value {
-      font-size: 1rem;
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-    }
-
-    .hero-description {
-      font-size: 0.8rem;
-      padding: 0 0.5rem;
-      margin-bottom: 0;
-    }
-
-    .warning-banner {
-      font-size: 0.8rem;
-      padding: 0.5rem 0.75rem;
-      text-align: center;
-    }
-
-    .main-container {
-      padding: 1rem 0.75rem;
-    }
-
-    .nav-tab {
-      padding: 0.625rem 0.75rem;
-      font-size: 0.8125rem;
-    }
-
-    .search-section {
-      margin-bottom: 1.5rem;
-    }
-
-    .search-input {
-      padding: 0.75rem 2.5rem 0.75rem 2rem;
-      font-size: 0.875rem;
-    }
-
-    .chart-total {
-      font-size: 1.75rem;
-    }
-
-    .section-title {
-      font-size: 0.875rem;
-    }
-
-    .detail-title {
-      font-size: 1.25rem;
-    }
-
-    .glass-card {
-      padding: 1rem;
-    }
-
-    .chart-section {
-      padding: 0.75rem;
-      overflow: hidden;
-    }
-
-    .chart-container {
-      min-height: 250px;
-    }
-
-    .disclaimer {
-      flex-direction: column;
-      gap: 0.75rem;
-      padding: 1rem;
-      margin-top: 1rem;
-    }
-
-    .disclaimer p {
-      font-size: 0.875rem;
-    }
-  }
-</style>
+  </section>
+</div>

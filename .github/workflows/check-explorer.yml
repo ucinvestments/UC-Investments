@@ -1,0 +1,32 @@
+name: Check explorer
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: Finance/requirements.txt
+      - run: python -m pip install -r Finance/requirements.txt
+      - run: python -m unittest discover -s Finance/tests
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.4'
+      - name: Build and check the web app
+        working-directory: Webapp
+        run: |
+          bun install --frozen-lockfile
+          bun run check
+          bun run build
