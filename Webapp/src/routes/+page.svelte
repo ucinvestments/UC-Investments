@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount, tick } from "svelte";
+  import Icon from "@iconify/svelte";
   import posthog from "posthog-js";
   import FundDisclosures from "$lib/explorer/FundDisclosures.svelte";
   import HoldingsChart from "$lib/explorer/HoldingsChart.svelte";
@@ -15,7 +16,13 @@
   import type { Holding, HoldingsSnapshot, View } from "$lib/explorer/holdings";
   import "$lib/explorer/explorer.css";
 
-  const order: View[] = ["company", "fund", "asset", "reported"];
+  const order: View[] = ["company", "asset", "fund", "reported"];
+  const viewIcons: Record<View, string> = {
+    company: "mdi:domain",
+    asset: "mdi:chart-pie",
+    fund: "mdi:wallet",
+    reported: "mdi:file-document-outline",
+  };
   const pageSize = 12;
 
   let view: View = $state("company");
@@ -61,10 +68,6 @@
     matches.slice(page * pageSize, (page + 1) * pageSize),
   );
   const viewTotal = $derived(sumHoldings(rows));
-  const assignedShare = $derived(
-    coverage && coverage.total > 0 ? coverage.assigned / coverage.total : 0,
-  );
-
   async function refreshView() {
     if (loading || snapshot) return;
     loading = true;
@@ -144,83 +147,82 @@
   />
 </svelte:head>
 
-<div class="investment-explorer">
-  <section class="coverage-hero" aria-labelledby="explorer-title">
-    <div class="explorer-frame coverage-layout">
-      <div class="coverage-intro">
-        <div class="snapshot">
-          <span></span>
-          {sharedDisclosureDate
-            ? `UC holdings as of ${formatSourceDate(sharedDisclosureDate)}`
-            : "UC holdings disclosures"}
-        </div>
-        <h1 id="explorer-title">
-          UC Investment<br class="desktop-break" /> Explorer
-        </h1>
-        <p>
-          Follow the University of California’s pension and endowment
-          investments from disclosed funds to estimated company exposure.
-        </p>
-        <a href="/about"
-          >Read the methodology <span aria-hidden="true">↗</span></a
-        >
-      </div>
+<div class="investment-explorer home-explorer">
+  <div class="disclosure-banner">
+    <Icon icon="mdi:information" aria-hidden="true" />
+    <p>
+      {sharedDisclosureDate
+        ? `UC holdings as of ${formatSourceDate(sharedDisclosureDate)}.`
+        : "UC holdings disclosures."}
+      Company estimates and Regents 13F figures have separate
+      <a href="#source-dates">source dates</a>.
+    </p>
+  </div>
 
-      <div class="coverage-panel" aria-live="polite">
-        <div class="coverage-meta">
-          <h2>Disclosure coverage</h2>
-          <span>UCRP + GEP</span>
-        </div>
-        {#if coverage}
-          <div class="coverage-total">{formatCompact(coverage.total)}</div>
-          <p>Listed pension and endowment holdings</p>
-          <div class="coverage-bar" aria-hidden="true">
-            <div
-              style:width={`${Math.min(1, Math.max(0, assignedShare)) * 100}%`}
-            ></div>
+  <section class="explorer-hero" aria-labelledby="explorer-title">
+    <div class="explorer-hero-inner">
+      <h1 id="explorer-title">Explorer for UC Investment Data</h1>
+      {#if coverage}
+        <dl class="explorer-stats" aria-label="Pension and endowment holdings">
+          <div>
+            <dt>Listed holdings</dt>
+            <dd class="coverage-total">{formatCompact(coverage.total)}</dd>
           </div>
-          <div class="coverage-key">
-            <div>
-              <strong>{formatCompact(coverage.assigned)}</strong><span
-                ><i></i>Mapped to companies using estimates</span
-              >
-            </div>
-            <div>
-              <strong
-                >{formatCompact(coverage.total - coverage.assigned)}</strong
-              ><span><i></i>Without a company breakdown</span>
-            </div>
+          <div>
+            <dt>Estimated exposure</dt>
+            <dd>{formatCompact(coverage.assigned)}</dd>
           </div>
-        {:else if failed}
-          <p class="coverage-status">
-            Coverage totals are unavailable. <button onclick={refreshView}
-              >Try again</button
-            >
-          </p>
-        {:else}
-          <p class="coverage-status">Loading coverage totals…</p>
-        {/if}
-      </div>
+          <div>
+            <dt>Mapped to companies</dt>
+            <dd>{formatShare(coverage.assigned, coverage.total)}</dd>
+          </div>
+        </dl>
+      {:else if failed}
+        <p>Coverage totals are unavailable.</p>
+      {/if}
+      <p>
+        Explore UC’s pension and endowment holdings. <a href="/about"
+          >Read the methodology</a
+        >.
+      </p>
     </div>
   </section>
 
   <section
     class="explorer-frame holdings-section"
-    aria-labelledby="holdings-title"
+    aria-label="Explore holdings"
   >
-    <header class="holdings-header">
-      <div>
-        <h2 id="holdings-title">Explore holdings</h2>
-        <p>{views[view].description}</p>
-      </div>
+    <div class="explorer-toolbar">
       <div class="view-switch" role="group" aria-label="Holdings view">
         {#each order as mode (mode)}
-          <button aria-pressed={view === mode} onclick={() => changeView(mode)}
-            >{views[mode].label}</button
-          >
+          <button aria-pressed={view === mode} onclick={() => changeView(mode)}>
+            <Icon icon={viewIcons[mode]} aria-hidden="true" />
+            {views[mode].label}
+          </button>
         {/each}
       </div>
-    </header>
+      <div class="holdings-search">
+        <Icon
+          icon="mdi:magnify"
+          class="toolbar-search-icon"
+          aria-hidden="true"
+        />
+        <input
+          type="search"
+          aria-label={`Search ${views[view].label.toLowerCase()}`}
+          placeholder={`Search ${views[view].label.toLowerCase()}`}
+          bind:this={searchInput}
+          value={search}
+          oninput={(event) => updateSearch(event.currentTarget.value)}
+        />
+        {#if search}<button aria-label="Clear search" onclick={clearSearch}
+            >×</button
+          >{/if}
+      </div>
+    </div>
+    {#if view === "reported"}
+      <p class="view-context">{views.reported.description}</p>
+    {/if}
 
     <div class="holdings-grid">
       {#if selected && !loading}
@@ -232,33 +234,171 @@
           onselect={selectHolding}
         />
       {/if}
-      <div class="holdings-panel" aria-busy={loading}>
-        <div class="explorer-tools">
-          <div class="holdings-search">
-            <span class="search-mark" aria-hidden="true"></span>
-            <input
-              type="search"
-              aria-label={`Search ${views[view].label.toLowerCase()}`}
-              placeholder={`Search ${views[view].label.toLowerCase()}`}
-              bind:this={searchInput}
-              value={search}
-              oninput={(event) => updateSearch(event.currentTarget.value)}
-            />
-            {#if search}<button aria-label="Clear search" onclick={clearSearch}
-                >×</button
-              >{/if}
-          </div>
-          {#if view === "company"}
-            <label class="share-setting"
-              ><input
-                type="checkbox"
-                checked={consolidate}
-                onchange={toggleShares}
-              /> Group share classes</label
+      {#if selected && !loading}
+        <aside class="holding-detail" aria-labelledby="holding-detail-name">
+          <div class="detail-header">
+            <div class="detail-kicker">
+              {view === "company"
+                ? "Estimated company exposure"
+                : view === "reported"
+                  ? "Reported by the UC Regents"
+                  : view === "fund"
+                    ? "Fund allocation"
+                    : "Asset class allocation"}
+            </div>
+            <h3
+              id="holding-detail-name"
+              tabindex="-1"
+              bind:this={detailHeading}
             >
-          {/if}
-        </div>
+              {selected.name}
+            </h3>
+            <div
+              class="detail-amount"
+              title={selected.basis === "estimate"
+                ? undefined
+                : formatDollars(selected.amount)}
+            >
+              {formatCompact(selected.amount)}
+            </div>
+            <p class="detail-share">
+              {#if selected.basis !== "estimate"}{formatDollars(
+                  selected.amount,
+                )} ·
+              {/if}{formatShare(selected.amount, viewTotal)} of {view ===
+              "company"
+                ? "estimated exposure"
+                : view === "reported"
+                  ? "reported 13F value"
+                  : "listed holdings"}
+            </p>
 
+            {#if selected.category}<p class="detail-category">
+                {selected.category}
+              </p>{/if}
+          </div>
+
+          {#if selected.funds}
+            <h4>Funds in this class <span>{selected.funds.length}</span></h4>
+            <ul class="detail-list">
+              {#each selected.funds as fund}
+                <li>
+                  <button onclick={() => openFund(fund)}
+                    >{fund} <span aria-hidden="true">↗</span></button
+                  >
+                </li>
+              {/each}
+            </ul>
+          {:else if selected.allocations.length}
+            <h4>
+              {view === "company" ? "Contributing funds" : "Source pools"}
+            </h4>
+            <ul class="detail-list">
+              {#each selected.allocations as allocation (allocation.name)}
+                {@const proxy =
+                  allocation.source && snapshot?.proxies[allocation.source]}
+                {@const disclosure =
+                  snapshot?.disclosures[allocation.name.toLowerCase()]}
+                <li>
+                  {#if proxy}
+                    <div>
+                      <button onclick={() => openFund(allocation.name)}
+                        >{allocation.name}
+                        <span aria-hidden="true">↗</span></button
+                      >
+                      <a class="allocation-source" href={proxy.url}>
+                        {proxy.method} · {formatSourceDate(proxy.date)}
+                        <span> · {proxy.name}</span>
+                      </a>
+                    </div>
+                  {:else if disclosure}
+                    <a class="allocation-source" href={disclosure.url}>
+                      {disclosure.name} · {formatSourceDate(disclosure.date)}
+                    </a>
+                  {:else}
+                    <span>{allocation.name}</span>
+                  {/if}
+                  <strong
+                    title={proxy ? undefined : formatDollars(allocation.amount)}
+                    >{formatCompact(allocation.amount)}</strong
+                  >
+                </li>
+              {/each}
+            </ul>
+          {/if}
+          {#if selected.disclosures && snapshot?.privateMarkets}
+            <FundDisclosures
+              disclosures={selected.disclosures}
+              sources={snapshot.privateMarkets}
+            />
+          {/if}
+          {#if selected.basis === "reported" && snapshot}
+            <p class="detail-note">
+              <a href={snapshot.regents.url}>Regents Form 13F</a> for {formatSourceDate(
+                snapshot.regents.date,
+              )}, filed {formatSourceDate(snapshot.regents.filed)}.
+            </p>
+          {/if}
+          {#if selected.lookThrough && snapshot}
+            {@const etf = selected.lookThrough}
+            <h4>{etf.ticker} ETF holdings</h4>
+            <a class="allocation-source" href={etf.url}
+              >State Street workbook · {formatSourceDate(etf.date)}</a
+            >
+            {#if etf.estimates}
+              <details class="look-through">
+                <summary>Estimated indirect company exposure</summary>
+                <p>
+                  Estimate based on the ETF equity weights and Regents position
+                  dated {formatSourceDate(snapshot.regents.date)}.
+                </p>
+                <ul class="detail-list">
+                  {#each etf.estimates as holding}
+                    <li>
+                      <span>{holding.name} · {holding.ticker}</span><strong
+                        >{formatCompact(holding.amount)}</strong
+                      >
+                    </li>
+                  {/each}
+                </ul>
+              </details>
+            {:else}
+              <p class="detail-note">
+                Company estimates require an ETF holdings file dated {formatSourceDate(
+                  snapshot.regents.date,
+                )} to match the Regents position.
+              </p>
+            {/if}
+          {/if}
+          {#if view === "company"}
+            <div class="detail-controls">
+              <label class="share-setting">
+                <input
+                  type="checkbox"
+                  checked={consolidate}
+                  onchange={toggleShares}
+                /> Group share classes
+              </label>
+            </div>
+          {/if}
+        </aside>
+      {/if}
+      {#if selected?.basis === "estimate"}
+        <p class="estimate-note">
+          <Icon icon="mdi:information-outline" aria-hidden="true" />
+          <span>
+            Company exposure is estimated using UC’s fund allocations and dated
+            proxy holdings. Proxy holdings can differ from the UC funds. <a
+              href="/about">Read the methodology</a
+            >.
+          </span>
+        </p>
+      {/if}
+
+      <div class="holdings-panel" aria-busy={loading}>
+        {#if selected}<h3 class="holdings-table-title">
+            {views[view].label}
+          </h3>{/if}
         {#if loading || (!snapshot && !failed)}
           <p class="explorer-status" role="status">
             Loading {views[view].label.toLowerCase()}…
@@ -342,147 +482,9 @@
           </div>
         {/if}
       </div>
-
-      {#if selected && !loading}
-        <aside class="holding-detail" aria-labelledby="holding-detail-name">
-          <div class="detail-kicker">
-            {view === "company"
-              ? "Estimated company exposure"
-              : view === "reported"
-                ? "Reported by the UC Regents"
-                : view === "fund"
-                  ? "Fund allocation"
-                  : "Asset class allocation"}
-          </div>
-          <h3 id="holding-detail-name" tabindex="-1" bind:this={detailHeading}>
-            {selected.name}
-          </h3>
-          <div
-            class="detail-amount"
-            title={selected.basis === "estimate"
-              ? undefined
-              : formatDollars(selected.amount)}
-          >
-            {formatCompact(selected.amount)}
-          </div>
-          <p class="detail-share">
-            {#if selected.basis !== "estimate"}{formatDollars(selected.amount)} ·
-            {/if}{formatShare(selected.amount, viewTotal)} of {view ===
-            "company"
-              ? "estimated exposure"
-              : view === "reported"
-                ? "reported 13F value"
-                : "listed holdings"}
-          </p>
-
-          {#if selected.category}<p class="detail-category">
-              {selected.category}
-            </p>{/if}
-
-          {#if selected.funds}
-            <h4>Funds in this class <span>{selected.funds.length}</span></h4>
-            <ul class="detail-list">
-              {#each selected.funds as fund}
-                <li>
-                  <button onclick={() => openFund(fund)}
-                    >{fund} <span aria-hidden="true">↗</span></button
-                  >
-                </li>
-              {/each}
-            </ul>
-          {:else if selected.allocations.length}
-            <h4>
-              {view === "company" ? "Contributing funds" : "Source pools"}
-            </h4>
-            <ul class="detail-list">
-              {#each selected.allocations as allocation (allocation.name)}
-                {@const proxy =
-                  allocation.source && snapshot?.proxies[allocation.source]}
-                {@const disclosure =
-                  snapshot?.disclosures[allocation.name.toLowerCase()]}
-                <li>
-                  {#if proxy}
-                    <div>
-                      <button onclick={() => openFund(allocation.name)}
-                        >{allocation.name}
-                        <span aria-hidden="true">↗</span></button
-                      >
-                      <a class="allocation-source" href={proxy.url}>
-                        {proxy.method} · {formatSourceDate(proxy.date)}
-                        <span>{proxy.name}</span>
-                      </a>
-                    </div>
-                  {:else if disclosure}
-                    <a class="allocation-source" href={disclosure.url}>
-                      {disclosure.name} · {formatSourceDate(disclosure.date)}
-                    </a>
-                  {:else}
-                    <span>{allocation.name}</span>
-                  {/if}
-                  <strong
-                    title={proxy ? undefined : formatDollars(allocation.amount)}
-                    >{formatCompact(allocation.amount)}</strong
-                  >
-                </li>
-              {/each}
-            </ul>
-          {/if}
-          {#if selected.disclosures && snapshot?.privateMarkets}
-            <FundDisclosures
-              disclosures={selected.disclosures}
-              sources={snapshot.privateMarkets}
-            />
-          {/if}
-          {#if selected.basis === "estimate"}
-            <p class="detail-note">
-              We apply weights from the sources above to UC’s reported fund
-              allocations. Proxy holdings can differ from the UC funds. <a
-                href="/about">How estimates work</a
-              >
-            </p>
-          {:else if selected.basis === "reported" && snapshot}
-            <p class="detail-note">
-              <a href={snapshot.regents.url}>Regents Form 13F</a> for {formatSourceDate(
-                snapshot.regents.date,
-              )}, filed {formatSourceDate(snapshot.regents.filed)}.
-            </p>
-          {/if}
-          {#if selected.lookThrough && snapshot}
-            {@const etf = selected.lookThrough}
-            <h4>{etf.ticker} ETF holdings</h4>
-            <a class="allocation-source" href={etf.url}
-              >State Street workbook · {formatSourceDate(etf.date)}</a
-            >
-            {#if etf.estimates}
-              <details class="look-through">
-                <summary>Estimated indirect company exposure</summary>
-                <p>
-                  Estimate based on the ETF equity weights and Regents position
-                  dated {formatSourceDate(snapshot.regents.date)}.
-                </p>
-                <ul class="detail-list">
-                  {#each etf.estimates as holding}
-                    <li>
-                      <span>{holding.name} · {holding.ticker}</span><strong
-                        >{formatCompact(holding.amount)}</strong
-                      >
-                    </li>
-                  {/each}
-                </ul>
-              </details>
-            {:else}
-              <p class="detail-note">
-                Company estimates require an ETF holdings file dated {formatSourceDate(
-                  snapshot.regents.date,
-                )} to match the Regents position.
-              </p>
-            {/if}
-          {/if}
-        </aside>
-      {/if}
     </div>
     {#if snapshot}
-      <div class="source-line">
+      <div id="source-dates" class="source-line">
         <h3>Source dates</h3>
         <ul>
           {#each Object.values(snapshot.disclosures) as source (source.name)}

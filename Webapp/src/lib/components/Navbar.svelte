@@ -1,135 +1,246 @@
 <script lang="ts">
+  import Icon from "@iconify/svelte";
   import { page } from "$app/state";
 
+  interface NavLink {
+    href: string;
+    label: string;
+    icon: string;
+    external?: boolean;
+  }
+
   let {
-    links,
-  }: { links: { href: string; label: string; external?: boolean }[] } =
-    $props();
+    appName = "UC Data",
+    logoIcon = "mdi:chart-donut",
+    subtitle = "",
+    links = [] as NavLink[],
+  }: {
+    appName?: string;
+    logoIcon?: string;
+    subtitle?: string;
+    links?: NavLink[];
+  } = $props();
+
+  let mobileOpen = $state(false);
+
+  $effect(() => {
+    if (page.url) mobileOpen = false;
+  });
+
+  function toggle() {
+    mobileOpen = !mobileOpen;
+  }
+
+  function close() {
+    mobileOpen = false;
+  }
 </script>
 
-<header class="site-header">
-  <nav aria-label="Main navigation">
-    <a href="/" class="wordmark">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span
-        ><strong>UC Investments</strong><small>by STEM4Palestine</small></span
-      >
+<nav class="navbar" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="/" class="logo-link" onclick={close}>
+      <div class="logo">
+        <Icon icon={logoIcon} class="logo-icon" />
+        <span class="logo-text">
+          <strong>{appName}</strong>
+          {#if subtitle}<small class="small-subtitle">{subtitle}</small>{/if}
+        </span>
+      </div>
     </a>
-    <div class="site-links">
-      {#each links as link (link.href)}
+
+    <button
+      class="burger-btn"
+      onclick={toggle}
+      aria-label="Toggle menu"
+      aria-expanded={mobileOpen}
+      aria-controls="site-navigation"
+    >
+      <Icon icon={mobileOpen ? "mdi:close" : "mdi:menu"} class="burger-icon" />
+    </button>
+
+    <div id="site-navigation" class="nav-links" class:mobile-open={mobileOpen}>
+      {#each links as link}
         <a
           href={link.href}
+          class="nav-link"
+          class:active={page.url.pathname === link.href}
           aria-current={page.url.pathname === link.href ? "page" : undefined}
+          class:external={link.external}
           target={link.external ? "_blank" : undefined}
           rel={link.external ? "noopener noreferrer" : undefined}
+          onclick={close}
         >
-          {link.label}{#if link.external}
-            <span aria-hidden="true">↗</span>{/if}
+          <Icon icon={link.icon} class="nav-icon" />
+          {link.label}
+          {#if link.external}
+            <Icon icon="mdi:open-in-new" class="external-icon" />
+          {/if}
         </a>
       {/each}
     </div>
-  </nav>
-</header>
+  </div>
+</nav>
 
 <style>
-  .site-header {
-    background: #fff;
-    border-bottom: 1px solid #e0e7f3;
-    color: #152238;
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
   }
-  nav {
-    width: min(1280px, calc(100% - 96px));
-    margin: auto;
+
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 5px 12px;
-    min-height: 69px;
   }
-  .wordmark {
+
+  .logo-link {
+    text-decoration: none;
+  }
+
+  .logo {
     display: flex;
     align-items: center;
-    gap: 9px;
-    line-height: 1.2;
-    padding-block: 9px;
+    gap: 0.75rem;
+    transition: transform 0.3s ease;
   }
-  .wordmark strong {
-    display: block;
-    font-size: 0.98rem;
-    letter-spacing: -0.04em;
+
+  .logo:hover {
+    transform: scale(1.05);
   }
-  .wordmark small {
-    display: block;
-    margin-top: 2px;
-    font-size: 0.66rem;
-    color: #50617a;
+
+  :global(.logo-icon) {
+    font-size: 2rem;
+    color: var(--founder);
   }
-  .brand-mark {
-    width: 35px;
-    height: 35px;
+
+  .logo-text {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--pri);
+    letter-spacing: -0.01em;
+  }
+
+  .small-subtitle {
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
+  .nav-links {
     display: flex;
-    align-items: end;
-    justify-content: center;
-    gap: 2px;
-    padding-bottom: 9px;
-    border-radius: 8px;
-    background: #1d49c5;
-  }
-  .brand-mark i {
-    display: block;
-    width: 4px;
-    height: 7px;
-    border-radius: 1px;
-    background: #c0d1ff;
-  }
-  .brand-mark i:nth-child(2) {
-    height: 12px;
-  }
-  .brand-mark i:nth-child(3) {
-    height: 17px;
-    background: #fff;
-  }
-  .site-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 17px;
+    gap: 0.5rem;
     align-items: center;
   }
-  .site-links a {
-    color: #425472;
-    font-weight: 600;
-    font-size: 0.83rem;
+
+  .nav-link {
     display: flex;
-    gap: 3px;
-    padding-block: 10px;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease;
+    position: relative;
   }
-  .site-links a:hover,
-  .site-links a[aria-current] {
-    color: #1d49c5;
-    text-decoration: underline;
-    text-underline-offset: 5px;
+
+  :global(.nav-icon) {
+    font-size: 1.125rem;
   }
-  a:focus-visible {
-    outline: 2px solid #3163e8;
-    outline-offset: 3px;
+
+  .nav-link:hover {
+    background: var(--bg-secondary);
+    color: var(--pri);
+    transform: translateY(-1px);
   }
-  @media (max-width: 900px) {
-    nav {
-      width: calc(100% - 40px);
+
+  .nav-link.active {
+    background: linear-gradient(135deg, var(--founder), var(--pri));
+    color: white;
+  }
+
+  .nav-link.external {
+    border: 2px solid var(--border);
+  }
+
+  :global(.external-icon) {
+    font-size: 0.875rem;
+    margin-left: -0.125rem;
+  }
+
+  .burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: background 0.2s ease;
+  }
+
+  .burger-btn:hover {
+    background: var(--bg-secondary);
+  }
+
+  :global(.burger-icon) {
+    font-size: 1.5rem;
+    color: var(--pri);
+  }
+
+  @media (max-width: 768px) {
+    .burger-btn {
+      display: block;
     }
-  }
-  @media (max-width: 620px) {
-    nav {
-      width: calc(100% - 32px);
-      min-height: 59px;
-      gap: 0 12px;
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 99;
     }
-    .site-links {
-      gap: 2px 12px;
+
+    .nav-links.mobile-open {
+      display: flex;
     }
-    .site-links a {
-      font-size: 0.76rem;
+
+    .nav-container {
+      position: relative;
+      flex-direction: row;
+      padding: 0.75rem 1rem;
+    }
+
+    .nav-link {
+      padding: 0.75rem 1rem;
+      font-size: 0.925rem;
+      width: 100%;
+      justify-content: flex-start;
+      border-radius: 0.5rem;
+    }
+
+    :global(.nav-icon) {
+      font-size: 1rem;
+    }
+
+    .logo-text {
+      font-size: 1.125rem;
     }
   }
 </style>

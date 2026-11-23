@@ -22,12 +22,30 @@
   } = $props();
 
   const colors = [
-    "#264cbe",
-    "#5c7ee4",
-    "#147d8d",
-    "#cb7a29",
-    "#795dbb",
-    "#3d8c5f",
+    "#3b7ea1",
+    "#fdb515",
+    "#003262",
+    "#c4820e",
+    "#00b0da",
+    "#00a598",
+    "#859438",
+    "#ed4e33",
+    "#d9661f",
+    "#ee1f60",
+    "#46535e",
+    "#6c3302",
+    "#cfdd45",
+    "#b9d3b6",
+    "#ddd5c7",
+    "#8b4513",
+    "#2e8b57",
+    "#4682b4",
+    "#cd853f",
+    "#ff6347",
+    "#4169e1",
+    "#32cd32",
+    "#ffd700",
+    "#ff69b4",
   ];
 
   const positive = $derived(holdings.filter((holding) => holding.amount > 0));
@@ -53,7 +71,7 @@
               holding: undefined,
               name: `Other (${other.length.toLocaleString("en-US")})`,
               amount: sumHoldings(other),
-              color: "#b4c2dd",
+              color: "#8b8b8b",
             },
           ]
         : []),
@@ -77,11 +95,19 @@
         : "Holdings distribution"}
   </h3>
   {#if total > 0}
+    <div
+      class="chart-total"
+      title={estimated ? undefined : formatDollars(total)}
+    >
+      {formatCompact(total)}
+    </div>
     <div class="chart-body">
       <div class="chart-donut">
         <svg viewBox="0 0 160 160" aria-hidden="true">
           {#each segments as segment}
             {@const holding = segment.holding}
+            {@const gap =
+              segments.length > 1 ? Math.min(0.32, segment.share * 0.22) : 0}
             <!-- svelte-ignore a11y_no_static_element_interactions (The chart key provides keyboard access to the same selections.) -->
             <circle
               cx="80"
@@ -90,8 +116,8 @@
               pathLength="100"
               fill="none"
               stroke={segment.color}
-              stroke-dasharray={`${segment.share} ${100 - segment.share}`}
-              stroke-dashoffset={-segment.offset}
+              stroke-dasharray={`${segment.share - gap} ${100 - segment.share + gap}`}
+              stroke-dashoffset={-segment.offset - gap / 2}
               transform="rotate(-90 80 80)"
               class:selectable={holding}
               class:chosen={holding && holding === selected}
@@ -107,23 +133,19 @@
             </circle>
           {/each}
         </svg>
-        <div
-          class="chart-total"
-          title={estimated ? undefined : formatDollars(total)}
-        >
-          <strong>{formatCompact(total)}</strong>
-          <span
-            >{omittedNegative
-              ? "Positive total"
-              : filtered
-                ? "Matches"
-                : estimated
-                  ? "Estimated total"
-                  : "Chart total"}</span
-          >
-        </div>
+        {#if selected}
+          <div class="chart-current">
+            <span>{selected.name}</span>
+            <strong>{formatCompact(selected.amount)}</strong>
+            {#if selected.amount > 0}<span
+                >{formatShare(selected.amount, total)}</span
+              >{/if}
+          </div>
+        {/if}
       </div>
-
+    </div>
+    <details class="chart-breakdown">
+      <summary>Chart breakdown</summary>
       <ul class="chart-key" aria-label="Chart breakdown">
         {#each segments as segment}
           {@const holding = segment.holding}
@@ -151,7 +173,7 @@
           </li>
         {/each}
       </ul>
-    </div>
+    </details>
     {#if omittedNegative}
       <p class="chart-note">
         The chart shows positive amounts only. The table includes negative
@@ -166,68 +188,91 @@
 <style>
   .holdings-chart {
     min-width: 0;
-    padding: clamp(16px, 2vw, 24px);
-    background: #fff;
-    border: 1px solid var(--rule);
-    border-radius: 13px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+    text-align: center;
   }
 
   h3 {
-    font: 650 1.18rem/1.25 var(--display);
-    letter-spacing: -0.035em;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 650;
+  }
+
+  .chart-total {
+    margin-top: 4px;
+    color: var(--pri);
+    font: 700 1.75rem/1.25 var(--display);
   }
 
   .chart-body {
     display: grid;
-    grid-template-columns: minmax(100px, 0.85fr) minmax(0, 1fr);
-    align-items: center;
-    gap: 10px;
-    margin-top: 12px;
+    place-items: center;
+    margin: 6px auto 2px;
   }
 
   .chart-donut {
     position: relative;
-    width: min(100%, 175px);
-    margin-inline: auto;
+    width: min(100%, 380px);
   }
 
   svg {
     width: 100%;
   }
   circle {
-    stroke-width: 23;
+    stroke-width: 25;
   }
   circle.selectable {
     cursor: pointer;
   }
   circle.chosen,
   circle.selectable:hover {
-    stroke-width: 29;
+    stroke-width: 28;
   }
 
-  .chart-total {
+  .chart-current {
     position: absolute;
     inset: 0;
     display: grid;
     align-content: center;
-    text-align: center;
+    width: 48%;
+    margin-inline: auto;
+    gap: 3px;
+    color: var(--pri);
+    font-size: 0.85rem;
+    font-weight: 650;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
     pointer-events: none;
   }
 
-  .chart-total strong {
-    font: 650 clamp(1rem, 1.65vw, 1.45rem)/1.2 var(--display);
-    letter-spacing: -0.05em;
+  .chart-current strong {
+    margin-top: 3px;
+    color: var(--founder);
+    font: 700 1.3rem/1.2 var(--display);
   }
 
-  .chart-total span,
-  .chart-note {
-    color: var(--muted);
-    font-size: 0.72rem;
+  .chart-current span:last-child {
+    color: var(--text-secondary);
+  }
+
+  .chart-breakdown summary {
+    margin-inline: auto;
+    width: fit-content;
+    color: var(--pri);
+    cursor: pointer;
+    font-size: 0.82rem;
   }
 
   .chart-key {
     list-style: none;
-    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 8px;
+    margin-top: 10px;
   }
 
   .chart-key button,
@@ -237,11 +282,11 @@
     align-items: baseline;
     gap: 6px;
     width: 100%;
-    min-height: 30px;
+    min-height: 36px;
     padding: 5px;
     border-radius: 4px;
     color: var(--ink);
-    font-size: 0.74rem;
+    font-size: 0.76rem;
     line-height: 1.35;
     text-align: left;
   }
@@ -251,16 +296,14 @@
   }
   .chart-key button:hover,
   .chart-key button[aria-pressed="true"] {
-    background: #eaf0ff;
+    background: var(--bg-secondary);
   }
-
   .chart-swatch {
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background: var(--slice);
   }
-
   .chart-label {
     overflow-wrap: anywhere;
   }
@@ -270,25 +313,16 @@
   }
   .chart-note {
     margin-top: 10px;
+    color: var(--muted);
+    font-size: 0.75rem;
   }
 
-  @media (min-width: 901px) {
-    .holdings-chart {
-      grid-column: 2;
-      grid-row: 1;
+  @media (max-width: 620px) {
+    .chart-current {
+      font-size: 0.75rem;
     }
-  }
-
-  @media (max-width: 900px) {
-    .chart-body {
-      grid-template-columns: minmax(105px, 175px) minmax(0, 240px);
-      justify-content: center;
-      gap: 10px 20px;
-    }
-
-    .chart-key button,
-    .chart-other {
-      min-height: 34px;
+    .chart-key {
+      grid-template-columns: 1fr;
     }
   }
 </style>
